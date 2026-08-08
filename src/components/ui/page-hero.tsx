@@ -20,7 +20,7 @@ export function PageHero({
   return (
     <section
       className={cn(
-        "relative isolate overflow-hidden pt-28 pb-20 md:pt-36 md:pb-28",
+        "relative isolate overflow-hidden pt-36 pb-20 md:pt-44 md:pb-28",
         className
       )}
     >

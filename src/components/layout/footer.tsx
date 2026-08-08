@@ -16,7 +16,7 @@ export function Footer({ services }: { services: NavService[] }) {
       <div className="container-premium section-padding">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_repeat(3,0.8fr)] lg:gap-10">
           <div>
-            <Logo variant="light" />
+            <Logo variant="light" size="footer" />
             <p className="mt-6 max-w-md text-sm leading-relaxed text-white/70">
               {SITE.description}
             </p>

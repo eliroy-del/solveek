@@ -46,7 +46,7 @@ export function Hero({ capabilities }: { capabilities: Capability[] }) {
           className="pointer-events-none absolute -left-24 top-1/2 h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(19,88,254,0.55)_0%,rgba(77,130,255,0.18)_45%,transparent_70%)] blur-[2px] md:left-[4%] md:h-[640px] md:w-[640px]"
         />
 
-        <div className="container-premium relative flex min-h-[88vh] items-center pb-40 pt-28 lg:min-h-[92vh] lg:pb-48">
+        <div className="container-premium relative flex min-h-[88vh] items-center pb-40 pt-36 lg:min-h-[92vh] lg:pb-48 lg:pt-40">
           <div className="relative z-10 max-w-2xl">
             <motion.p
               initial={reduce ? false : { opacity: 0, y: 14 }}
