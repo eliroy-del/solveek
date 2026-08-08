@@ -1,10 +1,15 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 
 export const alt = "SOLVEEK Digital Solutions";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function OpenGraphImage() {
+export default async function OpenGraphImage() {
+  const logoData = await readFile(join(process.cwd(), "public/solveek-logo.png"));
+  const logoSrc = `data:image/png;base64,${logoData.toString("base64")}`;
+
   return new ImageResponse(
     (
       <div
@@ -15,37 +20,12 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 72,
-          background: "linear-gradient(145deg, #081B33 0%, #0A2342 50%, #0057D9 100%)",
+          background: "linear-gradient(145deg, #000000 0%, #070B14 55%, #1358FE 140%)",
           color: "white",
           fontFamily: "sans-serif",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 18,
-            fontSize: 42,
-            fontWeight: 700,
-            letterSpacing: -1,
-          }}
-        >
-          <div
-            style={{
-              width: 64,
-              height: 64,
-              borderRadius: 18,
-              background: "linear-gradient(135deg, #0057D9, #00C2FF)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 28,
-            }}
-          >
-            S
-          </div>
-          SOLVEEK
-        </div>
+        <img src={logoSrc} width={280} height={98} alt="SOLVEEK" />
         <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
           <div style={{ fontSize: 58, fontWeight: 700, letterSpacing: -2, lineHeight: 1.1 }}>
             We bring great ideas to life.

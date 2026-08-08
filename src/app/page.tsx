@@ -9,31 +9,67 @@ import { Stats } from "@/components/sections/stats";
 import { FeaturedProjects } from "@/components/sections/featured-projects";
 import { Testimonials } from "@/components/sections/testimonials";
 import { CtaBanner } from "@/components/sections/cta-banner";
+import {
+  getAboutHighlights,
+  getFeaturedCapabilities,
+  getIndustries,
+  getProcessSteps,
+  getProjects,
+  getServices,
+  getStats,
+  getTestimonials,
+  getTrustItems,
+  getWhyChoose,
+} from "@/lib/content";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [
+    capabilities,
+    trustItems,
+    highlights,
+    services,
+    whyChoose,
+    industries,
+    processSteps,
+    stats,
+    projects,
+    testimonials,
+  ] = await Promise.all([
+    getFeaturedCapabilities(),
+    getTrustItems(),
+    getAboutHighlights(),
+    getServices(),
+    getWhyChoose(),
+    getIndustries(),
+    getProcessSteps(),
+    getStats(),
+    getProjects(),
+    getTestimonials(),
+  ]);
+
   return (
     <>
-      <Hero />
-      <TrustBar />
-      <AboutPreview />
-      <ServicesGrid limit={6} />
-      <WhyChoose />
+      <Hero capabilities={capabilities} />
+      <TrustBar items={trustItems} />
+      <AboutPreview highlights={highlights} />
+      <ServicesGrid items={services} limit={6} />
+      <WhyChoose items={whyChoose} />
       <section className="relative overflow-hidden bg-surface">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 opacity-40"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 20% 20%, rgba(0,87,217,0.08), transparent 35%), radial-gradient(circle at 80% 0%, rgba(0,194,255,0.1), transparent 30%), linear-gradient(rgba(10,35,66,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(10,35,66,0.04) 1px, transparent 1px)",
+              "radial-gradient(circle at 20% 20%, rgba(19,88,254,0.08), transparent 35%), radial-gradient(circle at 80% 0%, rgba(77,130,255,0.1), transparent 30%), linear-gradient(rgba(7,11,20,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(7,11,20,0.04) 1px, transparent 1px)",
             backgroundSize: "auto, auto, 48px 48px, 48px 48px",
           }}
         />
-        <IndustriesGrid />
+        <IndustriesGrid items={industries} />
       </section>
-      <Process />
-      <Stats />
-      <FeaturedProjects />
-      <Testimonials />
+      <Process items={processSteps} />
+      <Stats items={stats} />
+      <FeaturedProjects items={projects} />
+      <Testimonials items={testimonials} />
       <CtaBanner />
     </>
   );

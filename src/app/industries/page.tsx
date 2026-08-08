@@ -3,9 +3,9 @@ import Image from "next/image";
 import { PageHero } from "@/components/ui/page-hero";
 import { Reveal } from "@/components/ui/reveal";
 import { CtaBanner } from "@/components/sections/cta-banner";
-import { industries } from "@/constants/data";
 import { getIcon } from "@/lib/icons";
 import { IMAGES } from "@/constants/site";
+import { getIndustries } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Solutions",
@@ -13,7 +13,9 @@ export const metadata: Metadata = {
     "SOLVEEK digital solutions for startups, e-commerce brands, SaaS companies, professional services, healthcare, education, and more.",
 };
 
-export default function IndustriesPage() {
+export default async function IndustriesPage() {
+  const industries = await getIndustries();
+
   return (
     <>
       <PageHero

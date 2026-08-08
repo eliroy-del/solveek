@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import { SiteShell } from "@/components/layout/site-shell";
 import { SITE } from "@/constants/site";
+import { getServiceNavItems } from "@/lib/content";
 import "./globals.css";
 
 const inter = Inter({
@@ -16,8 +17,12 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : SITE.url);
+
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE.url),
+  metadataBase: new URL(siteUrl),
   title: {
     default: `${SITE.name} | ${SITE.tagline}`,
     template: `%s | ${SITE.name}`,
@@ -35,6 +40,14 @@ export const metadata: Metadata = {
     "SOLVEEK",
   ],
   authors: [{ name: SITE.legalName }],
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -63,7 +76,7 @@ const organizationJsonLd = {
   name: SITE.name,
   legalName: SITE.legalName,
   url: SITE.url,
-  logo: `${SITE.url}/icon.svg`,
+  logo: `${SITE.url}/solveek-logo.png`,
   description: SITE.description,
   email: SITE.email,
   telephone: SITE.phone,
@@ -71,7 +84,9 @@ const organizationJsonLd = {
   slogan: SITE.tagline,
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  const services = await getServiceNavItems();
+
   return (
     <html
       lang="en"
@@ -82,7 +97,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
-        <SiteShell>{children}</SiteShell>
+        <SiteShell services={services}>{children}</SiteShell>
       </body>
     </html>
   );

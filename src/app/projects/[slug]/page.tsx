@@ -4,19 +4,20 @@ import { notFound } from "next/navigation";
 import { PageHero } from "@/components/ui/page-hero";
 import { Reveal } from "@/components/ui/reveal";
 import { CtaBanner } from "@/components/sections/cta-banner";
-import { projects } from "@/constants/data";
+import { getProjectBySlug, getProjects } from "@/lib/content";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const projects = await getProjects();
   return projects.map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const project = projects.find((item) => item.slug === slug);
+  const project = await getProjectBySlug(slug);
   if (!project) return {};
   return {
     title: project.title,
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProjectDetailPage({ params }: Props) {
   const { slug } = await params;
-  const project = projects.find((item) => item.slug === slug);
+  const project = await getProjectBySlug(slug);
   if (!project) notFound();
 
   return (

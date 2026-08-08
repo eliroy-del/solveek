@@ -7,7 +7,7 @@ export function CtaBanner() {
       <div className="container-premium">
         <Reveal>
           <div className="relative overflow-hidden rounded-[32px] gradient-navy px-8 py-16 text-center md:px-16 md:py-20">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,194,255,0.22),transparent_40%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(19,88,254,0.28),transparent_40%)]" />
             <div
               aria-hidden
               className="absolute inset-0 opacity-20"

@@ -8,18 +8,18 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { faqs } from "@/constants/data";
+import type { FaqItem } from "@/types";
 
-export function FaqList() {
+export function FaqList({ items }: { items: FaqItem[] }) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All");
 
   const categories = useMemo(
-    () => ["All", ...Array.from(new Set(faqs.map((item) => item.category)))],
-    []
+    () => ["All", ...Array.from(new Set(items.map((item) => item.category)))],
+    [items]
   );
 
-  const filtered = faqs.filter((item) => {
+  const filtered = items.filter((item) => {
     const matchesCategory = category === "All" || item.category === category;
     const haystack = `${item.question} ${item.answer}`.toLowerCase();
     return matchesCategory && haystack.includes(query.toLowerCase());

@@ -3,6 +3,7 @@ import { PageHero } from "@/components/ui/page-hero";
 import { InsightsList } from "@/components/sections/insights-list";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { IMAGES } from "@/constants/site";
+import { getInsights } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Insights",
@@ -10,7 +11,9 @@ export const metadata: Metadata = {
     "SOLVEEK insights on website conversion, SaaS onboarding, social systems, e-commerce, design systems, and AI in digital products.",
 };
 
-export default function InsightsPage() {
+export default async function InsightsPage() {
+  const insights = await getInsights();
+
   return (
     <>
       <PageHero
@@ -21,7 +24,7 @@ export default function InsightsPage() {
       />
       <section className="section-padding bg-white">
         <div className="container-premium">
-          <InsightsList />
+          <InsightsList items={insights} />
         </div>
       </section>
       <CtaBanner />

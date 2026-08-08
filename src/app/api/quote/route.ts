@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { rateLimit } from "@/lib/rate-limit";
+import { createServerClient } from "@/lib/supabase/server";
 
 const schema = z.object({
   name: z.string().min(2).max(100),
@@ -36,6 +37,23 @@ export async function POST(request: Request) {
     }
     if (parsed.data.website) {
       return NextResponse.json({ ok: true });
+    }
+
+    const supabase = createServerClient();
+    const { error } = await supabase.from("quote_requests").insert({
+      name: parsed.data.name,
+      email: parsed.data.email,
+      company: parsed.data.company,
+      phone: parsed.data.phone,
+      service: parsed.data.service,
+      budget: parsed.data.budget ?? null,
+      timeline: parsed.data.timeline ?? null,
+      notes: parsed.data.notes,
+    });
+
+    if (error) {
+      console.error("quote insert", error.message);
+      return NextResponse.json({ error: "Server error" }, { status: 500 });
     }
 
     return NextResponse.json({ ok: true });

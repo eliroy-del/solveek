@@ -1,9 +1,9 @@
 import { ArrowDown } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
-import { processSteps } from "@/constants/data";
+import type { ProcessStep } from "@/types";
 
-export function Process() {
+export function Process({ items }: { items: ProcessStep[] }) {
   return (
     <section className="section-padding bg-white">
       <div className="container-premium">
@@ -17,7 +17,7 @@ export function Process() {
         <div className="relative mx-auto max-w-4xl">
           <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-royal via-cyan to-royal/20 md:left-1/2" />
           <div className="space-y-8">
-            {processSteps.map((step, index) => (
+            {items.map((step, index) => (
               <Reveal key={step.step} delay={index * 0.05}>
                 <div
                   className={`relative grid gap-4 md:grid-cols-2 md:gap-10 ${
@@ -52,7 +52,7 @@ export function Process() {
                   </div>
                   <div className={index % 2 === 1 ? "md:order-1" : ""} />
                 </div>
-                {index < processSteps.length - 1 ? (
+                {index < items.length - 1 ? (
                   <div className="flex justify-center py-1 text-royal/40 md:hidden">
                     <ArrowDown className="size-4" />
                   </div>

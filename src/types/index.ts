@@ -49,15 +49,6 @@ export type Insight = {
   featured?: boolean;
 };
 
-export type Job = {
-  id: string;
-  title: string;
-  department: string;
-  location: string;
-  type: string;
-  description: string;
-};
-
 export type Office = {
   city: string;
   country: string;

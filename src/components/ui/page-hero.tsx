@@ -33,7 +33,7 @@ export function PageHero({
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-navy-dark via-navy-dark/85 to-navy/55" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(0,194,255,0.18),transparent_40%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(19,88,254,0.22),transparent_40%)]" />
       <div className="container-premium relative">
         <Reveal className="max-w-3xl">
           {eyebrow ? (

@@ -2,17 +2,22 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
-import { services } from "@/constants/data";
 import { getIcon } from "@/lib/icons";
 import { cn } from "@/lib/utils";
+import type { Service } from "@/types";
 
 type ServicesGridProps = {
+  items: Service[];
   limit?: number;
   showHeading?: boolean;
 };
 
-export function ServicesGrid({ limit, showHeading = true }: ServicesGridProps) {
-  const items = limit ? services.slice(0, limit) : services;
+export function ServicesGrid({
+  items,
+  limit,
+  showHeading = true,
+}: ServicesGridProps) {
+  const list = limit ? items.slice(0, limit) : items;
 
   return (
     <section className="section-padding bg-white">
@@ -37,7 +42,7 @@ export function ServicesGrid({ limit, showHeading = true }: ServicesGridProps) {
         ) : null}
 
         <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-          {items.map((service, index) => {
+          {list.map((service, index) => {
             const Icon = getIcon(service.icon);
             return (
               <Reveal key={service.slug} delay={Math.min(index * 0.05, 0.3)}>

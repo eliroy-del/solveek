@@ -1,11 +1,16 @@
 "use client";
 
 import { SectionHeading } from "@/components/ui/section-heading";
-import { whyChoose } from "@/constants/data";
 import { getIcon } from "@/lib/icons";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
 
-export function WhyChoose() {
+type WhyItem = {
+  title: string;
+  description: string;
+  icon: string;
+};
+
+export function WhyChoose({ items }: { items: WhyItem[] }) {
   const ref = useGsapReveal<HTMLDivElement>();
 
   return (
@@ -13,13 +18,13 @@ export function WhyChoose() {
       <div className="container-premium">
         <SectionHeading
           eyebrow="Why SOLVEEK"
-          title="Enterprise logistics without the operational fog"
-          description="Clarity at every handoff. Intelligence at every decision. Accountability from booking to proof of delivery."
+          title="Digital partnership without the operational fog"
+          description="Clarity in every decision. Craft in every interface. Accountability from brief to launch."
           align="center"
           className="mb-14"
         />
         <div ref={ref} className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {whyChoose.map((item) => {
+          {items.map((item) => {
             const Icon = getIcon(item.icon);
             return (
               <article

@@ -3,8 +3,14 @@ import { Logo } from "@/components/layout/logo";
 import { footerNav } from "@/constants/navigation";
 import { SITE } from "@/constants/site";
 import { NewsletterForm } from "@/components/forms/newsletter-form";
+import type { NavService } from "@/lib/content";
 
-export function Footer() {
+export function Footer({ services }: { services: NavService[] }) {
+  const serviceLinks = services.slice(0, 6).map((service) => ({
+    label: service.label,
+    href: service.href,
+  }));
+
   return (
     <footer className="gradient-navy text-white">
       <div className="container-premium section-padding">
@@ -26,7 +32,7 @@ export function Footer() {
           </div>
 
           <FooterColumn title="Company" links={footerNav.company} />
-          <FooterColumn title="Services" links={footerNav.services} />
+          <FooterColumn title="Services" links={serviceLinks} />
           <FooterColumn title="Resources" links={footerNav.resources} />
         </div>
 

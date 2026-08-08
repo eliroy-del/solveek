@@ -1,8 +1,8 @@
 import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { Reveal } from "@/components/ui/reveal";
-import { stats } from "@/constants/data";
+import type { Stat } from "@/types";
 
-export function Stats() {
+export function Stats({ items }: { items: Stat[] }) {
   return (
     <section className="section-padding gradient-navy">
       <div className="container-premium">
@@ -15,7 +15,7 @@ export function Stats() {
           </h2>
         </Reveal>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
-          {stats.map((stat, index) => (
+          {items.map((stat, index) => (
             <Reveal key={stat.label} delay={index * 0.06}>
               <div className="rounded-3xl border border-white/10 bg-white/5 px-5 py-8 text-center backdrop-blur">
                 <p className="font-heading text-4xl text-white lg:text-5xl">

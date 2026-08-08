@@ -4,12 +4,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { featuredCapabilities } from "@/constants/data";
 import { IMAGES, SITE } from "@/constants/site";
 import { getIcon } from "@/lib/icons";
 import { PremiumButton } from "@/components/ui/premium-button";
 
-export function Hero() {
+type Capability = {
+  slug: string;
+  title: string;
+  description: string;
+  icon: string;
+};
+
+export function Hero({ capabilities }: { capabilities: Capability[] }) {
   const reduce = useReducedMotion();
 
   return (
@@ -31,13 +37,13 @@ export function Hero() {
           />
         </motion.div>
 
-        <div className="absolute inset-0 bg-[#0A2342]/55" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#081B33]/90 via-[#0A2342]/70 to-[#0057D9]/25" />
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-[#070B14]/75 to-[#1358FE]/25" />
 
-        {/* Soft blue circular accent inspired by reference hierarchy */}
+        {/* Soft blue circular accent */}
         <div
           aria-hidden
-          className="pointer-events-none absolute -left-24 top-1/2 h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(0,87,217,0.55)_0%,rgba(0,194,255,0.18)_45%,transparent_70%)] blur-[2px] md:left-[4%] md:h-[640px] md:w-[640px]"
+          className="pointer-events-none absolute -left-24 top-1/2 h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(19,88,254,0.55)_0%,rgba(77,130,255,0.18)_45%,transparent_70%)] blur-[2px] md:left-[4%] md:h-[640px] md:w-[640px]"
         />
 
         <div className="container-premium relative flex min-h-[88vh] items-center pb-40 pt-28 lg:min-h-[92vh] lg:pb-48">
@@ -102,7 +108,7 @@ export function Hero() {
       <div className="relative z-20 -mt-28 pb-6 md:-mt-36">
         <div className="container-premium">
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {featuredCapabilities.map((item, index) => {
+            {capabilities.map((item, index) => {
               const Icon = getIcon(item.icon);
               return (
                 <motion.div
@@ -113,7 +119,7 @@ export function Hero() {
                 >
                   <Link
                     href={`/services/${item.slug}`}
-                    className="group flex h-full flex-col rounded-[24px] border border-white/70 bg-white p-6 shadow-[0_18px_50px_rgba(10,35,66,0.14)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_60px_rgba(10,35,66,0.18)]"
+                    className="group flex h-full flex-col rounded-[24px] border border-white/70 bg-white p-6 shadow-[0_18px_50px_rgba(7,11,20,0.14)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_60px_rgba(19,88,254,0.18)]"
                   >
                     <div className="mb-5 inline-flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#E8F1FF] to-[#D9F6FF] text-royal transition group-hover:from-royal group-hover:to-cyan group-hover:text-white">
                       <Icon className="size-6 transition-transform duration-300 group-hover:scale-110" />

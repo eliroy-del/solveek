@@ -3,10 +3,16 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
-import { projects } from "@/constants/data";
+import type { Project } from "@/types";
 
-export function FeaturedProjects({ limit = 3 }: { limit?: number }) {
-  const items = projects.slice(0, limit);
+export function FeaturedProjects({
+  items,
+  limit = 3,
+}: {
+  items: Project[];
+  limit?: number;
+}) {
+  const list = items.slice(0, limit);
 
   return (
     <section className="section-padding bg-white">
@@ -29,7 +35,7 @@ export function FeaturedProjects({ limit = 3 }: { limit?: number }) {
         </div>
 
         <div className="grid gap-6 lg:grid-cols-3">
-          {items.map((project, index) => (
+          {list.map((project, index) => (
             <Reveal key={project.slug} delay={index * 0.08}>
               <Link
                 href={`/projects/${project.slug}`}

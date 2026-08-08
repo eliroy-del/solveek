@@ -26,7 +26,7 @@ export function PremiumButton({
         "btn-shine group inline-flex items-center justify-center gap-2 rounded-2xl font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal focus-visible:ring-offset-2",
         size === "lg" ? "h-12 px-7 text-base" : "h-11 px-5 text-sm",
         variant === "primary" &&
-          "gradient-royal text-white shadow-[0_12px_30px_rgba(0,87,217,0.35)] hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(0,87,217,0.4)]",
+          "gradient-royal text-white shadow-[0_12px_30px_rgba(19,88,254,0.35)] hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(19,88,254,0.45)]",
         variant === "secondary" &&
           "bg-white text-navy shadow-soft hover:-translate-y-0.5 hover:shadow-lift",
         variant === "ghost" &&

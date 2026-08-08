@@ -4,19 +4,20 @@ import { notFound } from "next/navigation";
 import { PageHero } from "@/components/ui/page-hero";
 import { Reveal } from "@/components/ui/reveal";
 import { CtaBanner } from "@/components/sections/cta-banner";
-import { insights } from "@/constants/data";
+import { getInsightBySlug, getInsights } from "@/lib/content";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const insights = await getInsights();
   return insights.map((item) => ({ slug: item.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const article = insights.find((item) => item.slug === slug);
+  const article = await getInsightBySlug(slug);
   if (!article) return {};
   return {
     title: article.title,
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function InsightDetailPage({ params }: Props) {
   const { slug } = await params;
-  const article = insights.find((item) => item.slug === slug);
+  const article = await getInsightBySlug(slug);
   if (!article) notFound();
 
   return (
@@ -56,13 +57,7 @@ export default async function InsightDetailPage({ params }: Props) {
               <p>
                 Whether you are launching a website, growing a social presence, building
                 an e-commerce engine, or scaling a SaaS product, the advantage comes from
-                integrating strategy and execution. The companies that win treat digital
-                as a compounding asset.
-              </p>
-              <p>
-                If you are evaluating partners, look for outcome ownership, transparent
-                process, and the ability to connect design quality with measurable
-                growth. That is the standard SOLVEEK builds to.
+                integrating strategy and execution.
               </p>
             </div>
           </Reveal>

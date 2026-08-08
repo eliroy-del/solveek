@@ -1,0 +1,15 @@
+---
+description: Always commit and push completed work to GitHub
+alwaysApply: true
+---
+
+# Auto commit and push
+
+When a task is finished and there are relevant local changes:
+
+1. Create a git commit (follow the repo commit protocol: status, diff, log, stage, HEREDOC message).
+2. Immediately `git push` to the tracked remote branch (`git push -u origin HEAD` if needed).
+3. Do not ask for confirmation to commit or push — this project prefers automatic sync.
+4. Never commit secrets (`.env`, `.env.local`, credentials, private keys).
+5. Never use `--force` on `main`/`master` unless the user explicitly requests it.
+6. After push, mention the remote branch/commit briefly in the wrap-up.

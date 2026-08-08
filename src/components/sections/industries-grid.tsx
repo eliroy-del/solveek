@@ -1,10 +1,16 @@
 import Link from "next/link";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
-import { industries } from "@/constants/data";
 import { getIcon } from "@/lib/icons";
+import type { Industry } from "@/types";
 
-export function IndustriesGrid({ compact = false }: { compact?: boolean }) {
+export function IndustriesGrid({
+  items,
+  compact = false,
+}: {
+  items: Industry[];
+  compact?: boolean;
+}) {
   return (
     <section className={compact ? "py-8" : "section-padding"}>
       <div className="container-premium relative">
@@ -17,7 +23,7 @@ export function IndustriesGrid({ compact = false }: { compact?: boolean }) {
           />
         ) : null}
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {industries.map((industry, index) => {
+          {items.map((industry, index) => {
             const Icon = getIcon(industry.icon);
             return (
               <Reveal key={industry.slug} delay={Math.min(index * 0.04, 0.28)}>

@@ -4,18 +4,18 @@ import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Search } from "lucide-react";
-import { insights } from "@/constants/data";
+import type { Insight } from "@/types";
 
-export function InsightsList() {
+export function InsightsList({ items }: { items: Insight[] }) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All");
 
   const categories = useMemo(
-    () => ["All", ...Array.from(new Set(insights.map((item) => item.category)))],
-    []
+    () => ["All", ...Array.from(new Set(items.map((item) => item.category)))],
+    [items]
   );
 
-  const filtered = insights.filter((item) => {
+  const filtered = items.filter((item) => {
     const matchesCategory = category === "All" || item.category === category;
     const haystack = `${item.title} ${item.excerpt} ${item.category}`.toLowerCase();
     const matchesQuery = haystack.includes(query.toLowerCase());

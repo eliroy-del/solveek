@@ -3,12 +3,11 @@
 import Image from "next/image";
 import { CheckCircle2, Play } from "lucide-react";
 import { motion } from "framer-motion";
-import { aboutHighlights } from "@/constants/data";
 import { IMAGES } from "@/constants/site";
 import { PremiumButton } from "@/components/ui/premium-button";
 import { Reveal } from "@/components/ui/reveal";
 
-export function AboutPreview() {
+export function AboutPreview({ highlights }: { highlights: string[] }) {
   return (
     <section className="section-padding relative overflow-hidden bg-white">
       <div
@@ -42,7 +41,7 @@ export function AboutPreview() {
             <motion.a
               href="/about"
               whileHover={{ scale: 1.05 }}
-              className="absolute right-[8%] top-1/2 z-10 flex size-16 -translate-y-1/2 items-center justify-center rounded-full bg-royal text-white shadow-[0_16px_40px_rgba(0,87,217,0.45)]"
+              className="absolute right-[8%] top-1/2 z-10 flex size-16 -translate-y-1/2 items-center justify-center rounded-full bg-royal text-white shadow-[0_16px_40px_rgba(19,88,254,0.45)]"
               aria-label="Learn more about SOLVEEK"
             >
               <Play className="ml-0.5 size-6 fill-current" />
@@ -87,7 +86,7 @@ export function AboutPreview() {
           </Reveal>
 
           <Reveal delay={0.15} className="mt-8 space-y-3">
-            {aboutHighlights.map((item) => (
+            {highlights.map((item) => (
               <div key={item} className="flex items-center gap-3 text-sm font-medium text-navy">
                 <CheckCircle2 className="size-5 shrink-0 text-royal" />
                 {item}

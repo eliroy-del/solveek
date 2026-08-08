@@ -3,16 +3,18 @@ import { Clock3, Mail, Phone } from "lucide-react";
 import { PageHero } from "@/components/ui/page-hero";
 import { Reveal } from "@/components/ui/reveal";
 import { ContactForm } from "@/components/forms/contact-form";
-import { offices } from "@/constants/data";
 import { IMAGES, SITE } from "@/constants/site";
+import { getOffices } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact SOLVEEK for website design, social media, e-commerce, SaaS, and digital growth projects. Offices in San Francisco, London, Dubai, and Singapore.",
+    "Contact SOLVEEK for website design, social media, e-commerce, SaaS, and digital growth projects.",
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const offices = await getOffices();
+
   return (
     <>
       <PageHero

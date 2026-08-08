@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { rateLimit } from "@/lib/rate-limit";
+import { createServerClient } from "@/lib/supabase/server";
 
 const schema = z.object({
   name: z.string().min(2).max(100),
@@ -29,7 +30,21 @@ export async function POST(request: Request) {
       return NextResponse.json({ ok: true });
     }
 
-    // Integrate CRM / email provider here.
+    const supabase = createServerClient();
+    const { error } = await supabase.from("contact_submissions").insert({
+      name: parsed.data.name,
+      email: parsed.data.email,
+      company: parsed.data.company,
+      phone: parsed.data.phone ?? null,
+      subject: parsed.data.subject,
+      message: parsed.data.message,
+    });
+
+    if (error) {
+      console.error("contact insert", error.message);
+      return NextResponse.json({ error: "Server error" }, { status: 500 });
+    }
+
     return NextResponse.json({ ok: true });
   } catch {
     return NextResponse.json({ error: "Server error" }, { status: 500 });

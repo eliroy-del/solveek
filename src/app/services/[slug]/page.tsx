@@ -6,20 +6,21 @@ import { PageHero } from "@/components/ui/page-hero";
 import { Reveal } from "@/components/ui/reveal";
 import { PremiumButton } from "@/components/ui/premium-button";
 import { CtaBanner } from "@/components/sections/cta-banner";
-import { services } from "@/constants/data";
 import { getIcon } from "@/lib/icons";
+import { getServiceBySlug, getServices } from "@/lib/content";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const services = await getServices();
   return services.map((service) => ({ slug: service.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const service = services.find((item) => item.slug === slug);
+  const service = await getServiceBySlug(slug);
   if (!service) return {};
   return {
     title: service.title,
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ServiceDetailPage({ params }: Props) {
   const { slug } = await params;
-  const service = services.find((item) => item.slug === slug);
+  const service = await getServiceBySlug(slug);
   if (!service) notFound();
 
   const Icon = getIcon(service.icon);

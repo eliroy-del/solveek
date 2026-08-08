@@ -5,21 +5,22 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { testimonials } from "@/constants/data";
+import type { Testimonial } from "@/types";
 
-export function Testimonials() {
+export function Testimonials({ items }: { items: Testimonial[] }) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
   useEffect(() => {
-    if (paused) return;
+    if (paused || items.length === 0) return;
     const id = setInterval(() => {
-      setIndex((current) => (current + 1) % testimonials.length);
+      setIndex((current) => (current + 1) % items.length);
     }, 5200);
     return () => clearInterval(id);
-  }, [paused]);
+  }, [paused, items.length]);
 
-  const item = testimonials[index];
+  if (!items.length) return null;
+  const item = items[index] ?? items[0];
 
   return (
     <section className="section-padding gradient-navy">
@@ -71,7 +72,7 @@ export function Testimonials() {
             </motion.article>
           </AnimatePresence>
           <div className="mt-6 flex justify-center gap-2">
-            {testimonials.map((t, i) => (
+            {items.map((t, i) => (
               <button
                 key={t.id}
                 type="button"

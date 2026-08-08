@@ -77,7 +77,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="btn-shine inline-flex h-12 w-full items-center justify-center rounded-2xl gradient-royal font-semibold text-white shadow-[0_12px_30px_rgba(0,87,217,0.3)] transition hover:-translate-y-0.5 disabled:opacity-60"
+        className="btn-shine inline-flex h-12 w-full items-center justify-center rounded-2xl gradient-royal font-semibold text-white shadow-[0_12px_30px_rgba(19,88,254,0.35)] transition hover:-translate-y-0.5 disabled:opacity-60"
       >
         {isSubmitting ? "Sending..." : "Send message"}
       </button>

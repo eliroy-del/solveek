@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { rateLimit } from "@/lib/rate-limit";
+import { createServerClient } from "@/lib/supabase/server";
 
 const schema = z.object({
   email: z.string().email().max(200),
@@ -22,6 +23,17 @@ export async function POST(request: Request) {
     }
     if (parsed.data.website) {
       return NextResponse.json({ ok: true });
+    }
+
+    const supabase = createServerClient();
+    const { error } = await supabase.from("newsletter_subscribers").upsert(
+      { email: parsed.data.email },
+      { onConflict: "email" }
+    );
+
+    if (error) {
+      console.error("newsletter insert", error.message);
+      return NextResponse.json({ error: "Server error" }, { status: 500 });
     }
 
     return NextResponse.json({ ok: true });

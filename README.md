@@ -29,7 +29,6 @@ Open [http://localhost:3000](http://localhost:3000).
 - `/services` + `/services/[slug]` Services
 - `/industries` Solutions by industry
 - `/projects` + `/projects/[slug]` Case studies
-- `/careers` Careers
 - `/insights` + `/insights/[slug]` Insights
 - `/faqs` FAQs
 - `/contact` Contact

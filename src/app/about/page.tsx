@@ -5,8 +5,8 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { Stats } from "@/components/sections/stats";
-import { timeline, values } from "@/constants/data";
 import { IMAGES } from "@/constants/site";
+import { getBrandValues, getStats, getTimeline } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "About",
@@ -14,7 +14,13 @@ export const metadata: Metadata = {
     "Learn how SOLVEEK helps brands digitise with website design, social media, e-commerce, SaaS products, and premium digital systems.",
 };
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const [timeline, stats, values] = await Promise.all([
+    getTimeline(),
+    getStats(),
+    getBrandValues(),
+  ]);
+
   return (
     <>
       <PageHero
@@ -91,7 +97,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <Stats />
+      <Stats items={stats} />
       <CtaBanner />
     </>
   );

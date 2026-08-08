@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { trustItems } from "@/constants/data";
 
-export function TrustBar() {
-  const items = [...trustItems, ...trustItems];
+export function TrustBar({ items }: { items: string[] }) {
+  if (!items.length) return null;
+  const loop = [...items, ...items];
 
   return (
     <section className="border-y border-border bg-surface py-6 overflow-hidden">
@@ -21,7 +21,7 @@ export function TrustBar() {
           animate={{ x: ["0%", "-50%"] }}
           transition={{ duration: 28, ease: "linear", repeat: Infinity }}
         >
-          {items.map((item, index) => (
+          {loop.map((item, index) => (
             <div
               key={`${item}-${index}`}
               className="flex h-12 items-center rounded-2xl bg-white px-5 text-sm font-semibold text-navy shadow-soft"
