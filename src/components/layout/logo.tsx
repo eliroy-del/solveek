@@ -14,6 +14,8 @@ export function Logo({
   size = "header",
 }: LogoProps) {
   const isFooter = size === "footer";
+  const src =
+    variant === "dark" ? "/solveek-logo-dark.png" : "/solveek-logo.png";
 
   return (
     <Link
@@ -24,28 +26,20 @@ export function Logo({
       )}
       aria-label="SOLVEEK home"
     >
-      <span
+      <Image
+        src={src}
+        alt="SOLVEEK"
+        width={320}
+        height={172}
+        priority={size === "header"}
+        unoptimized
         className={cn(
-          "relative inline-flex items-center justify-center overflow-hidden rounded-2xl bg-black",
-          isFooter ? "p-2.5" : "p-1.5 sm:p-2",
-          variant === "light" && "ring-1 ring-white/10"
+          "w-auto object-contain",
+          isFooter
+            ? "h-16 sm:h-20"
+            : "h-12 sm:h-14 md:h-16"
         )}
-      >
-        <Image
-          src="/solveek-logo.png"
-          alt="SOLVEEK"
-          width={160}
-          height={160}
-          priority={size === "header"}
-          unoptimized
-          className={cn(
-            "w-auto object-contain",
-            isFooter
-              ? "h-24 sm:h-28"
-              : "h-[4.25rem] sm:h-[4.75rem] md:h-[5.25rem]"
-          )}
-        />
-      </span>
+      />
     </Link>
   );
 }
