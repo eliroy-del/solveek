@@ -1,5 +1,4 @@
 export const mainNavLinks = [
-  { label: "Solutions", href: "/industries" },
   { label: "Projects", href: "/projects" },
   { label: "About", href: "/about" },
   { label: "Insights", href: "/insights" },
@@ -16,7 +15,6 @@ export const footerNav = {
   resources: [
     { label: "Get a Quote", href: "/quote" },
     { label: "Case Studies", href: "/projects" },
-    { label: "Solutions", href: "/industries" },
     { label: "Insights", href: "/insights" },
     { label: "FAQs", href: "/faqs" },
   ],
