@@ -30,7 +30,7 @@ export function AboutPreview() {
               <div className="relative overflow-hidden rounded-[28px] shadow-soft">
                 <Image
                   src={IMAGES.teamAlt}
-                  alt="Ghanaian founder working on a laptop"
+                  alt="Ghanaian tech team reviewing work on a laptop"
                   width={420}
                   height={520}
                   className="h-[340px] w-full object-cover"

@@ -25,8 +25,8 @@ export const IMAGES = {
   hero: "https://images.unsplash.com/photo-1739300293396-9ad79111c8e4?auto=format&fit=crop&w=2400&q=80",
   // Developers pair-programming at monitors
   team: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1600&q=80",
-  // Ghanaian founder working on a laptop
-  teamAlt: "https://images.unsplash.com/photo-1568484347083-5b324b9bab92?auto=format&fit=crop&w=1600&q=80",
+  // Ghanaian tech team reviewing work on a laptop
+  teamAlt: "https://images.unsplash.com/photo-1739300293396-9ad79111c8e4?auto=format&fit=crop&w=1600&q=80",
   // Tema, Ghana media / tech production desk
   office: "https://images.unsplash.com/photo-1718242567909-882a8bf5f7ea?auto=format&fit=crop&w=1600&q=80",
   // Creative / design collaboration
@@ -38,7 +38,7 @@ export const IMAGES = {
   // Social / content ops at tech desk
   social: "https://images.unsplash.com/photo-1718242567909-882a8bf5f7ea?auto=format&fit=crop&w=1600&q=80",
   // SaaS / product build session
-  saas: "https://images.unsplash.com/photo-1568484347083-5b324b9bab92?auto=format&fit=crop&w=1600&q=80",
+  saas: "https://images.unsplash.com/photo-1605945269197-07ba944c5c0e?auto=format&fit=crop&w=1600&q=80",
   // Meeting / strategy — developers collaborating at workstations
   meeting: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1600&q=80",
   // Product engineering
