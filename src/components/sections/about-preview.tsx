@@ -29,8 +29,8 @@ export function AboutPreview() {
               </div>
               <div className="relative min-h-[420px] overflow-hidden rounded-[28px] shadow-soft">
                 <Image
-                  src={IMAGES.office}
-                  alt="Ghanaian tech professional at a digital production desk"
+                  src={IMAGES.code}
+                  alt="Software engineers reviewing product code together"
                   fill
                   sizes="(max-width: 768px) 40vw, 280px"
                   className="object-cover"
