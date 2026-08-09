@@ -160,7 +160,7 @@ export function Header({ services }: { services: NavService[] }) {
                   solid ? "text-muted-foreground" : "text-white/70"
                 )}
               >
-                Free consultation
+                Contact us
               </span>
               <span
                 className={cn(
