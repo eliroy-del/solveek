@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { IMAGES } from "@/constants/site";
 import { PremiumButton } from "@/components/ui/premium-button";
 import { Reveal } from "@/components/ui/reveal";
-import { getIcon } from "@/lib/icons";
 
 type WhyItem = {
   title: string;
@@ -79,7 +78,6 @@ export function WhyChoose({ items }: { items: WhyItem[] }) {
         <div className="lg:col-span-7">
           <ul className="divide-y divide-navy/10 border-y border-navy/10">
             {items.map((item, index) => {
-              const Icon = getIcon(item.icon);
               const number = String(index + 1).padStart(2, "0");
 
               return (
@@ -97,19 +95,12 @@ export function WhyChoose({ items }: { items: WhyItem[] }) {
                       {number}
                     </span>
                     <div className="min-w-0 flex-1">
-                      <div className="flex items-start gap-3">
-                        <span className="mt-0.5 inline-flex size-9 shrink-0 items-center justify-center rounded-xl bg-white text-royal shadow-soft transition-colors group-hover:bg-royal group-hover:text-white">
-                          <Icon className="size-4" />
-                        </span>
-                        <div>
-                          <h3 className="font-heading text-xl text-navy">
-                            {item.title}
-                          </h3>
-                          <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-[15px]">
-                            {item.description}
-                          </p>
-                        </div>
-                      </div>
+                      <h3 className="font-heading text-xl text-navy">
+                        {item.title}
+                      </h3>
+                      <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-[15px]">
+                        {item.description}
+                      </p>
                     </div>
                   </motion.li>
                 </Reveal>
