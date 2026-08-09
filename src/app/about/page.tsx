@@ -36,7 +36,7 @@ export default async function AboutPage() {
           <Reveal>
             <Image
               src={IMAGES.meeting}
-              alt="Ghanaian tech team collaborating on a digital project"
+              alt="Ghanaian developers collaborating at workstations"
               width={900}
               height={700}
               className="h-[420px] w-full rounded-[28px] object-cover shadow-lift"

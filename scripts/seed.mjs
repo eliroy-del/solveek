@@ -35,7 +35,7 @@ const IMAGES = {
   social: "https://images.unsplash.com/photo-1718242567909-882a8bf5f7ea?auto=format&fit=crop&w=1600&q=80",
   ecommerce: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1600&q=80",
   saas: "https://images.unsplash.com/photo-1568484347083-5b324b9bab92?auto=format&fit=crop&w=1600&q=80",
-  meeting: "https://images.unsplash.com/photo-1739300293396-9ad79111c8e4?auto=format&fit=crop&w=1600&q=80",
+  meeting: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1600&q=80",
   product: "https://images.unsplash.com/photo-1605945269197-07ba944c5c0e?auto=format&fit=crop&w=1600&q=80",
   analytics: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1600&q=80",
   code: "https://images.unsplash.com/photo-1605945269197-07ba944c5c0e?auto=format&fit=crop&w=1600&q=80",
