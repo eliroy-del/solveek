@@ -66,7 +66,6 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      <Stats items={stats} />
       <CtaBanner />
     </>
   );
