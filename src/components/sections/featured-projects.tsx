@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
+import { ProjectProductPreview } from "@/components/ui/project-product-preview";
 import type { Project } from "@/types";
 
 export function FeaturedProjects({
@@ -41,16 +41,14 @@ export function FeaturedProjects({
                 href={`/projects/${project.slug}`}
                 className="group flex h-full flex-col overflow-hidden rounded-[28px] border border-border bg-white shadow-soft transition hover:-translate-y-1 hover:shadow-lift"
               >
-                <div className="relative h-56 overflow-hidden">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition duration-500 group-hover:scale-105"
-                    sizes="(max-width:1024px) 100vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 to-transparent" />
-                  <span className="absolute bottom-4 left-4 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
+                <div className="relative h-56 overflow-hidden border-b border-border">
+                  <div className="absolute inset-0 transition duration-500 group-hover:scale-[1.03]">
+                    <ProjectProductPreview
+                      slug={project.slug}
+                      industry={project.industry}
+                    />
+                  </div>
+                  <span className="absolute bottom-4 left-4 rounded-full bg-navy/80 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
                     {project.industry}
                   </span>
                 </div>
