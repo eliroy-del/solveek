@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { IMAGES, SITE } from "@/constants/site";
+import { IMAGES } from "@/constants/site";
 import { getIcon } from "@/lib/icons";
 import { PremiumButton } from "@/components/ui/premium-button";
 
@@ -48,29 +48,11 @@ export function Hero({ capabilities }: { capabilities: Capability[] }) {
 
         <div className="container-premium relative flex min-h-[88vh] items-center pb-40 pt-36 lg:min-h-[92vh] lg:pb-48 lg:pt-40">
           <div className="relative z-10 max-w-2xl">
-            <motion.p
-              initial={reduce ? false : { opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55 }}
-              className="font-heading text-4xl font-bold tracking-tight text-white sm:text-5xl"
-            >
-              {SITE.name}
-            </motion.p>
-
-            <motion.p
-              initial={reduce ? false : { opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.06 }}
-              className="mt-5 text-xs font-semibold uppercase tracking-[0.28em] text-cyan"
-            >
-              Technology · Design · Growth
-            </motion.p>
-
             <motion.h1
               initial={reduce ? false : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.12 }}
-              className="mt-5 font-heading text-4xl leading-[1.08] text-white sm:text-5xl lg:text-6xl"
+              transition={{ duration: 0.65 }}
+              className="font-heading text-4xl leading-[1.08] text-white sm:text-5xl lg:text-6xl"
             >
               We bring great
               <span className="block">ideas to life</span>
@@ -79,7 +61,7 @@ export function Hero({ capabilities }: { capabilities: Capability[] }) {
             <motion.p
               initial={reduce ? false : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.2 }}
+              transition={{ duration: 0.65, delay: 0.1 }}
               className="mt-6 max-w-lg text-base leading-relaxed text-white/80 sm:text-lg"
             >
               SOLVEEK delivers website design, social media management,
@@ -90,7 +72,7 @@ export function Hero({ capabilities }: { capabilities: Capability[] }) {
             <motion.div
               initial={reduce ? false : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.28 }}
+              transition={{ duration: 0.65, delay: 0.18 }}
               className="mt-9 flex flex-wrap gap-4"
             >
               <PremiumButton href="/quote" showArrow>
