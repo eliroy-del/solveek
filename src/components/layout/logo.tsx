@@ -4,18 +4,22 @@ import { cn } from "@/lib/utils";
 
 type LogoProps = {
   className?: string;
-  variant?: "light" | "dark";
+  variant?: "light" | "dark" | "color";
   size?: "header" | "footer";
 };
 
+const LOGO_SRC = {
+  light: "/solveek-logo.png",
+  dark: "/solveek-logo-dark.png",
+  color: "/solveek-logo-color.png",
+} as const;
+
 export function Logo({
   className,
-  variant = "dark",
+  variant = "color",
   size = "header",
 }: LogoProps) {
   const isFooter = size === "footer";
-  const src =
-    variant === "dark" ? "/solveek-logo-dark.png" : "/solveek-logo.png";
 
   return (
     <Link
@@ -27,17 +31,15 @@ export function Logo({
       aria-label="SOLVEEK home"
     >
       <Image
-        src={src}
+        src={LOGO_SRC[variant]}
         alt="SOLVEEK"
         width={320}
-        height={172}
+        height={180}
         priority={size === "header"}
         unoptimized
         className={cn(
           "w-auto object-contain",
-          isFooter
-            ? "h-16 sm:h-20"
-            : "h-12 sm:h-14 md:h-16"
+          isFooter ? "h-16 sm:h-20" : "h-12 sm:h-14 md:h-16"
         )}
       />
     </Link>

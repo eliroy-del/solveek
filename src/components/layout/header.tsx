@@ -31,7 +31,7 @@ export function Header({ services }: { services: NavService[] }) {
       )}
     >
       <div className="container-premium flex h-28 items-center justify-between gap-6 md:h-32">
-        <Logo variant={solid ? "dark" : "light"} size="header" />
+        <Logo variant={solid ? "color" : "light"} size="header" />
 
         <nav className="hidden items-center gap-1 xl:flex" aria-label="Primary">
           <div
