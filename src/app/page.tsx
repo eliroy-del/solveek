@@ -5,14 +5,12 @@ import { ServicesGrid } from "@/components/sections/services-grid";
 import { WhyChoose } from "@/components/sections/why-choose";
 import { IndustriesGrid } from "@/components/sections/industries-grid";
 import { Process } from "@/components/sections/process";
-import { FeaturedProjects } from "@/components/sections/featured-projects";
 import { Testimonials } from "@/components/sections/testimonials";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import {
   getFeaturedCapabilities,
   getIndustries,
   getProcessSteps,
-  getProjects,
   getServices,
   getTestimonials,
   getTrustItems,
@@ -27,7 +25,6 @@ export default async function HomePage() {
     whyChoose,
     industries,
     processSteps,
-    projects,
     testimonials,
   ] = await Promise.all([
     getFeaturedCapabilities(),
@@ -36,7 +33,6 @@ export default async function HomePage() {
     getWhyChoose(),
     getIndustries(),
     getProcessSteps(),
-    getProjects(),
     getTestimonials(),
   ]);
 
@@ -60,7 +56,6 @@ export default async function HomePage() {
         <IndustriesGrid items={industries} />
       </section>
       <Process items={processSteps} />
-      <FeaturedProjects items={projects} />
       <Testimonials items={testimonials} />
       <CtaBanner />
     </>
