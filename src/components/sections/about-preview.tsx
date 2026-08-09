@@ -4,7 +4,6 @@ import Image from "next/image";
 import { CheckCircle2, Play } from "lucide-react";
 import { motion } from "framer-motion";
 import { IMAGES } from "@/constants/site";
-
 import { PremiumButton } from "@/components/ui/premium-button";
 import { Reveal } from "@/components/ui/reveal";
 
