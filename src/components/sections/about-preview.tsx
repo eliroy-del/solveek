@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { CheckCircle2, Play } from "lucide-react";
+import { Play } from "lucide-react";
 import { motion } from "framer-motion";
 import { IMAGES } from "@/constants/site";
 import { PremiumButton } from "@/components/ui/premium-button";
 import { Reveal } from "@/components/ui/reveal";
 
-export function AboutPreview({ highlights }: { highlights: string[] }) {
+export function AboutPreview() {
   return (
     <section className="section-padding relative overflow-hidden bg-white">
       <div
@@ -69,32 +69,7 @@ export function AboutPreview({ highlights }: { highlights: string[] }) {
             </p>
           </Reveal>
 
-          <Reveal delay={0.1} className="mt-8 flex flex-wrap items-center gap-5">
-            <div className="flex items-center gap-3 rounded-2xl border border-border bg-surface px-4 py-3">
-              <Image
-                src={IMAGES.portraitSoft}
-                alt="Ama Serwaa"
-                width={48}
-                height={48}
-                className="size-12 rounded-full object-cover"
-              />
-              <div>
-                <p className="font-heading text-lg italic text-royal">Ama Serwaa</p>
-                <p className="text-xs text-muted-foreground">CEO, SOLVEEK</p>
-              </div>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.15} className="mt-8 space-y-3">
-            {highlights.map((item) => (
-              <div key={item} className="flex items-center gap-3 text-sm font-medium text-navy">
-                <CheckCircle2 className="size-5 shrink-0 text-royal" />
-                {item}
-              </div>
-            ))}
-          </Reveal>
-
-          <Reveal delay={0.2} className="mt-9">
+          <Reveal delay={0.1} className="mt-9">
             <PremiumButton href="/about" showArrow>
               Discover our story
             </PremiumButton>

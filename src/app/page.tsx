@@ -10,7 +10,6 @@ import { FeaturedProjects } from "@/components/sections/featured-projects";
 import { Testimonials } from "@/components/sections/testimonials";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import {
-  getAboutHighlights,
   getFeaturedCapabilities,
   getIndustries,
   getProcessSteps,
@@ -26,7 +25,6 @@ export default async function HomePage() {
   const [
     capabilities,
     trustItems,
-    highlights,
     services,
     whyChoose,
     industries,
@@ -37,7 +35,6 @@ export default async function HomePage() {
   ] = await Promise.all([
     getFeaturedCapabilities(),
     getTrustItems(),
-    getAboutHighlights(),
     getServices(),
     getWhyChoose(),
     getIndustries(),
@@ -51,7 +48,7 @@ export default async function HomePage() {
     <>
       <Hero capabilities={capabilities} />
       <TrustBar items={trustItems} />
-      <AboutPreview highlights={highlights} />
+      <AboutPreview />
       <ServicesGrid items={services} limit={6} />
       <WhyChoose items={whyChoose} />
       <section className="relative overflow-hidden bg-surface">
