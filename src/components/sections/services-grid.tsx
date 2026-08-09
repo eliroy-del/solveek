@@ -20,8 +20,40 @@ export function ServicesGrid({
   const list = limit ? items.slice(0, limit) : items;
 
   return (
-    <section className="section-padding bg-white">
-      <div className="container-premium">
+    <section className="section-padding relative overflow-hidden">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[#F3F6FC]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-90"
+        style={{
+          backgroundImage:
+            "radial-gradient(ellipse 70% 55% at 8% 12%, rgba(19,88,254,0.14), transparent 55%), radial-gradient(ellipse 55% 50% at 92% 88%, rgba(77,130,255,0.12), transparent 50%), radial-gradient(circle at 50% 50%, rgba(255,255,255,0.7), transparent 65%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.45]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(10,15,31,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(10,15,31,0.035) 1px, transparent 1px)",
+          backgroundSize: "44px 44px",
+          maskImage:
+            "radial-gradient(ellipse 85% 70% at 50% 40%, black 20%, transparent 75%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-24 top-10 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(19,88,254,0.18),transparent_68%)] blur-2xl"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-16 bottom-0 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(77,130,255,0.14),transparent_70%)] blur-2xl"
+      />
+
+      <div className="container-premium relative">
         {showHeading ? (
           <div className="mb-14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <SectionHeading
@@ -49,7 +81,7 @@ export function ServicesGrid({
                 <Link
                   href={`/services/${service.slug}`}
                   className={cn(
-                    "group relative flex h-full flex-col rounded-3xl border border-border bg-white p-7 shadow-soft transition-all duration-300",
+                    "group relative flex h-full flex-col rounded-3xl border border-white/80 bg-white/90 p-7 shadow-soft backdrop-blur-sm transition-all duration-300",
                     "hover:-translate-y-1 hover:border-royal/20 hover:shadow-lift"
                   )}
                 >
