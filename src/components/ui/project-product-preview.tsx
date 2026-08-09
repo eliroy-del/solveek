@@ -177,7 +177,7 @@ function WebsitePreview() {
   );
 }
 
-const PREVIEWS: Record<PreviewKind, () => React.ReactNode> = {
+const PREVIEWS: Record<PreviewKind, () => ReactNode> = {
   ecommerce: EcommercePreview,
   saas: SaasPreview,
   social: SocialPreview,
