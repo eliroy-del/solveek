@@ -4,9 +4,8 @@ import { PageHero } from "@/components/ui/page-hero";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { CtaBanner } from "@/components/sections/cta-banner";
-import { Stats } from "@/components/sections/stats";
 import { IMAGES } from "@/constants/site";
-import { getBrandValues, getStats } from "@/lib/content";
+import { getBrandValues } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "About",
@@ -15,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default async function AboutPage() {
-  const [stats, values] = await Promise.all([getStats(), getBrandValues()]);
+  const values = await getBrandValues();
 
   return (
     <>
