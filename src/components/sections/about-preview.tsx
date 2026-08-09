@@ -17,23 +17,23 @@ export function AboutPreview() {
       <div className="container-premium grid items-center gap-14 lg:grid-cols-2">
         <Reveal>
           <div className="relative mx-auto max-w-xl">
-            <div className="relative grid grid-cols-[1.1fr_0.9fr] gap-4">
-              <div className="relative mt-8 overflow-hidden rounded-[28px] shadow-lift">
+            <div className="relative grid grid-cols-[1.1fr_0.9fr] items-stretch gap-4">
+              <div className="relative mt-8 min-h-[420px] overflow-hidden rounded-[28px] shadow-lift">
                 <Image
                   src={IMAGES.team}
                   alt="Ghanaian developers pair-programming in the office"
-                  width={520}
-                  height={640}
-                  className="h-[420px] w-full object-cover"
+                  fill
+                  sizes="(max-width: 768px) 60vw, 320px"
+                  className="object-cover"
                 />
               </div>
-              <div className="relative overflow-hidden rounded-[28px] shadow-soft">
+              <div className="relative min-h-[420px] overflow-hidden rounded-[28px] shadow-soft">
                 <Image
-                  src={IMAGES.teamAlt}
-                  alt="Ghanaian tech team reviewing work on a laptop"
-                  width={420}
-                  height={520}
-                  className="h-[340px] w-full object-cover"
+                  src={IMAGES.office}
+                  alt="Ghanaian tech professional at a digital production desk"
+                  fill
+                  sizes="(max-width: 768px) 40vw, 280px"
+                  className="object-cover"
                 />
               </div>
             </div>

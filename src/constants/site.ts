@@ -25,8 +25,8 @@ export const IMAGES = {
   hero: "https://images.unsplash.com/photo-1739300293396-9ad79111c8e4?auto=format&fit=crop&w=2400&q=80",
   // Developers pair-programming at monitors
   team: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1600&q=80",
-  // Ghanaian tech team reviewing work on a laptop
-  teamAlt: "https://images.unsplash.com/photo-1739300293396-9ad79111c8e4?auto=format&fit=crop&w=1600&q=80",
+  // Ghanaian tech professional at a production desk (Tema)
+  teamAlt: "https://images.unsplash.com/photo-1718242567909-882a8bf5f7ea?auto=format&fit=crop&w=1600&q=80",
   // Tema, Ghana media / tech production desk
   office: "https://images.unsplash.com/photo-1718242567909-882a8bf5f7ea?auto=format&fit=crop&w=1600&q=80",
   // Creative / design collaboration
