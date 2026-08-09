@@ -21,7 +21,7 @@ export function AboutPreview() {
               <div className="relative mt-8 overflow-hidden rounded-[28px] shadow-lift">
                 <Image
                   src={IMAGES.team}
-                  alt="Ghanaian creative professional in a studio"
+                  alt="Ghanaian developers pair-programming in the office"
                   width={520}
                   height={640}
                   className="h-[420px] w-full object-cover"
@@ -30,7 +30,7 @@ export function AboutPreview() {
               <div className="relative overflow-hidden rounded-[28px] shadow-soft">
                 <Image
                   src={IMAGES.teamAlt}
-                  alt="Ghanaian founder working from Accra"
+                  alt="Ghanaian founder working on a laptop"
                   width={420}
                   height={520}
                   className="h-[340px] w-full object-cover"

@@ -31,21 +31,18 @@ const supabase = createClient(url, key, {
 });
 
 const IMAGES = {
-  design: "https://images.unsplash.com/photo-1648328168368-3a25f2152802?auto=format&fit=crop&w=1600&q=80",
-  social: "https://images.unsplash.com/photo-1727023663928-1772e2c7e679?auto=format&fit=crop&w=1600&q=80",
-  ecommerce: "https://images.unsplash.com/photo-1730963628435-4972f0607016?auto=format&fit=crop&w=1600&q=80",
-  saas: "https://images.unsplash.com/photo-1718242567909-882a8bf5f7ea?auto=format&fit=crop&w=1600&q=80",
-  meeting: "https://images.unsplash.com/photo-1568484347083-5b324b9bab92?auto=format&fit=crop&w=1600&q=80",
+  design: "https://images.unsplash.com/photo-1739300293396-9ad79111c8e4?auto=format&fit=crop&w=1600&q=80",
+  social: "https://images.unsplash.com/photo-1718242567909-882a8bf5f7ea?auto=format&fit=crop&w=1600&q=80",
+  ecommerce: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1600&q=80",
+  saas: "https://images.unsplash.com/photo-1568484347083-5b324b9bab92?auto=format&fit=crop&w=1600&q=80",
+  meeting: "https://images.unsplash.com/photo-1739300293396-9ad79111c8e4?auto=format&fit=crop&w=1600&q=80",
   product: "https://images.unsplash.com/photo-1605945269197-07ba944c5c0e?auto=format&fit=crop&w=1600&q=80",
-  analytics: "https://images.unsplash.com/photo-1742476126735-cba186771cf2?auto=format&fit=crop&w=1600&q=80",
+  analytics: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1600&q=80",
   code: "https://images.unsplash.com/photo-1605945269197-07ba944c5c0e?auto=format&fit=crop&w=1600&q=80",
-  office: "https://images.unsplash.com/photo-1727023663921-967d01f69c7e?auto=format&fit=crop&w=1600&q=80",
-  team: "https://images.unsplash.com/photo-1718242567909-882a8bf5f7ea?auto=format&fit=crop&w=1600&q=80",
+  office: "https://images.unsplash.com/photo-1718242567909-882a8bf5f7ea?auto=format&fit=crop&w=1600&q=80",
+  team: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1600&q=80",
   teamAlt: "https://images.unsplash.com/photo-1568484347083-5b324b9bab92?auto=format&fit=crop&w=1600&q=80",
-  landmark: "https://images.unsplash.com/photo-1669040178874-19d6fd6c9ff6?auto=format&fit=crop&w=1600&q=80",
-  city: "https://images.unsplash.com/photo-1677804444783-3bb00c73750c?auto=format&fit=crop&w=1600&q=80",
-  memorial: "https://images.unsplash.com/photo-1759448540391-fef2fa3bb158?auto=format&fit=crop&w=1600&q=80",
-  portrait: "https://images.unsplash.com/photo-1610465830784-ac7d29fa1905?auto=format&fit=crop&w=400&q=80",
+  portrait: "https://images.unsplash.com/photo-1531384441138-2736e62e0919?auto=format&fit=crop&w=400&q=80",
   portraitAlt: "https://images.unsplash.com/photo-1605945269197-07ba944c5c0e?auto=format&fit=crop&w=400&q=80",
   portraitSoft: "https://images.unsplash.com/photo-1718242567909-882a8bf5f7ea?auto=format&fit=crop&w=400&q=80",
 };
@@ -235,10 +232,10 @@ async function main() {
     { slug: "professional-services", title: "Professional Services", description: "Authority-building websites for firms that sell expertise.", icon: "Briefcase", image: IMAGES.meeting, sort_order: 4 },
     { slug: "healthcare", title: "Healthcare", description: "Compliant digital experiences that build patient trust.", icon: "HeartPulse", image: IMAGES.team, sort_order: 5 },
     { slug: "education", title: "Education", description: "Learning platforms and enrollment experiences that engage.", icon: "GraduationCap", image: IMAGES.office, sort_order: 6 },
-    { slug: "real-estate", title: "Real Estate", description: "Property platforms and lead systems for modern agencies.", icon: "Building2", image: IMAGES.city, sort_order: 7 },
-    { slug: "hospitality", title: "Hospitality", description: "Brand sites and booking journeys with premium polish.", icon: "Hotel", image: IMAGES.social, sort_order: 8 },
-    { slug: "fintech", title: "Fintech", description: "Secure product interfaces and trust-first brand systems.", icon: "Wallet", image: IMAGES.landmark, sort_order: 9 },
-    { slug: "nonprofits", title: "Nonprofits", description: "Mission-driven digital platforms that inspire action.", icon: "HeartHandshake", image: IMAGES.memorial, sort_order: 10 },
+    { slug: "real-estate", title: "Real Estate", description: "Property platforms and lead systems for modern agencies.", icon: "Building2", image: IMAGES.analytics, sort_order: 7 },
+    { slug: "hospitality", title: "Hospitality", description: "Brand sites and booking journeys with premium polish.", icon: "Hotel", image: IMAGES.design, sort_order: 8 },
+    { slug: "fintech", title: "Fintech", description: "Secure product interfaces and trust-first brand systems.", icon: "Wallet", image: IMAGES.code, sort_order: 9 },
+    { slug: "nonprofits", title: "Nonprofits", description: "Mission-driven digital platforms that inspire action.", icon: "HeartHandshake", image: IMAGES.teamAlt, sort_order: 10 },
   ]);
 
   await upsert("projects", [
