@@ -31,7 +31,7 @@ export default async function AboutPage() {
           <SectionHeading
             eyebrow="Our story"
             title="Built to turn ambitious ideas into working digital products"
-            description="SOLVEEK started as a design-led studio and grew into a full IT solutions partner. Today we help startups and established brands ship websites, social systems, commerce platforms, and SaaS products with one accountable team."
+            description="Solveek delivers smart, scalable and secure IT solutions that empower businesses to innovate, connect and grow in a digital world."
           />
           <Reveal>
             <Image
