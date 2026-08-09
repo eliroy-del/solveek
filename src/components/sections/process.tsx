@@ -9,7 +9,7 @@ export function Process({ items }: { items: ProcessStep[] }) {
       <div className="container-premium">
           <SectionHeading
           eyebrow="How we work"
-          title="A clear path from discovery to launch—and beyond"
+          title="A clear path from discovery to launch and beyond"
           description="Structured enough for stakeholder alignment. Flexible enough for real product decisions."
           align="center"
           className="mb-14"

@@ -2,7 +2,7 @@ insert into public.site_content (key, value)
 values
   ('brand_values', '[
     {"title":"Clarity","description":"We simplify complexity so teams and customers know what to do next."},
-    {"title":"Craft","description":"Details matter—visual quality, motion, and performance are non-negotiable."},
+    {"title":"Craft","description":"Details matter. Visual quality, motion, and performance are non-negotiable."},
     {"title":"Momentum","description":"We ship thoughtfully and iterate with evidence, not guesswork."},
     {"title":"Partnership","description":"We operate as an extension of your team, accountable to outcomes."}
   ]'::jsonb),

@@ -39,7 +39,7 @@ export const IMAGES = {
   social: "https://images.unsplash.com/photo-1718242567909-882a8bf5f7ea?auto=format&fit=crop&w=1600&q=80",
   // SaaS / product build session
   saas: "https://images.unsplash.com/photo-1605945269197-07ba944c5c0e?auto=format&fit=crop&w=1600&q=80",
-  // Meeting / strategy — developers collaborating at workstations
+  // Meeting / strategy: developers collaborating at workstations
   meeting: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1600&q=80",
   // Product engineering
   product: "https://images.unsplash.com/photo-1605945269197-07ba944c5c0e?auto=format&fit=crop&w=1600&q=80",

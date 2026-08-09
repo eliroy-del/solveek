@@ -18,7 +18,7 @@ export default async function ProjectsPage() {
     <>
       <PageHero
         eyebrow="Case studies"
-        title="Work that proves great ideas can ship—and scale"
+        title="Work that proves great ideas can ship and scale"
         description="Selected engagements where SOLVEEK aligned design, technology, and growth around clear commercial outcomes."
         image={IMAGES.product}
       />

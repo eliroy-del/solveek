@@ -17,7 +17,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Let’s talk about your next digital move"
-        description="Whether you need a new website, a social growth system, an online store, or a SaaS product—our team is ready to help."
+        description="Whether you need a new website, a social growth system, an online store, or a SaaS product, our team is ready to help."
         image={IMAGES.office}
       />
       <section className="section-padding bg-white">

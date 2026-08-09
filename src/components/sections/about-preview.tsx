@@ -65,7 +65,7 @@ export function AboutPreview() {
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               Our teams blend strategy, design, and engineering so every launch
-              is coherent—from brand story to product experience.
+              is coherent, from brand story to product experience.
             </p>
           </Reveal>
 

@@ -26,7 +26,7 @@ export function CtaBanner() {
               </h2>
               <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/70">
                 Tell us about your website, product, or growth goals. Our team
-                will craft a clear plan—design, technology, and delivery included.
+                will craft a clear plan with design, technology, and delivery included.
               </p>
               <div className="mt-10 flex flex-wrap justify-center gap-4">
                 <PremiumButton href="/quote" showArrow>

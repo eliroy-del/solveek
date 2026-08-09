@@ -50,8 +50,8 @@ export default async function InsightDetailPage({ params }: Props) {
                 iteration sustainable.
               </p>
               <p>
-                This article explores practical moves—design decisions, content systems,
-                and product patterns—that help teams ship with confidence without
+                This article explores practical moves across design decisions, content systems,
+                and product patterns that help teams ship with confidence without
                 sacrificing craft.
               </p>
               <p>

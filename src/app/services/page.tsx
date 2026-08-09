@@ -19,7 +19,7 @@ export default async function ServicesPage() {
       <PageHero
         eyebrow="Services"
         title="IT solutions designed for modern brands and product teams"
-        description="Website design, social media, e-commerce, SaaS, and more—delivered with strategy, craft, and measurable outcomes."
+        description="Website design, social media, e-commerce, SaaS, and more, delivered with strategy, craft, and measurable outcomes."
         image={IMAGES.design}
       />
       <ServicesGrid items={services} showHeading={false} />
