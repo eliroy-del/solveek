@@ -31,17 +31,23 @@ const supabase = createClient(url, key, {
 });
 
 const IMAGES = {
-  design: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1600&q=80",
-  social: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1600&q=80",
-  ecommerce: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80",
-  saas: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
-  meeting: "https://images.unsplash.com/photo-1542744173-8e2bd7241195?auto=format&fit=crop&w=1600&q=80",
-  product: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80",
-  analytics: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80",
-  code: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1600&q=80",
-  office: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80",
-  team: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1600&q=80",
-  teamAlt: "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1600&q=80",
+  design: "https://images.unsplash.com/photo-1648328168368-3a25f2152802?auto=format&fit=crop&w=1600&q=80",
+  social: "https://images.unsplash.com/photo-1727023663928-1772e2c7e679?auto=format&fit=crop&w=1600&q=80",
+  ecommerce: "https://images.unsplash.com/photo-1730963628435-4972f0607016?auto=format&fit=crop&w=1600&q=80",
+  saas: "https://images.unsplash.com/photo-1718242567909-882a8bf5f7ea?auto=format&fit=crop&w=1600&q=80",
+  meeting: "https://images.unsplash.com/photo-1568484347083-5b324b9bab92?auto=format&fit=crop&w=1600&q=80",
+  product: "https://images.unsplash.com/photo-1605945269197-07ba944c5c0e?auto=format&fit=crop&w=1600&q=80",
+  analytics: "https://images.unsplash.com/photo-1742476126735-cba186771cf2?auto=format&fit=crop&w=1600&q=80",
+  code: "https://images.unsplash.com/photo-1605945269197-07ba944c5c0e?auto=format&fit=crop&w=1600&q=80",
+  office: "https://images.unsplash.com/photo-1727023663921-967d01f69c7e?auto=format&fit=crop&w=1600&q=80",
+  team: "https://images.unsplash.com/photo-1718242567909-882a8bf5f7ea?auto=format&fit=crop&w=1600&q=80",
+  teamAlt: "https://images.unsplash.com/photo-1568484347083-5b324b9bab92?auto=format&fit=crop&w=1600&q=80",
+  landmark: "https://images.unsplash.com/photo-1669040178874-19d6fd6c9ff6?auto=format&fit=crop&w=1600&q=80",
+  city: "https://images.unsplash.com/photo-1677804444783-3bb00c73750c?auto=format&fit=crop&w=1600&q=80",
+  memorial: "https://images.unsplash.com/photo-1759448540391-fef2fa3bb158?auto=format&fit=crop&w=1600&q=80",
+  portrait: "https://images.unsplash.com/photo-1610465830784-ac7d29fa1905?auto=format&fit=crop&w=400&q=80",
+  portraitAlt: "https://images.unsplash.com/photo-1605945269197-07ba944c5c0e?auto=format&fit=crop&w=400&q=80",
+  portraitSoft: "https://images.unsplash.com/photo-1718242567909-882a8bf5f7ea?auto=format&fit=crop&w=400&q=80",
 };
 
 async function upsert(table, rows, onConflict = "slug") {
@@ -229,10 +235,10 @@ async function main() {
     { slug: "professional-services", title: "Professional Services", description: "Authority-building websites for firms that sell expertise.", icon: "Briefcase", image: IMAGES.meeting, sort_order: 4 },
     { slug: "healthcare", title: "Healthcare", description: "Compliant digital experiences that build patient trust.", icon: "HeartPulse", image: IMAGES.team, sort_order: 5 },
     { slug: "education", title: "Education", description: "Learning platforms and enrollment experiences that engage.", icon: "GraduationCap", image: IMAGES.office, sort_order: 6 },
-    { slug: "real-estate", title: "Real Estate", description: "Property platforms and lead systems for modern agencies.", icon: "Building2", image: IMAGES.analytics, sort_order: 7 },
-    { slug: "hospitality", title: "Hospitality", description: "Brand sites and booking journeys with premium polish.", icon: "Hotel", image: IMAGES.design, sort_order: 8 },
-    { slug: "fintech", title: "Fintech", description: "Secure product interfaces and trust-first brand systems.", icon: "Wallet", image: IMAGES.code, sort_order: 9 },
-    { slug: "nonprofits", title: "Nonprofits", description: "Mission-driven digital platforms that inspire action.", icon: "HeartHandshake", image: IMAGES.teamAlt, sort_order: 10 },
+    { slug: "real-estate", title: "Real Estate", description: "Property platforms and lead systems for modern agencies.", icon: "Building2", image: IMAGES.city, sort_order: 7 },
+    { slug: "hospitality", title: "Hospitality", description: "Brand sites and booking journeys with premium polish.", icon: "Hotel", image: IMAGES.social, sort_order: 8 },
+    { slug: "fintech", title: "Fintech", description: "Secure product interfaces and trust-first brand systems.", icon: "Wallet", image: IMAGES.landmark, sort_order: 9 },
+    { slug: "nonprofits", title: "Nonprofits", description: "Mission-driven digital platforms that inspire action.", icon: "HeartHandshake", image: IMAGES.memorial, sort_order: 10 },
   ]);
 
   await upsert("projects", [
@@ -328,9 +334,9 @@ async function main() {
 
   await supabase.from("testimonials").delete().neq("id", "00000000-0000-0000-0000-000000000000");
   await supabase.from("testimonials").insert([
-    { name: "Caroline Meyer", role: "Founder", company: "Northline Apparel", quote: "SOLVEEK rebuilt our storefront with clarity and craft. Conversion improved within weeks.", rating: 5, image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80", sort_order: 1 },
-    { name: "Kwame Mensah", role: "CEO", company: "Pulseboard", quote: "They redesigned how users reach value. Activation jumped, and we finally have a design system we can ship from.", rating: 5, image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80", sort_order: 2 },
-    { name: "Helena Costa", role: "Marketing Director", company: "Atelier Collective", quote: "Our social presence went from inconsistent to intentional.", rating: 5, image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80", sort_order: 3 },
+    { name: "Ama Boateng", role: "Founder", company: "Northline Apparel", quote: "SOLVEEK rebuilt our storefront with clarity and craft. Conversion improved within weeks.", rating: 5, image: IMAGES.portrait, sort_order: 1 },
+    { name: "Kwame Mensah", role: "CEO", company: "Pulseboard", quote: "They redesigned how users reach value. Activation jumped, and we finally have a design system we can ship from.", rating: 5, image: IMAGES.portraitAlt, sort_order: 2 },
+    { name: "Efua Asante", role: "Marketing Director", company: "Atelier Collective", quote: "Our social presence went from inconsistent to intentional.", rating: 5, image: IMAGES.portraitSoft, sort_order: 3 },
   ]);
   console.log("✓ testimonials");
 

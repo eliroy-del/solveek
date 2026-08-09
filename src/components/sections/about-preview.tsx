@@ -4,6 +4,7 @@ import Image from "next/image";
 import { CheckCircle2, Play } from "lucide-react";
 import { motion } from "framer-motion";
 import { IMAGES } from "@/constants/site";
+
 import { PremiumButton } from "@/components/ui/premium-button";
 import { Reveal } from "@/components/ui/reveal";
 
@@ -21,7 +22,7 @@ export function AboutPreview({ highlights }: { highlights: string[] }) {
               <div className="relative mt-8 overflow-hidden rounded-[28px] shadow-lift">
                 <Image
                   src={IMAGES.team}
-                  alt="SOLVEEK designers collaborating"
+                  alt="Ghanaian creative professional in a studio"
                   width={520}
                   height={640}
                   className="h-[420px] w-full object-cover"
@@ -30,7 +31,7 @@ export function AboutPreview({ highlights }: { highlights: string[] }) {
               <div className="relative overflow-hidden rounded-[28px] shadow-soft">
                 <Image
                   src={IMAGES.teamAlt}
-                  alt="SOLVEEK product workshop"
+                  alt="Ghanaian founder working from Accra"
                   width={420}
                   height={520}
                   className="h-[340px] w-full object-cover"
@@ -72,14 +73,14 @@ export function AboutPreview({ highlights }: { highlights: string[] }) {
           <Reveal delay={0.1} className="mt-8 flex flex-wrap items-center gap-5">
             <div className="flex items-center gap-3 rounded-2xl border border-border bg-surface px-4 py-3">
               <Image
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
-                alt="Amelia Vance"
+                src={IMAGES.portraitSoft}
+                alt="Ama Serwaa"
                 width={48}
                 height={48}
                 className="size-12 rounded-full object-cover"
               />
               <div>
-                <p className="font-heading text-lg italic text-royal">Amelia Vance</p>
+                <p className="font-heading text-lg italic text-royal">Ama Serwaa</p>
                 <p className="text-xs text-muted-foreground">CEO, SOLVEEK</p>
               </div>
             </div>

@@ -29,7 +29,7 @@ export function Hero({ capabilities }: { capabilities: Capability[] }) {
         >
           <Image
             src={IMAGES.hero}
-            alt="SOLVEEK team collaborating in a modern digital studio"
+            alt="Accra skyline and modern Ghanaian city life"
             fill
             priority
             className="object-cover object-[center_30%]"
