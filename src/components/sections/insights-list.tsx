@@ -45,7 +45,7 @@ export function InsightsList({ items }: { items: Insight[] }) {
               onClick={() => setCategory(item)}
               className={`rounded-full px-4 py-2 text-xs font-semibold transition ${
                 category === item
-                  ? "bg-royal text-white"
+                  ? "bg-[#0A0F1F] text-white"
                   : "bg-surface text-navy hover:bg-white"
               }`}
             >

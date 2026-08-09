@@ -84,7 +84,7 @@ export function TrackingDemo() {
           />
           <button
             type="submit"
-            className="inline-flex h-12 items-center justify-center gap-2 rounded-2xl gradient-royal px-5 text-sm font-semibold text-white"
+            className="inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-[#0A0F1F] px-5 text-sm font-semibold text-white hover:bg-[#121829]"
           >
             <Search className="size-4" />
             Track

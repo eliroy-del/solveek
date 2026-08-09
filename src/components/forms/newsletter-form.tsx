@@ -64,7 +64,7 @@ export function NewsletterForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="inline-flex h-12 items-center justify-center rounded-2xl bg-royal px-4 text-white transition hover:brightness-110 disabled:opacity-60"
+          className="inline-flex h-12 items-center justify-center rounded-2xl bg-[#0A0F1F] px-4 text-white transition hover:bg-[#121829] disabled:opacity-60"
           aria-label="Subscribe"
         >
           <ArrowRight className="size-4" />
