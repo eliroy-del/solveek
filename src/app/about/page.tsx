@@ -6,7 +6,7 @@ import { Reveal } from "@/components/ui/reveal";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { Stats } from "@/components/sections/stats";
 import { IMAGES } from "@/constants/site";
-import { getBrandValues, getStats, getTimeline } from "@/lib/content";
+import { getBrandValues, getStats } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "About",
@@ -15,11 +15,7 @@ export const metadata: Metadata = {
 };
 
 export default async function AboutPage() {
-  const [timeline, stats, values] = await Promise.all([
-    getTimeline(),
-    getStats(),
-    getBrandValues(),
-  ]);
+  const [stats, values] = await Promise.all([getStats(), getBrandValues()]);
 
   return (
     <>
@@ -65,32 +61,6 @@ export default async function AboutPage() {
                     {value.description}
                   </p>
                 </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section-padding bg-white">
-        <div className="container-premium">
-          <SectionHeading
-            eyebrow="Timeline"
-            title="Milestones that shaped SOLVEEK"
-            align="center"
-            className="mb-14"
-          />
-          <div className="mx-auto max-w-3xl space-y-6">
-            {timeline.map((item, index) => (
-              <Reveal key={item.year} delay={index * 0.05}>
-                <div className="grid gap-4 rounded-3xl border border-border bg-surface/70 p-6 md:grid-cols-[120px_1fr]">
-                  <p className="font-heading text-2xl text-royal">{item.year}</p>
-                  <div>
-                    <h3 className="font-heading text-xl text-navy">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
               </Reveal>
             ))}
           </div>
