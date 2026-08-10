@@ -1,38 +1,29 @@
 import { Hero } from "@/components/sections/hero";
 import { TrustBar } from "@/components/sections/trust-bar";
 import { AboutPreview } from "@/components/sections/about-preview";
-import { ServicesGrid } from "@/components/sections/services-grid";
 import { IndustriesGrid } from "@/components/sections/industries-grid";
 import { Testimonials } from "@/components/sections/testimonials";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import {
   getFeaturedCapabilities,
   getIndustries,
-  getServices,
   getTestimonials,
   getTrustItems,
 } from "@/lib/content";
 
 export default async function HomePage() {
-  const [
-    capabilities,
-    trustItems,
-    services,
-    industries,
-    testimonials,
-  ] = await Promise.all([
-    getFeaturedCapabilities(),
-    getTrustItems(),
-    getServices(),
-    getIndustries(),
-    getTestimonials(),
-  ]);
+  const [capabilities, trustItems, industries, testimonials] =
+    await Promise.all([
+      getFeaturedCapabilities(),
+      getTrustItems(),
+      getIndustries(),
+      getTestimonials(),
+    ]);
 
   return (
     <>
       <Hero capabilities={capabilities} />
       <TrustBar items={trustItems} />
-      <ServicesGrid items={services} limit={6} />
       <AboutPreview />
       <section className="relative overflow-hidden bg-surface">
         <div
