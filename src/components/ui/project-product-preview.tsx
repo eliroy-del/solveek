@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 type PreviewKind = "ecommerce" | "saas" | "social" | "website";
@@ -19,36 +20,14 @@ function resolveKind(slug: string, industry: string): PreviewKind {
 
 function EcommercePreview() {
   return (
-    <div className="flex h-full flex-col bg-[#F7F4EF] p-4">
-      <div className="mb-3 flex items-center justify-between rounded-xl bg-white px-3 py-2 shadow-sm">
-        <span className="font-heading text-[11px] font-semibold tracking-wide text-navy">
-          NORTHLINE
-        </span>
-        <div className="flex gap-1.5">
-          <span className="h-1.5 w-8 rounded-full bg-navy/10" />
-          <span className="h-1.5 w-8 rounded-full bg-navy/10" />
-          <span className="size-4 rounded-full bg-royal/15" />
-        </div>
-      </div>
-      <div className="grid flex-1 grid-cols-2 gap-2.5">
-        {[
-          { tone: "bg-[#D9C7B2]", label: "Linen Set" },
-          { tone: "bg-[#1F2937]", label: "Studio Jacket" },
-          { tone: "bg-[#B8C4B0]", label: "Weekend Tee" },
-          { tone: "bg-[#C4A484]", label: "Travel Tote" },
-        ].map((item) => (
-          <div
-            key={item.label}
-            className="overflow-hidden rounded-xl bg-white shadow-sm"
-          >
-            <div className={cn("h-14", item.tone)} />
-            <div className="space-y-1.5 p-2">
-              <p className="text-[10px] font-semibold text-navy">{item.label}</p>
-              <div className="h-1.5 w-10 rounded-full bg-navy/10" />
-            </div>
-          </div>
-        ))}
-      </div>
+    <div className="relative h-full w-full bg-[#F7F4EF]">
+      <Image
+        src="/images/project-northline-commerce.png"
+        alt="Customer shopping an apparel storefront on a laptop"
+        fill
+        sizes="(max-width: 1024px) 100vw, 33vw"
+        className="object-cover"
+      />
     </div>
   );
 }
