@@ -497,6 +497,10 @@ export async function getEcommercePackages() {
 const SERVICE_PACKAGE_KEYS: Record<string, string> = {
   "website-design": "website_design_packages",
   ecommerce: "ecommerce_packages",
+  "social-media-management": "social_media_packages",
+  "branding-identity": "branding_packages",
+  "seo-content": "seo_content_packages",
+  "maintenance-support": "maintenance_packages",
 };
 
 export async function getServicePackages(slug: string) {

@@ -37,27 +37,54 @@ export default async function ServiceDetailPage({ params }: Props) {
   const Icon = getIcon(service.icon);
   const packages = await getServicePackages(slug);
 
-  const packageCopy =
-    slug === "ecommerce"
-      ? {
-          quoteService: "E-commerce",
-          title: "E-commerce packages built to sell",
-          description:
-            "From a focused storefront to a growth-ready commerce system. Every package includes product UX, checkout, and a launch-ready build.",
-        }
-      : slug === "website-design"
-        ? {
-            quoteService: "Website Design",
-            title: "Website design packages built for clear outcomes",
-            description:
-              "Choose a starting point that matches your scope. Every package includes discovery, design, and a production-ready build.",
-          }
-        : {
-            quoteService: service.title,
-            title: `${service.title} packages`,
-            description:
-              "Choose a starting point that matches your scope. Every package includes discovery, design, and a production-ready build.",
-          };
+  const packageCopyBySlug: Record<
+    string,
+    { quoteService: string; title: string; description: string }
+  > = {
+    "website-design": {
+      quoteService: "Website Design",
+      title: "Website design packages built for clear outcomes",
+      description:
+        "Choose a starting point that matches your scope. Every package includes discovery, design, and a production-ready build.",
+    },
+    ecommerce: {
+      quoteService: "E-commerce",
+      title: "E-commerce packages built to sell",
+      description:
+        "From a focused storefront to a growth-ready commerce system. Every package includes product UX, checkout, and a launch-ready build.",
+    },
+    "social-media-management": {
+      quoteService: "Social Media",
+      title: "Social media packages that keep brands consistent",
+      description:
+        "Strategy, content, and community management with a clear monthly rhythm and reporting.",
+    },
+    "branding-identity": {
+      quoteService: "Branding",
+      title: "Branding packages that make you unmistakable",
+      description:
+        "From a focused identity refresh to a full brand system your team can use everywhere.",
+    },
+    "seo-content": {
+      quoteService: "SEO & Content",
+      title: "SEO and content packages that compound",
+      description:
+        "Technical foundations, content systems, and ongoing optimization built for durable discovery.",
+    },
+    "maintenance-support": {
+      quoteService: "Maintenance & Support",
+      title: "Care packages that keep products healthy",
+      description:
+        "Updates, monitoring, and iterative improvements so your digital products stay secure and fast.",
+    },
+  };
+
+  const packageCopy = packageCopyBySlug[slug] ?? {
+    quoteService: service.title,
+    title: `${service.title} packages`,
+    description:
+      "Choose a starting point that matches your scope. Every package includes discovery, design, and a production-ready build.",
+  };
 
   return (
     <>

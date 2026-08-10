@@ -13,6 +13,8 @@ const schema = z.object({
     "Social Media",
     "E-commerce",
     "Branding",
+    "SEO & Content",
+    "Maintenance & Support",
     "Other",
   ]),
   budget: z.string().max(120).optional(),

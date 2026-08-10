@@ -10,6 +10,8 @@ const services = [
   "Social Media",
   "E-commerce",
   "Branding",
+  "SEO & Content",
+  "Maintenance & Support",
   "Other",
 ] as const;
 
