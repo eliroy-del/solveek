@@ -87,7 +87,7 @@ const services = [
     description: "High-converting storefronts, product experiences, and checkout flows built for sales.",
     long_description: "SOLVEEK builds e-commerce experiences that reduce friction and increase average order value.",
     icon: "ShoppingBag",
-    image: IMAGES.ecommerce,
+    image: "/images/service-ecommerce.png",
     features: ["Store design & development", "Payment integrations", "CRO", "Catalog workflows"],
     benefits: ["Faster path to purchase", "Improved cart recovery", "Scalable commerce"],
     featured: true,
