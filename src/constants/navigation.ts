@@ -1,8 +1,18 @@
-export const mainNavLinks = [
-  { label: "Projects", href: "/projects" },
+/** Links rendered before the Services mega-menu. */
+export const mainNavBeforeServices = [
   { label: "About", href: "/about" },
+  { label: "Projects", href: "/projects" },
+] as const;
+
+/** Links rendered after the Services mega-menu. */
+export const mainNavAfterServices = [
   { label: "Insights", href: "/insights" },
   { label: "Contact", href: "/contact" },
+] as const;
+
+export const mainNavLinks = [
+  ...mainNavBeforeServices,
+  ...mainNavAfterServices,
 ] as const;
 
 export const footerNav = {

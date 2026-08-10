@@ -32,8 +32,8 @@ export default async function HomePage() {
     <>
       <Hero capabilities={capabilities} />
       <TrustBar items={trustItems} />
-      <AboutPreview />
       <ServicesGrid items={services} limit={6} />
+      <AboutPreview />
       <section className="relative overflow-hidden bg-surface">
         <div
           aria-hidden

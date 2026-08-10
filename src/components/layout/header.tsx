@@ -6,7 +6,10 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import { Logo } from "@/components/layout/logo";
-import { mainNavLinks } from "@/constants/navigation";
+import {
+  mainNavAfterServices,
+  mainNavBeforeServices,
+} from "@/constants/navigation";
 import { SITE } from "@/constants/site";
 import { useScrolled } from "@/hooks/use-scroll";
 import { cn } from "@/lib/utils";
@@ -39,6 +42,30 @@ export function Header({ services }: { services: NavService[] }) {
         <Logo variant={solid ? "color" : "light"} size="header" />
 
         <nav className="hidden items-center gap-1 xl:flex" aria-label="Primary">
+          {mainNavBeforeServices.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={cn(
+                "relative rounded-xl px-3 py-2 text-sm font-medium uppercase tracking-wide transition-colors",
+                solid
+                  ? "text-navy/80 hover:text-navy"
+                  : "text-white/85 hover:text-white",
+                pathname === item.href && (solid ? "text-navy" : "text-white")
+              )}
+            >
+              {item.label}
+              <span
+                className={cn(
+                  "absolute inset-x-3 -bottom-0.5 h-0.5 origin-left scale-x-0 rounded-full transition-transform duration-300",
+                  pathname === item.href && "scale-x-100",
+                  "hover:scale-x-100",
+                  solid ? "bg-royal" : "bg-cyan"
+                )}
+              />
+            </Link>
+          ))}
+
           <div
             className="relative"
             onMouseEnter={() => setServicesOpen(true)}
@@ -117,7 +144,7 @@ export function Header({ services }: { services: NavService[] }) {
             </AnimatePresence>
           </div>
 
-          {mainNavLinks.map((item) => (
+          {mainNavAfterServices.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -220,6 +247,16 @@ export function Header({ services }: { services: NavService[] }) {
             className="border-t border-border bg-white xl:hidden"
           >
             <div className="container-premium flex max-h-[80vh] flex-col gap-2 overflow-y-auto py-6">
+              {mainNavBeforeServices.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="rounded-xl px-3 py-3 text-base font-medium text-navy hover:bg-surface"
+                >
+                  {item.label}
+                </Link>
+              ))}
               <div className="mb-2">
                 <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-royal">
                   Services
@@ -237,7 +274,7 @@ export function Header({ services }: { services: NavService[] }) {
                   ))}
                 </div>
               </div>
-              {mainNavLinks.map((item) => (
+              {mainNavAfterServices.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
