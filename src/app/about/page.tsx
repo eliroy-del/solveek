@@ -19,7 +19,6 @@ export default async function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="About SOLVEEK"
         title="A digital partner for brands that want clarity, craft, and growth"
         description="We combine strategy, design, and engineering to help companies launch websites, products, and campaigns that feel premium and perform."
         image={IMAGES.team}

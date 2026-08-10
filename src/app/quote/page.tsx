@@ -22,7 +22,6 @@ export default async function QuotePage({ searchParams }: Props) {
   return (
     <>
       <PageHero
-        eyebrow="Request quote"
         title="Tell us what you want to build. We’ll shape the plan."
         description="Share your goals, timeline, and preferred services. A SOLVEEK specialist will respond with a clear next step."
         image={IMAGES.product}

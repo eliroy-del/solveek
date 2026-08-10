@@ -89,7 +89,6 @@ export default async function ServiceDetailPage({ params }: Props) {
   return (
     <>
       <PageHero
-        eyebrow="Service"
         title={service.title}
         description={service.description}
         image={service.image}

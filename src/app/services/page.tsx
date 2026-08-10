@@ -17,7 +17,6 @@ export default async function ServicesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Services"
         title="IT solutions designed for modern brands and product teams"
         description="Website design, social media, e-commerce, branding, and growth systems delivered with strategy, craft, and measurable outcomes."
         image={IMAGES.design}

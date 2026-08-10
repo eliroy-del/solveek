@@ -17,7 +17,6 @@ export default async function FaqsPage() {
   return (
     <>
       <PageHero
-        eyebrow="FAQs"
         title="Clear answers for teams evaluating a digital partner"
         description="Search by topic or keyword. Still need detail? Our specialists are ready to help."
         image={IMAGES.office}

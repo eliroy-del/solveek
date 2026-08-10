@@ -33,7 +33,6 @@ export default async function InsightDetailPage({ params }: Props) {
   return (
     <>
       <PageHero
-        eyebrow={article.category}
         title={article.title}
         description={`${article.author} · ${article.date} · ${article.readTime}`}
         image={article.image}

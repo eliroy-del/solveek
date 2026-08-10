@@ -33,7 +33,6 @@ export default async function ProjectDetailPage({ params }: Props) {
   return (
     <>
       <PageHero
-        eyebrow={project.industry}
         title={project.title}
         description={project.location}
         image={project.image}
