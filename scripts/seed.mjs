@@ -61,7 +61,7 @@ const services = [
     description: "Premium, responsive websites that communicate credibility and convert visitors into customers.",
     long_description: "SOLVEEK designs and builds websites that feel intentional, from first impression to final conversion.",
     icon: "MonitorSmartphone",
-    image: IMAGES.design,
+    image: "/images/service-website-design.png",
     features: ["Custom UI systems", "Next.js / modern web stacks", "CMS-ready architecture", "Performance & accessibility"],
     benefits: ["Stronger first impressions", "Higher conversion rates", "Faster publishing workflows"],
     featured: true,
