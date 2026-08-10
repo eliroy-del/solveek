@@ -47,12 +47,12 @@ export function Hero({ capabilities }: { capabilities: Capability[] }) {
         />
 
         <div className="container-premium relative flex min-h-[78vh] items-center pb-32 pt-28 lg:min-h-[82vh] lg:pb-40 lg:pt-32">
-          <div className="relative z-10 max-w-xl">
+          <div className="relative z-10 max-w-2xl">
             <motion.h1
               initial={reduce ? false : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65 }}
-              className="font-heading text-3xl leading-[1.08] text-white sm:text-4xl lg:text-5xl"
+              className="font-heading text-4xl leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
             >
               We bring great
               <span className="block">ideas to life</span>
