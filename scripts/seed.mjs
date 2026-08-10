@@ -113,7 +113,7 @@ const services = [
     description: "Search strategy and content systems that compound organic visibility.",
     long_description: "We align technical SEO, content architecture, and editorial quality for durable discovery.",
     icon: "Search",
-    image: IMAGES.analytics,
+    image: "/images/service-seo-content.png",
     features: ["Technical SEO", "Content strategy", "On-page optimization", "Editorial systems"],
     benefits: ["Organic traffic", "Topical authority", "Sales-ready content"],
     featured: false,
