@@ -14,12 +14,7 @@ import { SITE } from "@/constants/site";
 import { useScrolled } from "@/hooks/use-scroll";
 import { cn } from "@/lib/utils";
 import type { NavService } from "@/lib/content";
-
-const socialLinks = [
-  { href: SITE.social.linkedin, label: "in", name: "LinkedIn" },
-  { href: SITE.social.facebook, label: "f", name: "Facebook" },
-  { href: SITE.social.instagram, label: "IG", name: "Instagram" },
-] as const;
+import { SocialIconLinks } from "@/components/ui/social-icons";
 
 export function Header({ services }: { services: NavService[] }) {
   const scrolled = useScrolled(20);
@@ -204,25 +199,14 @@ export function Header({ services }: { services: NavService[] }) {
               </span>
             </span>
           </a>
-          <div className="flex items-center gap-2">
-            {socialLinks.map(({ href, label, name }) => (
-              <a
-                key={name}
-                href={href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={name}
-                className={cn(
-                  "inline-flex size-10 items-center justify-center rounded-xl text-xs font-bold ring-1 transition",
-                  solid
-                    ? "bg-surface text-navy ring-border hover:bg-royal hover:text-white hover:ring-royal"
-                    : "bg-white/10 text-white ring-white/20 hover:bg-white/20"
-                )}
-              >
-                {label}
-              </a>
-            ))}
-          </div>
+          <SocialIconLinks
+            linkClassName={cn(
+              "inline-flex size-10 items-center justify-center rounded-xl ring-1 transition",
+              solid
+                ? "bg-surface text-navy ring-border hover:bg-royal hover:text-white hover:ring-royal"
+                : "bg-white/10 text-white ring-white/20 hover:bg-white/20"
+            )}
+          />
         </div>
 
         <button
@@ -290,20 +274,7 @@ export function Header({ services }: { services: NavService[] }) {
               >
                 Call {SITE.phone}
               </a>
-              <div className="mt-3 flex items-center gap-2">
-                {socialLinks.map(({ href, label, name }) => (
-                  <a
-                    key={name}
-                    href={href}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={name}
-                    className="inline-flex size-10 items-center justify-center rounded-xl bg-surface text-xs font-bold text-navy ring-1 ring-border transition hover:bg-royal hover:text-white hover:ring-royal"
-                  >
-                    {label}
-                  </a>
-                ))}
-              </div>
+              <SocialIconLinks linkClassName="inline-flex size-10 items-center justify-center rounded-xl bg-surface text-navy ring-1 ring-border transition hover:bg-royal hover:text-white hover:ring-royal" />
             </div>
           </motion.div>
         ) : null}

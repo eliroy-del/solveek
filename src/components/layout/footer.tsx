@@ -3,6 +3,7 @@ import { Logo } from "@/components/layout/logo";
 import { footerNav } from "@/constants/navigation";
 import { SITE } from "@/constants/site";
 import { NewsletterForm } from "@/components/forms/newsletter-form";
+import { SocialIconLinks } from "@/components/ui/social-icons";
 import type { NavService } from "@/lib/content";
 
 export function Footer({ services }: { services: NavService[] }) {
@@ -53,24 +54,7 @@ export function Footer({ services }: { services: NavService[] }) {
               ))}
             </div>
           </div>
-          <div className="flex items-center gap-3">
-            {[
-              { href: SITE.social.linkedin, label: "in", name: "LinkedIn" },
-              { href: SITE.social.facebook, label: "f", name: "Facebook" },
-              { href: SITE.social.instagram, label: "IG", name: "Instagram" },
-            ].map(({ href, label, name }) => (
-              <a
-                key={name}
-                href={href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={name}
-                className="inline-flex size-10 items-center justify-center rounded-xl bg-white/5 text-xs font-bold text-white/80 ring-1 ring-white/10 transition hover:bg-white/10 hover:text-white"
-              >
-                {label}
-              </a>
-            ))}
-          </div>
+          <SocialIconLinks linkClassName="inline-flex size-10 items-center justify-center rounded-xl bg-white/5 text-white/80 ring-1 ring-white/10 transition hover:bg-white/10 hover:text-white" />
         </div>
       </div>
     </footer>

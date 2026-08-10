@@ -1,6 +1,11 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import {
+  FacebookIcon,
+  InstagramIcon,
+  LinkedInIcon,
+} from "@/components/ui/social-icons";
 
 type PreviewKind = "ecommerce" | "branding" | "social" | "website";
 
@@ -88,12 +93,12 @@ function SocialPreview() {
           <p className="font-heading text-sm text-navy">This week</p>
         </div>
         <div className="flex gap-1">
-          {["IG", "f", "in"].map((channel) => (
+          {[InstagramIcon, FacebookIcon, LinkedInIcon].map((Icon, index) => (
             <span
-              key={channel}
-              className="rounded-md bg-white px-1.5 py-1 text-[9px] font-semibold text-navy shadow-sm"
+              key={index}
+              className="inline-flex size-6 items-center justify-center rounded-md bg-white text-navy shadow-sm"
             >
-              {channel}
+              <Icon className="size-3" />
             </span>
           ))}
         </div>
