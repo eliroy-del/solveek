@@ -128,33 +128,14 @@ function SocialPreview() {
 
 function WebsitePreview() {
   return (
-    <div className="flex h-full flex-col bg-white p-4">
-      <div className="mb-3 flex items-center gap-1.5 rounded-t-xl border border-border bg-[#F4F6FB] px-3 py-2">
-        <span className="size-2 rounded-full bg-[#FF5F57]" />
-        <span className="size-2 rounded-full bg-[#FEBC2E]" />
-        <span className="size-2 rounded-full bg-[#28C840]" />
-        <span className="ml-2 h-3 flex-1 rounded-full bg-white" />
-      </div>
-      <div className="flex flex-1 flex-col overflow-hidden rounded-b-xl border border-t-0 border-border">
-        <div className="bg-gradient-to-br from-navy to-[#13224A] px-4 py-5 text-white">
-          <p className="text-[10px] uppercase tracking-[0.16em] text-white/50">
-            BrightPath
-          </p>
-          <p className="mt-1 font-heading text-base leading-snug">
-            Learn with clarity
-          </p>
-          <div className="mt-3 h-6 w-20 rounded-lg bg-royal" />
-        </div>
-        <div className="grid flex-1 grid-cols-3 gap-2 p-3">
-          {Array.from({ length: 3 }).map((_, i) => (
-            <div key={i} className="rounded-lg bg-surface p-2">
-              <div className="mb-2 h-8 rounded-md bg-royal/10" />
-              <div className="h-1.5 w-full rounded-full bg-navy/10" />
-              <div className="mt-1.5 h-1.5 w-2/3 rounded-full bg-navy/10" />
-            </div>
-          ))}
-        </div>
-      </div>
+    <div className="relative h-full w-full bg-[#0B1220]">
+      <Image
+        src="/images/project-brightpath-website.png"
+        alt="Developer working on website code on a laptop"
+        fill
+        sizes="(max-width: 1024px) 100vw, 33vw"
+        className="object-cover"
+      />
     </div>
   );
 }
