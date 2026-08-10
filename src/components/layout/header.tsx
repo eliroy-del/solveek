@@ -6,12 +6,17 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import { Logo } from "@/components/layout/logo";
-import { PremiumButton } from "@/components/ui/premium-button";
 import { mainNavLinks } from "@/constants/navigation";
 import { SITE } from "@/constants/site";
 import { useScrolled } from "@/hooks/use-scroll";
 import { cn } from "@/lib/utils";
 import type { NavService } from "@/lib/content";
+
+const socialLinks = [
+  { href: SITE.social.linkedin, label: "in", name: "LinkedIn" },
+  { href: SITE.social.facebook, label: "f", name: "Facebook" },
+  { href: SITE.social.instagram, label: "IG", name: "Instagram" },
+] as const;
 
 export function Header({ services }: { services: NavService[] }) {
   const scrolled = useScrolled(20);
@@ -172,9 +177,25 @@ export function Header({ services }: { services: NavService[] }) {
               </span>
             </span>
           </a>
-          <PremiumButton href="/quote" size="md" showArrow>
-            Get Quote
-          </PremiumButton>
+          <div className="flex items-center gap-2">
+            {socialLinks.map(({ href, label, name }) => (
+              <a
+                key={name}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={name}
+                className={cn(
+                  "inline-flex size-10 items-center justify-center rounded-xl text-xs font-bold ring-1 transition",
+                  solid
+                    ? "bg-surface text-navy ring-border hover:bg-royal hover:text-white hover:ring-royal"
+                    : "bg-white/10 text-white ring-white/20 hover:bg-white/20"
+                )}
+              >
+                {label}
+              </a>
+            ))}
+          </div>
         </div>
 
         <button
@@ -232,9 +253,20 @@ export function Header({ services }: { services: NavService[] }) {
               >
                 Call {SITE.phone}
               </a>
-              <PremiumButton href="/quote" className="mt-2 w-full" showArrow>
-                Get Quote
-              </PremiumButton>
+              <div className="mt-3 flex items-center gap-2">
+                {socialLinks.map(({ href, label, name }) => (
+                  <a
+                    key={name}
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={name}
+                    className="inline-flex size-10 items-center justify-center rounded-xl bg-surface text-xs font-bold text-navy ring-1 ring-border transition hover:bg-royal hover:text-white hover:ring-royal"
+                  >
+                    {label}
+                  </a>
+                ))}
+              </div>
             </div>
           </motion.div>
         ) : null}
