@@ -23,17 +23,17 @@ export function Testimonials({ items }: { items: Testimonial[] }) {
   const item = items[index] ?? items[0];
 
   return (
-    <section className="section-padding gradient-navy">
+    <section className="gradient-navy px-6 py-14 md:py-16">
       <div className="container-premium">
         <SectionHeading
           eyebrow="Clients"
           title="Trusted by teams building modern digital brands"
           light
           align="center"
-          className="mb-12"
+          className="mb-8 max-w-2xl"
         />
         <div
-          className="mx-auto max-w-4xl"
+          className="mx-auto max-w-xl"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
@@ -44,42 +44,42 @@ export function Testimonials({ items }: { items: Testimonial[] }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.45 }}
-              className="glass rounded-[28px] p-8 text-white md:p-12"
+              className="glass rounded-3xl p-5 text-white md:p-6"
             >
-              <div className="mb-6 flex gap-1">
+              <div className="mb-3 flex gap-1">
                 {Array.from({ length: item.rating }).map((_, i) => (
-                  <Star key={i} className="size-4 fill-warning text-warning" />
+                  <Star key={i} className="size-3.5 fill-warning text-warning" />
                 ))}
               </div>
-              <blockquote className="font-heading text-2xl leading-relaxed md:text-3xl">
+              <blockquote className="font-heading text-lg leading-snug md:text-xl">
                 “{item.quote}”
               </blockquote>
-              <div className="mt-8 flex items-center gap-4">
+              <div className="mt-5 flex items-center gap-3">
                 <Image
                   src={item.image}
                   alt={item.name}
-                  width={56}
-                  height={56}
-                  className="size-14 rounded-2xl object-cover"
+                  width={40}
+                  height={40}
+                  className="size-10 rounded-xl object-cover"
                 />
                 <div>
-                  <p className="font-semibold">{item.name}</p>
-                  <p className="text-sm text-white/65">
+                  <p className="text-sm font-semibold">{item.name}</p>
+                  <p className="text-xs text-white/65">
                     {item.role}, {item.company}
                   </p>
                 </div>
               </div>
             </motion.article>
           </AnimatePresence>
-          <div className="mt-6 flex justify-center gap-2">
+          <div className="mt-4 flex justify-center gap-2">
             {items.map((t, i) => (
               <button
                 key={t.id}
                 type="button"
                 aria-label={`Show testimonial ${i + 1}`}
                 onClick={() => setIndex(i)}
-                className={`h-2.5 rounded-full transition-all ${
-                  i === index ? "w-8 bg-cyan" : "w-2.5 bg-white/30"
+                className={`h-2 rounded-full transition-all ${
+                  i === index ? "w-6 bg-cyan" : "w-2 bg-white/30"
                 }`}
               />
             ))}
