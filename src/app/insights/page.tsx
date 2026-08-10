@@ -17,7 +17,6 @@ export default async function InsightsPage() {
   return (
     <>
       <PageHero
-        eyebrow="Insights"
         title="Ideas for teams building modern digital brands"
         description="Practical perspectives on design, product, commerce, and growth, written for decision makers who ship."
         image={IMAGES.analytics}
