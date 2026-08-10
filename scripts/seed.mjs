@@ -251,13 +251,28 @@ async function main() {
   await supabase.from("projects").delete().eq("slug", "pulseboard-saas-platform");
   await supabase.from("projects").delete().eq("slug", "atelier-social-system");
 
+  const INSIGHT_IMAGES = {
+    websiteDesign:
+      "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=1600&q=80",
+    saasOnboarding:
+      "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1600&q=80",
+    socialSystems:
+      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1600&q=80",
+    checkout:
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80",
+    designSystems:
+      "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1600&q=80",
+    aiProducts:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1600&q=80",
+  };
+
   await upsert("insights", [
-    { slug: "conversion-first-website-design", title: "Conversion-First Website Design Without Sacrificing Craft", excerpt: "How premium visual design and clear UX architecture drive measurable outcomes.", body: "", category: "Design", author: "Amara Okonkwo", date: "2026-06-12", read_time: "7 min", image: IMAGES.design, featured: true },
-    { slug: "saas-onboarding-that-sticks", title: "SaaS Onboarding That Sticks", excerpt: "Practical UX patterns that help new users reach value faster.", body: "", category: "Product", author: "Daniel Reyes", date: "2026-05-28", read_time: "6 min", image: IMAGES.saas, featured: false },
-    { slug: "social-systems-not-posts", title: "Build Social Systems, Not Just Posts", excerpt: "Why high-performing brands treat social as an operating system.", body: "", category: "Marketing", author: "Priya Nair", date: "2026-05-04", read_time: "8 min", image: IMAGES.social, featured: false },
-    { slug: "ecommerce-checkout-friction", title: "Where Checkout Friction Quietly Kills Revenue", excerpt: "A practical checklist for finding silent leaks between product page and purchase.", body: "", category: "E-commerce", author: "James Whitfield", date: "2026-04-18", read_time: "5 min", image: IMAGES.ecommerce, featured: false },
-    { slug: "design-systems-for-scale", title: "Design Systems That Keep Growing Brands Coherent", excerpt: "How reusable components accelerate shipping without diluting quality.", body: "", category: "Design", author: "Elena Markov", date: "2026-03-30", read_time: "9 min", image: IMAGES.product, featured: false },
-    { slug: "ai-in-digital-products", title: "Using AI in Digital Products Without Losing Trust", excerpt: "A grounded approach to AI features that feel useful and brand-aligned.", body: "", category: "Technology", author: "Sophie Laurent", date: "2026-03-09", read_time: "6 min", image: IMAGES.code, featured: false },
+    { slug: "conversion-first-website-design", title: "Conversion-First Website Design Without Sacrificing Craft", excerpt: "How premium visual design and clear UX architecture drive measurable outcomes.", body: "", category: "Design", author: "Amara Okonkwo", date: "2026-06-12", read_time: "7 min", image: INSIGHT_IMAGES.websiteDesign, featured: true },
+    { slug: "saas-onboarding-that-sticks", title: "SaaS Onboarding That Sticks", excerpt: "Practical UX patterns that help new users reach value faster.", body: "", category: "Product", author: "Daniel Reyes", date: "2026-05-28", read_time: "6 min", image: INSIGHT_IMAGES.saasOnboarding, featured: false },
+    { slug: "social-systems-not-posts", title: "Build Social Systems, Not Just Posts", excerpt: "Why high-performing brands treat social as an operating system.", body: "", category: "Marketing", author: "Priya Nair", date: "2026-05-04", read_time: "8 min", image: INSIGHT_IMAGES.socialSystems, featured: false },
+    { slug: "ecommerce-checkout-friction", title: "Where Checkout Friction Quietly Kills Revenue", excerpt: "A practical checklist for finding silent leaks between product page and purchase.", body: "", category: "E-commerce", author: "James Whitfield", date: "2026-04-18", read_time: "5 min", image: INSIGHT_IMAGES.checkout, featured: false },
+    { slug: "design-systems-for-scale", title: "Design Systems That Keep Growing Brands Coherent", excerpt: "How reusable components accelerate shipping without diluting quality.", body: "", category: "Design", author: "Elena Markov", date: "2026-03-30", read_time: "9 min", image: INSIGHT_IMAGES.designSystems, featured: false },
+    { slug: "ai-in-digital-products", title: "Using AI in Digital Products Without Losing Trust", excerpt: "A grounded approach to AI features that feel useful and brand-aligned.", body: "", category: "Technology", author: "Sophie Laurent", date: "2026-03-09", read_time: "6 min", image: INSIGHT_IMAGES.aiProducts, featured: false },
   ]);
 
   const { error: faqErr } = await supabase.from("faqs").upsert([
