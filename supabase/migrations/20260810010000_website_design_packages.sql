@@ -6,7 +6,7 @@ values (
     {
       "name": "Starter",
       "tagline": "Launch with clarity",
-      "price": "GHS 8,500",
+      "price": "GHS 4,000",
       "priceNote": "from",
       "description": "A focused marketing site for brands that need a credible online presence fast.",
       "features": [
@@ -23,7 +23,7 @@ values (
     {
       "name": "Business",
       "tagline": "Grow with a conversion system",
-      "price": "GHS 18,500",
+      "price": "GHS 6,000",
       "priceNote": "from",
       "description": "A full business website with stronger storytelling, lead capture, and performance polish.",
       "features": [
@@ -42,7 +42,7 @@ values (
     {
       "name": "Premium",
       "tagline": "Design systems that scale",
-      "price": "GHS 35,000",
+      "price": "GHS 12,000",
       "priceNote": "from",
       "description": "A premium web product experience for ambitious brands that need depth, motion, and flexibility.",
       "features": [
