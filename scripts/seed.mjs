@@ -101,6 +101,10 @@ const services = [
     long_description: "SOLVEEK crafts brand foundations so every digital touchpoint feels coherent and premium.",
     icon: "Palette",
     image: "/images/service-branding-identity.png",
+    features: ["Logo & visual identity", "Brand guidelines", "Tone of voice", "Launch collateral"],
+    benefits: ["Memorable presence", "Consistent brand", "Faster creative production"],
+    featured: true,
+    sort_order: 4,
   },
   {
     slug: "seo-content",
