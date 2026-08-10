@@ -1,21 +1,24 @@
 import { Hero } from "@/components/sections/hero";
 import { TrustBar } from "@/components/sections/trust-bar";
 import { AboutPreview } from "@/components/sections/about-preview";
+import { Process } from "@/components/sections/process";
 import { IndustriesGrid } from "@/components/sections/industries-grid";
 import { Testimonials } from "@/components/sections/testimonials";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import {
   getFeaturedCapabilities,
   getIndustries,
+  getProcessSteps,
   getTestimonials,
   getTrustItems,
 } from "@/lib/content";
 
 export default async function HomePage() {
-  const [capabilities, trustItems, industries, testimonials] =
+  const [capabilities, trustItems, processSteps, industries, testimonials] =
     await Promise.all([
       getFeaturedCapabilities(),
       getTrustItems(),
+      getProcessSteps(),
       getIndustries(),
       getTestimonials(),
     ]);
@@ -25,6 +28,7 @@ export default async function HomePage() {
       <Hero capabilities={capabilities} />
       <TrustBar items={trustItems} />
       <AboutPreview />
+      <Process items={processSteps} />
       <section className="relative overflow-hidden bg-surface">
         <div
           aria-hidden
