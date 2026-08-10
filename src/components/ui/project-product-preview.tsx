@@ -83,12 +83,12 @@ function SocialPreview() {
       <div className="mb-3 flex items-center justify-between">
         <div>
           <p className="text-[10px] uppercase tracking-[0.18em] text-royal">
-            Content OS
+            Social management
           </p>
           <p className="font-heading text-sm text-navy">This week</p>
         </div>
         <div className="flex gap-1">
-          {["IG", "X", "LI"].map((channel) => (
+          {["IG", "f", "in"].map((channel) => (
             <span
               key={channel}
               className="rounded-md bg-white px-1.5 py-1 text-[9px] font-semibold text-navy shadow-sm"

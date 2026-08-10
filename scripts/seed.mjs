@@ -221,13 +221,13 @@ async function main() {
       sort_order: 2,
     },
     {
-      slug: "atelier-social-system",
-      title: "Atelier Social Growth System",
-      industry: "Lifestyle brand",
-      location: "Multi-channel social",
-      challenge: "Inconsistent content and no operating rhythm across channels.",
-      solution: "SOLVEEK built a content operating system and performance dashboard.",
-      results: ["3.2x increase in engagement rate", "Consistent weekly publishing", "Clear campaign attribution"],
+      slug: "atelier-social-management",
+      title: "Atelier Social Media Management",
+      industry: "Social Media",
+      location: "Multi-channel management",
+      challenge: "Posting was irregular, channels felt disconnected, and there was no clear reporting rhythm.",
+      solution: "SOLVEEK set up a full social media management system with content planning, publishing, community replies, and monthly performance reviews.",
+      results: ["3.2x increase in engagement rate", "Consistent weekly publishing calendar", "Clear monthly reporting for stakeholders"],
       image: PROJECT_IMAGES.social,
       gallery: [PROJECT_IMAGES.social, PROJECT_IMAGES.content, PROJECT_IMAGES.planning],
       featured: true,
@@ -249,6 +249,7 @@ async function main() {
   ]);
 
   await supabase.from("projects").delete().eq("slug", "pulseboard-saas-platform");
+  await supabase.from("projects").delete().eq("slug", "atelier-social-system");
 
   await upsert("insights", [
     { slug: "conversion-first-website-design", title: "Conversion-First Website Design Without Sacrificing Craft", excerpt: "How premium visual design and clear UX architecture drive measurable outcomes.", body: "", category: "Design", author: "Amara Okonkwo", date: "2026-06-12", read_time: "7 min", image: IMAGES.design, featured: true },
