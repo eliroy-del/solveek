@@ -55,7 +55,7 @@ export function ServicesGrid({
 
       <div className="container-premium relative">
         {showHeading ? (
-          <div className="mb-14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <SectionHeading
               eyebrow="Services"
               title="Digital capabilities that turn ideas into working products"
@@ -73,7 +73,7 @@ export function ServicesGrid({
           </div>
         ) : null}
 
-        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {list.map((service, index) => {
             const Icon = getIcon(service.icon);
             return (
@@ -81,20 +81,20 @@ export function ServicesGrid({
                 <Link
                   href={`/services/${service.slug}`}
                   className={cn(
-                    "group relative flex h-full flex-col rounded-3xl border border-white/80 bg-white/90 p-7 shadow-soft backdrop-blur-sm transition-all duration-300",
+                    "group relative flex h-full flex-col rounded-2xl border border-white/80 bg-white/90 p-5 shadow-soft backdrop-blur-sm transition-all duration-300",
                     "hover:-translate-y-1 hover:border-royal/20 hover:shadow-lift"
                   )}
                 >
-                  <div className="mb-6 inline-flex size-12 items-center justify-center rounded-2xl bg-surface text-royal transition-colors group-hover:gradient-royal group-hover:text-white">
-                    <Icon className="size-5 transition-transform duration-300 group-hover:rotate-6" />
+                  <div className="mb-4 inline-flex size-10 items-center justify-center rounded-xl bg-surface text-royal transition-colors group-hover:gradient-royal group-hover:text-white">
+                    <Icon className="size-4 transition-transform duration-300 group-hover:rotate-6" />
                   </div>
-                  <h3 className="font-heading text-xl text-navy">{service.title}</h3>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  <h3 className="font-heading text-lg text-navy">{service.title}</h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
                     {service.description}
                   </p>
-                  <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-royal">
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-royal">
                     Learn more
-                    <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </span>
                 </Link>
               </Reveal>

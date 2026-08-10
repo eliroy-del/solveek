@@ -20,7 +20,7 @@ export function Hero({ capabilities }: { capabilities: Capability[] }) {
 
   return (
     <section className="relative isolate overflow-hidden bg-navy-dark">
-      <div className="relative min-h-[88vh] lg:min-h-[92vh]">
+      <div className="relative min-h-[78vh] lg:min-h-[82vh]">
         <motion.div
           className="absolute inset-0"
           initial={reduce ? false : { scale: 1.06 }}
@@ -46,13 +46,13 @@ export function Hero({ capabilities }: { capabilities: Capability[] }) {
           className="pointer-events-none absolute -left-24 top-1/2 h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(19,88,254,0.55)_0%,rgba(77,130,255,0.18)_45%,transparent_70%)] blur-[2px] md:left-[4%] md:h-[640px] md:w-[640px]"
         />
 
-        <div className="container-premium relative flex min-h-[88vh] items-center pb-40 pt-36 lg:min-h-[92vh] lg:pb-48 lg:pt-40">
-          <div className="relative z-10 max-w-2xl">
+        <div className="container-premium relative flex min-h-[78vh] items-center pb-32 pt-28 lg:min-h-[82vh] lg:pb-40 lg:pt-32">
+          <div className="relative z-10 max-w-xl">
             <motion.h1
               initial={reduce ? false : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65 }}
-              className="font-heading text-4xl leading-[1.08] text-white sm:text-5xl lg:text-6xl"
+              className="font-heading text-3xl leading-[1.08] text-white sm:text-4xl lg:text-5xl"
             >
               We bring great
               <span className="block">ideas to life</span>
@@ -62,18 +62,18 @@ export function Hero({ capabilities }: { capabilities: Capability[] }) {
               initial={reduce ? false : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.1 }}
-              className="mt-6 max-w-lg text-base leading-relaxed text-white/80 sm:text-lg"
+              className="mt-4 max-w-md text-sm leading-relaxed text-white/80 sm:text-base"
             >
               SOLVEEK delivers website design, social media management,
-              e-commerce, SaaS products, and digital systems that help brands
-              grow with clarity and craft.
+              e-commerce, and digital systems that help brands grow with clarity
+              and craft.
             </motion.p>
 
             <motion.div
               initial={reduce ? false : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.18 }}
-              className="mt-9 flex flex-wrap gap-4"
+              className="mt-7 flex flex-wrap gap-3"
             >
               <PremiumButton href="/quote" showArrow>
                 Start a project
@@ -87,9 +87,9 @@ export function Hero({ capabilities }: { capabilities: Capability[] }) {
       </div>
 
       {/* Overlapping capability cards */}
-      <div className="relative z-20 -mt-28 pb-6 md:-mt-36">
+      <div className="relative z-20 -mt-20 pb-4 md:-mt-28">
         <div className="container-premium">
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
             {capabilities.map((item, index) => {
               const Icon = getIcon(item.icon);
               return (
@@ -101,18 +101,18 @@ export function Hero({ capabilities }: { capabilities: Capability[] }) {
                 >
                   <Link
                     href={`/services/${item.slug}`}
-                    className="group flex h-full flex-col rounded-[24px] border border-white/70 bg-white p-6 shadow-[0_18px_50px_rgba(7,11,20,0.14)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_60px_rgba(19,88,254,0.18)]"
+                    className="group flex h-full flex-col rounded-2xl border border-white/70 bg-white p-4 shadow-[0_14px_36px_rgba(7,11,20,0.12)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_44px_rgba(19,88,254,0.16)]"
                   >
-                    <div className="mb-5 inline-flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#E8F1FF] to-[#D9F6FF] text-royal transition group-hover:from-royal group-hover:to-cyan group-hover:text-white">
-                      <Icon className="size-6 transition-transform duration-300 group-hover:scale-110" />
+                    <div className="mb-3 inline-flex size-11 items-center justify-center rounded-xl bg-gradient-to-br from-[#E8F1FF] to-[#D9F6FF] text-royal transition group-hover:from-royal group-hover:to-cyan group-hover:text-white">
+                      <Icon className="size-5 transition-transform duration-300 group-hover:scale-110" />
                     </div>
-                    <h2 className="font-heading text-lg text-navy">{item.title}</h2>
-                    <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                    <h2 className="font-heading text-base text-navy">{item.title}</h2>
+                    <p className="mt-2 flex-1 text-xs leading-relaxed text-muted-foreground sm:text-sm">
                       {item.description}
                     </p>
-                    <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-royal">
+                    <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-royal">
                       Learn more
-                      <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+                      <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
                     </span>
                   </Link>
                 </motion.div>

@@ -92,7 +92,7 @@
   --chart-3: #070b14;
   --chart-4: #17c964;
   --chart-5: #ffb020;
-  --radius: 1.5rem;
+  --radius: 1.25rem;
   --sidebar: #f4f6fb;
   --sidebar-foreground: #070b14;
   --sidebar-primary: #1358fe;
@@ -110,6 +110,7 @@
 
   html {
     scroll-behavior: smooth;
+    font-size: 93.75%;
   }
 
   body {
@@ -139,11 +140,11 @@
   }
 
   .container-premium {
-    @apply mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12;
+    @apply mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8;
   }
 
   .section-padding {
-    @apply py-20 md:py-28 lg:py-32;
+    @apply py-14 md:py-20 lg:py-24;
   }
 
   .text-balance {

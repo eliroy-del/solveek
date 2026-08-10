@@ -36,34 +36,34 @@ export function ServicePackages({
           title={title}
           description={description}
           align="center"
-          className="mb-14"
+          className="mb-10"
         />
 
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid gap-4 lg:grid-cols-3">
           {items.map((pkg, index) => (
             <Reveal key={pkg.name} delay={Math.min(index * 0.08, 0.24)}>
               <article
                 className={cn(
-                  "relative flex h-full flex-col rounded-[28px] border p-7 shadow-soft transition hover:-translate-y-1 hover:shadow-lift",
+                  "relative flex h-full flex-col rounded-2xl border p-5 shadow-soft transition hover:-translate-y-1 hover:shadow-lift",
                   pkg.highlighted
                     ? "border-royal/30 bg-white ring-1 ring-royal/20"
                     : "border-border bg-white/90"
                 )}
               >
                 {pkg.highlighted ? (
-                  <span className="absolute -top-3 left-7 rounded-full bg-royal px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-white">
+                  <span className="absolute -top-2.5 left-5 rounded-full bg-royal px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-white">
                     Most popular
                   </span>
                 ) : null}
 
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-royal">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-royal">
                   {pkg.name}
                 </p>
-                <h3 className="mt-3 font-heading text-2xl text-navy">
+                <h3 className="mt-2 font-heading text-xl text-navy">
                   {pkg.tagline}
                 </h3>
-                <div className="mt-5 flex items-baseline gap-1.5">
-                  <span className="font-heading text-3xl text-navy sm:text-4xl">
+                <div className="mt-3 flex items-baseline gap-1.5">
+                  <span className="font-heading text-2xl text-navy sm:text-3xl">
                     {pkg.price}
                   </span>
                   {pkg.priceNote ? (
@@ -72,23 +72,23 @@ export function ServicePackages({
                     </span>
                   ) : null}
                 </div>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {pkg.description}
                 </p>
 
-                <ul className="mt-7 flex-1 space-y-3">
+                <ul className="mt-5 flex-1 space-y-2.5">
                   {pkg.features.map((feature) => (
                     <li
                       key={feature}
-                      className="flex items-start gap-3 text-sm text-navy/80"
+                      className="flex items-start gap-2.5 text-sm text-navy/80"
                     >
-                      <Check className="mt-0.5 size-4 shrink-0 text-royal" />
+                      <Check className="mt-0.5 size-3.5 shrink-0 text-royal" />
                       {feature}
                     </li>
                   ))}
                 </ul>
 
-                <div className="mt-8">
+                <div className="mt-6">
                   <PremiumButton
                     href={`/quote?service=${encodeURIComponent(quoteService)}&package=${encodeURIComponent(pkg.name)}`}
                     showArrow

@@ -39,7 +39,7 @@ export function Logo({
         unoptimized
         className={cn(
           "w-auto object-contain",
-          isFooter ? "h-16 sm:h-20" : "h-12 sm:h-14 md:h-16"
+          isFooter ? "h-12 sm:h-14" : "h-9 sm:h-10 md:h-11"
         )}
       />
     </Link>

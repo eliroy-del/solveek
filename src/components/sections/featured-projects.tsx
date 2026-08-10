@@ -17,7 +17,7 @@ export function FeaturedProjects({
   return (
     <section className="section-padding bg-white">
       <div className="container-premium">
-        <div className="mb-14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <SectionHeading
             eyebrow="Projects"
             title="Selected work with measurable outcomes"
@@ -34,35 +34,35 @@ export function FeaturedProjects({
           </Reveal>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid gap-4 lg:grid-cols-3">
           {list.map((project, index) => (
             <Reveal key={project.slug} delay={index * 0.08}>
               <Link
                 href={`/projects/${project.slug}`}
-                className="group flex h-full flex-col overflow-hidden rounded-[28px] border border-border bg-white shadow-soft transition hover:-translate-y-1 hover:shadow-lift"
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-soft transition hover:-translate-y-1 hover:shadow-lift"
               >
-                <div className="relative h-56 overflow-hidden border-b border-border">
+                <div className="relative h-44 overflow-hidden border-b border-border">
                   <div className="absolute inset-0 transition duration-500 group-hover:scale-[1.03]">
                     <ProjectProductPreview
                       slug={project.slug}
                       industry={project.industry}
                     />
                   </div>
-                  <span className="absolute bottom-4 left-4 rounded-full bg-navy/80 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
+                  <span className="absolute bottom-3 left-3 rounded-full bg-navy/80 px-2.5 py-1 text-[11px] font-semibold text-white backdrop-blur">
                     {project.industry}
                   </span>
                 </div>
-                <div className="flex flex-1 flex-col p-6">
-                  <h3 className="font-heading text-xl text-navy">{project.title}</h3>
-                  <p className="mt-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                <div className="flex flex-1 flex-col p-5">
+                  <h3 className="font-heading text-lg text-navy">{project.title}</h3>
+                  <p className="mt-1.5 text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
                     {project.location}
                   </p>
-                  <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
                     {project.challenge}
                   </p>
-                  <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-royal">
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-royal">
                     View case study
-                    <ArrowUpRight className="size-4" />
+                    <ArrowUpRight className="size-3.5" />
                   </span>
                 </div>
               </Link>

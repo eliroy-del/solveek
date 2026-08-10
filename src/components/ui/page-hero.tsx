@@ -20,7 +20,7 @@ export function PageHero({
   return (
     <section
       className={cn(
-        "relative isolate overflow-hidden pt-36 pb-20 md:pt-44 md:pb-28",
+        "relative isolate overflow-hidden pt-28 pb-14 md:pt-36 md:pb-20",
         className
       )}
     >
@@ -35,17 +35,17 @@ export function PageHero({
       <div className="absolute inset-0 bg-gradient-to-r from-navy-dark via-navy-dark/85 to-navy/55" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(19,88,254,0.22),transparent_40%)]" />
       <div className="container-premium relative">
-        <Reveal className="max-w-3xl">
+        <Reveal className="max-w-2xl">
           {eyebrow ? (
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-cyan">
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-cyan">
               {eyebrow}
             </p>
           ) : null}
-          <h1 className="font-heading text-4xl leading-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="font-heading text-3xl leading-tight text-white sm:text-4xl lg:text-5xl">
             {title}
           </h1>
           {description ? (
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/75">
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-white/75">
               {description}
             </p>
           ) : null}
