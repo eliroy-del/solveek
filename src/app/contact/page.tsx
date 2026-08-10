@@ -37,9 +37,8 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        eyebrow="Contact"
         title="Let’s talk about your next digital move"
-        description="Whether you need a new website, a social growth system, an online store, or a SaaS product, our team is ready to help."
+        description="Whether you need a new website, a social growth system, or an online store, our team is ready to help."
         image={IMAGES.office}
       />
 
