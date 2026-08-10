@@ -56,8 +56,7 @@ export function Footer({ services }: { services: NavService[] }) {
           <div className="flex items-center gap-3">
             {[
               { href: SITE.social.linkedin, label: "in", name: "LinkedIn" },
-              { href: SITE.social.twitter, label: "X", name: "X" },
-              { href: SITE.social.youtube, label: "YT", name: "YouTube" },
+              { href: SITE.social.facebook, label: "f", name: "Facebook" },
               { href: SITE.social.instagram, label: "IG", name: "Instagram" },
             ].map(({ href, label, name }) => (
               <a

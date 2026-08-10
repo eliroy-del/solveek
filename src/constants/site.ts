@@ -13,8 +13,7 @@ export const SITE = {
   emergencyPhone: "+233 24 637 0261",
   social: {
     linkedin: "https://linkedin.com/company/solveek",
-    twitter: "https://x.com/solveek",
-    youtube: "https://youtube.com/@solveek",
+    facebook: "https://facebook.com/solveek",
     instagram: "https://instagram.com/solveek",
   },
 } as const;
