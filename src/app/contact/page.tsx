@@ -57,10 +57,7 @@ export default function ContactPage() {
           <Reveal>
             <aside className="flex h-full flex-col justify-between overflow-hidden rounded-[28px] bg-navy p-7 text-white md:p-9">
               <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-cyan">
-                  Direct lines
-                </p>
-                <h2 className="mt-3 font-heading text-3xl leading-tight sm:text-4xl">
+                <h2 className="font-heading text-3xl leading-tight sm:text-4xl">
                   Prefer to reach us straight away?
                 </h2>
                 <p className="mt-4 max-w-md text-sm leading-relaxed text-white/70">
