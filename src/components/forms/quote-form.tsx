@@ -5,19 +5,21 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+const services = [
+  "Website Design",
+  "Social Media",
+  "E-commerce",
+  "SaaS Product",
+  "Branding",
+  "Other",
+] as const;
+
 const schema = z.object({
   name: z.string().min(2, "Name is required"),
   email: z.string().email("Valid email required"),
   company: z.string().min(2, "Company is required"),
   phone: z.string().min(6, "Phone is required"),
-  service: z.enum([
-    "Website Design",
-    "Social Media",
-    "E-commerce",
-    "SaaS Product",
-    "Branding",
-    "Other",
-  ]),
+  service: z.enum(services),
   budget: z.string().optional(),
   timeline: z.string().optional(),
   notes: z.string().min(10, "Please share a bit more detail"),
@@ -26,7 +28,25 @@ const schema = z.object({
 
 type FormValues = z.infer<typeof schema>;
 
-export function QuoteForm() {
+function resolveService(value?: string): FormValues["service"] {
+  if (value && (services as readonly string[]).includes(value)) {
+    return value as FormValues["service"];
+  }
+  return "Website Design";
+}
+
+export function QuoteForm({
+  defaultService,
+  defaultPackage,
+}: {
+  defaultService?: string;
+  defaultPackage?: string;
+} = {}) {
+  const service = resolveService(defaultService);
+  const notes = defaultPackage
+    ? `Interested in the ${defaultPackage} website design package.`
+    : "";
+
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const {
     register,
@@ -35,7 +55,7 @@ export function QuoteForm() {
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
     resolver: zodResolver(schema),
-    defaultValues: { service: "Website Design" },
+    defaultValues: { service, notes },
   });
 
   const onSubmit = async (values: FormValues) => {
@@ -48,7 +68,7 @@ export function QuoteForm() {
       });
       if (!res.ok) throw new Error("Failed");
       setStatus("success");
-      reset({ service: "Website Design" });
+      reset({ service, notes: "" });
     } catch {
       setStatus("error");
     }
@@ -75,16 +95,9 @@ export function QuoteForm() {
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Primary service" error={errors.service?.message}>
           <select className={inputClass} {...register("service")}>
-            {[
-              "Website Design",
-              "Social Media",
-              "E-commerce",
-              "SaaS Product",
-              "Branding",
-              "Other",
-            ].map((service) => (
-              <option key={service} value={service}>
-                {service}
+            {services.map((item) => (
+              <option key={item} value={item}>
+                {item}
               </option>
             ))}
           </select>

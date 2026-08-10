@@ -17,6 +17,17 @@ export type Service = {
   benefits: string[];
 };
 
+export type ServicePackage = {
+  name: string;
+  tagline: string;
+  price: string;
+  priceNote?: string;
+  description: string;
+  features: string[];
+  cta: string;
+  highlighted?: boolean;
+};
+
 export type Industry = {
   slug: string;
   title: string;

@@ -7,6 +7,7 @@ import type {
   ProcessStep,
   Project,
   Service,
+  ServicePackage,
   Stat,
   Testimonial,
   TimelineItem,
@@ -483,6 +484,10 @@ export async function getAboutHighlights() {
 
 export async function getTrustItems() {
   return getSiteContent<string[]>("trust_items");
+}
+
+export async function getWebsiteDesignPackages() {
+  return getSiteContent<ServicePackage[]>("website_design_packages");
 }
 
 export type NavService = {

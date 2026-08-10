@@ -10,7 +10,15 @@ export const metadata: Metadata = {
     "Request a SOLVEEK quote for website design, social media, e-commerce, SaaS products, branding, and digital growth projects.",
 };
 
-export default function QuotePage() {
+type Props = {
+  searchParams: Promise<{ service?: string; package?: string }>;
+};
+
+export default async function QuotePage({ searchParams }: Props) {
+  const params = await searchParams;
+  const packageName = params.package?.trim();
+  const service = params.service?.trim();
+
   return (
     <>
       <PageHero
@@ -40,7 +48,10 @@ export default function QuotePage() {
           </Reveal>
           <Reveal delay={0.08}>
             <div className="rounded-[28px] border border-border bg-surface/40 p-6 shadow-soft md:p-8">
-              <QuoteForm />
+              <QuoteForm
+                defaultService={service}
+                defaultPackage={packageName}
+              />
             </div>
           </Reveal>
         </div>

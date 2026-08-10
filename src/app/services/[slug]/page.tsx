@@ -6,8 +6,13 @@ import { PageHero } from "@/components/ui/page-hero";
 import { Reveal } from "@/components/ui/reveal";
 import { PremiumButton } from "@/components/ui/premium-button";
 import { CtaBanner } from "@/components/sections/cta-banner";
+import { ServicePackages } from "@/components/sections/service-packages";
 import { getIcon } from "@/lib/icons";
-import { getServiceBySlug, getServices } from "@/lib/content";
+import {
+  getServiceBySlug,
+  getServices,
+  getWebsiteDesignPackages,
+} from "@/lib/content";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -34,6 +39,8 @@ export default async function ServiceDetailPage({ params }: Props) {
   if (!service) notFound();
 
   const Icon = getIcon(service.icon);
+  const packages =
+    slug === "website-design" ? await getWebsiteDesignPackages() : [];
 
   return (
     <>
@@ -99,6 +106,7 @@ export default async function ServiceDetailPage({ params }: Props) {
           </Reveal>
         </div>
       </section>
+      {packages.length ? <ServicePackages items={packages} /> : null}
       <CtaBanner />
     </>
   );
