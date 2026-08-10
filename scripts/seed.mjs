@@ -165,15 +165,15 @@ async function main() {
   await upsert("industries", [
     { slug: "startups", title: "Startups", description: "MVPs, brand launches, and growth systems built for speed.", icon: "Rocket", image: IMAGES.product, sort_order: 1 },
     { slug: "ecommerce-brands", title: "E-commerce Brands", description: "Storefronts and campaigns designed to increase revenue.", icon: "ShoppingBag", image: IMAGES.ecommerce, sort_order: 2 },
-    { slug: "saas-companies", title: "SaaS Companies", description: "Product UX, websites, and acquisition funnels that convert.", icon: "Layers", image: IMAGES.saas, sort_order: 3 },
-    { slug: "professional-services", title: "Professional Services", description: "Authority-building websites for firms that sell expertise.", icon: "Briefcase", image: IMAGES.meeting, sort_order: 4 },
-    { slug: "healthcare", title: "Healthcare", description: "Compliant digital experiences that build patient trust.", icon: "HeartPulse", image: IMAGES.team, sort_order: 5 },
-    { slug: "education", title: "Education", description: "Learning platforms and enrollment experiences that engage.", icon: "GraduationCap", image: IMAGES.office, sort_order: 6 },
-    { slug: "real-estate", title: "Real Estate", description: "Property platforms and lead systems for modern agencies.", icon: "Building2", image: IMAGES.analytics, sort_order: 7 },
-    { slug: "hospitality", title: "Hospitality", description: "Brand sites and booking journeys with premium polish.", icon: "Hotel", image: IMAGES.design, sort_order: 8 },
-    { slug: "fintech", title: "Fintech", description: "Secure product interfaces and trust-first brand systems.", icon: "Wallet", image: IMAGES.code, sort_order: 9 },
-    { slug: "nonprofits", title: "Nonprofits", description: "Mission-driven digital platforms that inspire action.", icon: "HeartHandshake", image: IMAGES.teamAlt, sort_order: 10 },
+    { slug: "professional-services", title: "Professional Services", description: "Authority-building websites for firms that sell expertise.", icon: "Briefcase", image: IMAGES.meeting, sort_order: 3 },
+    { slug: "healthcare", title: "Healthcare", description: "Compliant digital experiences that build patient trust.", icon: "HeartPulse", image: IMAGES.team, sort_order: 4 },
+    { slug: "education", title: "Education", description: "Learning platforms and enrollment experiences that engage.", icon: "GraduationCap", image: IMAGES.office, sort_order: 5 },
+    { slug: "real-estate", title: "Real Estate", description: "Property platforms and lead systems for modern agencies.", icon: "Building2", image: IMAGES.analytics, sort_order: 6 },
+    { slug: "hospitality", title: "Hospitality", description: "Brand sites and booking journeys with premium polish.", icon: "Hotel", image: IMAGES.design, sort_order: 7 },
+    { slug: "fintech", title: "Fintech", description: "Secure product interfaces and trust-first brand systems.", icon: "Wallet", image: IMAGES.code, sort_order: 8 },
+    { slug: "nonprofits", title: "Nonprofits", description: "Mission-driven digital platforms that inspire action.", icon: "HeartHandshake", image: IMAGES.teamAlt, sort_order: 9 },
   ]);
+  await supabase.from("industries").delete().eq("slug", "saas-companies");
 
   const PROJECT_IMAGES = {
     ecommerce: "/images/project-northline-commerce.png",
