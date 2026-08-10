@@ -9,7 +9,7 @@ import { IMAGES, SITE } from "@/constants/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact SOLVEEK for website design, social media, e-commerce, SaaS, and digital growth projects.",
+    "Contact SOLVEEK for website design, social media, e-commerce, and digital growth projects.",
 };
 
 const directLines = [
