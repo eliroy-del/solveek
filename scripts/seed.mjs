@@ -248,6 +248,8 @@ async function main() {
     },
   ]);
 
+  await supabase.from("projects").delete().eq("slug", "pulseboard-saas-platform");
+
   await upsert("insights", [
     { slug: "conversion-first-website-design", title: "Conversion-First Website Design Without Sacrificing Craft", excerpt: "How premium visual design and clear UX architecture drive measurable outcomes.", body: "", category: "Design", author: "Amara Okonkwo", date: "2026-06-12", read_time: "7 min", image: IMAGES.design, featured: true },
     { slug: "saas-onboarding-that-sticks", title: "SaaS Onboarding That Sticks", excerpt: "Practical UX patterns that help new users reach value faster.", body: "", category: "Product", author: "Daniel Reyes", date: "2026-05-28", read_time: "6 min", image: IMAGES.saas, featured: false },
