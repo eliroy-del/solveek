@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { ArrowRight } from "lucide-react";
 
 const schema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -43,28 +44,54 @@ export function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      <div className="grid gap-4 sm:grid-cols-2">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+      <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Full name" error={errors.name?.message}>
-          <input className={inputClass} {...register("name")} />
+          <input
+            className={inputClass}
+            placeholder="Ada Mensah"
+            {...register("name")}
+          />
         </Field>
         <Field label="Work email" error={errors.email?.message}>
-          <input type="email" className={inputClass} {...register("email")} />
+          <input
+            type="email"
+            className={inputClass}
+            placeholder="ada@company.com"
+            {...register("email")}
+          />
         </Field>
       </div>
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Company" error={errors.company?.message}>
-          <input className={inputClass} {...register("company")} />
+          <input
+            className={inputClass}
+            placeholder="Company name"
+            {...register("company")}
+          />
         </Field>
         <Field label="Phone" error={errors.phone?.message}>
-          <input className={inputClass} {...register("phone")} />
+          <input
+            className={inputClass}
+            placeholder="+233 ..."
+            {...register("phone")}
+          />
         </Field>
       </div>
       <Field label="Subject" error={errors.subject?.message}>
-        <input className={inputClass} {...register("subject")} />
+        <input
+          className={inputClass}
+          placeholder="Website redesign, social management…"
+          {...register("subject")}
+        />
       </Field>
       <Field label="Message" error={errors.message?.message}>
-        <textarea rows={5} className={inputClass} {...register("message")} />
+        <textarea
+          rows={5}
+          className={`${inputClass} min-h-[140px] resize-y`}
+          placeholder="Share goals, timeline, and anything we should know."
+          {...register("message")}
+        />
       </Field>
       <input
         type="text"
@@ -77,22 +104,29 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="btn-shine inline-flex h-12 w-full items-center justify-center rounded-2xl bg-[#1358FE] font-semibold text-white shadow-[0_12px_30px_rgba(19,88,254,0.35)] transition hover:-translate-y-0.5 hover:bg-[#0F4AE0] disabled:opacity-60"
+        className="btn-shine group inline-flex h-12 w-full items-center justify-center gap-2 rounded-2xl bg-navy font-semibold text-white shadow-[0_12px_30px_rgba(7,11,20,0.28)] transition hover:-translate-y-0.5 hover:bg-[#0C1428] disabled:opacity-60"
       >
         {isSubmitting ? "Sending..." : "Send message"}
+        {!isSubmitting ? (
+          <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+        ) : null}
       </button>
       {status === "success" ? (
-        <p className="text-sm text-success">Message received. Our team will respond shortly.</p>
+        <p className="text-sm text-success">
+          Message received. Our team will respond shortly.
+        </p>
       ) : null}
       {status === "error" ? (
-        <p className="text-sm text-destructive">Unable to send. Please try again.</p>
+        <p className="text-sm text-destructive">
+          Unable to send. Please try again.
+        </p>
       ) : null}
     </form>
   );
 }
 
 const inputClass =
-  "w-full rounded-2xl border border-border bg-white px-4 py-3 text-sm outline-none ring-royal/30 transition focus:ring-2";
+  "w-full rounded-2xl border border-border bg-surface/60 px-4 py-3 text-sm text-navy outline-none transition placeholder:text-muted-foreground/70 focus:border-royal/40 focus:bg-white focus:ring-2 focus:ring-royal/20";
 
 function Field({
   label,
