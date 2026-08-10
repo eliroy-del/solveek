@@ -2,15 +2,15 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-type PreviewKind = "ecommerce" | "saas" | "social" | "website";
+type PreviewKind = "ecommerce" | "branding" | "social" | "website";
 
 function resolveKind(slug: string, industry: string): PreviewKind {
   const key = `${slug} ${industry}`.toLowerCase();
   if (key.includes("commerce") || key.includes("e-commerce") || key.includes("ecommerce")) {
     return "ecommerce";
   }
-  if (key.includes("saas") || key.includes("analytics") || key.includes("pulse")) {
-    return "saas";
+  if (key.includes("brand") || key.includes("lumen") || key.includes("identity")) {
+    return "branding";
   }
   if (key.includes("social") || key.includes("atelier")) {
     return "social";
@@ -32,43 +32,46 @@ function EcommercePreview() {
   );
 }
 
-function SaasPreview() {
+function BrandingPreview() {
   return (
-    <div className="flex h-full flex-col bg-[#0B1220] p-4 text-white">
+    <div className="flex h-full flex-col bg-[#F7F4EF] p-4">
       <div className="mb-3 flex items-center justify-between">
         <div>
-          <p className="text-[10px] uppercase tracking-[0.18em] text-white/40">
-            Pulseboard
+          <p className="text-[10px] uppercase tracking-[0.18em] text-navy/45">
+            Brand system
           </p>
-          <p className="font-heading text-sm">Activation overview</p>
+          <p className="font-heading text-sm text-navy">Lumen Identity</p>
         </div>
-        <span className="rounded-full bg-royal px-2.5 py-1 text-[10px] font-semibold">
-          Live
-        </span>
+        <div className="flex size-9 items-center justify-center rounded-xl bg-navy text-xs font-bold tracking-wide text-white">
+          LN
+        </div>
       </div>
-      <div className="mb-3 grid grid-cols-3 gap-2">
+
+      <div className="mb-3 grid grid-cols-4 gap-2">
         {[
-          { label: "Activation", value: "68%" },
-          { label: "Trials", value: "1.2k" },
-          { label: "NPS", value: "54" },
-        ].map((stat) => (
-          <div
-            key={stat.label}
-            className="rounded-xl border border-white/10 bg-white/5 px-2.5 py-2"
-          >
-            <p className="text-[9px] text-white/45">{stat.label}</p>
-            <p className="font-heading text-base">{stat.value}</p>
-          </div>
+          "bg-[#1358FE]",
+          "bg-[#0B1220]",
+          "bg-[#C4A484]",
+          "bg-[#E8EEF8]",
+        ].map((tone) => (
+          <div key={tone} className={cn("h-10 rounded-lg", tone)} />
         ))}
       </div>
-      <div className="relative flex flex-1 items-end gap-1.5 rounded-xl border border-white/10 bg-white/[0.04] px-3 pb-3 pt-6">
-        {[40, 55, 48, 72, 64, 88, 76, 92].map((h, i) => (
-          <div
-            key={i}
-            className="flex-1 rounded-t-md bg-gradient-to-t from-royal to-[#4D82FF]"
-            style={{ height: `${h}%` }}
-          />
-        ))}
+
+      <div className="grid flex-1 grid-cols-2 gap-2">
+        <div className="rounded-xl bg-white p-3 shadow-sm">
+          <p className="font-heading text-2xl leading-none text-navy">Aa</p>
+          <p className="mt-2 text-[10px] text-muted-foreground">Display</p>
+          <div className="mt-2 h-1.5 w-12 rounded-full bg-navy/10" />
+        </div>
+        <div className="rounded-xl bg-navy p-3 text-white shadow-sm">
+          <p className="text-[10px] uppercase tracking-[0.16em] text-white/50">
+            Voice
+          </p>
+          <p className="mt-2 font-heading text-sm leading-snug">
+            Clear. Warm. Confident.
+          </p>
+        </div>
       </div>
     </div>
   );
@@ -158,7 +161,7 @@ function WebsitePreview() {
 
 const PREVIEWS: Record<PreviewKind, () => ReactNode> = {
   ecommerce: EcommercePreview,
-  saas: SaasPreview,
+  branding: BrandingPreview,
   social: SocialPreview,
   website: WebsitePreview,
 };
