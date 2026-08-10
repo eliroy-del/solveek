@@ -127,10 +127,7 @@ export default function ContactPage() {
 
           <Reveal delay={0.08}>
             <div className="h-full rounded-[28px] border border-border bg-white p-7 shadow-soft md:p-9">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-royal">
-                Message
-              </p>
-              <h2 className="mt-3 font-heading text-3xl text-navy sm:text-4xl">
+              <h2 className="font-heading text-3xl text-navy sm:text-4xl">
                 Send a message
               </h2>
               <p className="mt-3 mb-8 max-w-lg text-sm leading-relaxed text-muted-foreground">
