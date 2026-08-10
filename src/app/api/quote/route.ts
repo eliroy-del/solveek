@@ -12,7 +12,6 @@ const schema = z.object({
     "Website Design",
     "Social Media",
     "E-commerce",
-    "SaaS Product",
     "Branding",
     "Other",
   ]),

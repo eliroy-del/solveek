@@ -7,7 +7,7 @@ import { IMAGES } from "@/constants/site";
 export const metadata: Metadata = {
   title: "Request Quote",
   description:
-    "Request a SOLVEEK quote for website design, social media, e-commerce, SaaS products, branding, and digital growth projects.",
+    "Request a SOLVEEK quote for website design, social media, e-commerce, branding, and digital growth projects.",
 };
 
 type Props = {

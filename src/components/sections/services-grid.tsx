@@ -59,7 +59,7 @@ export function ServicesGrid({
             <SectionHeading
               eyebrow="Services"
               title="Digital capabilities that turn ideas into working products"
-              description="From brand websites and social systems to e-commerce and SaaS platforms, SOLVEEK delivers design and technology as one connected practice."
+              description="From brand websites and social systems to e-commerce and search growth, SOLVEEK delivers design and technology as one connected practice."
             />
             <Reveal delay={0.1}>
               <Link

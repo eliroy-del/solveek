@@ -94,19 +94,6 @@ const services = [
     sort_order: 3,
   },
   {
-    slug: "saas-products",
-    title: "SaaS Products",
-    short_title: "SaaS",
-    description: "End-to-end product design and engineering for SaaS platforms ready to scale.",
-    long_description: "We partner with founders and product teams to shape SaaS experiences that onboard well and retain users.",
-    icon: "Layers",
-    image: IMAGES.saas,
-    features: ["Product discovery", "UX for complex workflows", "Full-stack engineering", "Analytics loops"],
-    benefits: ["Faster learning", "Higher retention", "Architecture ready to scale"],
-    featured: true,
-    sort_order: 4,
-  },
-  {
     slug: "branding-identity",
     title: "Branding & Identity",
     short_title: "Brand",
@@ -116,60 +103,8 @@ const services = [
     image: IMAGES.meeting,
     features: ["Logo & visual identity", "Brand guidelines", "Tone of voice", "Launch collateral"],
     benefits: ["Memorable presence", "Consistent brand", "Faster creative production"],
-    featured: false,
-    sort_order: 5,
-  },
-  {
-    slug: "ui-ux-design",
-    title: "UI/UX Design",
-    short_title: "UX",
-    description: "Human-centered interfaces that reduce friction and elevate product experience.",
-    long_description: "Our UX practice maps journeys and designs interfaces that help users complete tasks with confidence.",
-    icon: "PenTool",
-    image: IMAGES.design,
-    features: ["Journey mapping", "Prototyping", "Usability testing", "Design systems"],
-    benefits: ["Lower drop-off", "Clearer usability", "Reusable systems"],
-    featured: false,
-    sort_order: 6,
-  },
-  {
-    slug: "mobile-apps",
-    title: "Mobile Apps",
-    short_title: "Apps",
-    description: "Native-feeling mobile products for iOS and Android with polished UX.",
-    long_description: "SOLVEEK designs and builds mobile applications that feel fast, intuitive, and brand-true.",
-    icon: "Smartphone",
-    image: IMAGES.product,
-    features: ["iOS & Android", "Cross-platform options", "App Store support", "Analytics integrations"],
-    benefits: ["Extended reach", "Sticky engagement", "Reliable releases"],
-    featured: false,
-    sort_order: 7,
-  },
-  {
-    slug: "digital-marketing",
-    title: "Digital Marketing",
-    short_title: "Growth",
-    description: "Paid and organic growth programs aligned to clear acquisition goals.",
-    long_description: "We connect creative, media, and measurement so campaigns drive pipeline, not vanity metrics.",
-    icon: "Megaphone",
-    image: IMAGES.analytics,
-    features: ["Paid media", "Landing page optimization", "Funnel analytics", "Creative testing"],
-    benefits: ["Lower acquisition cost", "Better leads", "Transparent reporting"],
-    featured: false,
-    sort_order: 8,
-  },
-  {
-    slug: "cloud-devops",
-    title: "Cloud & DevOps",
-    short_title: "Cloud",
-    description: "Secure, scalable infrastructure and delivery pipelines for modern products.",
-    long_description: "From cloud architecture to CI/CD, SOLVEEK helps teams ship faster with stable environments.",
-    icon: "Cloud",
-    image: IMAGES.code,
-    features: ["Cloud architecture", "CI/CD", "Monitoring", "Security practices"],
-    benefits: ["Faster releases", "Fewer incidents", "Infrastructure that scales"],
-    featured: false,
-    sort_order: 9,
+    featured: true,
+    sort_order: 4,
   },
   {
     slug: "seo-content",
@@ -182,20 +117,7 @@ const services = [
     features: ["Technical SEO", "Content strategy", "On-page optimization", "Editorial systems"],
     benefits: ["Organic traffic", "Topical authority", "Sales-ready content"],
     featured: false,
-    sort_order: 10,
-  },
-  {
-    slug: "custom-software",
-    title: "Custom Software",
-    short_title: "Software",
-    description: "Bespoke platforms and internal tools designed around how your business actually works.",
-    long_description: "When off-the-shelf tools fall short, SOLVEEK builds software that fits your workflows.",
-    icon: "Code2",
-    image: IMAGES.code,
-    features: ["Requirements discovery", "Custom web apps", "API integrations", "Admin tools"],
-    benefits: ["Tailored processes", "Less manual work", "Systems you own"],
-    featured: false,
-    sort_order: 11,
+    sort_order: 5,
   },
   {
     slug: "maintenance-support",
@@ -208,7 +130,7 @@ const services = [
     features: ["Uptime monitoring", "Security updates", "Performance tuning", "Feature retainers"],
     benefits: ["Fewer emergencies", "Continuous improvement", "A partner after launch"],
     featured: false,
-    sort_order: 12,
+    sort_order: 6,
   },
 ];
 
@@ -224,6 +146,21 @@ async function main() {
   }
 
   await upsert("services", services);
+
+  const { error: unpublishServicesError } = await supabase
+    .from("services")
+    .update({ published: false, featured: false })
+    .in("slug", [
+      "saas-products",
+      "cloud-devops",
+      "ui-ux-design",
+      "custom-software",
+      "mobile-apps",
+      "digital-marketing",
+    ]);
+  if (unpublishServicesError) {
+    throw new Error(`services unpublish: ${unpublishServicesError.message}`);
+  }
 
   await upsert("industries", [
     { slug: "startups", title: "Startups", description: "MVPs, brand launches, and growth systems built for speed.", icon: "Rocket", image: IMAGES.product, sort_order: 1 },
@@ -429,11 +366,9 @@ async function main() {
           "Website Design",
           "Social Media",
           "E-commerce",
-          "SaaS Products",
-          "UI/UX Design",
           "Branding",
-          "Digital Marketing",
-          "Cloud & DevOps",
+          "SEO & Content",
+          "Maintenance & Support",
         ],
       },
       {

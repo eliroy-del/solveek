@@ -8,7 +8,7 @@ import { getServices } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Explore SOLVEEK IT services including website design, social media management, e-commerce, SaaS products, branding, UX, and digital marketing.",
+    "Explore SOLVEEK services including website design, social media management, e-commerce, branding, SEO, and ongoing support.",
 };
 
 export default async function ServicesPage() {
@@ -19,7 +19,7 @@ export default async function ServicesPage() {
       <PageHero
         eyebrow="Services"
         title="IT solutions designed for modern brands and product teams"
-        description="Website design, social media, e-commerce, SaaS, and more, delivered with strategy, craft, and measurable outcomes."
+        description="Website design, social media, e-commerce, branding, and growth systems delivered with strategy, craft, and measurable outcomes."
         image={IMAGES.design}
       />
       <ServicesGrid items={services} showHeading={false} />

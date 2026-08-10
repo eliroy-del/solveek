@@ -9,7 +9,6 @@ const services = [
   "Website Design",
   "Social Media",
   "E-commerce",
-  "SaaS Product",
   "Branding",
   "Other",
 ] as const;
