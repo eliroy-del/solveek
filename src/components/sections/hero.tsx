@@ -19,75 +19,72 @@ export function Hero({ capabilities }: { capabilities: Capability[] }) {
   const reduce = useReducedMotion();
 
   return (
-    <section className="relative isolate overflow-hidden bg-navy-dark">
-      <div className="relative min-h-[78vh] lg:min-h-[82vh]">
-        <motion.div
-          className="absolute inset-0"
-          initial={reduce ? false : { scale: 1.06 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 8, ease: "easeOut" }}
-        >
-          <Image
-            src={IMAGES.hero}
-            alt="Ghanaian tech team collaborating around a laptop"
-            fill
-            priority
-            className="object-cover object-[center_30%]"
-            sizes="100vw"
-          />
-        </motion.div>
-
-        <div className="absolute inset-0 bg-black/55" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-[#070B14]/75 to-[#1358FE]/25" />
-
-        {/* Soft blue circular accent */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -left-24 top-1/2 h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(19,88,254,0.55)_0%,rgba(77,130,255,0.18)_45%,transparent_70%)] blur-[2px] md:left-[4%] md:h-[640px] md:w-[640px]"
+    <section className="relative isolate overflow-hidden bg-navy-dark pb-6 md:pb-8">
+      <motion.div
+        className="absolute inset-0"
+        initial={reduce ? false : { scale: 1.06 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 8, ease: "easeOut" }}
+      >
+        <Image
+          src={IMAGES.hero}
+          alt="Ghanaian tech team collaborating around a laptop"
+          fill
+          priority
+          className="object-cover object-[center_30%]"
+          sizes="100vw"
         />
+      </motion.div>
 
-        <div className="container-premium relative flex min-h-[78vh] items-center pb-32 pt-28 lg:min-h-[82vh] lg:pb-40 lg:pt-32">
-          <div className="relative z-10 max-w-2xl">
-            <motion.h1
-              initial={reduce ? false : { opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65 }}
-              className="font-heading text-4xl leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
-            >
-              We bring great
-              <span className="block">ideas to life</span>
-            </motion.h1>
+      <div className="absolute inset-0 bg-black/55" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-[#070B14]/75 to-[#1358FE]/25" />
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-navy-dark via-navy-dark/80 to-transparent" />
 
-            <motion.p
-              initial={reduce ? false : { opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.1 }}
-              className="mt-4 max-w-md text-sm leading-relaxed text-white/80 sm:text-base"
-            >
-              SOLVEEK delivers website design, social media management,
-              e-commerce, and digital systems that help brands grow with clarity
-              and craft.
-            </motion.p>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-24 top-1/2 h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(19,88,254,0.55)_0%,rgba(77,130,255,0.18)_45%,transparent_70%)] blur-[2px] md:left-[4%] md:h-[640px] md:w-[640px]"
+      />
 
-            <motion.div
-              initial={reduce ? false : { opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.18 }}
-              className="mt-7 flex flex-wrap gap-3"
-            >
-              <PremiumButton href="/quote" showArrow>
-                Start a project
-              </PremiumButton>
-              <PremiumButton href="/services" variant="ghost">
-                Explore services
-              </PremiumButton>
-            </motion.div>
-          </div>
+      <div className="container-premium relative flex min-h-[72vh] items-center pb-28 pt-28 lg:min-h-[76vh] lg:pb-36 lg:pt-32">
+        <div className="relative z-10 max-w-2xl">
+          <motion.h1
+            initial={reduce ? false : { opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65 }}
+            className="font-heading text-4xl leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
+          >
+            We bring great
+            <span className="block">ideas to life</span>
+          </motion.h1>
+
+          <motion.p
+            initial={reduce ? false : { opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, delay: 0.1 }}
+            className="mt-4 max-w-md text-sm leading-relaxed text-white/80 sm:text-base"
+          >
+            SOLVEEK delivers website design, social media management,
+            e-commerce, and digital systems that help brands grow with clarity
+            and craft.
+          </motion.p>
+
+          <motion.div
+            initial={reduce ? false : { opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, delay: 0.18 }}
+            className="mt-7 flex flex-wrap gap-3"
+          >
+            <PremiumButton href="/quote" showArrow>
+              Start a project
+            </PremiumButton>
+            <PremiumButton href="/services" variant="ghost">
+              Explore services
+            </PremiumButton>
+          </motion.div>
         </div>
       </div>
 
-      {/* Overlapping capability cards */}
-      <div className="relative z-20 -mt-20 pb-4 md:-mt-28">
+      <div className="relative z-20 -mt-16 md:-mt-24">
         <div className="container-premium">
           <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
             {capabilities.map((item, index) => {
@@ -106,7 +103,9 @@ export function Hero({ capabilities }: { capabilities: Capability[] }) {
                     <div className="mb-3 inline-flex size-11 items-center justify-center rounded-xl bg-gradient-to-br from-[#E8F1FF] to-[#D9F6FF] text-royal transition group-hover:from-royal group-hover:to-cyan group-hover:text-white">
                       <Icon className="size-5 transition-transform duration-300 group-hover:scale-110" />
                     </div>
-                    <h2 className="font-heading text-base text-navy">{item.title}</h2>
+                    <h2 className="font-heading text-base text-navy">
+                      {item.title}
+                    </h2>
                     <p className="mt-2 flex-1 text-xs leading-relaxed text-muted-foreground sm:text-sm">
                       {item.description}
                     </p>

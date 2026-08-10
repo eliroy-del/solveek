@@ -7,7 +7,7 @@ export function TrustBar({ items }: { items: string[] }) {
   const loop = [...items, ...items];
 
   return (
-    <section className="border-y border-border bg-surface py-6 overflow-hidden">
+    <section className="border-b border-border bg-surface py-6 overflow-hidden">
       <div className="container-premium mb-4">
         <p className="text-center text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
           Trusted capabilities across the digital lifecycle
