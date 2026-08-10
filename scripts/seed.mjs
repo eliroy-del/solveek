@@ -437,7 +437,7 @@ async function main() {
           {
             name: "Starter",
             tagline: "Open your store",
-            price: "GHS 6,000",
+            price: "GHS 5,000",
             priceNote: "from",
             description: "A clean storefront for brands ready to sell a focused catalog online.",
             features: [
@@ -455,7 +455,7 @@ async function main() {
           {
             name: "Business",
             tagline: "Sell with confidence",
-            price: "GHS 10,000",
+            price: "GHS 8,000",
             priceNote: "from",
             description: "A conversion-focused store with richer merchandising and smoother checkout.",
             features: [
@@ -475,7 +475,7 @@ async function main() {
           {
             name: "Premium",
             tagline: "Scale your commerce system",
-            price: "GHS 18,000",
+            price: "GHS 15,000",
             priceNote: "from",
             description: "An advanced commerce experience for growing brands that need depth and automation.",
             features: [
