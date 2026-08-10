@@ -2,7 +2,6 @@ import { Hero } from "@/components/sections/hero";
 import { TrustBar } from "@/components/sections/trust-bar";
 import { AboutPreview } from "@/components/sections/about-preview";
 import { ServicesGrid } from "@/components/sections/services-grid";
-import { WhyChoose } from "@/components/sections/why-choose";
 import { IndustriesGrid } from "@/components/sections/industries-grid";
 import { Testimonials } from "@/components/sections/testimonials";
 import { CtaBanner } from "@/components/sections/cta-banner";
@@ -12,7 +11,6 @@ import {
   getServices,
   getTestimonials,
   getTrustItems,
-  getWhyChoose,
 } from "@/lib/content";
 
 export default async function HomePage() {
@@ -20,14 +18,12 @@ export default async function HomePage() {
     capabilities,
     trustItems,
     services,
-    whyChoose,
     industries,
     testimonials,
   ] = await Promise.all([
     getFeaturedCapabilities(),
     getTrustItems(),
     getServices(),
-    getWhyChoose(),
     getIndustries(),
     getTestimonials(),
   ]);
@@ -38,7 +34,6 @@ export default async function HomePage() {
       <TrustBar items={trustItems} />
       <AboutPreview />
       <ServicesGrid items={services} limit={6} />
-      <WhyChoose items={whyChoose} />
       <section className="relative overflow-hidden bg-surface">
         <div
           aria-hidden
