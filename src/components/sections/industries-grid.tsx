@@ -15,7 +15,6 @@ export function IndustriesGrid({
       <div className="container-premium relative">
         {!compact ? (
           <SectionHeading
-            eyebrow="Capabilities"
             title="Accelerate innovation with world-class digital expertise"
             description="Whether you are launching a brand, scaling a store, or shipping a SaaS product, we tailor delivery to your industry and growth stage."
             className="mb-14"
