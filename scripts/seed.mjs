@@ -170,10 +170,10 @@ async function main() {
     { slug: "education", title: "Education", description: "Learning platforms and enrollment experiences that engage.", icon: "GraduationCap", image: IMAGES.office, sort_order: 5 },
     { slug: "real-estate", title: "Real Estate", description: "Property platforms and lead systems for modern agencies.", icon: "Building2", image: IMAGES.analytics, sort_order: 6 },
     { slug: "hospitality", title: "Hospitality", description: "Brand sites and booking journeys with premium polish.", icon: "Hotel", image: IMAGES.design, sort_order: 7 },
-    { slug: "fintech", title: "Fintech", description: "Secure product interfaces and trust-first brand systems.", icon: "Wallet", image: IMAGES.code, sort_order: 8 },
-    { slug: "nonprofits", title: "Nonprofits", description: "Mission-driven digital platforms that inspire action.", icon: "HeartHandshake", image: IMAGES.teamAlt, sort_order: 9 },
+    { slug: "nonprofits", title: "Nonprofits", description: "Mission-driven digital platforms that inspire action.", icon: "HeartHandshake", image: IMAGES.teamAlt, sort_order: 8 },
   ]);
   await supabase.from("industries").delete().eq("slug", "saas-companies");
+  await supabase.from("industries").delete().eq("slug", "fintech");
 
   const PROJECT_IMAGES = {
     ecommerce: "/images/project-northline-commerce.png",
