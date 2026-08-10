@@ -490,6 +490,21 @@ export async function getWebsiteDesignPackages() {
   return getSiteContent<ServicePackage[]>("website_design_packages");
 }
 
+export async function getEcommercePackages() {
+  return getSiteContent<ServicePackage[]>("ecommerce_packages");
+}
+
+const SERVICE_PACKAGE_KEYS: Record<string, string> = {
+  "website-design": "website_design_packages",
+  ecommerce: "ecommerce_packages",
+};
+
+export async function getServicePackages(slug: string) {
+  const key = SERVICE_PACKAGE_KEYS[slug];
+  if (!key) return [] as ServicePackage[];
+  return getSiteContent<ServicePackage[]>(key);
+}
+
 export type NavService = {
   label: string;
   href: string;

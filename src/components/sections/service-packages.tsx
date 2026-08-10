@@ -7,11 +7,13 @@ import type { ServicePackage } from "@/types";
 
 export function ServicePackages({
   items,
+  quoteService = "Website Design",
   eyebrow = "Packages",
-  title = "Website design packages built for clear outcomes",
+  title = "Packages built for clear outcomes",
   description = "Choose a starting point that matches your scope. Every package includes discovery, design, and a production-ready build.",
 }: {
   items: ServicePackage[];
+  quoteService?: string;
   eyebrow?: string;
   title?: string;
   description?: string;
@@ -88,7 +90,7 @@ export function ServicePackages({
 
                 <div className="mt-8">
                   <PremiumButton
-                    href={`/quote?service=Website%20Design&package=${encodeURIComponent(pkg.name)}`}
+                    href={`/quote?service=${encodeURIComponent(quoteService)}&package=${encodeURIComponent(pkg.name)}`}
                     showArrow
                     variant={pkg.highlighted ? "primary" : "secondary"}
                     className="w-full"
@@ -103,7 +105,7 @@ export function ServicePackages({
 
         <Reveal delay={0.2} className="mt-10 text-center">
           <p className="text-sm text-muted-foreground">
-            Need something larger, such as a platform or multi-brand system?{" "}
+            Need something larger, such as a marketplace or multi-brand system?{" "}
             <a href="/contact" className="font-semibold text-royal hover:underline">
               Talk to us for a custom proposal
             </a>

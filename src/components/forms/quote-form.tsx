@@ -44,7 +44,7 @@ export function QuoteForm({
 } = {}) {
   const service = resolveService(defaultService);
   const notes = defaultPackage
-    ? `Interested in the ${defaultPackage} website design package.`
+    ? `Interested in the ${defaultPackage} ${service} package.`
     : "";
 
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");

@@ -8,11 +8,7 @@ import { PremiumButton } from "@/components/ui/premium-button";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { ServicePackages } from "@/components/sections/service-packages";
 import { getIcon } from "@/lib/icons";
-import {
-  getServiceBySlug,
-  getServices,
-  getWebsiteDesignPackages,
-} from "@/lib/content";
+import { getServiceBySlug, getServicePackages, getServices } from "@/lib/content";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -39,8 +35,29 @@ export default async function ServiceDetailPage({ params }: Props) {
   if (!service) notFound();
 
   const Icon = getIcon(service.icon);
-  const packages =
-    slug === "website-design" ? await getWebsiteDesignPackages() : [];
+  const packages = await getServicePackages(slug);
+
+  const packageCopy =
+    slug === "ecommerce"
+      ? {
+          quoteService: "E-commerce",
+          title: "E-commerce packages built to sell",
+          description:
+            "From a focused storefront to a growth-ready commerce system. Every package includes product UX, checkout, and a launch-ready build.",
+        }
+      : slug === "website-design"
+        ? {
+            quoteService: "Website Design",
+            title: "Website design packages built for clear outcomes",
+            description:
+              "Choose a starting point that matches your scope. Every package includes discovery, design, and a production-ready build.",
+          }
+        : {
+            quoteService: service.title,
+            title: `${service.title} packages`,
+            description:
+              "Choose a starting point that matches your scope. Every package includes discovery, design, and a production-ready build.",
+          };
 
   return (
     <>
@@ -106,7 +123,14 @@ export default async function ServiceDetailPage({ params }: Props) {
           </Reveal>
         </div>
       </section>
-      {packages.length ? <ServicePackages items={packages} /> : null}
+      {packages.length ? (
+        <ServicePackages
+          items={packages}
+          quoteService={packageCopy.quoteService}
+          title={packageCopy.title}
+          description={packageCopy.description}
+        />
+      ) : null}
       <CtaBanner />
     </>
   );
