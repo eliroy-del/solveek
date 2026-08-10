@@ -126,7 +126,7 @@ const services = [
     description: "Proactive care, updates, and optimization for websites and digital products.",
     long_description: "SOLVEEK provides ongoing maintenance and iterative improvements after launch.",
     icon: "Headset",
-    image: IMAGES.office,
+    image: "/images/service-maintenance-support.png",
     features: ["Uptime monitoring", "Security updates", "Performance tuning", "Feature retainers"],
     benefits: ["Fewer emergencies", "Continuous improvement", "A partner after launch"],
     featured: false,
