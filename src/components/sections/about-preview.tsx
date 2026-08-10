@@ -29,8 +29,8 @@ export function AboutPreview() {
               </div>
               <div className="relative min-h-[420px] overflow-hidden rounded-[28px] shadow-soft">
                 <Image
-                  src={IMAGES.code}
-                  alt="Software engineers reviewing product code together"
+                  src="/images/about-preview-commerce.png"
+                  alt="Shopper browsing an online storefront on a laptop"
                   fill
                   sizes="(max-width: 768px) 40vw, 280px"
                   className="object-cover"
@@ -60,7 +60,7 @@ export function AboutPreview() {
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">
               SOLVEEK is a technology and design partner for brands that want
               more than a template. We craft websites, social systems,
-              e-commerce platforms, and SaaS products that feel premium and
+              e-commerce platforms, and brand experiences that feel premium and
               perform commercially.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
