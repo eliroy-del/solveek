@@ -39,45 +39,14 @@ function EcommercePreview() {
 
 function BrandingPreview() {
   return (
-    <div className="flex h-full flex-col bg-[#F7F4EF] p-4">
-      <div className="mb-3 flex items-center justify-between">
-        <div>
-          <p className="text-[10px] uppercase tracking-[0.18em] text-navy/45">
-            Brand system
-          </p>
-          <p className="font-heading text-sm text-navy">Lumen Identity</p>
-        </div>
-        <div className="flex size-9 items-center justify-center rounded-xl bg-navy text-xs font-bold tracking-wide text-white">
-          LN
-        </div>
-      </div>
-
-      <div className="mb-3 grid grid-cols-4 gap-2">
-        {[
-          "bg-[#1358FE]",
-          "bg-[#0B1220]",
-          "bg-[#C4A484]",
-          "bg-[#E8EEF8]",
-        ].map((tone) => (
-          <div key={tone} className={cn("h-10 rounded-lg", tone)} />
-        ))}
-      </div>
-
-      <div className="grid flex-1 grid-cols-2 gap-2">
-        <div className="rounded-xl bg-white p-3 shadow-sm">
-          <p className="font-heading text-2xl leading-none text-navy">Aa</p>
-          <p className="mt-2 text-[10px] text-muted-foreground">Display</p>
-          <div className="mt-2 h-1.5 w-12 rounded-full bg-navy/10" />
-        </div>
-        <div className="rounded-xl bg-navy p-3 text-white shadow-sm">
-          <p className="text-[10px] uppercase tracking-[0.16em] text-white/50">
-            Voice
-          </p>
-          <p className="mt-2 font-heading text-sm leading-snug">
-            Clear. Warm. Confident.
-          </p>
-        </div>
-      </div>
+    <div className="relative h-full w-full bg-[#F7F4EF]">
+      <Image
+        src="/images/project-lumen-branding.png"
+        alt="Chalkboard mind map with a lightbulb for brand ideation"
+        fill
+        sizes="(max-width: 1024px) 100vw, 33vw"
+        className="object-cover"
+      />
     </div>
   );
 }
