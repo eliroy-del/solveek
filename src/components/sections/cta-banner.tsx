@@ -18,9 +18,6 @@ export function CtaBanner() {
               }}
             />
             <div className="relative mx-auto max-w-2xl">
-              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-cyan">
-                Let’s build
-              </p>
               <h2 className="font-heading text-2xl text-white sm:text-3xl lg:text-4xl">
                 Accelerate innovation with world-class digital solutions
               </h2>
