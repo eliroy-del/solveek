@@ -234,15 +234,19 @@ async function main() {
       sort_order: 3,
     },
     {
-      slug: "brightpath-website-platform",
-      title: "BrightPath Website Platform",
+      slug: "booksandyou-bookstore",
+      title: "Books & You Bookstore",
       industry: "Education",
-      location: "EdTech company",
-      challenge: "Needed a credible digital presence for enrollments and content marketing.",
-      solution: "We delivered a modular website with CMS workflows and SEO foundations.",
-      results: ["64% more qualified inquiries", "Editorial publishing 5x faster", "Expanded search visibility"],
-      image: PROJECT_IMAGES.website,
-      gallery: [PROJECT_IMAGES.website, PROJECT_IMAGES.designDesk, PROJECT_IMAGES.dashboard],
+      location: "Ghana school bookstore",
+      challenge: "Parents and schools needed a trusted place to find Nursery through SHS textbooks, stationery, and classroom essentials online.",
+      solution: "SOLVEEK designed and built Books & You—a premium e-commerce storefront with level browsing, secure checkout, and delivery workflows for Ghana families and schools.",
+      results: ["Catalog spanning Nursery to SHS", "Guest checkout with secure payments", "Same-day Accra and nationwide delivery options"],
+      image: "/images/project-booksandyou.png",
+      gallery: [
+        "/images/project-booksandyou.png",
+        PROJECT_IMAGES.website,
+        PROJECT_IMAGES.checkout,
+      ],
       featured: true,
       sort_order: 4,
     },
@@ -250,6 +254,7 @@ async function main() {
 
   await supabase.from("projects").delete().eq("slug", "pulseboard-saas-platform");
   await supabase.from("projects").delete().eq("slug", "atelier-social-system");
+  await supabase.from("projects").delete().eq("slug", "brightpath-website-platform");
 
   const INSIGHT_IMAGES = {
     websiteDesign:

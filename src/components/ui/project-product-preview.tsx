@@ -2,10 +2,13 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-type PreviewKind = "ecommerce" | "branding" | "social" | "website";
+type PreviewKind = "ecommerce" | "branding" | "social" | "website" | "bookstore";
 
 function resolveKind(slug: string, industry: string): PreviewKind {
   const key = `${slug} ${industry}`.toLowerCase();
+  if (key.includes("booksandyou") || key.includes("bookstore") || key.includes("books & you")) {
+    return "bookstore";
+  }
   if (key.includes("commerce") || key.includes("e-commerce") || key.includes("ecommerce")) {
     return "ecommerce";
   }
@@ -74,11 +77,26 @@ function WebsitePreview() {
   );
 }
 
+function BookstorePreview() {
+  return (
+    <div className="relative h-full w-full bg-[#F7F4EF]">
+      <Image
+        src="/images/project-booksandyou.png"
+        alt="Books & You school textbooks and classroom supplies collage"
+        fill
+        sizes="(max-width: 1024px) 100vw, 33vw"
+        className="object-cover"
+      />
+    </div>
+  );
+}
+
 const PREVIEWS: Record<PreviewKind, () => ReactNode> = {
   ecommerce: EcommercePreview,
   branding: BrandingPreview,
   social: SocialPreview,
   website: WebsitePreview,
+  bookstore: BookstorePreview,
 };
 
 export function ProjectProductPreview({
