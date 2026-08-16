@@ -102,7 +102,7 @@ export function Hero({ capabilities }: { capabilities: Capability[] }) {
                   >
                     <Link
                       href={`/services/${item.slug}`}
-                      className="group flex h-full min-h-[210px] flex-col rounded-2xl border border-border/70 bg-white p-4 shadow-[0_18px_44px_rgba(7,11,20,0.16)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_52px_rgba(19,88,254,0.2)]"
+                      className="group flex h-full min-h-[210px] flex-col rounded-2xl border border-border/70 bg-white p-4 transition duration-300 hover:-translate-y-1 hover:border-royal/20"
                     >
                       <div className="mb-3 inline-flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#E8F1FF] to-[#D9F6FF] text-royal transition group-hover:from-royal group-hover:to-cyan group-hover:text-white">
                         <Icon className="size-4 transition-transform duration-300 group-hover:scale-110" />
