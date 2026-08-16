@@ -113,10 +113,6 @@ export default function ContactPage() {
                   className="mt-3"
                   linkClassName="inline-flex size-10 items-center justify-center rounded-xl bg-white/5 text-white/80 ring-1 ring-white/10 transition hover:bg-white/10 hover:text-white"
                 />
-                <p className="mt-5 text-sm text-white/55">
-                  Typical response within{" "}
-                  <span className="font-semibold text-white">1 business day</span>.
-                </p>
               </div>
             </aside>
           </Reveal>
