@@ -5,17 +5,27 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { IMAGES } from "@/constants/site";
-import { getBrandValues } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn how SOLVEEK helps brands digitise with website design, social media, e-commerce, SaaS products, and premium digital systems.",
+    "Learn how SOLVEEK helps brands digitise with website design, social media, e-commerce, and premium digital systems.",
 };
 
-export default async function AboutPage() {
-  const values = await getBrandValues();
+const missionVision = [
+  {
+    title: "Mission",
+    description:
+      "To help ambitious brands digitise with clarity—delivering websites, social systems, e-commerce, and brand experiences that look premium and perform commercially.",
+  },
+  {
+    title: "Vision",
+    description:
+      "To be the digital partner Ghanaian and African brands trust to turn ideas into lasting products, presence, and growth.",
+  },
+] as const;
 
+export default function AboutPage() {
   return (
     <>
       <PageHero
@@ -46,17 +56,24 @@ export default async function AboutPage() {
       <section className="section-padding bg-surface">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="Core values"
-            title="Principles that shape every engagement"
-            className="mb-12"
+            title="Mission and vision"
+            description="What drives every engagement—and where we’re headed."
+            className="mb-10"
           />
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {values.map((value, index) => (
-              <Reveal key={value.title} delay={index * 0.06}>
-                <article className="h-full rounded-3xl border border-border bg-white p-6 shadow-soft">
-                  <h3 className="font-heading text-xl text-navy">{value.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    {value.description}
+          <div className="grid gap-5 md:grid-cols-2">
+            {missionVision.map((item, index) => (
+              <Reveal key={item.title} delay={index * 0.06}>
+                <article className="flex h-full flex-col rounded-[28px] border border-border bg-white p-7 shadow-soft md:p-8">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-royal">
+                    {item.title}
+                  </p>
+                  <h3 className="mt-4 font-heading text-2xl leading-snug text-navy">
+                    {item.title === "Mission"
+                      ? "Digitise with clarity and craft"
+                      : "Build lasting digital advantage"}
+                  </h3>
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                    {item.description}
                   </p>
                 </article>
               </Reveal>
