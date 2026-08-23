@@ -1,48 +1,34 @@
-import { Hero } from "@/components/sections/hero";
-import { TrustBar } from "@/components/sections/trust-bar";
-import { AboutPreview } from "@/components/sections/about-preview";
-import { Process } from "@/components/sections/process";
-import { IndustriesGrid } from "@/components/sections/industries-grid";
-import { Testimonials } from "@/components/sections/testimonials";
-import { CtaBanner } from "@/components/sections/cta-banner";
-import {
-  getFeaturedCapabilities,
-  getIndustries,
-  getProcessSteps,
-  getTestimonials,
-  getTrustItems,
-} from "@/lib/content";
+import { GrowthHero } from "@/components/sections/growth-hero";
+import { ProblemStatement } from "@/components/sections/problem-statement";
+import { EcosystemOverview } from "@/components/sections/ecosystem-overview";
+import { CapabilitiesSection } from "@/components/sections/capabilities-section";
+import { ProcessMethodology } from "@/components/sections/process-methodology";
+import { WhySolveek } from "@/components/sections/why-solveek";
+import { SelectedWork } from "@/components/sections/selected-work";
+import { AuditCta } from "@/components/sections/audit-cta";
+import { getProjects } from "@/lib/content";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Digital Growth Partner — Build. Connect. Grow.",
+  description:
+    "Solveek builds the digital infrastructure that helps businesses get discovered, connect with customers and grow. Book a Digital Growth Audit.",
+  alternates: { canonical: "/" },
+};
 
 export default async function HomePage() {
-  const [capabilities, trustItems, processSteps, industries, testimonials] =
-    await Promise.all([
-      getFeaturedCapabilities(),
-      getTrustItems(),
-      getProcessSteps(),
-      getIndustries(),
-      getTestimonials(),
-    ]);
+  const projects = await getProjects();
 
   return (
     <>
-      <Hero capabilities={capabilities} />
-      <TrustBar items={trustItems} />
-      <AboutPreview />
-      <Process items={processSteps} />
-      <section className="relative overflow-hidden bg-surface">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-40"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 20% 20%, rgba(19,88,254,0.08), transparent 35%), radial-gradient(circle at 80% 0%, rgba(77,130,255,0.1), transparent 30%), linear-gradient(rgba(7,11,20,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(7,11,20,0.04) 1px, transparent 1px)",
-            backgroundSize: "auto, auto, 48px 48px, 48px 48px",
-          }}
-        />
-        <IndustriesGrid items={industries} />
-      </section>
-      <Testimonials items={testimonials} />
-      <CtaBanner />
+      <GrowthHero />
+      <ProblemStatement />
+      <EcosystemOverview />
+      <CapabilitiesSection />
+      <ProcessMethodology />
+      <WhySolveek />
+      <SelectedWork projects={projects} />
+      <AuditCta />
     </>
   );
 }

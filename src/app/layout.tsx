@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Manrope, Space_Grotesk } from "next/font/google";
 import { SiteShell } from "@/components/layout/site-shell";
 import { SITE } from "@/constants/site";
-import { getServiceNavItems } from "@/lib/content";
 import "./globals.css";
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-manrope",
   display: "swap",
 });
 
@@ -24,19 +23,20 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${SITE.name} | ${SITE.tagline}`,
+    default: `${SITE.name} | Digital Growth Partner — Build. Connect. Grow.`,
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
   keywords: [
-    "IT solutions",
-    "website design",
-    "social media management",
-    "e-commerce",
-    "SaaS products",
-    "UI UX design",
-    "digital marketing",
-    "branding",
+    "digital growth partner Ghana",
+    "digital growth agency Ghana",
+    "website development Ghana",
+    "web application development Ghana",
+    "SEO Ghana",
+    "business automation Ghana",
+    "bulk SMS Ghana",
+    "social media management Ghana",
+    "digital solutions for SMEs Ghana",
     "SOLVEEK",
   ],
   authors: [{ name: SITE.legalName }],
@@ -50,15 +50,15 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "en_GH",
     url: SITE.url,
     siteName: SITE.name,
-    title: `${SITE.name} | ${SITE.tagline}`,
+    title: `${SITE.name} | Digital Growth Partner`,
     description: SITE.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE.name} | ${SITE.tagline}`,
+    title: `${SITE.name} | Digital Growth Partner`,
     description: SITE.description,
   },
   robots: {
@@ -84,20 +84,32 @@ const organizationJsonLd = {
   slogan: SITE.tagline,
 };
 
-export default async function RootLayout({ children }: LayoutProps<"/">) {
-  const services = await getServiceNavItems();
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: SITE.name,
+  url: SITE.url,
+  description: SITE.description,
+  publisher: {
+    "@type": "Organization",
+    name: SITE.name,
+  },
+};
 
+export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased`}
+      className={`${manrope.variable} ${spaceGrotesk.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([organizationJsonLd, websiteJsonLd]),
+          }}
         />
-        <SiteShell services={services}>{children}</SiteShell>
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   );

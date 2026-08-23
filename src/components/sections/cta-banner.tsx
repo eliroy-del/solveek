@@ -1,5 +1,6 @@
-import { PremiumButton } from "@/components/ui/premium-button";
+import { CtaButton } from "@/components/ui/cta-button";
 import { Reveal } from "@/components/ui/reveal";
+import { AUDIT, BRAND } from "@/constants/brand";
 
 export function CtaBanner() {
   return (
@@ -19,19 +20,18 @@ export function CtaBanner() {
             />
             <div className="relative mx-auto max-w-2xl">
               <h2 className="font-heading text-2xl text-white sm:text-3xl lg:text-4xl">
-                Accelerate innovation with world-class digital solutions
+                {AUDIT.headline}
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-white/70 sm:text-base">
-                Tell us about your website, product, or growth goals. Our team
-                will craft a clear plan with design, technology, and delivery included.
+                {AUDIT.body}
               </p>
               <div className="mt-7 flex flex-wrap justify-center gap-3">
-                <PremiumButton href="/quote" showArrow>
-                  Get a free quote
-                </PremiumButton>
-                <PremiumButton href="/contact" variant="outline-light">
-                  Talk to our team
-                </PremiumButton>
+                <CtaButton href={BRAND.primaryCta.href} showArrow>
+                  {AUDIT.cta}
+                </CtaButton>
+                <CtaButton href={BRAND.secondaryCta.href} variant="outline-light">
+                  {BRAND.secondaryCta.label}
+                </CtaButton>
               </div>
             </div>
           </div>

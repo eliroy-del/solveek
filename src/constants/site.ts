@@ -1,10 +1,10 @@
 export const SITE = {
   name: "SOLVEEK",
   legalName: "Solveek Digital Solutions",
-  tagline: "We bring great ideas to life.",
-  altTagline: "Technology. Design. Growth.",
+  tagline: "Build. Connect. Grow.",
+  category: "Digital Growth Partner",
   description:
-    "SOLVEEK is a modern IT solutions company delivering website design, social media management, e-commerce platforms, SaaS products, and digital growth systems for ambitious brands.",
+    "Solveek is a digital growth partner that builds the digital infrastructure businesses need to get discovered, connect with customers and grow.",
   url: "https://solveek.com",
   email: "hello@solveek.com",
   salesEmail: "sales@solveek.com",
@@ -18,34 +18,26 @@ export const SITE = {
   },
 } as const;
 
-/** Tech-focused photography featuring Ghanaian / West African professionals. */
+/** Local brand / project assets. Extra keys kept for legacy pages still in the tree. */
 export const IMAGES = {
-  // Team collaboration around a laptop
-  hero: "https://images.unsplash.com/photo-1739300293396-9ad79111c8e4?auto=format&fit=crop&w=2400&q=80",
-  // Developers pair-programming at monitors
-  team: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1600&q=80",
-  // Software engineers reviewing code on laptop + monitor (Lagos / NESA)
-  teamAlt: "https://images.unsplash.com/photo-1528901166007-3784c7dd3653?auto=format&fit=crop&w=1600&q=80",
-  // Modern tech workspace / product delivery
-  office: "https://images.unsplash.com/photo-1528901166007-3784c7dd3653?auto=format&fit=crop&w=1600&q=80",
-  // Creative / design collaboration
-  design: "https://images.unsplash.com/photo-1739300293396-9ad79111c8e4?auto=format&fit=crop&w=1600&q=80",
-  // Hands-on software engineering with code on screen
-  code: "https://images.unsplash.com/photo-1528901166007-3784c7dd3653?auto=format&fit=crop&w=1600&q=80",
-  // Product / commerce systems work
-  ecommerce: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1600&q=80",
-  // Digital content and growth collaboration
-  social: "https://images.unsplash.com/photo-1739300293396-9ad79111c8e4?auto=format&fit=crop&w=1600&q=80",
-  // SaaS / product dashboard engineering
-  saas: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
-  // Meeting / strategy: developers collaborating at workstations
-  meeting: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1600&q=80",
-  // Product engineering
-  product: "https://images.unsplash.com/photo-1528901166007-3784c7dd3653?auto=format&fit=crop&w=1600&q=80",
-  // Analytics / growth systems
-  analytics: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
-  // Portraits for testimonials / people cards
-  portrait: "https://images.unsplash.com/photo-1531384441138-2736e62e0919?auto=format&fit=crop&w=400&q=80",
-  portraitAlt: "https://images.unsplash.com/photo-1528901166007-3784c7dd3653?auto=format&fit=crop&w=400&q=80",
-  portraitSoft: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=400&q=80",
+  process: "/images/process-tech-bg.jpg",
+  booksandyou: "/images/project-booksandyou.png",
+  northline: "/images/project-northline-commerce.png",
+  atelier: "/images/project-atelier-social.png",
+  lumen: "/images/project-lumen-branding.png",
+  hero: "/images/process-tech-bg.jpg",
+  team: "/images/process-tech-bg.jpg",
+  teamAlt: "/images/process-tech-bg.jpg",
+  office: "/images/process-tech-bg.jpg",
+  design: "/images/process-tech-bg.jpg",
+  code: "/images/process-tech-bg.jpg",
+  ecommerce: "/images/project-northline-commerce.png",
+  social: "/images/project-atelier-social.png",
+  saas: "/images/process-tech-bg.jpg",
+  meeting: "/images/process-tech-bg.jpg",
+  product: "/images/process-tech-bg.jpg",
+  analytics: "/images/process-tech-bg.jpg",
+  portrait: "/images/process-tech-bg.jpg",
+  portraitAlt: "/images/process-tech-bg.jpg",
+  portraitSoft: "/images/process-tech-bg.jpg",
 } as const;

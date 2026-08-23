@@ -1,134 +1,92 @@
 import type { Metadata } from "next";
-import { ArrowUpRight, Clock3, Mail, Phone } from "lucide-react";
-import { PageHero } from "@/components/ui/page-hero";
-import { Reveal } from "@/components/ui/reveal";
-import { ContactForm } from "@/components/forms/contact-form";
-import { SocialIconLinks } from "@/components/ui/social-icons";
-import { IMAGES, SITE } from "@/constants/site";
+import { Mail, Phone } from "lucide-react";
+import { AuditForm } from "@/components/forms/audit-form";
+import { ECOSYSTEM_LAYERS, AUDIT, BRAND } from "@/constants/brand";
+import { SITE } from "@/constants/site";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Book a Digital Growth Audit",
   description:
-    "Contact SOLVEEK for website design, social media, e-commerce, and digital growth projects.",
+    "Book a Solveek Digital Growth Audit. We assess your digital presence, visibility, customer journey and systems to identify high-impact opportunities.",
+  alternates: { canonical: "/contact" },
 };
-
-const directLines = [
-  {
-    label: "Call us",
-    value: SITE.phone,
-    href: `tel:${SITE.phone}`,
-    icon: Phone,
-  },
-  {
-    label: "Email sales",
-    value: SITE.salesEmail,
-    href: `mailto:${SITE.salesEmail}`,
-    icon: Mail,
-  },
-  {
-    label: "Office hours",
-    value: "Mon–Fri · 9:00–18:00 local time",
-    href: null,
-    icon: Clock3,
-  },
-] as const;
 
 export default function ContactPage() {
   return (
     <>
-      <PageHero
-        title="Let’s talk about your next digital move"
-        description="Whether you need a new website, a social growth system, or an online store, our team is ready to help."
-        image={IMAGES.office}
-      />
-
-      <section className="section-padding relative overflow-hidden bg-surface">
+      <section className="relative overflow-hidden gradient-navy pt-32 pb-16 text-white md:pt-40 md:pb-20">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-50"
+          className="pointer-events-none absolute inset-0"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 12% 20%, rgba(19,88,254,0.08), transparent 34%), radial-gradient(circle at 88% 0%, rgba(7,11,20,0.06), transparent 28%)",
+              "radial-gradient(ellipse at 80% 10%, rgba(19,88,254,0.4), transparent 45%)",
           }}
         />
+        <div className="container-premium relative max-w-3xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan">
+            {BRAND.primaryCta.label}
+          </p>
+          <h1 className="mt-5 font-heading text-[clamp(2.25rem,4.5vw,3.5rem)] leading-[1.08] text-white">
+            {AUDIT.contactHeadline}
+          </h1>
+          <p className="mt-6 text-lg leading-relaxed text-white/70">
+            {AUDIT.contactBody}
+          </p>
+        </div>
+      </section>
 
-        <div className="container-premium relative grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
-          <Reveal>
-            <aside className="flex h-full flex-col justify-between overflow-hidden rounded-[28px] bg-navy p-7 text-white md:p-9">
-              <div>
-                <h2 className="font-heading text-3xl leading-tight sm:text-4xl">
-                  Prefer to reach us straight away?
-                </h2>
-                <p className="mt-4 max-w-md text-sm leading-relaxed text-white/70">
-                  Share a quick brief by phone or email, or send a message and
-                  we’ll reply with clear next steps.
-                </p>
-
-                <ul className="mt-8 space-y-3">
-                  {directLines.map(({ label, value, href, icon: Icon }) => {
-                    const content = (
-                      <>
-                        <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-cyan ring-1 ring-white/10">
-                          <Icon className="size-4" />
-                        </span>
-                        <span className="min-w-0 flex-1">
-                          <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-white/45">
-                            {label}
-                          </span>
-                          <span className="mt-1 block truncate text-sm font-medium text-white">
-                            {value}
-                          </span>
-                        </span>
-                        {href ? (
-                          <ArrowUpRight className="size-4 shrink-0 text-white/40 transition group-hover:text-cyan" />
-                        ) : null}
-                      </>
-                    );
-
-                    return (
-                      <li key={label}>
-                        {href ? (
-                          <a
-                            href={href}
-                            className="group flex items-center gap-3 rounded-2xl bg-white/5 px-3 py-3 ring-1 ring-white/10 transition hover:bg-white/10"
-                          >
-                            {content}
-                          </a>
-                        ) : (
-                          <div className="flex items-center gap-3 rounded-2xl bg-white/5 px-3 py-3 ring-1 ring-white/10">
-                            {content}
-                          </div>
-                        )}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-
-              <div className="mt-10 border-t border-white/10 pt-6">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/45">
-                  Follow SOLVEEK
-                </p>
-                <SocialIconLinks
-                  className="mt-3"
-                  linkClassName="inline-flex size-10 items-center justify-center rounded-xl bg-white/5 text-white/80 ring-1 ring-white/10 transition hover:bg-white/10 hover:text-white"
-                />
-              </div>
-            </aside>
-          </Reveal>
-
-          <Reveal delay={0.08}>
-            <div className="h-full rounded-[28px] border border-border bg-white p-7 shadow-soft md:p-9">
-              <h2 className="font-heading text-3xl text-navy sm:text-4xl">
-                Send a message
-              </h2>
-              <p className="mt-3 mb-8 max-w-lg text-sm leading-relaxed text-muted-foreground">
-                Tell us what you’re building and what success looks like. We’ll
-                come back with a clear recommendation.
+      <section className="bg-surface section-padding">
+        <div className="container-premium grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
+          <aside className="space-y-8">
+            <div className="rounded-2xl bg-navy p-7 text-white md:p-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan">
+                Where do you need help?
               </p>
-              <ContactForm />
+              <ul className="mt-6 space-y-5">
+                {ECOSYSTEM_LAYERS.map((layer) => (
+                  <li key={layer.id}>
+                    <p className="font-heading text-lg text-white">
+                      {layer.title}
+                    </p>
+                    <p className="mt-1 text-sm text-white/60">{layer.headline}</p>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-8 border-t border-white/10 pt-6 text-sm text-white/70">
+                Not sure? Let us assess it — that&apos;s what the audit is for.
+              </p>
             </div>
-          </Reveal>
+
+            <div className="space-y-3 rounded-2xl border border-border bg-white p-6">
+              <a
+                href={`tel:${SITE.phone.replace(/\s/g, "")}`}
+                className="flex items-center gap-3 text-sm text-navy transition hover:text-royal"
+              >
+                <Phone className="size-4 text-royal" />
+                {SITE.phone}
+              </a>
+              <a
+                href={`mailto:${SITE.email}`}
+                className="flex items-center gap-3 text-sm text-navy transition hover:text-royal"
+              >
+                <Mail className="size-4 text-royal" />
+                {SITE.email}
+              </a>
+            </div>
+          </aside>
+
+          <div className="rounded-[1.5rem] border border-border bg-white p-6 shadow-soft md:p-9">
+            <h2 className="font-heading text-2xl text-navy">
+              Request your audit
+            </h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Share a few details so we can prepare a focused conversation.
+            </p>
+            <div className="mt-8">
+              <AuditForm />
+            </div>
+          </div>
         </div>
       </section>
     </>
