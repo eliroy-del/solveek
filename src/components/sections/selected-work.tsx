@@ -3,7 +3,6 @@ import { ArrowRight } from "lucide-react";
 import { ProjectProductPreview } from "@/components/ui/project-product-preview";
 import { CtaButton } from "@/components/ui/cta-button";
 import type { Project } from "@/types";
-import { cn } from "@/lib/utils";
 
 type SelectedWorkProps = {
   projects: Project[];
