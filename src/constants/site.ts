@@ -4,7 +4,7 @@ export const SITE = {
   tagline: "Build. Connect. Grow.",
   category: "Digital Growth Partner",
   description:
-    "Solveek is a digital growth partner that builds the digital infrastructure businesses need to get discovered, connect with customers and grow.",
+    "Solveek is a digital growth partner. We help businesses get found, connect with customers, and grow.",
   url: "https://solveek.com",
   email: "hello@solveek.com",
   salesEmail: "sales@solveek.com",

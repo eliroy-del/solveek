@@ -23,7 +23,7 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${SITE.name} | Digital Growth Partner — Build. Connect. Grow.`,
+    default: `${SITE.name} | Digital Growth Partner`,
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,

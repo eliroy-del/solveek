@@ -46,7 +46,7 @@ export async function POST(request: Request) {
       ``,
       `Focus area: ${focusLabel}`,
       `Industry: ${parsed.data.industry}`,
-      `Website: ${parsed.data.website || "—"}`,
+      `Website: ${parsed.data.website || "N/A"}`,
       `Budget: ${parsed.data.budget}`,
       ``,
       `Looking to improve:`,
@@ -62,7 +62,7 @@ export async function POST(request: Request) {
       email: parsed.data.email,
       company: parsed.data.company,
       phone: parsed.data.phone,
-      subject: `Digital Growth Audit — ${focusLabel}`,
+      subject: `Digital Growth Audit: ${focusLabel}`,
       message,
     });
 

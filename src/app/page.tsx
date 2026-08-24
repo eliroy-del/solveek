@@ -10,9 +10,9 @@ import { getProjects } from "@/lib/content";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Digital Growth Partner — Build. Connect. Grow.",
+  title: "Digital Growth Partner",
   description:
-    "Solveek builds the digital infrastructure that helps businesses get discovered, connect with customers and grow. Book a Digital Growth Audit.",
+    "Solveek builds the digital tools and systems businesses need to get found, talk to customers, and grow. Book a Digital Growth Audit.",
   alternates: { canonical: "/" },
 };
 

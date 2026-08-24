@@ -1,10 +1,10 @@
-/** Solveek Growth Ecosystem — strategic content source of truth */
+/** Solveek Growth Ecosystem content */
 
 export const BRAND = {
   category: "Digital Growth Partner",
   idea: "Build. Connect. Grow.",
   promise:
-    "We build the digital infrastructure that helps businesses get discovered, connect with customers and grow.",
+    "We build the digital tools and systems businesses need to get found, talk to customers, and grow.",
   primaryCta: {
     label: "Book a Digital Growth Audit",
     href: "/contact",
@@ -23,7 +23,7 @@ export const ECOSYSTEM_LAYERS = [
     verb: "Build",
     headline: "Build your digital presence.",
     description:
-      "Your website and digital foundation are more than a place to exist online. They are the infrastructure for credibility, discovery, conversion and measurement.",
+      "Your website is more than a place to exist online. It is how people judge you, find you, convert, and how you measure what works.",
     capabilities: [
       "Website Development",
       "Technical SEO",
@@ -38,7 +38,7 @@ export const ECOSYSTEM_LAYERS = [
     verb: "Connect",
     headline: "Connect your business.",
     description:
-      "Reduce manual processes and create better customer journeys with digital systems built around how your business actually operates.",
+      "Cut down manual work and build clearer customer journeys with systems that match how your business actually runs.",
     capabilities: [
       "Web Applications",
       "CRM Integration",
@@ -53,7 +53,7 @@ export const ECOSYSTEM_LAYERS = [
     verb: "Grow",
     headline: "Grow your reach.",
     description:
-      "Get discovered, stay relevant and turn attention into meaningful customer opportunities through search, social and strategic content.",
+      "Get found, stay relevant, and turn attention into real customer interest through search, social, and useful content.",
     capabilities: [
       "SEO Growth",
       "Social Media Management",
@@ -67,27 +67,27 @@ export const CAPABILITIES = [
   {
     title: "Website Development",
     description:
-      "Digital experiences built to establish credibility, capture attention and turn visitors into opportunities.",
+      "Sites built to look credible, hold attention, and turn visitors into leads.",
   },
   {
     title: "SEO",
     description:
-      "Search visibility built around how your customers actually find and evaluate businesses.",
+      "Search work based on how your customers actually look for and compare businesses.",
   },
   {
     title: "Web Applications",
     description:
-      "Custom digital systems built around the way your business operates.",
+      "Custom systems shaped around the way your business operates day to day.",
   },
   {
     title: "Bulk SMS",
     description:
-      "Customer communication systems that help businesses reach, notify and retain customers at scale.",
+      "Messaging systems that help you reach, notify, and keep customers at scale.",
   },
   {
     title: "Social Media Management",
     description:
-      "Strategic content and social presence designed to build visibility, trust and demand.",
+      "Content and social presence built to grow visibility, trust, and demand.",
   },
 ] as const;
 
@@ -96,52 +96,49 @@ export const PROCESS_STEPS = [
     step: "01",
     title: "Diagnose",
     description:
-      "Understand the business, its digital gaps and its growth constraints.",
+      "Understand the business, the digital gaps, and what is holding growth back.",
   },
   {
     step: "02",
     title: "Strategize",
-    description:
-      "Turn the findings into a practical digital growth roadmap.",
+    description: "Turn findings into a clear digital growth roadmap.",
   },
   {
     step: "03",
     title: "Build",
-    description:
-      "Design and develop the required digital infrastructure.",
+    description: "Design and build the systems you actually need.",
   },
   {
     step: "04",
     title: "Connect",
     description:
-      "Integrate systems, communication channels and customer journeys.",
+      "Link systems, channels, and customer journeys so they work together.",
   },
   {
     step: "05",
     title: "Grow",
-    description:
-      "Measure, optimize and continuously improve performance.",
+    description: "Measure results, improve what matters, and keep moving.",
   },
 ] as const;
 
 export const PRINCIPLES = [
   "Strategy before execution.",
-  "Technology connected to business objectives.",
-  "One partner across your digital ecosystem.",
+  "Technology tied to business goals.",
+  "One partner across your digital stack.",
   "Built for measurable growth.",
 ] as const;
 
 export const AUDIT = {
   headline: "Not sure where your digital growth is getting stuck?",
-  body: "Start with a Solveek Digital Growth Audit. We assess your digital presence, visibility, customer journey and systems to identify the highest-impact opportunities for improvement.",
+  body: "Start with a Solveek Digital Growth Audit. We look at your presence, visibility, customer journey, and systems, then show you where to focus first.",
   cta: "Book your Digital Growth Audit",
-  contactHeadline: "Let's identify what your business needs to grow digitally.",
+  contactHeadline: "Tell us what you need to grow digitally.",
   contactBody:
-    "Tell us where you're trying to go. We'll help identify the digital infrastructure required to get there.",
+    "Share where you want to go. We will help figure out the digital pieces required to get there.",
 } as const;
 
 export const PROBLEM = {
   headline:
-    "Your business doesn't need more disconnected digital services. It needs a system.",
-  body: "Your website, search visibility, customer communication and business systems should work together. Solveek connects the digital pieces that help businesses build a stronger presence, operate smarter and create room for growth.",
+    "Your business does not need more disconnected digital services. It needs a system.",
+  body: "Your website, search visibility, customer communication, and business systems should work together. Solveek connects those pieces so you can show up stronger, run smarter, and make room to grow.",
 } as const;
