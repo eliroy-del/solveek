@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { CtaButton } from "@/components/ui/cta-button";
-import { BRAND, ECOSYSTEM_LAYERS } from "@/constants/brand";
+import { ECOSYSTEM_LAYERS } from "@/constants/brand";
 import { CapabilitiesSection } from "@/components/sections/capabilities-section";
 import { AuditCta } from "@/components/sections/audit-cta";
 
@@ -33,19 +32,13 @@ export default function EcosystemPage() {
         </div>
 
         <div className="container-premium relative max-w-2xl">
-          <p className="eyebrow text-cyan">{BRAND.category}</p>
-          <h1 className="mt-3 title-page text-white">
+          <h1 className="title-page text-white">
             The Solveek Growth Ecosystem
           </h1>
           <p className="mt-4 text-sm leading-relaxed text-white/70 md:text-base">
             Deep dive: how Foundation, Automation, and Visibility work together.
             Start where you need help most.
           </p>
-          <div className="mt-6">
-            <CtaButton href={BRAND.primaryCta.href} showArrow>
-              {BRAND.primaryCta.label}
-            </CtaButton>
-          </div>
         </div>
       </section>
 
