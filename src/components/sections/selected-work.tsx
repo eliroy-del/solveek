@@ -131,41 +131,60 @@ export function SelectedWork({ projects, featured = true }: SelectedWorkProps) {
 }
 
 export function WorkGrid({ projects }: { projects: Project[] }) {
+  if (projects.length === 0) {
+    return (
+      <div className="max-w-lg py-8 text-center">
+        <p className="text-sm text-muted-foreground">
+          Case studies are coming soon. Start with a Digital Growth Audit while
+          we prepare them.
+        </p>
+        <div className="mt-5 flex justify-center">
+          <CtaButton href="/contact" showArrow>
+            Book a Digital Growth Audit
+          </CtaButton>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="grid gap-4 md:grid-cols-2">
+    <div className="divide-y divide-border border-y border-border">
       {projects.map((project, index) => (
         <Link
           key={project.slug}
           href={`/work/${project.slug}`}
-          className={cn(
-            "group overflow-hidden rounded-xl bg-white ring-1 ring-border/80 transition-ui hover:ring-royal/30",
-            index === 0 && "md:col-span-2"
-          )}
+          className="group grid gap-4 py-5 transition-ui sm:grid-cols-[140px_minmax(0,1fr)_auto] sm:items-center sm:gap-6 md:py-6"
         >
-          <div
-            className={cn(
-              "relative bg-navy",
-              index === 0 ? "aspect-[21/9]" : "aspect-[16/10]"
-            )}
-          >
+          <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-navy sm:aspect-[5/4]">
             <ProjectProductPreview
               slug={project.slug}
               industry={project.industry}
-              className="absolute inset-0 h-full w-full"
+              className="absolute inset-0 h-full w-full transition-transform duration-300 group-hover:scale-[1.03]"
             />
           </div>
-          <div className="p-4 md:p-5">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.06em] text-royal">
-              {project.industry}
-              {project.location ? ` · ${project.location}` : ""}
-            </p>
-            <h2 className="mt-1.5 font-heading text-lg text-navy md:text-xl">
+
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+              <span className="font-heading text-[11px] text-royal">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className="text-[11px] font-semibold uppercase tracking-[0.06em] text-muted-foreground">
+                {project.industry}
+                {project.location ? ` · ${project.location}` : ""}
+              </span>
+            </div>
+            <h2 className="mt-1.5 font-heading text-lg text-navy transition-ui group-hover:text-royal md:text-xl">
               {project.title}
             </h2>
-            <p className="mt-2 line-clamp-2 text-sm text-muted-foreground">
+            <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
               {project.challenge}
             </p>
           </div>
+
+          <span className="inline-flex items-center gap-1 text-sm font-semibold text-royal sm:justify-self-end">
+            View
+            <ArrowRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+          </span>
         </Link>
       ))}
     </div>
@@ -174,24 +193,17 @@ export function WorkGrid({ projects }: { projects: Project[] }) {
 
 export function WorkGridSkeleton() {
   return (
-    <div className="grid gap-4 md:grid-cols-2" aria-hidden>
-      <div className="overflow-hidden rounded-xl bg-white ring-1 ring-border/80 md:col-span-2">
-        <div className="skeleton aspect-[21/9] rounded-none" />
-        <div className="space-y-3 p-5">
-          <div className="skeleton h-3 w-24" />
-          <div className="skeleton h-6 w-2/3" />
-          <div className="skeleton h-4 w-full" />
-        </div>
-      </div>
-      {[0, 1].map((i) => (
+    <div className="divide-y divide-border border-y border-border" aria-hidden>
+      {[0, 1, 2].map((i) => (
         <div
           key={i}
-          className="overflow-hidden rounded-xl bg-white ring-1 ring-border/80"
+          className="grid gap-4 py-5 sm:grid-cols-[140px_minmax(0,1fr)] sm:items-center sm:gap-6"
         >
-          <div className="skeleton aspect-[16/10] rounded-none" />
-          <div className="space-y-3 p-4">
-            <div className="skeleton h-3 w-20" />
-            <div className="skeleton h-5 w-3/4" />
+          <div className="skeleton aspect-[16/10] sm:aspect-[5/4]" />
+          <div className="space-y-2.5">
+            <div className="skeleton h-3 w-28" />
+            <div className="skeleton h-5 w-2/3" />
+            <div className="skeleton h-4 w-full" />
           </div>
         </div>
       ))}
