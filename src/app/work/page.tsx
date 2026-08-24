@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Suspense } from "react";
 import {
   WorkShowcase,
   WorkShowcaseSkeleton,
 } from "@/components/sections/work-showcase";
 import { AuditCta } from "@/components/sections/audit-cta";
+import { BRAND } from "@/constants/brand";
+import { IMAGES } from "@/constants/site";
 import { getProjects } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -22,7 +25,34 @@ async function WorkList() {
 export default function WorkPage() {
   return (
     <>
-      <section className="bg-surface pt-24 pb-12 md:pt-28 md:pb-16">
+      <section className="relative isolate overflow-hidden pt-28 pb-14 text-white md:pt-32 md:pb-16">
+        <div className="pointer-events-none absolute inset-0" aria-hidden>
+          <div className="work-header-media absolute inset-0">
+            <Image
+              src={IMAGES.workHeader}
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-center"
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/88 to-navy/45" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy/55 via-transparent to-navy/35" />
+          <div className="work-header-glow absolute inset-0" />
+        </div>
+
+        <div className="container-premium relative max-w-2xl">
+          <p className="eyebrow text-cyan">{BRAND.category}</p>
+          <h1 className="mt-3 title-page text-white">Our Work</h1>
+          <p className="mt-4 text-sm leading-relaxed text-white/70 md:text-base">
+            A selection of signature projects — digital systems built for real
+            businesses and real outcomes.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-white section-padding">
         <div className="container-premium">
           <Suspense fallback={<WorkShowcaseSkeleton />}>
             <WorkList />

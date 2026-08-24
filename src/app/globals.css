@@ -256,13 +256,15 @@
     animation: hero-network-pulse 6s ease-in-out infinite;
   }
 
-  .ecosystem-header-media {
+  .ecosystem-header-media,
+  .work-header-media {
     animation: ecosystem-header-drift 24s ease-in-out infinite alternate;
     transform-origin: center;
     will-change: transform;
   }
 
-  .ecosystem-header-glow {
+  .ecosystem-header-glow,
+  .work-header-glow {
     background:
       radial-gradient(circle at 50% 55%, rgba(77, 130, 255, 0.2), transparent 32%),
       radial-gradient(circle at 70% 40%, rgba(19, 88, 254, 0.12), transparent 28%);
@@ -317,12 +319,15 @@
   .hero-network,
   .hero-network-glow,
   .ecosystem-header-media,
-  .ecosystem-header-glow {
+  .ecosystem-header-glow,
+  .work-header-media,
+  .work-header-glow {
     animation: none !important;
   }
 
   .hero-network,
-  .ecosystem-header-media {
+  .ecosystem-header-media,
+  .work-header-media {
     transform: scale(1.04);
   }
 }
