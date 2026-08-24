@@ -74,14 +74,14 @@ export function AuditForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-xl border border-royal/20 bg-royal/5 p-6 text-center md:p-8">
-        <CheckCircle2 className="mx-auto size-8 text-royal" />
-        <h3 className="mt-3 font-heading text-xl text-navy">
+      <div className="rounded-2xl border border-royal/20 bg-royal/5 p-8 text-center md:p-10">
+        <CheckCircle2 className="mx-auto size-10 text-royal" />
+        <h3 className="mt-4 font-heading text-2xl text-navy">
           Audit request received
         </h3>
-        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-          Thanks. We will review your details and follow up to schedule your
-          Digital Growth Audit.
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+          Thank you. We&apos;ll review your details and follow up to schedule
+          your Digital Growth Audit.
         </p>
         <button
           type="button"
@@ -95,8 +95,8 @@ export function AuditForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
-      <div className="grid gap-4 sm:grid-cols-2">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
+      <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Name" error={errors.name?.message}>
           <input className={inputClass} {...register("name")} />
         </Field>
@@ -105,7 +105,7 @@ export function AuditForm() {
         </Field>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Email" error={errors.email?.message}>
           <input type="email" className={inputClass} {...register("email")} />
         </Field>
@@ -114,7 +114,7 @@ export function AuditForm() {
         </Field>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Website" error={errors.website?.message} optional>
           <input
             className={inputClass}
@@ -151,7 +151,7 @@ export function AuditForm() {
                 setValue("focusArea", opt.value, { shouldValidate: true })
               }
               className={cn(
-                "rounded-lg border px-3 py-2.5 text-left text-sm font-medium transition",
+                "rounded-xl border px-4 py-3 text-left text-sm font-medium transition",
                 focusArea === opt.value
                   ? "border-royal bg-royal/5 text-navy ring-1 ring-royal/30"
                   : "border-border bg-white text-navy/70 hover:border-royal/30"
@@ -208,7 +208,7 @@ export function AuditForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="inline-flex h-10 w-full items-center justify-center gap-1.5 rounded-lg bg-royal px-5 text-sm font-semibold text-white transition hover:bg-[#0F4AE0] disabled:opacity-60 sm:w-auto"
+        className="btn-shine group inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-royal px-6 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(19,88,254,0.35)] transition hover:-translate-y-0.5 hover:bg-[#0F4AE0] disabled:opacity-60 sm:w-auto"
       >
         {isSubmitting ? "Sending…" : "Book your Digital Growth Audit"}
         <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
@@ -245,4 +245,4 @@ function Field({
 }
 
 const inputClass =
-  "w-full rounded-lg border border-border bg-white px-3.5 py-2.5 text-sm text-navy outline-none transition placeholder:text-muted-foreground/60 focus:border-royal focus:ring-2 focus:ring-royal/20";
+  "w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-navy outline-none transition placeholder:text-muted-foreground/60 focus:border-royal focus:ring-2 focus:ring-royal/20";

@@ -15,13 +15,15 @@ export default async function WorkPage() {
 
   return (
     <>
-      <section className="relative overflow-hidden gradient-navy pt-24 pb-10 text-white md:pt-28">
-        <div className="container-premium relative max-w-2xl">
-          <p className="eyebrow text-cyan">Portfolio</p>
-          <h1 className="mt-3 font-heading text-[clamp(1.85rem,4vw,2.75rem)] leading-snug text-white">
+      <section className="relative overflow-hidden gradient-navy pt-32 pb-16 text-white md:pt-40">
+        <div className="container-premium relative max-w-3xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan">
+            Portfolio
+          </p>
+          <h1 className="mt-5 font-heading text-[clamp(2.5rem,5vw,4rem)] leading-[1.05] text-white">
             Selected Work
           </h1>
-          <p className="mt-3 text-sm text-white/70 sm:text-base">
+          <p className="mt-6 text-lg text-white/70">
             Built for real businesses. Designed for real outcomes.
           </p>
         </div>
