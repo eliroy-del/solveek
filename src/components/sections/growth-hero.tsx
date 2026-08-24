@@ -1,21 +1,28 @@
+import Image from "next/image";
 import { CtaButton } from "@/components/ui/cta-button";
 import { BRAND } from "@/constants/brand";
 
 export function GrowthHero() {
   return (
-    <section className="relative overflow-hidden gradient-navy text-white">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          backgroundImage:
-            "radial-gradient(ellipse 70% 45% at 72% 18%, rgba(19,88,254,0.3), transparent), linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)",
-          backgroundSize: "auto, 56px 56px, 56px 56px",
-        }}
-      />
+    <section className="relative isolate overflow-hidden text-white">
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
+        <div className="hero-network absolute inset-0">
+          <Image
+            src="/images/hero-network.png"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[68%_center] sm:object-center"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/88 to-navy/35 sm:via-navy/80 sm:to-navy/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-navy/40" />
+        <div className="hero-network-glow absolute inset-0" />
+      </div>
 
-      <div className="container-premium relative grid min-h-[92svh] items-center gap-10 pb-16 pt-28 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 lg:pb-24 lg:pt-32">
-        <div>
+      <div className="container-premium relative flex min-h-[92svh] items-center pb-16 pt-28 lg:pb-24 lg:pt-32">
+        <div className="max-w-xl">
           <p className="eyebrow text-cyan">{BRAND.category}</p>
           <h1 className="mt-4 display text-white">
             Build.
@@ -24,7 +31,7 @@ export function GrowthHero() {
             <br />
             Grow.
           </h1>
-          <p className="mt-5 max-w-lg text-sm leading-relaxed text-white/70 sm:text-base">
+          <p className="mt-5 max-w-lg text-sm leading-relaxed text-white/75 sm:text-base">
             {BRAND.promise}
           </p>
           <div className="mt-8 flex flex-col gap-2.5 sm:flex-row sm:items-center">
@@ -36,67 +43,7 @@ export function GrowthHero() {
             </CtaButton>
           </div>
         </div>
-
-        <div className="relative mx-auto w-full max-w-sm lg:max-w-md">
-          <HeroSystemVisual />
-        </div>
       </div>
     </section>
-  );
-}
-
-function HeroSystemVisual() {
-  const nodes = [
-    { label: "Foundation", verb: "Build", top: "10%", left: "14%" },
-    { label: "Automation", verb: "Connect", top: "44%", left: "52%" },
-    { label: "Visibility", verb: "Grow", top: "74%", left: "18%" },
-  ] as const;
-
-  return (
-    <div
-      className="relative aspect-square w-full rounded-xl border border-white/10 bg-white/[0.03] p-5"
-      aria-hidden
-    >
-      <svg
-        className="absolute inset-5 h-[calc(100%-2.5rem)] w-[calc(100%-2.5rem)]"
-        viewBox="0 0 100 100"
-        fill="none"
-      >
-        <path
-          d="M28 18 C 48 28, 62 38, 68 48"
-          stroke="rgba(77,130,255,0.4)"
-          strokeWidth="0.6"
-          strokeDasharray="2 2"
-        />
-        <path
-          d="M68 52 C 58 62, 42 70, 32 78"
-          stroke="rgba(77,130,255,0.4)"
-          strokeWidth="0.6"
-          strokeDasharray="2 2"
-        />
-        <circle cx="28" cy="18" r="1.8" fill="#4d82ff" />
-        <circle cx="68" cy="48" r="1.8" fill="#1358fe" />
-        <circle cx="32" cy="78" r="1.8" fill="#4d82ff" />
-      </svg>
-
-      {nodes.map((node) => (
-        <div
-          key={node.label}
-          className="absolute rounded-lg border border-white/15 bg-navy/85 px-3 py-2"
-          style={{ top: node.top, left: node.left }}
-        >
-          <p className="text-[10px] font-semibold uppercase tracking-[0.06em] text-cyan">
-            {node.verb}
-          </p>
-          <p className="mt-0.5 font-heading text-xs text-white">{node.label}</p>
-        </div>
-      ))}
-
-      <div className="absolute bottom-5 right-5 rounded-md border border-royal/40 bg-royal/20 px-2.5 py-1.5">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.06em] text-white/90">
-          Growth
-        </p>
-      </div>
-    </div>
   );
 }
