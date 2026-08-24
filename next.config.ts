@@ -23,7 +23,6 @@ const nextConfig: NextConfig = {
       { source: "/services", destination: "/ecosystem", permanent: true },
       { source: "/services/:slug", destination: "/ecosystem", permanent: true },
       { source: "/quote", destination: "/contact", permanent: true },
-      { source: "/about", destination: "/", permanent: true },
       { source: "/insights", destination: "/", permanent: false },
       { source: "/insights/:slug", destination: "/", permanent: false },
       { source: "/faqs", destination: "/contact", permanent: false },
