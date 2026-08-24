@@ -5,7 +5,6 @@ import {
   WorkShowcase,
   WorkShowcaseSkeleton,
 } from "@/components/sections/work-showcase";
-import { AuditCta } from "@/components/sections/audit-cta";
 import { BRAND } from "@/constants/brand";
 import { IMAGES } from "@/constants/site";
 import { getProjects } from "@/lib/content";
@@ -59,8 +58,6 @@ export default function WorkPage() {
           </Suspense>
         </div>
       </section>
-
-      <AuditCta />
     </>
   );
 }
