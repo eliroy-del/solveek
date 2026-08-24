@@ -256,6 +256,19 @@
     animation: hero-network-pulse 6s ease-in-out infinite;
   }
 
+  .ecosystem-header-media {
+    animation: ecosystem-header-drift 24s ease-in-out infinite alternate;
+    transform-origin: center;
+    will-change: transform;
+  }
+
+  .ecosystem-header-glow {
+    background:
+      radial-gradient(circle at 50% 55%, rgba(77, 130, 255, 0.2), transparent 32%),
+      radial-gradient(circle at 70% 40%, rgba(19, 88, 254, 0.12), transparent 28%);
+    animation: hero-network-pulse 7s ease-in-out infinite;
+  }
+
   @keyframes hero-network-drift {
     0% {
       transform: scale(1.04) translate3d(0, 0, 0);
@@ -265,6 +278,15 @@
     }
     100% {
       transform: scale(1.06) translate3d(1%, -0.6%, 0);
+    }
+  }
+
+  @keyframes ecosystem-header-drift {
+    0% {
+      transform: scale(1.05) translate3d(0, 0, 0);
+    }
+    100% {
+      transform: scale(1.1) translate3d(-1.2%, 0.7%, 0);
     }
   }
 
@@ -293,11 +315,14 @@
   }
 
   .hero-network,
-  .hero-network-glow {
+  .hero-network-glow,
+  .ecosystem-header-media,
+  .ecosystem-header-glow {
     animation: none !important;
   }
 
-  .hero-network {
+  .hero-network,
+  .ecosystem-header-media {
     transform: scale(1.04);
   }
 }

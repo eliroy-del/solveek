@@ -22,6 +22,7 @@ export const SITE = {
 export const IMAGES = {
   process: "/images/process-tech-bg.jpg",
   heroNetwork: "/images/hero-network.png",
+  ecosystemHeader: "/images/ecosystem-header.png",
   booksandyou: "/images/project-booksandyou.png",
   northline: "/images/project-northline-commerce.png",
   atelier: "/images/project-atelier-social.png",
