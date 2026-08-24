@@ -5,7 +5,6 @@ import {
   WorkShowcase,
   WorkShowcaseSkeleton,
 } from "@/components/sections/work-showcase";
-import { BRAND } from "@/constants/brand";
 import { IMAGES } from "@/constants/site";
 import { getProjects } from "@/lib/content";
 
@@ -42,8 +41,7 @@ export default function WorkPage() {
         </div>
 
         <div className="container-premium relative max-w-2xl">
-          <p className="eyebrow text-cyan">{BRAND.category}</p>
-          <h1 className="mt-3 title-page text-white">Our Work</h1>
+          <h1 className="title-page text-white">Our Work</h1>
           <p className="mt-4 text-sm leading-relaxed text-white/70 md:text-base">
             A selection of signature projects — digital systems built for real
             businesses and real outcomes.
