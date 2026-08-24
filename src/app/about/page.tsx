@@ -6,7 +6,7 @@ import { ABOUT, BRAND, PRINCIPLES } from "@/constants/brand";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Solveek is a digital growth partner. We believe businesses need connected systems, not disconnected digital services.",
+    "Solveek is a digital growth partner. Our mission and vision guide how we help businesses build connected digital systems.",
   alternates: { canonical: "/about" },
 };
 
@@ -39,34 +39,48 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-white section-padding">
-        <div className="container-premium max-w-3xl">
-          <p className="eyebrow text-royal">Philosophy</p>
-          <h2 className="mt-2 title-section text-navy">
-            How Solveek thinks about digital growth
-          </h2>
-          <div className="mt-10 space-y-8">
-            {ABOUT.philosophy.map((item, index) => (
-              <article
-                key={item.title}
-                className="border-t border-border pt-8 first:border-t-0 first:pt-0"
-              >
-                <div className="flex items-baseline gap-3">
-                  <span className="font-heading text-xs text-royal">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="font-heading text-xl text-navy">{item.title}</h3>
-                </div>
-                <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-                  {item.body}
-                </p>
-              </article>
-            ))}
+      <section className="bg-white py-14 md:py-16">
+        <div className="container-premium">
+          <div className="mb-8 max-w-xl">
+            <h2 className="title-section text-navy">Mission and vision</h2>
+            <p className="mt-2 text-sm text-muted-foreground md:text-base">
+              What drives every engagement, and where we are headed.
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            <article className="relative overflow-hidden rounded-xl bg-navy p-6 text-white md:p-8">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -right-10 -top-10 size-40 rounded-full bg-royal/25 blur-2xl"
+              />
+              <p className="eyebrow relative text-cyan">{ABOUT.mission.title}</p>
+              <h3 className="relative mt-3 font-heading text-2xl leading-snug text-white md:text-[1.75rem]">
+                {ABOUT.mission.statement}
+              </h3>
+              <p className="relative mt-4 text-sm leading-relaxed text-white/65 md:text-[0.95rem]">
+                {ABOUT.mission.body}
+              </p>
+            </article>
+
+            <article className="relative overflow-hidden rounded-xl border border-border bg-surface p-6 md:p-8">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -right-8 -top-8 size-36 rounded-full bg-royal/10 blur-2xl"
+              />
+              <p className="eyebrow relative text-royal">{ABOUT.vision.title}</p>
+              <h3 className="relative mt-3 font-heading text-2xl leading-snug text-navy md:text-[1.75rem]">
+                {ABOUT.vision.statement}
+              </h3>
+              <p className="relative mt-4 text-sm leading-relaxed text-muted-foreground md:text-[0.95rem]">
+                {ABOUT.vision.body}
+              </p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section className="bg-surface section-padding">
+      <section className="bg-surface py-14 md:py-16">
         <div className="container-premium">
           <p className="eyebrow text-royal">Principles</p>
           <h2 className="mt-2 max-w-lg title-section text-navy">
@@ -76,12 +90,12 @@ export default function AboutPage() {
             {PRINCIPLES.map((principle, index) => (
               <li
                 key={principle}
-                className="flex min-h-[110px] flex-col justify-between bg-white p-6"
+                className="flex min-h-[100px] flex-col justify-between bg-white p-5"
               >
                 <span className="font-heading text-xs text-royal">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <p className="mt-4 font-heading text-xl leading-snug text-navy">
+                <p className="mt-3 font-heading text-lg leading-snug text-navy">
                   {principle}
                 </p>
               </li>

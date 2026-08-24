@@ -132,24 +132,16 @@ export const ABOUT = {
   headline: "Businesses do not need more disconnected digital tools.",
   subhead:
     "They need technology that works together around the way the business actually grows.",
-  philosophy: [
-    {
-      title: "What we believe",
-      body: "Growth stalls when websites, search, messaging, and internal systems sit apart. Solveek exists to connect those pieces into one practical digital system.",
-    },
-    {
-      title: "How we approach growth",
-      body: "We start with the business problem, then design the right infrastructure. Build where presence is weak. Connect where operations are manual. Grow where visibility is missing.",
-    },
-    {
-      title: "Why the ecosystem exists",
-      body: "Foundation, Automation, and Visibility are not departments. They are stages in one growth system, so you can enter where you are and improve without buying five unrelated services.",
-    },
-    {
-      title: "How we work differently",
-      body: "One partner across strategy and delivery. Clear roadmaps. Measurable work. No fake metrics, no buzzword stacks, no one-off projects that leave you stranded.",
-    },
-  ],
+  mission: {
+    title: "Mission",
+    statement: "Digitise with clarity and craft",
+    body: "Help ambitious brands build connected digital systems: websites, visibility, communication, and tools that look strong and perform commercially.",
+  },
+  vision: {
+    title: "Vision",
+    statement: "Build lasting digital advantage",
+    body: "Be the growth partner Ghanaian and African businesses trust to turn ideas into lasting presence, products, and measurable progress.",
+  },
 } as const;
 
 export const AUDIT = {
