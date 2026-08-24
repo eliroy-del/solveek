@@ -10,17 +10,18 @@ type EcosystemOverviewProps = {
 export function EcosystemOverview({ compact = false }: EcosystemOverviewProps) {
   return (
     <section
-      className={cn("relative overflow-hidden bg-surface", compact ? "py-10" : "py-14 md:py-16")}
+      className={cn(
+        "relative overflow-hidden bg-surface",
+        compact ? "py-10" : "section-padding"
+      )}
       id="ecosystem"
     >
       <div className="container-premium relative">
         {!compact ? (
           <div className="mb-8 flex flex-col gap-4 md:mb-10 md:flex-row md:items-end md:justify-between">
             <div className="max-w-xl">
-              <p className="text-[11px] font-semibold uppercase tracking-wide text-royal">
-                Growth Ecosystem
-              </p>
-              <h2 className="mt-2 font-heading text-2xl leading-snug text-navy md:text-3xl">
+              <p className="eyebrow text-royal">Growth Ecosystem</p>
+              <h2 className="mt-2 title-section text-navy">
                 The Solveek Growth Ecosystem
               </h2>
               <p className="mt-2 text-sm text-muted-foreground md:text-base">
@@ -29,10 +30,10 @@ export function EcosystemOverview({ compact = false }: EcosystemOverviewProps) {
             </div>
             <Link
               href="/ecosystem"
-              className="group inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-royal"
+              className="group inline-flex shrink-0 cursor-pointer items-center gap-1.5 text-sm font-semibold text-royal"
             >
-              Explore the ecosystem
-              <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
+              Full ecosystem overview
+              <ArrowRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
             </Link>
           </div>
         ) : null}
@@ -42,9 +43,9 @@ export function EcosystemOverview({ compact = false }: EcosystemOverviewProps) {
             <li
               key={layer.id}
               className={cn(
-                "relative rounded-xl bg-white p-5 ring-1 ring-border/80 md:rounded-none md:p-6",
-                index === 0 && "md:rounded-l-xl",
-                index === ECOSYSTEM_LAYERS.length - 1 && "md:rounded-r-xl",
+                "relative rounded-lg bg-white p-5 ring-1 ring-border/80 md:rounded-none md:p-6",
+                index === 0 && "md:rounded-l-lg",
+                index === ECOSYSTEM_LAYERS.length - 1 && "md:rounded-r-lg",
                 index > 0 && "md:border-l md:border-border/80"
               )}
             >
@@ -52,22 +53,17 @@ export function EcosystemOverview({ compact = false }: EcosystemOverviewProps) {
                 <span className="flex size-7 items-center justify-center rounded-full bg-royal font-heading text-[11px] font-semibold text-white">
                   {layer.number}
                 </span>
-                <p className="text-[11px] font-semibold uppercase tracking-wide text-royal">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.06em] text-royal">
                   {layer.verb}
                 </p>
                 {index < ECOSYSTEM_LAYERS.length - 1 ? (
-                  <span
-                    aria-hidden
-                    className="ml-auto hidden text-royal/40 md:inline"
-                  >
+                  <span aria-hidden className="ml-auto hidden text-royal/40 md:inline">
                     →
                   </span>
                 ) : null}
               </div>
 
-              <h3 className="mt-3 font-heading text-lg text-navy">
-                {layer.title}
-              </h3>
+              <h3 className="mt-3 font-heading text-lg text-navy">{layer.title}</h3>
               <p className="mt-0.5 text-sm font-medium text-navy/75">
                 {layer.headline}
               </p>
@@ -93,7 +89,7 @@ export function EcosystemOverview({ compact = false }: EcosystemOverviewProps) {
             {["Measure", "Optimize", "Scale"].map((label) => (
               <span
                 key={label}
-                className="rounded-full border border-navy/10 bg-white px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-navy/65"
+                className="rounded-full border border-navy/10 bg-white px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.06em] text-navy/65"
               >
                 {label}
               </span>

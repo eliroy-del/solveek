@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { WorkGrid } from "@/components/sections/selected-work";
+import { Suspense } from "react";
+import { WorkGrid, WorkGridSkeleton } from "@/components/sections/selected-work";
 import { AuditCta } from "@/components/sections/audit-cta";
 import { getProjects } from "@/lib/content";
 
@@ -10,20 +11,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "/work" },
 };
 
-export default async function WorkPage() {
+async function WorkList() {
   const projects = await getProjects();
+  return <WorkGrid projects={projects} />;
+}
 
+export default function WorkPage() {
   return (
     <>
-      <section className="relative overflow-hidden gradient-navy pt-32 pb-16 text-white md:pt-40">
-        <div className="container-premium relative max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan">
-            Portfolio
-          </p>
-          <h1 className="mt-5 font-heading text-[clamp(2.5rem,5vw,4rem)] leading-[1.05] text-white">
-            Selected Work
-          </h1>
-          <p className="mt-6 text-lg text-white/70">
+      <section className="relative overflow-hidden gradient-navy pt-28 pb-10 text-white md:pt-32">
+        <div className="container-premium relative max-w-2xl">
+          <p className="eyebrow text-cyan">Portfolio</p>
+          <h1 className="mt-3 title-page text-white">Selected Work</h1>
+          <p className="mt-3 text-sm text-white/70 md:text-base">
             Built for real businesses. Designed for real outcomes.
           </p>
         </div>
@@ -31,7 +31,9 @@ export default async function WorkPage() {
 
       <section className="bg-surface section-padding">
         <div className="container-premium">
-          <WorkGrid projects={projects} />
+          <Suspense fallback={<WorkGridSkeleton />}>
+            <WorkList />
+          </Suspense>
         </div>
       </section>
 

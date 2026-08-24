@@ -3,11 +3,11 @@ import { PROBLEM } from "@/constants/brand";
 export function ProblemStatement() {
   return (
     <section className="bg-white section-padding">
-      <div className="container-premium max-w-4xl">
-        <h2 className="font-heading text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.08] tracking-tight text-navy text-balance">
+      <div className="container-premium max-w-3xl">
+        <h2 className="title-section text-navy text-balance md:text-[clamp(1.85rem,3.2vw,2.75rem)]">
           {PROBLEM.headline}
         </h2>
-        <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+        <p className="mt-5 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
           {PROBLEM.body}
         </p>
       </div>
