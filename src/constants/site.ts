@@ -21,6 +21,7 @@ export const SITE = {
 /** Local brand / project assets. Extra keys kept for legacy pages still in the tree. */
 export const IMAGES = {
   process: "/images/process-tech-bg.jpg",
+  heroNetwork: "/images/hero-network.png",
   booksandyou: "/images/project-booksandyou.png",
   northline: "/images/project-northline-commerce.png",
   atelier: "/images/project-atelier-social.png",
