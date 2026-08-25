@@ -26,10 +26,7 @@ export function ProcessMethodology() {
               key={step.step}
               className="relative border-t border-white/10 py-6 pr-3 lg:border-t-0 lg:border-l lg:border-white/10 lg:pl-5 lg:pr-3 lg:pt-0 first:lg:border-l-0 first:lg:pl-0"
             >
-              <span className="font-heading text-2xl text-royal/90">
-                {step.step}
-              </span>
-              <h3 className="mt-2 font-heading text-base text-white">
+              <h3 className="font-heading text-base text-white">
                 {step.title}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-white/60">
