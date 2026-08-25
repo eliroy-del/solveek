@@ -13,7 +13,7 @@ const schema = z.object({
   email: z.string().email("Valid email required"),
   phone: z.string().min(7, "Phone / WhatsApp is required").max(40),
   website: z.string().max(200).optional(),
-  industry: z.string().min(2, "Industry is required"),
+  industry: z.string().min(1, "Select an industry"),
   improve: z.string().min(10, "Tell us what you want to improve"),
   focusArea: z.enum(["foundation", "automation", "visibility", "unsure"], {
     required_error: "Select an area",
@@ -36,6 +36,21 @@ const budgetOptions = [
   "Under GH₵4,000",
   "GH₵4,000 to 6,500",
   "GH₵6,500 to 10,000",
+];
+
+const industryOptions = [
+  "Retail & E-commerce",
+  "Hospitality & Tourism",
+  "Professional services",
+  "Education & Training",
+  "Healthcare & Wellness",
+  "Real estate & Construction",
+  "Finance & Insurance",
+  "Technology & Software",
+  "Manufacturing",
+  "Media & Creative",
+  "Non-profit & NGO",
+  "Other",
 ];
 
 const stepFields: (keyof FormValues)[][] = [
@@ -162,7 +177,16 @@ export function AuditForm() {
               <input type="url" inputMode="url" className={inputClass} placeholder="https://" {...register("website")} />
             </Field>
             <Field label="Industry" error={errors.industry?.message}>
-              <input className={inputClass} {...register("industry")} />
+              <select className={inputClass} defaultValue="" {...register("industry")}>
+                <option value="" disabled>
+                  Select an industry
+                </option>
+                {industryOptions.map((opt) => (
+                  <option key={opt} value={opt}>
+                    {opt}
+                  </option>
+                ))}
+              </select>
             </Field>
           </div>
         </div>
