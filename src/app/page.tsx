@@ -3,7 +3,6 @@ import { ProblemStatement } from "@/components/sections/problem-statement";
 import { EcosystemOverview } from "@/components/sections/ecosystem-overview";
 import { CapabilitiesSection } from "@/components/sections/capabilities-section";
 import { ProcessMethodology } from "@/components/sections/process-methodology";
-import { WhySolveek } from "@/components/sections/why-solveek";
 import { SelectedWork } from "@/components/sections/selected-work";
 import { AuditCta } from "@/components/sections/audit-cta";
 import { getProjects } from "@/lib/content";
@@ -26,7 +25,6 @@ export default async function HomePage() {
       <EcosystemOverview />
       <CapabilitiesSection />
       <ProcessMethodology />
-      <WhySolveek />
       <SelectedWork projects={projects} />
       <AuditCta />
     </>
