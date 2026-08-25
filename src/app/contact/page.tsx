@@ -24,8 +24,7 @@ export default function ContactPage() {
           }}
         />
         <div className="container-premium relative max-w-2xl">
-          <p className="eyebrow text-cyan">{BRAND.primaryCta.label}</p>
-          <h1 className="mt-3 title-page text-white">{AUDIT.contactHeadline}</h1>
+          <h1 className="title-page text-white">{AUDIT.contactHeadline}</h1>
           <p className="mt-4 text-sm leading-relaxed text-white/70 md:text-base">
             {AUDIT.contactBody}
           </p>
