@@ -109,7 +109,7 @@ function BookstorePreview() {
   return (
     <CoverImage
       src="/images/project-booksandyou-home.jpg"
-      alt="Books & You bookstore website homepage"
+      alt="Books and You bookstore website homepage"
       bg="bg-[#F7F4EF]"
     />
   );
