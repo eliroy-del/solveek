@@ -22,15 +22,15 @@ export function GrowthHero() {
       </div>
 
       <div className="container-premium relative flex min-h-[92svh] items-center pb-16 pt-32 lg:pb-24 lg:pt-36">
-        <div className="max-w-2xl">
-          <h1 className="font-heading text-[clamp(3.25rem,9vw,6rem)] font-semibold leading-[0.98] tracking-tight text-white">
+        <div className="max-w-3xl">
+          <h1 className="display text-white">
             Build.
             <br />
             Connect.
             <br />
             Grow.
           </h1>
-          <p className="mt-6 max-w-lg text-sm leading-relaxed text-white/75 sm:text-base">
+          <p className="mt-6 max-w-xl body-lg text-white/75">
             {BRAND.promise}
           </p>
           <div className="mt-8 flex flex-col gap-2.5 sm:flex-row sm:items-center">

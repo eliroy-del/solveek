@@ -186,27 +186,31 @@
   }
 
   .eyebrow {
-    @apply text-[11px] font-semibold uppercase tracking-[0.06em];
+    @apply text-xs font-semibold uppercase tracking-[0.06em];
   }
 
   .display {
-    @apply font-heading text-[clamp(3.25rem,9vw,6rem)] font-semibold leading-[0.98] tracking-tight;
+    @apply font-heading text-[clamp(3.75rem,8.5vw,6.75rem)] font-semibold leading-[0.98] tracking-tight;
   }
 
   .title-page {
-    @apply font-heading text-[clamp(2rem,4vw,3rem)] font-semibold leading-snug tracking-tight;
+    @apply font-heading text-[clamp(2.35rem,4.2vw,3.5rem)] font-semibold leading-snug tracking-tight;
   }
 
   .title-section {
-    @apply font-heading text-[clamp(1.75rem,3vw,2.5rem)] font-semibold leading-snug tracking-tight;
+    @apply font-heading text-[clamp(2rem,3.2vw,2.85rem)] font-semibold leading-snug tracking-tight;
   }
 
   .title-card {
-    @apply font-heading text-lg font-semibold leading-snug tracking-tight md:text-xl;
+    @apply font-heading text-xl font-semibold leading-snug tracking-tight md:text-2xl;
   }
 
   .body-lg {
-    @apply text-base leading-relaxed md:text-lg;
+    @apply text-[1.05rem] leading-relaxed md:text-lg;
+  }
+
+  .body-md {
+    @apply text-base leading-relaxed md:text-[1.0625rem];
   }
 
   .text-balance {

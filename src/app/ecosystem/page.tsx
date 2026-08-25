@@ -35,7 +35,7 @@ export default function EcosystemPage() {
           <h1 className="title-page text-white">
             The Solveek Growth Ecosystem
           </h1>
-          <p className="mt-4 text-sm leading-relaxed text-white/70 md:text-base">
+          <p className="mt-4 body-md text-white/70">
             Deep dive: how Foundation, Automation, and Visibility work together.
             Start where you need help most.
           </p>

@@ -14,22 +14,22 @@ export function ProcessMethodology() {
       />
 
       <div className="container-premium relative">
-        <div className="max-w-xl">
+        <div className="max-w-2xl">
           <h2 className="title-section text-white">
             From digital gaps to growth infrastructure.
           </h2>
         </div>
 
-        <ol className="mt-10 grid gap-0 sm:grid-cols-2 lg:grid-cols-5">
+        <ol className="mt-10 grid gap-0 sm:grid-cols-2 lg:grid-cols-5 lg:mt-12">
           {PROCESS_STEPS.map((step) => (
             <li
               key={step.step}
-              className="relative border-t border-white/10 py-6 pr-3 lg:border-t-0 lg:border-l lg:border-white/10 lg:pl-5 lg:pr-3 lg:pt-0 first:lg:border-l-0 first:lg:pl-0"
+              className="relative border-t border-white/10 py-6 pr-4 lg:border-t-0 lg:border-l lg:border-white/10 lg:pl-5 lg:pr-4 lg:pt-0 first:lg:border-l-0 first:lg:pl-0"
             >
-              <h3 className="font-heading text-base text-white">
+              <h3 className="font-heading text-lg text-white">
                 {step.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-white/60">
+              <p className="mt-2 text-base leading-relaxed text-white/60">
                 {step.description}
               </p>
             </li>

@@ -53,7 +53,7 @@ export function WorkShowcase({ projects }: { projects: Project[] }) {
                     className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
                   />
                 </div>
-                <p className="mt-4 text-center text-sm italic text-navy/55 transition-ui group-hover:text-navy">
+                <p className="mt-4 text-center text-base italic text-navy/55 transition-ui group-hover:text-navy">
                   {project.title}
                 </p>
               </a>

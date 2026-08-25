@@ -7,9 +7,9 @@ export function CapabilitiesSection() {
   return (
     <section className="bg-white py-14 md:py-16">
       <div className="container-premium">
-        <div className="mb-7 max-w-md md:mb-8">
+        <div className="mb-7 max-w-lg md:mb-8">
           <h2 className="title-section text-navy">What we build</h2>
-          <p className="mt-2 text-sm text-muted-foreground">
+          <p className="mt-2 body-md text-muted-foreground">
             Five capabilities inside one growth system.
           </p>
         </div>
@@ -117,15 +117,15 @@ function CapabilityTile({
           className={cn(
             "font-heading leading-snug",
             featured
-              ? "text-xl text-white md:text-2xl"
-              : "text-base text-navy md:text-lg"
+              ? "text-2xl text-white md:text-3xl"
+              : "text-lg text-navy md:text-xl"
           )}
         >
           {title}
         </h3>
         <p
           className={cn(
-            "mt-2 text-sm leading-relaxed",
+            "mt-2 text-base leading-relaxed",
             dark ? "max-w-sm text-white/65" : "text-muted-foreground"
           )}
         >

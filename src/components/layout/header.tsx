@@ -41,7 +41,7 @@ export function Header() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "rounded-lg px-3.5 py-2 text-[15px] font-medium transition-ui",
+                  "rounded-lg px-3.5 py-2 text-base font-medium transition-ui",
                   solid
                     ? active
                       ? "bg-surface text-navy"

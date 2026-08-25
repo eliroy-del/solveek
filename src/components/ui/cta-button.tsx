@@ -21,7 +21,7 @@ export function CtaButton({
 }: CtaButtonProps) {
   const isExternal = /^https?:\/\//.test(href);
   const classes = cn(
-    "group inline-flex h-11 cursor-pointer items-center justify-center gap-2 rounded-lg px-5 text-sm font-semibold transition-ui focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal focus-visible:ring-offset-2",
+        "group inline-flex h-12 cursor-pointer items-center justify-center gap-2 rounded-lg px-5 text-sm font-semibold transition-ui focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal focus-visible:ring-offset-2 md:text-[0.95rem]",
     variant === "primary" && "bg-royal text-white hover:bg-royal-deep",
     variant === "secondary" &&
       "bg-white text-navy ring-1 ring-border hover:bg-surface",

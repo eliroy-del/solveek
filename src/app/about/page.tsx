@@ -34,7 +34,7 @@ export default function AboutPage() {
 
         <div className="container-premium relative max-w-2xl">
           <h1 className="title-page text-white">{ABOUT.headline}</h1>
-          <p className="mt-4 text-sm leading-relaxed text-white/70 md:text-base">
+          <p className="mt-4 body-md text-white/70">
             {ABOUT.subhead}
           </p>
           <div className="mt-6 flex flex-col gap-2.5 sm:flex-row sm:items-center">

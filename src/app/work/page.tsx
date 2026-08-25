@@ -42,7 +42,7 @@ export default function WorkPage() {
 
         <div className="container-premium relative max-w-2xl">
           <h1 className="title-page text-white">Our Work</h1>
-          <p className="mt-4 text-sm leading-relaxed text-white/70 md:text-base">
+          <p className="mt-4 body-md text-white/70">
             A selection of signature projects — digital systems built for real
             businesses and real outcomes.
           </p>

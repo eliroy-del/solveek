@@ -34,7 +34,7 @@ export default function ContactPage() {
 
         <div className="container-premium relative max-w-2xl">
           <h1 className="title-page text-white">{AUDIT.contactHeadline}</h1>
-          <p className="mt-4 text-sm leading-relaxed text-white/70 md:text-base">
+          <p className="mt-4 body-md text-white/70">
             {AUDIT.contactBody}
           </p>
         </div>

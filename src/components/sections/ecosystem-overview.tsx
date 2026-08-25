@@ -19,20 +19,20 @@ export function EcosystemOverview({ compact = false }: EcosystemOverviewProps) {
       <div className="container-premium relative">
         {!compact ? (
           <div className="mb-8 flex flex-col gap-4 md:mb-10 md:flex-row md:items-end md:justify-between">
-            <div className="max-w-xl">
+            <div className="max-w-2xl">
               <h2 className="title-section text-navy">
                 The Solveek Growth Ecosystem
               </h2>
-              <p className="mt-2 text-sm text-muted-foreground md:text-base">
+              <p className="mt-2 body-md text-muted-foreground">
                 One connected system for presence, operations, and growth.
               </p>
             </div>
             <Link
               href="/ecosystem"
-              className="group inline-flex shrink-0 cursor-pointer items-center gap-1.5 text-sm font-semibold text-royal"
+              className="group inline-flex shrink-0 cursor-pointer items-center gap-1.5 text-base font-semibold text-royal"
             >
               Full ecosystem overview
-              <ArrowRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+              <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" />
             </Link>
           </div>
         ) : null}
@@ -42,14 +42,14 @@ export function EcosystemOverview({ compact = false }: EcosystemOverviewProps) {
             <li
               key={layer.id}
               className={cn(
-                "relative rounded-lg bg-white p-5 ring-1 ring-border/80 md:rounded-none md:p-6",
+                "relative rounded-lg bg-white p-5 ring-1 ring-border/80 md:rounded-none md:p-7",
                 index === 0 && "md:rounded-l-lg",
                 index === ECOSYSTEM_LAYERS.length - 1 && "md:rounded-r-lg",
                 index > 0 && "md:border-l md:border-border/80"
               )}
             >
               <div className="flex items-center gap-2.5">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.06em] text-royal">
+                <p className="eyebrow text-royal">
                   {layer.verb}
                 </p>
                 {index < ECOSYSTEM_LAYERS.length - 1 ? (
@@ -59,18 +59,18 @@ export function EcosystemOverview({ compact = false }: EcosystemOverviewProps) {
                 ) : null}
               </div>
 
-              <h3 className="mt-3 font-heading text-lg text-navy">{layer.title}</h3>
-              <p className="mt-0.5 text-sm font-medium text-navy/75">
+              <h3 className="mt-3 font-heading text-xl text-navy md:text-2xl">{layer.title}</h3>
+              <p className="mt-1 text-base font-medium text-navy/75">
                 {layer.headline}
               </p>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-3 text-base leading-relaxed text-muted-foreground">
                 {layer.description}
               </p>
               <ul className="mt-4 flex flex-wrap gap-1.5">
                 {layer.capabilities.map((cap) => (
                   <li
                     key={cap}
-                    className="rounded-md bg-surface px-2 py-0.5 text-[11px] font-medium text-navy/70"
+                    className="rounded-md bg-surface px-2.5 py-1 text-xs font-medium text-navy/70"
                   >
                     {cap}
                   </li>

@@ -36,17 +36,17 @@ export function SelectedWork({ projects, featured = true }: SelectedWorkProps) {
     <section className="bg-surface section-padding">
       <div className="container-premium">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-xl">
+          <div className="max-w-2xl">
             <h2 className="title-section text-navy">
               Built for real businesses. Designed for real outcomes.
             </h2>
           </div>
           <Link
             href="/work"
-            className="group inline-flex cursor-pointer items-center gap-1.5 text-sm font-semibold text-royal"
+            className="group inline-flex cursor-pointer items-center gap-1.5 text-base font-semibold text-royal"
           >
             See all work
-            <ArrowRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+            <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" />
           </Link>
         </div>
 
