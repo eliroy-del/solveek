@@ -15,8 +15,7 @@ export function ProcessMethodology() {
 
       <div className="container-premium relative">
         <div className="max-w-xl">
-          <p className="eyebrow text-cyan">How we work</p>
-          <h2 className="mt-2 title-section text-white">
+          <h2 className="title-section text-white">
             From digital gaps to growth infrastructure.
           </h2>
         </div>
