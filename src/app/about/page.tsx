@@ -91,8 +91,7 @@ export default function AboutPage() {
 
       <section className="bg-surface py-14 md:py-16">
         <div className="container-premium">
-          <p className="eyebrow text-royal">Principles</p>
-          <h2 className="mt-2 max-w-lg title-section text-navy">
+          <h2 className="max-w-lg title-section text-navy">
             What shapes every engagement
           </h2>
           <ul className="mt-8 grid gap-px overflow-hidden rounded-lg bg-border sm:grid-cols-2">
