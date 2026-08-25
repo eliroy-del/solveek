@@ -47,7 +47,9 @@ export const metadata: Metadata = {
       { url: "/icon.png", sizes: "512x512", type: "image/png" },
     ],
     apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: ["/favicon.ico"],
   },
+  manifest: "/site.webmanifest",
   openGraph: {
     type: "website",
     locale: "en_GH",
@@ -55,15 +57,32 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     title: `${SITE.name} | Digital Growth Partner`,
     description: SITE.description,
+    images: [
+      {
+        url: SITE.ogImage,
+        width: 1200,
+        height: 630,
+        alt: "SOLVEEK — Build. Connect. Grow. Digital Growth Partner",
+        type: "image/png",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${SITE.name} | Digital Growth Partner`,
     description: SITE.description,
+    images: [SITE.ogImage],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   alternates: {
     canonical: SITE.url,
@@ -76,7 +95,8 @@ const organizationJsonLd = {
   name: SITE.name,
   legalName: SITE.legalName,
   url: SITE.url,
-  logo: `${SITE.url}/solveek-logo.png`,
+  logo: `${SITE.url}/icon.png`,
+  image: `${SITE.url}${SITE.ogImage}`,
   description: SITE.description,
   email: SITE.email,
   telephone: SITE.phone,

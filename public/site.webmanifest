@@ -1,0 +1,28 @@
+{
+  "name": "SOLVEEK — Digital Growth Partner",
+  "short_name": "SOLVEEK",
+  "description": "Solveek builds the digital tools and systems businesses need to get found, talk to customers, and grow.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070b14",
+  "theme_color": "#1358FE",
+  "lang": "en-GH",
+  "icons": [
+    {
+      "src": "/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
