@@ -49,9 +49,6 @@ export function EcosystemOverview({ compact = false }: EcosystemOverviewProps) {
               )}
             >
               <div className="flex items-center gap-2.5">
-                <span className="flex size-7 items-center justify-center rounded-full bg-royal font-heading text-[11px] font-semibold text-white">
-                  {layer.number}
-                </span>
                 <p className="text-[11px] font-semibold uppercase tracking-[0.06em] text-royal">
                   {layer.verb}
                 </p>
