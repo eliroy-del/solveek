@@ -25,6 +25,7 @@ export const IMAGES = {
   ecosystemHeader: "/images/ecosystem-header.png",
   workHeader: "/images/work-header.png",
   aboutHeader: "/images/about-header.png",
+  contactHeader: "/images/contact-header.png",
   booksandyou: "/images/project-booksandyou.png",
   northline: "/images/project-northline-commerce.png",
   atelier: "/images/project-atelier-social.png",

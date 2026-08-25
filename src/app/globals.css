@@ -258,7 +258,8 @@
 
   .ecosystem-header-media,
   .work-header-media,
-  .about-header-media {
+  .about-header-media,
+  .contact-header-media {
     animation: ecosystem-header-drift 24s ease-in-out infinite alternate;
     transform-origin: center;
     will-change: transform;
@@ -266,7 +267,8 @@
 
   .ecosystem-header-glow,
   .work-header-glow,
-  .about-header-glow {
+  .about-header-glow,
+  .contact-header-glow {
     background:
       radial-gradient(circle at 50% 55%, rgba(77, 130, 255, 0.2), transparent 32%),
       radial-gradient(circle at 70% 40%, rgba(19, 88, 254, 0.12), transparent 28%);
@@ -325,14 +327,17 @@
   .work-header-media,
   .work-header-glow,
   .about-header-media,
-  .about-header-glow {
+  .about-header-glow,
+  .contact-header-media,
+  .contact-header-glow {
     animation: none !important;
   }
 
   .hero-network,
   .ecosystem-header-media,
   .work-header-media,
-  .about-header-media {
+  .about-header-media,
+  .contact-header-media {
     transform: scale(1.04);
   }
 }
