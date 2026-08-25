@@ -21,17 +21,16 @@ export function GrowthHero() {
         <div className="hero-network-glow absolute inset-0" />
       </div>
 
-      <div className="container-premium relative flex min-h-[92svh] items-center pb-16 pt-28 lg:pb-24 lg:pt-32">
-        <div className="max-w-xl">
-          <p className="eyebrow text-cyan">{BRAND.category}</p>
-          <h1 className="mt-4 display text-white">
+      <div className="container-premium relative flex min-h-[92svh] items-center pb-16 pt-32 lg:pb-24 lg:pt-36">
+        <div className="max-w-2xl">
+          <h1 className="font-heading text-[clamp(3.25rem,9vw,6rem)] font-semibold leading-[0.98] tracking-tight text-white">
             Build.
             <br />
             Connect.
             <br />
             Grow.
           </h1>
-          <p className="mt-5 max-w-lg text-sm leading-relaxed text-white/75 sm:text-base">
+          <p className="mt-6 max-w-lg text-sm leading-relaxed text-white/75 sm:text-base">
             {BRAND.promise}
           </p>
           <div className="mt-8 flex flex-col gap-2.5 sm:flex-row sm:items-center">
