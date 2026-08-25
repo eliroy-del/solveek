@@ -2,7 +2,6 @@ import { GrowthHero } from "@/components/sections/growth-hero";
 import { ProblemStatement } from "@/components/sections/problem-statement";
 import { EcosystemOverview } from "@/components/sections/ecosystem-overview";
 import { CapabilitiesSection } from "@/components/sections/capabilities-section";
-import { ProcessMethodology } from "@/components/sections/process-methodology";
 import { SelectedWork } from "@/components/sections/selected-work";
 import { AuditCta } from "@/components/sections/audit-cta";
 import { getProjects } from "@/lib/content";
@@ -24,7 +23,6 @@ export default async function HomePage() {
       <ProblemStatement />
       <EcosystemOverview />
       <CapabilitiesSection />
-      <ProcessMethodology />
       <SelectedWork projects={projects} />
       <AuditCta />
     </>
