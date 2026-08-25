@@ -174,7 +174,7 @@
   }
 
   .container-premium {
-    @apply mx-auto w-full max-w-[1400px] px-5 sm:px-8 lg:px-10 xl:px-12;
+    @apply mx-auto w-full max-w-[1280px] px-5 sm:px-8 lg:px-10 xl:px-12;
   }
 
   .section-padding {
