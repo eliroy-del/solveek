@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { CtaButton } from "@/components/ui/cta-button";
 import { AuditCta } from "@/components/sections/audit-cta";
+import { ProcessMethodology } from "@/components/sections/process-methodology";
 import { ABOUT, BRAND, PRINCIPLES } from "@/constants/brand";
 import { IMAGES } from "@/constants/site";
 
@@ -88,6 +89,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <ProcessMethodology />
 
       <section className="bg-surface py-14 md:py-16">
         <div className="container-premium">
