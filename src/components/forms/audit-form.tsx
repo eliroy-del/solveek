@@ -33,11 +33,9 @@ const focusOptions = [
 ] as const;
 
 const budgetOptions = [
-  "Under GH₵8,500",
-  "GH₵8,500 to 15,000",
-  "GH₵15,000 to 30,000",
-  "GH₵30,000+",
-  "Not sure yet",
+  "Under GH₵4,000",
+  "GH₵4,000 to 6,500",
+  "GH₵6,500 to 10,000",
 ];
 
 const stepFields: (keyof FormValues)[][] = [
