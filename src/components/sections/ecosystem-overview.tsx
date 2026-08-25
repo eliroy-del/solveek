@@ -20,8 +20,7 @@ export function EcosystemOverview({ compact = false }: EcosystemOverviewProps) {
         {!compact ? (
           <div className="mb-8 flex flex-col gap-4 md:mb-10 md:flex-row md:items-end md:justify-between">
             <div className="max-w-xl">
-              <p className="eyebrow text-royal">Growth Ecosystem</p>
-              <h2 className="mt-2 title-section text-navy">
+              <h2 className="title-section text-navy">
                 The Solveek Growth Ecosystem
               </h2>
               <p className="mt-2 text-sm text-muted-foreground md:text-base">
