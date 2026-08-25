@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { ProjectProductPreview } from "@/components/ui/project-product-preview";
 import { CtaButton } from "@/components/ui/cta-button";
 import { AuditCta } from "@/components/sections/audit-cta";
@@ -55,6 +55,17 @@ export default async function WorkDetailPage({ params }: Props) {
               <h1 className="mt-4 font-heading text-[clamp(2.25rem,4.5vw,3.75rem)] leading-[1.05] text-navy">
                 {project.title}
               </h1>
+              {project.websiteUrl ? (
+                <a
+                  href={project.websiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex cursor-pointer items-center gap-1.5 text-sm font-semibold text-royal transition-ui hover:text-royal-deep"
+                >
+                  Visit live site
+                  <ArrowUpRight className="size-3.5" />
+                </a>
+              ) : null}
             </div>
             <p className="text-base leading-relaxed text-muted-foreground lg:text-lg">
               {project.challenge}
@@ -109,8 +120,17 @@ export default async function WorkDetailPage({ params }: Props) {
           </div>
         ) : null}
 
-        <div className="container-premium mt-14">
-          <CtaButton href="/contact" showArrow>
+        <div className="container-premium mt-14 flex flex-col gap-3 sm:flex-row sm:items-center">
+          {project.websiteUrl ? (
+            <CtaButton href={project.websiteUrl} showArrow>
+              Visit live site
+            </CtaButton>
+          ) : null}
+          <CtaButton
+            href="/contact"
+            showArrow={!project.websiteUrl}
+            variant={project.websiteUrl ? "secondary" : "primary"}
+          >
             Discuss a similar project
           </CtaButton>
         </div>

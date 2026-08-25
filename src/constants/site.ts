@@ -26,6 +26,7 @@ export const IMAGES = {
   workHeader: "/images/work-header.png",
   aboutHeader: "/images/about-header.png",
   contactHeader: "/images/contact-header.png",
+  chiliHaus: "/images/project-chili-haus.jpg",
   booksandyou: "/images/project-booksandyou.png",
   northline: "/images/project-northline-commerce.png",
   atelier: "/images/project-atelier-social.png",

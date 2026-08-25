@@ -63,6 +63,7 @@ export type Database = {
           results: string[];
           image: string;
           gallery: string[];
+          website_url: string;
           featured: boolean;
           sort_order: number;
           published: boolean;

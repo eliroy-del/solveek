@@ -2,10 +2,19 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-type PreviewKind = "ecommerce" | "branding" | "social" | "website" | "bookstore";
+type PreviewKind =
+  | "ecommerce"
+  | "branding"
+  | "social"
+  | "website"
+  | "bookstore"
+  | "chilihaus";
 
 function resolveKind(slug: string, industry: string): PreviewKind {
   const key = `${slug} ${industry}`.toLowerCase();
+  if (key.includes("chili-haus") || key.includes("chili haus")) {
+    return "chilihaus";
+  }
   if (key.includes("booksandyou") || key.includes("bookstore") || key.includes("books & you")) {
     return "bookstore";
   }
@@ -91,12 +100,27 @@ function BookstorePreview() {
   );
 }
 
+function ChiliHausPreview() {
+  return (
+    <div className="relative h-full w-full bg-[#1A0F0A]">
+      <Image
+        src="/images/project-chili-haus.jpg"
+        alt="Chili Haus meals and catering website for Accra"
+        fill
+        sizes="(max-width: 1024px) 100vw, 33vw"
+        className="object-cover"
+      />
+    </div>
+  );
+}
+
 const PREVIEWS: Record<PreviewKind, () => ReactNode> = {
   ecommerce: EcommercePreview,
   branding: BrandingPreview,
   social: SocialPreview,
   website: WebsitePreview,
   bookstore: BookstorePreview,
+  chilihaus: ChiliHausPreview,
 };
 
 export function ProjectProductPreview({

@@ -46,6 +46,7 @@ export type Project = {
   results: string[];
   image: string;
   gallery: string[];
+  websiteUrl?: string;
 };
 
 export type Insight = {

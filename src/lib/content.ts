@@ -44,6 +44,7 @@ type ProjectRow = {
   results: string[] | null;
   image: string;
   gallery: string[] | null;
+  website_url?: string | null;
 };
 
 type InsightRow = {
@@ -254,6 +255,7 @@ export async function getProjects(): Promise<Project[]> {
     results: row.results ?? [],
     image: row.image,
     gallery: row.gallery ?? [],
+    websiteUrl: row.website_url || undefined,
   }));
 }
 
@@ -279,6 +281,7 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
     results: data.results ?? [],
     image: data.image,
     gallery: data.gallery ?? [],
+    websiteUrl: data.website_url || undefined,
   };
 }
 
