@@ -37,8 +37,7 @@ export function SelectedWork({ projects, featured = true }: SelectedWorkProps) {
       <div className="container-premium">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-xl">
-            <p className="eyebrow text-royal">Selected Work</p>
-            <h2 className="mt-2 title-section text-navy">
+            <h2 className="title-section text-navy">
               Built for real businesses. Designed for real outcomes.
             </h2>
           </div>
