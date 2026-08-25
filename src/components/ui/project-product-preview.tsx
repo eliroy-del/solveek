@@ -8,14 +8,27 @@ type PreviewKind =
   | "social"
   | "website"
   | "bookstore"
-  | "chilihaus";
+  | "chilihaus"
+  | "dzifoods"
+  | "luxurystrand";
 
 function resolveKind(slug: string, industry: string): PreviewKind {
   const key = `${slug} ${industry}`.toLowerCase();
   if (key.includes("chili-haus") || key.includes("chili haus")) {
     return "chilihaus";
   }
-  if (key.includes("booksandyou") || key.includes("bookstore") || key.includes("books & you")) {
+  if (key.includes("dzi-foods") || key.includes("dzi foods")) {
+    return "dzifoods";
+  }
+  if (key.includes("luxury-strand") || key.includes("luxury strand")) {
+    return "luxurystrand";
+  }
+  if (
+    key.includes("booksandyou") ||
+    key.includes("bookstore") ||
+    key.includes("books & you") ||
+    key.includes("books-and-you")
+  ) {
     return "bookstore";
   }
   if (key.includes("commerce") || key.includes("e-commerce") || key.includes("ecommerce")) {
@@ -30,87 +43,105 @@ function resolveKind(slug: string, industry: string): PreviewKind {
   return "website";
 }
 
-function EcommercePreview() {
+function CoverImage({
+  src,
+  alt,
+  bg,
+}: {
+  src: string;
+  alt: string;
+  bg: string;
+}) {
   return (
-    <div className="relative h-full w-full bg-[#F7F4EF]">
+    <div className={cn("relative h-full w-full", bg)}>
       <Image
-        src="/images/project-northline-commerce.png"
-        alt="Customer shopping an apparel storefront on a laptop"
+        src={src}
+        alt={alt}
         fill
         sizes="(max-width: 1024px) 100vw, 33vw"
-        className="object-cover"
+        className="object-cover object-top"
       />
     </div>
+  );
+}
+
+function EcommercePreview() {
+  return (
+    <CoverImage
+      src="/images/project-northline-commerce.png"
+      alt="Customer shopping an apparel storefront on a laptop"
+      bg="bg-[#F7F4EF]"
+    />
   );
 }
 
 function BrandingPreview() {
   return (
-    <div className="relative h-full w-full bg-[#F7F4EF]">
-      <Image
-        src="/images/project-lumen-branding.png"
-        alt="Chalkboard mind map with a lightbulb for brand ideation"
-        fill
-        sizes="(max-width: 1024px) 100vw, 33vw"
-        className="object-cover"
-      />
-    </div>
+    <CoverImage
+      src="/images/project-lumen-branding.png"
+      alt="Chalkboard mind map with a lightbulb for brand ideation"
+      bg="bg-[#F7F4EF]"
+    />
   );
 }
 
 function SocialPreview() {
   return (
-    <div className="relative h-full w-full bg-[#F4F6FB]">
-      <Image
-        src="/images/project-atelier-social.png"
-        alt="Social media strategy desk with analytics report and keyboard"
-        fill
-        sizes="(max-width: 1024px) 100vw, 33vw"
-        className="object-cover"
-      />
-    </div>
+    <CoverImage
+      src="/images/project-atelier-social.png"
+      alt="Social media strategy desk with analytics report and keyboard"
+      bg="bg-[#F4F6FB]"
+    />
   );
 }
 
 function WebsitePreview() {
   return (
-    <div className="relative h-full w-full bg-[#0B1220]">
-      <Image
-        src="/images/project-brightpath-website.png"
-        alt="Developer working on website code on a laptop"
-        fill
-        sizes="(max-width: 1024px) 100vw, 33vw"
-        className="object-cover"
-      />
-    </div>
+    <CoverImage
+      src="/images/project-brightpath-website.png"
+      alt="Developer working on website code on a laptop"
+      bg="bg-[#0B1220]"
+    />
   );
 }
 
 function BookstorePreview() {
   return (
-    <div className="relative h-full w-full bg-[#F7F4EF]">
-      <Image
-        src="/images/project-booksandyou.png"
-        alt="Books & You school textbooks and classroom supplies collage"
-        fill
-        sizes="(max-width: 1024px) 100vw, 33vw"
-        className="object-cover"
-      />
-    </div>
+    <CoverImage
+      src="/images/project-booksandyou-home.jpg"
+      alt="Books & You bookstore website homepage"
+      bg="bg-[#F7F4EF]"
+    />
   );
 }
 
 function ChiliHausPreview() {
   return (
-    <div className="relative h-full w-full bg-[#1A0F0A]">
-      <Image
-        src="/images/project-chili-haus.jpg"
-        alt="Chili Haus meals and catering website for Accra"
-        fill
-        sizes="(max-width: 1024px) 100vw, 33vw"
-        className="object-cover"
-      />
-    </div>
+    <CoverImage
+      src="/images/project-chili-haus-home.jpg"
+      alt="Chili Haus meals and catering website homepage"
+      bg="bg-[#1A0F0A]"
+    />
+  );
+}
+
+function DziFoodsPreview() {
+  return (
+    <CoverImage
+      src="/images/project-dzi-foods-home.jpg"
+      alt="Dzi Foods website homepage"
+      bg="bg-[#FFF8F0]"
+    />
+  );
+}
+
+function LuxuryStrandPreview() {
+  return (
+    <CoverImage
+      src="/images/project-luxury-strand-home.jpg"
+      alt="Luxury Strand website homepage"
+      bg="bg-[#F7F4EF]"
+    />
   );
 }
 
@@ -121,6 +152,8 @@ const PREVIEWS: Record<PreviewKind, () => ReactNode> = {
   website: WebsitePreview,
   bookstore: BookstorePreview,
   chilihaus: ChiliHausPreview,
+  dzifoods: DziFoodsPreview,
+  luxurystrand: LuxuryStrandPreview,
 };
 
 export function ProjectProductPreview({

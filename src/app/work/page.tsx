@@ -50,7 +50,7 @@ export default function WorkPage() {
       </section>
 
       <section className="bg-white section-padding">
-        <div className="container-premium">
+        <div className="container-premium max-w-[1100px]">
           <Suspense fallback={<WorkShowcaseSkeleton />}>
             <WorkList />
           </Suspense>
