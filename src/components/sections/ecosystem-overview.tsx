@@ -82,22 +82,6 @@ export function EcosystemOverview({ compact = false }: EcosystemOverviewProps) {
             </li>
           ))}
         </ol>
-
-        <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-wrap gap-1.5">
-            {["Measure", "Optimize", "Scale"].map((label) => (
-              <span
-                key={label}
-                className="rounded-full border border-navy/10 bg-white px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.06em] text-navy/65"
-              >
-                {label}
-              </span>
-            ))}
-          </div>
-          <p className="text-sm text-muted-foreground">
-            Start where you need help most. We connect the rest.
-          </p>
-        </div>
       </div>
     </section>
   );
