@@ -7,16 +7,10 @@ export function CapabilitiesSection() {
   return (
     <section className="bg-white py-14 md:py-16">
       <div className="container-premium">
-        <div className="mb-7 flex flex-col gap-3 md:mb-8 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-md">
-            <h2 className="title-section text-navy">What we build</h2>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Five capabilities inside one growth system.
-            </p>
-          </div>
-          <p className="hidden max-w-xs text-right text-xs leading-relaxed text-muted-foreground md:block">
-            Not five separate service lines. One connected stack for presence,
-            operations, and growth.
+        <div className="mb-7 max-w-md md:mb-8">
+          <h2 className="title-section text-navy">What we build</h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Five capabilities inside one growth system.
           </p>
         </div>
 
