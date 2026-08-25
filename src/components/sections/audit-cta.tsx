@@ -11,17 +11,17 @@ export function AuditCta() {
             className="pointer-events-none absolute inset-0"
             style={{
               backgroundImage:
-                "radial-gradient(ellipse at 100% 0%, rgba(19,88,254,0.35), transparent 45%)",
+                "radial-gradient(ellipse at 50% 0%, rgba(19,88,254,0.35), transparent 50%)",
             }}
           />
-          <div className="relative mx-auto max-w-2xl text-center">
-            <h2 className="title-section text-white md:text-[clamp(1.5rem,2.8vw,2rem)]">
+          <div className="relative mx-auto flex max-w-2xl flex-col items-center text-center">
+            <h2 className="title-section text-center text-white md:text-[clamp(1.5rem,2.8vw,2rem)]">
               {AUDIT.headline}
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-white/70 md:text-base">
+            <p className="mt-3 max-w-xl text-center text-sm leading-relaxed text-white/70 md:text-base">
               {AUDIT.body}
             </p>
-            <div className="mt-6 flex justify-center">
+            <div className="mt-6">
               <CtaButton href={BRAND.primaryCta.href} showArrow>
                 {AUDIT.cta}
               </CtaButton>
