@@ -190,7 +190,7 @@
   }
 
   .display {
-    @apply font-heading text-[clamp(2.5rem,5vw,4rem)] font-semibold leading-[1.05] tracking-tight;
+    @apply font-heading text-[clamp(3.25rem,9vw,6rem)] font-semibold leading-[0.98] tracking-tight;
   }
 
   .title-page {
