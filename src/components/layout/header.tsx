@@ -28,10 +28,10 @@ export function Header() {
           : "bg-transparent"
       )}
     >
-      <div className="container-premium flex h-16 items-center justify-between gap-4 md:h-18">
+      <div className="container-premium flex h-20 items-center justify-between gap-4 md:h-24">
         <Logo variant={solid ? "color" : "light"} size="header" />
 
-        <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
           {mainNav.map((item) => {
             const active =
               pathname === item.href || pathname.startsWith(`${item.href}/`);
@@ -41,7 +41,7 @@ export function Header() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "rounded-md px-3 py-1.5 text-sm font-medium transition-ui",
+                  "rounded-lg px-3.5 py-2 text-[15px] font-medium transition-ui",
                   solid
                     ? active
                       ? "bg-surface text-navy"
@@ -58,7 +58,7 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:block">
-          <CtaButton href={BRAND.primaryCta.href} className="h-10 px-4 text-xs">
+          <CtaButton href={BRAND.primaryCta.href} className="h-12 px-5 text-sm">
             {BRAND.primaryCta.label}
           </CtaButton>
         </div>
@@ -66,14 +66,14 @@ export function Header() {
         <button
           type="button"
           className={cn(
-            "inline-flex size-10 cursor-pointer items-center justify-center rounded-lg lg:hidden",
+            "inline-flex size-11 cursor-pointer items-center justify-center rounded-lg lg:hidden",
             solid ? "bg-surface text-navy" : "bg-white/10 text-white"
           )}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen((v) => !v)}
         >
-          {mobileOpen ? <X className="size-4" /> : <Menu className="size-4" />}
+          {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
       </div>
 
