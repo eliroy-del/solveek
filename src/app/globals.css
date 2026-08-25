@@ -323,13 +323,16 @@
   .ecosystem-header-media,
   .ecosystem-header-glow,
   .work-header-media,
-  .work-header-glow {
+  .work-header-glow,
+  .about-header-media,
+  .about-header-glow {
     animation: none !important;
   }
 
   .hero-network,
   .ecosystem-header-media,
-  .work-header-media {
+  .work-header-media,
+  .about-header-media {
     transform: scale(1.04);
   }
 }
