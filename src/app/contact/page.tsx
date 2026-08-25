@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Mail, Phone } from "lucide-react";
 import { AuditForm } from "@/components/forms/audit-form";
-import { ECOSYSTEM_LAYERS, AUDIT, BRAND } from "@/constants/brand";
+import { ECOSYSTEM_LAYERS, AUDIT } from "@/constants/brand";
 import { SITE } from "@/constants/site";
 
 export const metadata: Metadata = {
