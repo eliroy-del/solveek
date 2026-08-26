@@ -53,9 +53,16 @@ export function WorkShowcase({ projects }: { projects: Project[] }) {
                     className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
                   />
                 </div>
-                <p className="mt-4 text-center text-base italic text-navy/55 transition-ui group-hover:text-navy">
-                  {project.title}
-                </p>
+                <div className="mt-4 text-center">
+                  <p className="text-base italic text-navy/55 transition-ui group-hover:text-navy">
+                    {project.title}
+                  </p>
+                  {project.challenge ? (
+                    <p className="mx-auto mt-2 max-w-[22rem] text-sm leading-relaxed text-muted-foreground line-clamp-3">
+                      {project.challenge}
+                    </p>
+                  ) : null}
+                </div>
               </a>
             </li>
           );
@@ -74,6 +81,8 @@ export function WorkShowcaseSkeleton() {
           <div key={i}>
             <div className="skeleton aspect-[16/11] rounded-none" />
             <div className="mx-auto mt-4 skeleton h-4 w-28" />
+            <div className="mx-auto mt-2 skeleton h-3 w-48" />
+            <div className="mx-auto mt-1.5 skeleton h-3 w-40" />
           </div>
         ))}
       </div>
