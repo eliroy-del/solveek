@@ -56,7 +56,6 @@ export async function POST(request: Request) {
       phone: sanitizePhone(parsed.data.phone),
       website: parsed.data.website ? sanitize(parsed.data.website) : "",
       industry: sanitize(parsed.data.industry),
-      improve: sanitize(parsed.data.improve),
       focusArea: parsed.data.focusArea,
       budget: sanitize(parsed.data.budget),
       context: parsed.data.context ? sanitize(parsed.data.context) : "",
@@ -76,9 +75,6 @@ export async function POST(request: Request) {
       `Industry: ${data.industry}`,
       `Website: ${data.website || "N/A"}`,
       `Budget: ${data.budget}`,
-      ``,
-      `Looking to improve:`,
-      data.improve,
       data.context ? `\nAdditional context:\n${data.context}` : "",
     ]
       .filter(Boolean)

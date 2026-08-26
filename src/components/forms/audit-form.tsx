@@ -57,7 +57,6 @@ export function AuditForm() {
         phone: sanitizePhone(values.phone),
         website: values.website ? sanitize(values.website) : "",
         industry: sanitize(values.industry),
-        improve: sanitize(values.improve),
         budget: sanitize(values.budget),
         context: values.context ? sanitize(values.context) : "",
       };
@@ -168,17 +167,6 @@ export function AuditForm() {
           </select>
         </Field>
       </div>
-
-      <Field
-        label="What are you looking to improve?"
-        error={errors.improve?.message}
-      >
-        <textarea
-          rows={3}
-          className={`${inputClass} min-h-[90px] resize-y`}
-          {...register("improve")}
-        />
-      </Field>
 
       <fieldset>
         <legend className="mb-3 text-sm font-medium text-navy">

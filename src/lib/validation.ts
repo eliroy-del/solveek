@@ -111,10 +111,6 @@ export const auditFormSchema = z.object({
   industry: z.enum(AUDIT_INDUSTRIES, {
     required_error: "Select an industry",
   }),
-  improve: z
-    .string()
-    .min(10, "Tell us what you want to improve")
-    .max(4000, "Please keep this under 4000 characters"),
   focusArea: z.enum(FOCUS_AREAS, {
     required_error: "Select an area",
   }),
