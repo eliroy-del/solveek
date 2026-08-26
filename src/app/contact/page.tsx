@@ -1,16 +1,16 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import { Mail, Phone } from "lucide-react";
 import { AuditForm } from "@/components/forms/audit-form";
 import { ECOSYSTEM_LAYERS, AUDIT } from "@/constants/brand";
 import { IMAGES, SITE } from "@/constants/site";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Book a Digital Growth Audit",
   description:
     "Book a Solveek Digital Growth Audit. We review your digital presence, visibility, customer journey and systems to show where to focus first.",
-  alternates: { canonical: "/contact" },
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

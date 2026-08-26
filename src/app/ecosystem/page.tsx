@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import { ECOSYSTEM_LAYERS } from "@/constants/brand";
 import { CapabilitiesSection } from "@/components/sections/capabilities-section";
 import { AuditCta } from "@/components/sections/audit-cta";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Growth Ecosystem",
   description:
     "The Solveek Growth Ecosystem connects Foundation, Automation and Visibility so businesses can build, connect and grow with one digital partner.",
-  alternates: { canonical: "/ecosystem" },
-};
+  path: "/ecosystem",
+});
 
 export default function EcosystemPage() {
   return (

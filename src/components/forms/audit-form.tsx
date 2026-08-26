@@ -92,6 +92,8 @@ export function AuditForm() {
         body: JSON.stringify(values),
       });
       if (!res.ok) throw new Error("Failed");
+      const { trackEvent } = await import("@/lib/analytics");
+      trackEvent("generate_lead", "audit_form", "digital_growth_audit");
       setStatus("success");
       reset();
       setStep(0);

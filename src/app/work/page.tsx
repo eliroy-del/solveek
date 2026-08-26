@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import { Suspense } from "react";
 import {
@@ -7,13 +6,14 @@ import {
 } from "@/components/sections/work-showcase";
 import { IMAGES } from "@/constants/site";
 import { getProjects } from "@/lib/content";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Our Work",
   description:
     "A selection of Solveek signature projects. Digital work built for real businesses and real outcomes.",
-  alternates: { canonical: "/work" },
-};
+  path: "/work",
+});
 
 async function WorkList() {
   const projects = await getProjects();

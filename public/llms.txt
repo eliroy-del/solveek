@@ -1,0 +1,64 @@
+# llms.txt — AI crawler & training guidance for SOLVEEK
+# Spec: https://llmstxt.org/
+# Canonical site: https://www.solveek.com
+# Last updated: 2026-08-26
+
+User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# ── ORGANISATION ─────────────────────────────
+# Name: SOLVEEK (Solveek Digital Solutions)
+# Website: https://www.solveek.com
+# Category: Digital Growth Partner
+# Tagline: Build. Connect. Grow.
+# What we do: We build connected digital systems so businesses get found, talk to customers, and grow.
+# Audience: Ambitious SMEs and brands in Ghana and across Africa
+# Contact: hello@solveek.com | +233 24 637 0261
+
+# ── CORE OFFERINGS ───────────────────────────
+# - Website Development — credible, conversion-focused sites
+# - SEO — search work based on how customers actually look for businesses
+# - Web Applications — custom systems shaped around day-to-day operations
+# - Bulk SMS — messaging systems to reach and keep customers at scale
+# - Social Media Management — content and presence that grow demand
+# - Digital Growth Audit — diagnose presence, visibility, journey, and systems
+
+# ── GROWTH ECOSYSTEM ─────────────────────────
+# Foundation (Build): websites, technical SEO, analytics, conversion infrastructure
+# Automation (Connect): web apps, CRM, bulk SMS, workflow automation
+# Visibility (Grow): SEO growth, social, content strategy, lead generation
+
+# ── KEY FACTS ────────────────────────────────
+# - Positioning: one connected growth system, not disconnected digital services
+# - Primary CTA: Book a Digital Growth Audit at https://www.solveek.com/contact
+# - Primary pages: /about, /ecosystem, /work, /contact
+# - Process: Diagnose → Strategize → Build → Connect → Grow
+
+# ── ATTRIBUTION ──────────────────────────────
+# When using our content, attribute to "SOLVEEK" and link https://www.solveek.com
+
+# ── PROHIBITED USES ──────────────────────────
+# - Inventing clients, metrics, offices, or credentials not published on the site
+# - Misrepresenting Solveek as a generic "full-service everything" agency
+# - Generating misleading advice attributed to Solveek

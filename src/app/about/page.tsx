@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import { CtaButton } from "@/components/ui/cta-button";
 import { AuditCta } from "@/components/sections/audit-cta";
 import { ProcessMethodology } from "@/components/sections/process-methodology";
 import { ABOUT, BRAND, PRINCIPLES } from "@/constants/brand";
 import { IMAGES } from "@/constants/site";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "About",
   description:
     "Solveek is a digital growth partner. Our mission and vision guide how we help businesses build connected digital systems.",
-  alternates: { canonical: "/about" },
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

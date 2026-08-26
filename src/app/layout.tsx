@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Manrope, Space_Grotesk } from "next/font/google";
+import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 import { SiteShell } from "@/components/layout/site-shell";
 import { SITE } from "@/constants/site";
+import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -20,6 +22,8 @@ const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
   (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : SITE.url);
 
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -27,6 +31,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
+  applicationName: SITE.name,
   keywords: [
     "digital growth partner Ghana",
     "digital growth agency Ghana",
@@ -39,7 +44,10 @@ export const metadata: Metadata = {
     "digital solutions for SMEs Ghana",
     "SOLVEEK",
   ],
-  authors: [{ name: SITE.legalName }],
+  authors: [{ name: SITE.legalName, url: SITE.url }],
+  creator: SITE.legalName,
+  publisher: SITE.legalName,
+  category: "technology",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -87,48 +95,27 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE.url,
   },
+  ...(googleVerification
+    ? { verification: { google: googleVerification } }
+    : {}),
 };
 
-const organizationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: SITE.name,
-  legalName: SITE.legalName,
-  url: SITE.url,
-  logo: `${SITE.url}/icon.png`,
-  image: `${SITE.url}${SITE.ogImage}`,
-  description: SITE.description,
-  email: SITE.email,
-  telephone: SITE.phone,
-  sameAs: Object.values(SITE.social),
-  slogan: SITE.tagline,
-};
-
-const websiteJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: SITE.name,
-  url: SITE.url,
-  description: SITE.description,
-  publisher: {
-    "@type": "Organization",
-    name: SITE.name,
-  },
-};
+const jsonLd = [organizationJsonLd(), websiteJsonLd()];
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en"
+      lang="en-GH"
       className={`${manrope.variable} ${spaceGrotesk.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify([organizationJsonLd, websiteJsonLd]),
+            __html: JSON.stringify(jsonLd),
           }}
         />
+        <GoogleAnalytics />
         <SiteShell>{children}</SiteShell>
       </body>
     </html>

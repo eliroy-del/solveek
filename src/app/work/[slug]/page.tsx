@@ -6,6 +6,11 @@ import { ProjectProductPreview } from "@/components/ui/project-product-preview";
 import { CtaButton } from "@/components/ui/cta-button";
 import { AuditCta } from "@/components/sections/audit-cta";
 import { getProjectBySlug, getProjects } from "@/lib/content";
+import {
+  breadcrumbJsonLd,
+  createPageMetadata,
+  creativeWorkJsonLd,
+} from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -19,12 +24,19 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = await getProjectBySlug(slug);
-  if (!project) return {};
-  return {
+  if (!project) return { robots: { index: false, follow: false } };
+
+  const description =
+    project.challenge.length > 155
+      ? `${project.challenge.slice(0, 152).trimEnd()}…`
+      : project.challenge;
+
+  return createPageMetadata({
     title: project.title,
-    description: project.challenge,
-    alternates: { canonical: `/work/${project.slug}` },
-  };
+    description,
+    path: `/work/${project.slug}`,
+    image: project.image || undefined,
+  });
 }
 
 export default async function WorkDetailPage({ params }: Props) {
@@ -33,9 +45,28 @@ export default async function WorkDetailPage({ params }: Props) {
   if (!project) notFound();
 
   const outcomes = project.results.filter(Boolean);
+  const path = `/work/${project.slug}`;
+  const jsonLd = [
+    breadcrumbJsonLd([
+      { name: "Home", path: "/" },
+      { name: "Work", path: "/work" },
+      { name: project.title, path },
+    ]),
+    creativeWorkJsonLd({
+      name: project.title,
+      description: project.challenge,
+      path,
+      image: project.image,
+      industry: project.industry,
+    }),
+  ];
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="pt-28 md:pt-32">
         <div className="container-premium">
           <Link
