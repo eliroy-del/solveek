@@ -60,11 +60,7 @@ export function SelectedWork({ projects, featured = true }: SelectedWorkProps) {
               />
             </div>
             <div className="flex flex-col justify-center p-5 md:p-8">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.06em] text-royal">
-                {primary.industry}
-                {primary.location ? ` · ${primary.location}` : ""}
-              </p>
-              <h3 className="mt-2 font-heading text-xl text-navy md:text-2xl">
+              <h3 className="font-heading text-xl text-navy md:text-2xl">
                 {primary.title}
               </h3>
               <dl className="mt-5 space-y-4">
@@ -112,10 +108,7 @@ export function SelectedWork({ projects, featured = true }: SelectedWorkProps) {
                   />
                 </div>
                 <div className="p-4">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.06em] text-royal">
-                    {project.industry}
-                  </p>
-                  <h3 className="mt-1.5 font-heading text-base text-navy">
+                  <h3 className="font-heading text-base text-navy">
                     {project.title}
                   </h3>
                 </div>
@@ -165,10 +158,6 @@ export function WorkGrid({ projects }: { projects: Project[] }) {
             <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
               <span className="font-heading text-[11px] text-royal">
                 {String(index + 1).padStart(2, "0")}
-              </span>
-              <span className="text-[11px] font-semibold uppercase tracking-[0.06em] text-muted-foreground">
-                {project.industry}
-                {project.location ? ` · ${project.location}` : ""}
               </span>
             </div>
             <h2 className="mt-1.5 font-heading text-lg text-navy transition-ui group-hover:text-royal md:text-xl">
