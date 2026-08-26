@@ -26,8 +26,9 @@ See also: [`CRAWLABILITY-PLAYBOOK.md`](./CRAWLABILITY-PLAYBOOK.md) (Phase 0: SSR
 | `robots.txt` | `src/app/robots.ts` → `/robots.txt` |
 | `sitemap.xml` | `src/app/sitemap.ts` → `/sitemap.xml` |
 | `llms.txt` | `public/llms.txt` |
-| Organization + WebSite JSON-LD | `src/lib/seo.ts` via root layout |
-| Breadcrumb + CreativeWork JSON-LD | Work detail pages |
+| Organization + WebSite JSON-LD | `StructuredData` `@graph` in root layout |
+| Breadcrumb + WebPage JSON-LD | About, Ecosystem, Work, Contact |
+| CreativeWork + Service catalog | Work/[slug], Ecosystem capabilities |
 | Favicon / apple / manifest | `public/*`, layout icons |
 | CSP allowing GA4 wildcards | `src/middleware.ts` |
 | GA4 loader (env-gated) | `src/components/analytics/google-analytics.tsx` |

@@ -1,20 +1,48 @@
 import Image from "next/image";
 import { Mail, Phone } from "lucide-react";
 import { AuditForm } from "@/components/forms/audit-form";
+import { StructuredData } from "@/components/seo/structured-data";
 import { ECOSYSTEM_LAYERS, AUDIT } from "@/constants/brand";
 import { IMAGES, SITE } from "@/constants/site";
-import { createPageMetadata } from "@/lib/seo";
+import {
+  buildBreadcrumbs,
+  createPageMetadata,
+  webPageJsonLd,
+} from "@/lib/seo";
+
+const contactDescription =
+  "Book a Solveek Digital Growth Audit. We review your digital presence, visibility, customer journey and systems to show where to focus first.";
 
 export const metadata = createPageMetadata({
   title: "Book a Digital Growth Audit",
-  description:
-    "Book a Solveek Digital Growth Audit. We review your digital presence, visibility, customer journey and systems to show where to focus first.",
+  description: contactDescription,
   path: "/contact",
 });
 
 export default function ContactPage() {
   return (
     <>
+      <StructuredData
+        data={[
+          webPageJsonLd({
+            name: "Book a Digital Growth Audit",
+            description: contactDescription,
+            path: "/contact",
+          }),
+          buildBreadcrumbs([
+            { name: "Home", path: "/" },
+            { name: "Contact" },
+          ]),
+          {
+            "@type": "Service",
+            name: "Digital Growth Audit",
+            description: contactDescription,
+            url: `${SITE.url}/contact`,
+            provider: { "@id": `${SITE.url}/#organization` },
+            areaServed: { "@type": "Country", name: "Ghana" },
+          },
+        ]}
+      />
       <section className="relative isolate overflow-hidden pt-28 pb-12 text-white md:pt-32 md:pb-14">
         <div className="pointer-events-none absolute inset-0" aria-hidden>
           <div className="contact-header-media absolute inset-0">

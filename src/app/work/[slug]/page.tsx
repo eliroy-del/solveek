@@ -5,9 +5,10 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { ProjectProductPreview } from "@/components/ui/project-product-preview";
 import { CtaButton } from "@/components/ui/cta-button";
 import { AuditCta } from "@/components/sections/audit-cta";
+import { StructuredData } from "@/components/seo/structured-data";
 import { getProjectBySlug, getProjects } from "@/lib/content";
 import {
-  breadcrumbJsonLd,
+  buildBreadcrumbs,
   createPageMetadata,
   creativeWorkJsonLd,
 } from "@/lib/seo";
@@ -46,26 +47,24 @@ export default async function WorkDetailPage({ params }: Props) {
 
   const outcomes = project.results.filter(Boolean);
   const path = `/work/${project.slug}`;
-  const jsonLd = [
-    breadcrumbJsonLd([
-      { name: "Home", path: "/" },
-      { name: "Work", path: "/work" },
-      { name: project.title, path },
-    ]),
-    creativeWorkJsonLd({
-      name: project.title,
-      description: project.challenge,
-      path,
-      image: project.image,
-      industry: project.industry,
-    }),
-  ];
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      <StructuredData
+        data={[
+          buildBreadcrumbs([
+            { name: "Home", path: "/" },
+            { name: "Work", path: "/work" },
+            { name: project.title },
+          ]),
+          creativeWorkJsonLd({
+            name: project.title,
+            description: project.challenge,
+            path,
+            image: project.image,
+            industry: project.industry,
+          }),
+        ]}
       />
       <section className="pt-28 md:pt-32">
         <div className="container-premium">

@@ -2,18 +2,40 @@ import Image from "next/image";
 import { ECOSYSTEM_LAYERS } from "@/constants/brand";
 import { CapabilitiesSection } from "@/components/sections/capabilities-section";
 import { AuditCta } from "@/components/sections/audit-cta";
-import { createPageMetadata } from "@/lib/seo";
+import { StructuredData } from "@/components/seo/structured-data";
+import {
+  buildBreadcrumbs,
+  createPageMetadata,
+  serviceCatalogJsonLd,
+  webPageJsonLd,
+} from "@/lib/seo";
+
+const ecosystemDescription =
+  "The Solveek Growth Ecosystem connects Foundation, Automation and Visibility so businesses can build, connect and grow with one digital partner.";
 
 export const metadata = createPageMetadata({
   title: "Growth Ecosystem",
-  description:
-    "The Solveek Growth Ecosystem connects Foundation, Automation and Visibility so businesses can build, connect and grow with one digital partner.",
+  description: ecosystemDescription,
   path: "/ecosystem",
 });
 
 export default function EcosystemPage() {
   return (
     <>
+      <StructuredData
+        data={[
+          webPageJsonLd({
+            name: "Growth Ecosystem",
+            description: ecosystemDescription,
+            path: "/ecosystem",
+          }),
+          buildBreadcrumbs([
+            { name: "Home", path: "/" },
+            { name: "Growth Ecosystem" },
+          ]),
+          serviceCatalogJsonLd(),
+        ]}
+      />
       <section className="relative isolate overflow-hidden pt-28 pb-14 text-white md:pt-32 md:pb-16">
         <div className="pointer-events-none absolute inset-0" aria-hidden>
           <div className="ecosystem-header-media absolute inset-0">

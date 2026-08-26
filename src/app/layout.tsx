@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope, Space_Grotesk } from "next/font/google";
 import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 import { SiteShell } from "@/components/layout/site-shell";
+import { StructuredData } from "@/components/seo/structured-data";
 import { SITE } from "@/constants/site";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import "./globals.css";
@@ -102,7 +103,7 @@ export const metadata: Metadata = {
     : {}),
 };
 
-const jsonLd = [organizationJsonLd(), websiteJsonLd()];
+const globalJsonLd = [organizationJsonLd(), websiteJsonLd()];
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -111,12 +112,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${manrope.variable} ${spaceGrotesk.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd),
-          }}
-        />
+        <StructuredData data={globalJsonLd} />
         <GoogleAnalytics />
         <SiteShell>{children}</SiteShell>
       </body>

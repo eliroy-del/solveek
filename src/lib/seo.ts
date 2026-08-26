@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import { CAPABILITIES } from "@/constants/brand";
 import { SITE } from "@/constants/site";
+
+type JsonLd = Record<string, unknown>;
 
 type PageSeoInput = {
   title: string;
@@ -73,20 +76,41 @@ export function createPageMetadata({
   };
 }
 
-export function organizationJsonLd() {
+/** Bundle schemas into a single @graph block (Google treats this the same as multiple tags). */
+export function toJsonLdGraph(schemas: JsonLd[]) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": schemas.map((schema) => {
+      const { "@context": _context, ...rest } = schema;
+      return rest;
+    }),
+  };
+}
+
+export function organizationJsonLd(): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": ["Organization", "ProfessionalService"],
+    "@id": `${SITE.url}/#organization`,
     name: SITE.name,
     legalName: SITE.legalName,
     url: SITE.url,
-    logo: absoluteUrl("/icon.png"),
+    logo: {
+      "@type": "ImageObject",
+      url: absoluteUrl("/icon.png"),
+      width: 512,
+      height: 512,
+    },
     image: absoluteUrl(SITE.ogImage),
     description: SITE.description,
     email: SITE.email,
     telephone: SITE.phone,
     slogan: SITE.tagline,
     sameAs: Object.values(SITE.social),
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "GH",
+    },
     areaServed: {
       "@type": "Country",
       name: "Ghana",
@@ -106,6 +130,7 @@ export function organizationJsonLd() {
         contactType: "sales",
         email: SITE.salesEmail,
         telephone: SITE.phone,
+        url: absoluteUrl("/contact"),
         areaServed: "GH",
         availableLanguage: ["English"],
       },
@@ -118,40 +143,85 @@ export function organizationJsonLd() {
         availableLanguage: ["English"],
       },
     ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Solveek Growth Capabilities",
+      itemListElement: CAPABILITIES.map((capability) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: capability.title,
+          description: capability.description,
+          provider: {
+            "@type": "Organization",
+            name: SITE.name,
+            url: SITE.url,
+          },
+        },
+      })),
+    },
   };
 }
 
-export function websiteJsonLd() {
+export function websiteJsonLd(): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": `${SITE.url}/#website`,
     name: SITE.name,
     url: SITE.url,
     description: SITE.description,
     inLanguage: "en-GH",
     publisher: {
-      "@type": "Organization",
-      name: SITE.name,
-      logo: {
-        "@type": "ImageObject",
-        url: absoluteUrl("/icon.png"),
-      },
+      "@id": `${SITE.url}/#organization`,
     },
   };
 }
 
-export function breadcrumbJsonLd(
-  items: Array<{ name: string; path: string }>
-) {
+/**
+ * BreadcrumbList for inner pages.
+ * Omits `item` on the final crumb (current page) per Google guidance.
+ */
+export function buildBreadcrumbs(
+  crumbs: Array<{ name: string; path?: string }>
+): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: items.map((item, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: item.name,
-      item: absoluteUrl(item.path),
-    })),
+    itemListElement: crumbs.map((crumb, index) => {
+      const isLast = index === crumbs.length - 1;
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        name: crumb.name,
+        ...(!isLast && crumb.path ? { item: absoluteUrl(crumb.path) } : {}),
+      };
+    }),
+  };
+}
+
+/** @deprecated Prefer buildBreadcrumbs */
+export function breadcrumbJsonLd(
+  items: Array<{ name: string; path: string }>
+): JsonLd {
+  return buildBreadcrumbs(items);
+}
+
+export function webPageJsonLd(input: {
+  name: string;
+  description: string;
+  path: string;
+}): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": absoluteUrl(input.path),
+    name: input.name,
+    description: input.description,
+    url: absoluteUrl(input.path),
+    isPartOf: { "@id": `${SITE.url}/#website` },
+    about: { "@id": `${SITE.url}/#organization` },
+    inLanguage: "en-GH",
   };
 }
 
@@ -161,7 +231,7 @@ export function creativeWorkJsonLd(input: {
   path: string;
   image?: string;
   industry?: string;
-}) {
+}): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
@@ -171,9 +241,28 @@ export function creativeWorkJsonLd(input: {
     ...(input.image ? { image: absoluteUrl(input.image) } : {}),
     ...(input.industry ? { about: input.industry } : {}),
     creator: {
-      "@type": "Organization",
-      name: SITE.name,
-      url: SITE.url,
+      "@id": `${SITE.url}/#organization`,
     },
+    isPartOf: { "@id": `${SITE.url}/#website` },
+  };
+}
+
+export function serviceCatalogJsonLd(): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Solveek Growth Capabilities",
+    itemListElement: CAPABILITIES.map((capability, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Service",
+        name: capability.title,
+        description: capability.description,
+        provider: {
+          "@id": `${SITE.url}/#organization`,
+        },
+      },
+    })),
   };
 }

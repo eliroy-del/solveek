@@ -4,14 +4,21 @@ import {
   WorkShowcase,
   WorkShowcaseSkeleton,
 } from "@/components/sections/work-showcase";
+import { StructuredData } from "@/components/seo/structured-data";
 import { IMAGES } from "@/constants/site";
 import { getProjects } from "@/lib/content";
-import { createPageMetadata } from "@/lib/seo";
+import {
+  buildBreadcrumbs,
+  createPageMetadata,
+  webPageJsonLd,
+} from "@/lib/seo";
+
+const workDescription =
+  "A selection of Solveek signature projects. Digital work built for real businesses and real outcomes.";
 
 export const metadata = createPageMetadata({
   title: "Our Work",
-  description:
-    "A selection of Solveek signature projects. Digital work built for real businesses and real outcomes.",
+  description: workDescription,
   path: "/work",
 });
 
@@ -23,6 +30,16 @@ async function WorkList() {
 export default function WorkPage() {
   return (
     <>
+      <StructuredData
+        data={[
+          webPageJsonLd({
+            name: "Our Work",
+            description: workDescription,
+            path: "/work",
+          }),
+          buildBreadcrumbs([{ name: "Home", path: "/" }, { name: "Work" }]),
+        ]}
+      />
       <section className="relative isolate overflow-hidden pt-28 pb-14 text-white md:pt-32 md:pb-16">
         <div className="pointer-events-none absolute inset-0" aria-hidden>
           <div className="work-header-media absolute inset-0">

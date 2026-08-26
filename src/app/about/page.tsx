@@ -2,20 +2,40 @@ import Image from "next/image";
 import { CtaButton } from "@/components/ui/cta-button";
 import { AuditCta } from "@/components/sections/audit-cta";
 import { ProcessMethodology } from "@/components/sections/process-methodology";
+import { StructuredData } from "@/components/seo/structured-data";
 import { ABOUT, BRAND, PRINCIPLES } from "@/constants/brand";
 import { IMAGES } from "@/constants/site";
-import { createPageMetadata } from "@/lib/seo";
+import {
+  buildBreadcrumbs,
+  createPageMetadata,
+  webPageJsonLd,
+} from "@/lib/seo";
+
+const aboutDescription =
+  "Solveek is a digital growth partner. Our mission and vision guide how we help businesses build connected digital systems.";
 
 export const metadata = createPageMetadata({
   title: "About",
-  description:
-    "Solveek is a digital growth partner. Our mission and vision guide how we help businesses build connected digital systems.",
+  description: aboutDescription,
   path: "/about",
 });
 
 export default function AboutPage() {
   return (
     <>
+      <StructuredData
+        data={[
+          webPageJsonLd({
+            name: "About",
+            description: aboutDescription,
+            path: "/about",
+          }),
+          buildBreadcrumbs([
+            { name: "Home", path: "/" },
+            { name: "About" },
+          ]),
+        ]}
+      />
       <section className="relative isolate overflow-hidden pt-28 pb-14 text-white md:pt-32 md:pb-16">
         <div className="pointer-events-none absolute inset-0" aria-hidden>
           <div className="about-header-media absolute inset-0">
