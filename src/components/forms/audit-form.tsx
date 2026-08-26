@@ -11,7 +11,6 @@ import {
   sanitizePhone,
 } from "@/lib/sanitize";
 import {
-  AUDIT_BUDGETS,
   AUDIT_INDUSTRIES,
   auditFormSchema,
   type AuditFormData,
@@ -26,7 +25,6 @@ const focusOptions = [
   { value: "unsure", label: "Not sure, assess it" },
 ] as const;
 
-const budgetOptions = [...AUDIT_BUDGETS];
 const industryOptions = [...AUDIT_INDUSTRIES];
 
 export function AuditForm() {
@@ -198,17 +196,12 @@ export function AuditForm() {
         ) : null}
       </fieldset>
 
-      <Field label="Approximate budget range" error={errors.budget?.message}>
-        <select className={inputClass} defaultValue="" {...register("budget")}>
-          <option value="" disabled>
-            Select a range
-          </option>
-          {budgetOptions.map((opt) => (
-            <option key={opt} value={opt}>
-              {opt}
-            </option>
-          ))}
-        </select>
+      <Field label="Approximate budget" error={errors.budget?.message}>
+        <input
+          className={inputClass}
+          placeholder="e.g. GH₵5,000 or flexible"
+          {...register("budget")}
+        />
       </Field>
 
       <Field
