@@ -69,10 +69,10 @@ export default function EcosystemPage() {
           {ECOSYSTEM_LAYERS.map((layer) => {
             const chip =
               layer.id === "foundation"
-                ? "border-royal/25 bg-[#EEF3FF] text-royal hover:border-royal/40"
+                ? "border-transparent bg-royal text-white hover:bg-royal-deep"
                 : layer.id === "automation"
-                  ? "border-cyan/30 bg-[#E8F4FF] text-[#1A6BDB] hover:border-cyan/50"
-                  : "border-emerald-500/25 bg-[#ECF8F1] text-emerald-700 hover:border-emerald-500/40";
+                  ? "border-transparent bg-cyan text-white hover:bg-[#3A6FE6]"
+                  : "border-transparent bg-emerald-600 text-white hover:bg-emerald-700";
 
             return (
               <a
@@ -101,20 +101,29 @@ export default function EcosystemPage() {
             const tone =
               layer.id === "foundation"
                 ? {
-                    card: "border-royal/20 bg-[#EEF3FF]",
-                    label: "text-royal",
-                    pill: "border-royal/15 bg-white/80 text-royal-deep",
+                    card: "border-transparent bg-royal text-white",
+                    label: "text-white/70",
+                    title: "text-white",
+                    headline: "text-white/85",
+                    body: "text-white/75",
+                    pill: "border-white/20 bg-white/15 text-white",
                   }
                 : layer.id === "automation"
                   ? {
-                      card: "border-cyan/25 bg-[#E8F4FF]",
-                      label: "text-[#1A6BDB]",
-                      pill: "border-cyan/20 bg-white/80 text-[#0F4AE0]",
+                      card: "border-transparent bg-cyan text-white",
+                      label: "text-white/70",
+                      title: "text-white",
+                      headline: "text-white/85",
+                      body: "text-white/75",
+                      pill: "border-white/20 bg-white/15 text-white",
                     }
                   : {
-                      card: "border-emerald-500/20 bg-[#ECF8F1]",
-                      label: "text-emerald-700",
-                      pill: "border-emerald-500/15 bg-white/80 text-emerald-900",
+                      card: "border-transparent bg-emerald-600 text-white",
+                      label: "text-white/70",
+                      title: "text-white",
+                      headline: "text-white/85",
+                      body: "text-white/75",
+                      pill: "border-white/20 bg-white/15 text-white",
                     };
 
             return (
@@ -129,15 +138,17 @@ export default function EcosystemPage() {
                   >
                     {layer.number} {layer.verb}
                   </p>
-                  <h2 className="mt-2 font-heading text-xl text-navy md:text-2xl">
+                  <h2
+                    className={`mt-2 font-heading text-xl md:text-2xl ${tone.title}`}
+                  >
                     {layer.title}
                   </h2>
-                  <p className="mt-1.5 text-sm font-medium text-navy/80">
+                  <p className={`mt-1.5 text-sm font-medium ${tone.headline}`}>
                     {layer.headline}
                   </p>
                 </div>
                 <div>
-                  <p className="text-sm leading-relaxed text-navy/70">
+                  <p className={`text-sm leading-relaxed ${tone.body}`}>
                     {layer.description}
                   </p>
                   <ul className="mt-4 grid gap-2 sm:grid-cols-2">

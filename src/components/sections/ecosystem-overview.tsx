@@ -57,34 +57,43 @@ export function EcosystemOverview({ compact = false }: EcosystemOverviewProps) {
             const tone =
               layer.id === "foundation"
                 ? {
-                    card: "bg-[#EEF3FF]/95 ring-royal/25",
-                    label: "text-royal",
-                    arrow: "text-royal/40",
-                    pill: "bg-white/80 text-royal-deep",
+                    card: "bg-royal ring-royal",
+                    label: "text-white/70",
+                    arrow: "text-white/40",
+                    title: "text-white",
+                    headline: "text-white/85",
+                    body: "text-white/75",
+                    pill: "bg-white/15 text-white",
                   }
                 : layer.id === "automation"
                   ? {
-                      card: "bg-[#E8F4FF]/95 ring-cyan/30",
-                      label: "text-[#1A6BDB]",
-                      arrow: "text-cyan/50",
-                      pill: "bg-white/80 text-[#0F4AE0]",
+                      card: "bg-cyan ring-cyan",
+                      label: "text-white/70",
+                      arrow: "text-white/40",
+                      title: "text-white",
+                      headline: "text-white/85",
+                      body: "text-white/75",
+                      pill: "bg-white/15 text-white",
                     }
                   : {
-                      card: "bg-[#ECF8F1]/95 ring-emerald-500/25",
-                      label: "text-emerald-700",
-                      arrow: "text-emerald-600/40",
-                      pill: "bg-white/80 text-emerald-900",
+                      card: "bg-emerald-600 ring-emerald-600",
+                      label: "text-white/70",
+                      arrow: "text-white/40",
+                      title: "text-white",
+                      headline: "text-white/85",
+                      body: "text-white/75",
+                      pill: "bg-white/15 text-white",
                     };
 
             return (
               <li
                 key={layer.id}
                 className={cn(
-                  "relative rounded-lg p-5 shadow-soft ring-1 backdrop-blur-sm md:rounded-none md:p-7 md:shadow-none",
+                  "relative rounded-lg p-5 shadow-soft ring-1 md:rounded-none md:p-7 md:shadow-none",
                   tone.card,
                   index === 0 && "md:rounded-l-lg",
                   index === ECOSYSTEM_LAYERS.length - 1 && "md:rounded-r-lg",
-                  index > 0 && "md:border-l md:border-white/40"
+                  index > 0 && "md:border-l md:border-white/20"
                 )}
               >
                 <div className="flex items-center gap-2.5">
@@ -99,13 +108,18 @@ export function EcosystemOverview({ compact = false }: EcosystemOverviewProps) {
                   ) : null}
                 </div>
 
-                <h3 className="mt-3 font-heading text-xl text-navy md:text-2xl">
+                <h3
+                  className={cn(
+                    "mt-3 font-heading text-xl md:text-2xl",
+                    tone.title
+                  )}
+                >
                   {layer.title}
                 </h3>
-                <p className="mt-1 text-base font-medium text-navy/75">
+                <p className={cn("mt-1 text-base font-medium", tone.headline)}>
                   {layer.headline}
                 </p>
-                <p className="mt-3 text-base leading-relaxed text-navy/65">
+                <p className={cn("mt-3 text-base leading-relaxed", tone.body)}>
                   {layer.description}
                 </p>
                 <ul className="mt-4 flex flex-wrap gap-1.5">
