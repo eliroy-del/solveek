@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Manrope, Space_Grotesk } from "next/font/google";
+import { ConsentProvider } from "@/components/analytics/consent-provider";
+import { CookieConsentBanner } from "@/components/analytics/cookie-consent-banner";
 import { GoogleAnalytics } from "@/components/analytics/google-analytics";
+import { WebVitals } from "@/components/analytics/web-vitals";
 import { SiteShell } from "@/components/layout/site-shell";
 import { StructuredData } from "@/components/seo/structured-data";
 import { SITE } from "@/constants/site";
@@ -112,9 +116,27 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${manrope.variable} ${spaceGrotesk.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+        <Script id="ga-consent-default" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            window.gtag = window.gtag || gtag;
+            gtag('consent', 'default', {
+              ad_storage: 'denied',
+              analytics_storage: 'denied',
+              ad_user_data: 'denied',
+              ad_personalization: 'denied',
+              wait_for_update: 500
+            });
+          `}
+        </Script>
         <StructuredData data={globalJsonLd} />
-        <GoogleAnalytics />
-        <SiteShell>{children}</SiteShell>
+        <ConsentProvider>
+          <SiteShell>{children}</SiteShell>
+          <GoogleAnalytics />
+          <WebVitals />
+          <CookieConsentBanner />
+        </ConsentProvider>
       </body>
     </html>
   );

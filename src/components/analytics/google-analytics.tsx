@@ -1,27 +1,18 @@
-import Script from "next/script";
+"use client";
 
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+import { GoogleAnalytics as NextGoogleAnalytics } from "@next/third-parties/google";
+import { GA_MEASUREMENT_ID, isAnalyticsEnabled } from "@/lib/analytics";
+import { useConsent } from "@/components/analytics/consent-provider";
 
+/**
+ * Loads GA4 only in production and only after explicit analytics consent.
+ */
 export function GoogleAnalytics() {
-  if (!GA_MEASUREMENT_ID) return null;
+  const { consent, ready } = useConsent();
 
-  return (
-    <>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        strategy="afterInteractive"
-      />
-      <Script id="ga4-init" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${GA_MEASUREMENT_ID}', {
-            anonymize_ip: true,
-            send_page_view: true
-          });
-        `}
-      </Script>
-    </>
-  );
+  if (!ready || !isAnalyticsEnabled() || consent !== "granted") {
+    return null;
+  }
+
+  return <NextGoogleAnalytics gaId={GA_MEASUREMENT_ID} />;
 }

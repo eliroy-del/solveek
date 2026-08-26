@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/layout/logo";
+import { CookieSettingsButton } from "@/components/analytics/cookie-settings-button";
 import { CtaButton } from "@/components/ui/cta-button";
 import { SocialIconLinks } from "@/components/ui/social-icons";
 import { BRAND } from "@/constants/brand";
@@ -66,9 +67,12 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {SITE.legalName}. All rights reserved.
           </p>
-          <p className="uppercase tracking-[0.06em] text-white/40">
-            {SITE.category}
-          </p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            <CookieSettingsButton />
+            <p className="uppercase tracking-[0.06em] text-white/40">
+              {SITE.category}
+            </p>
+          </div>
         </div>
       </div>
     </footer>

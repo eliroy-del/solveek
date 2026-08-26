@@ -31,7 +31,8 @@ See also: [`CRAWLABILITY-PLAYBOOK.md`](./CRAWLABILITY-PLAYBOOK.md) (Phase 0: SSR
 | CreativeWork + Service catalog | Work/[slug], Ecosystem capabilities |
 | Favicon / apple / manifest | `public/*`, layout icons |
 | CSP allowing GA4 wildcards | `src/middleware.ts` |
-| GA4 loader (env-gated) | `src/components/analytics/google-analytics.tsx` |
+| GA4 (`@next/third-parties`) + Web Vitals | `src/components/analytics/*` |
+| Analytics consent (Reject = no load) | Consent Mode v2 + banner |
 | Legacy URL redirects | `next.config.ts` |
 | Image formats (AVIF/WebP) | `next.config.ts` |
 
