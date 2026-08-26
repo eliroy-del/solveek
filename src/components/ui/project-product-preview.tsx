@@ -17,7 +17,7 @@ function resolveKind(slug: string, industry: string): PreviewKind {
   if (key.includes("chili-haus") || key.includes("chili haus")) {
     return "chilihaus";
   }
-  if (key.includes("dzi-foods") || key.includes("dzi foods")) {
+  if (key.includes("dzi-foods") || key.includes("dzi foods") || key.includes("dzifoods")) {
     return "dzifoods";
   }
   if (key.includes("luxury-strand") || key.includes("luxury strand")) {
