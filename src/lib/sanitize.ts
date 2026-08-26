@@ -33,11 +33,20 @@ export function sanitizeObject<T extends Record<string, unknown>>(obj: T): T {
 
 export function sanitizeEmail(email: string): string {
   if (!email || typeof email !== "string") return "";
-  return email.trim().toLowerCase();
+  return email.trim().toLowerCase().replace(/[\r\n]/g, "");
 }
 
 /** Keep digits and common phone punctuation only. */
 export function sanitizePhone(phone: string): string {
   if (!phone || typeof phone !== "string") return "";
-  return phone.replace(/[^\d\s+\-()]/g, "").trim();
+  return phone.replace(/[^\d\s+\-()]/g, "").replace(/[\r\n]/g, "").trim();
+}
+
+/**
+ * Strip CR/LF so values can never be used for email header injection
+ * if a future mailer interpolates them into From/Subject/Reply-To.
+ */
+export function sanitizeHeaderValue(value: string): string {
+  if (!value || typeof value !== "string") return "";
+  return value.replace(/[\r\n]/g, "").trim();
 }

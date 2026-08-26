@@ -25,6 +25,7 @@ export const nameField = z
   .string()
   .min(2, "Name must be at least 2 characters")
   .max(100, "Name must be less than 100 characters")
+  .regex(/^[^\r\n]*$/, "Name cannot contain line breaks")
   .regex(
     /^[\p{L}\s\-'.]+$/u,
     "Name can only contain letters, spaces, hyphens, apostrophes and dots"
@@ -34,12 +35,14 @@ export const emailField = z
   .string()
   .email("Please enter a valid email address")
   .max(254, "Email must be less than 254 characters")
+  .regex(/^[^\r\n]*$/, "Email cannot contain line breaks")
   .transform((v) => v.toLowerCase());
 
 export const phoneRequiredField = z
   .string()
   .min(9, "Phone / WhatsApp is required")
   .max(20, "Phone number must be less than 20 characters")
+  .regex(/^[^\r\n]*$/, "Phone cannot contain line breaks")
   .refine(
     validateGHPhone,
     "Enter a valid phone (e.g. 024 XXX XXXX or +233 24 XXX XXXX)"
@@ -48,6 +51,7 @@ export const phoneRequiredField = z
 export const phoneOptionalField = z
   .string()
   .max(20, "Phone number must be less than 20 characters")
+  .regex(/^[^\r\n]*$/, "Phone cannot contain line breaks")
   .refine(
     (val) => !val || validateGHPhone(val),
     "Enter a valid phone (e.g. 024 XXX XXXX or +233 24 XXX XXXX)"
@@ -134,7 +138,8 @@ export const contactFormSchema = z.object({
   subject: z
     .string()
     .min(2, "Subject is required")
-    .max(160, "Subject is too long"),
+    .max(160, "Subject is too long")
+    .regex(/^[^\r\n]*$/, "Subject cannot contain line breaks"),
   message: z
     .string()
     .min(10, "Please provide more detail")

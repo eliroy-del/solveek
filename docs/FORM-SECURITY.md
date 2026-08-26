@@ -2,6 +2,8 @@
 
 Defence-in-depth for all public forms (audit, contact, newsletter, quote).
 
+Also see [`ENDPOINT-AUTH-AUDIT.md`](./ENDPOINT-AUTH-AUDIT.md) for who may call each API route.
+
 ## Stack
 
 | Layer | Implementation |
