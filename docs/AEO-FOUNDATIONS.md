@@ -29,7 +29,7 @@ AEO does **not** replace SEO. Strong technical SEO + real HTML + authority still
 | `llms.txt` brand facts | Done — `public/llms.txt` |
 | Unique meta + canonicals + sitemap | Done — SEO helpers + `sitemap.ts` |
 | Structured data for machines | Done — JSON-LD `@graph` ([`JSON-LD.md`](./JSON-LD.md)) |
-| Topic coverage (query fan-out) | Partial — Ecosystem / About / Work / Contact cover Build·Connect·Grow; deepen with content, not more thin pages |
+| Topic coverage (query fan-out) | Partial — use [`AEO-FAN-OUT.md`](./AEO-FAN-OUT.md) money prompts; deepen Ecosystem/About, don’t spawn thin pages |
 | Consensus / unlinked brand mentions | Marketing lane — outreach, directories, YouTube, PR |
 | Measuring AI visibility | Later track — GA4 referral patterns, Search Console, brand tools |
 
@@ -54,9 +54,9 @@ Optimize for being the clear, citable source on Solveek’s own topics — not f
 
 ## Next guides in this track (when provided)
 
-1. Seeing what AI actually searches (fan-out inspection)
+1. ~~Seeing what AI actually searches (fan-out inspection)~~ → [`AEO-FAN-OUT.md`](./AEO-FAN-OUT.md)
 2. Technical AEO deeper pass
 3. Writing structure that gets cited
 4. Measuring AI visibility
 
-Until then: keep `llms.txt` facts fresh, ship real content updates on Ecosystem/About/Work, and maintain crawl/SSR health.
+Until then: run the money prompts in `AEO-FAN-OUT.md`, keep `llms.txt` facts fresh, and maintain crawl/SSR health.
