@@ -53,49 +53,77 @@ export function EcosystemOverview({ compact = false }: EcosystemOverviewProps) {
         ) : null}
 
         <ol className="grid gap-3 md:grid-cols-3 md:gap-0">
-          {ECOSYSTEM_LAYERS.map((layer, index) => (
-            <li
-              key={layer.id}
-              className={cn(
-                "relative rounded-lg bg-white/95 p-5 shadow-soft ring-1 ring-white/20 backdrop-blur-sm md:rounded-none md:p-7 md:shadow-none",
-                index === 0 && "md:rounded-l-lg",
-                index === ECOSYSTEM_LAYERS.length - 1 && "md:rounded-r-lg",
-                index > 0 && "md:border-l md:border-border/80"
-              )}
-            >
-              <div className="flex items-center gap-2.5">
-                <p className="eyebrow text-royal">{layer.verb}</p>
-                {index < ECOSYSTEM_LAYERS.length - 1 ? (
-                  <span
-                    aria-hidden
-                    className="ml-auto hidden text-royal/40 md:inline"
-                  >
-                    →
-                  </span>
-                ) : null}
-              </div>
+          {ECOSYSTEM_LAYERS.map((layer, index) => {
+            const tone =
+              layer.id === "foundation"
+                ? {
+                    card: "bg-[#EEF3FF]/95 ring-royal/25",
+                    label: "text-royal",
+                    arrow: "text-royal/40",
+                    pill: "bg-white/80 text-royal-deep",
+                  }
+                : layer.id === "automation"
+                  ? {
+                      card: "bg-[#E8F4FF]/95 ring-cyan/30",
+                      label: "text-[#1A6BDB]",
+                      arrow: "text-cyan/50",
+                      pill: "bg-white/80 text-[#0F4AE0]",
+                    }
+                  : {
+                      card: "bg-[#ECF8F1]/95 ring-emerald-500/25",
+                      label: "text-emerald-700",
+                      arrow: "text-emerald-600/40",
+                      pill: "bg-white/80 text-emerald-900",
+                    };
 
-              <h3 className="mt-3 font-heading text-xl text-navy md:text-2xl">
-                {layer.title}
-              </h3>
-              <p className="mt-1 text-base font-medium text-navy/75">
-                {layer.headline}
-              </p>
-              <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-                {layer.description}
-              </p>
-              <ul className="mt-4 flex flex-wrap gap-1.5">
-                {layer.capabilities.map((cap) => (
-                  <li
-                    key={cap}
-                    className="rounded-md bg-surface px-2.5 py-1 text-xs font-medium text-navy/70"
-                  >
-                    {cap}
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))}
+            return (
+              <li
+                key={layer.id}
+                className={cn(
+                  "relative rounded-lg p-5 shadow-soft ring-1 backdrop-blur-sm md:rounded-none md:p-7 md:shadow-none",
+                  tone.card,
+                  index === 0 && "md:rounded-l-lg",
+                  index === ECOSYSTEM_LAYERS.length - 1 && "md:rounded-r-lg",
+                  index > 0 && "md:border-l md:border-white/40"
+                )}
+              >
+                <div className="flex items-center gap-2.5">
+                  <p className={cn("eyebrow", tone.label)}>{layer.verb}</p>
+                  {index < ECOSYSTEM_LAYERS.length - 1 ? (
+                    <span
+                      aria-hidden
+                      className={cn("ml-auto hidden md:inline", tone.arrow)}
+                    >
+                      →
+                    </span>
+                  ) : null}
+                </div>
+
+                <h3 className="mt-3 font-heading text-xl text-navy md:text-2xl">
+                  {layer.title}
+                </h3>
+                <p className="mt-1 text-base font-medium text-navy/75">
+                  {layer.headline}
+                </p>
+                <p className="mt-3 text-base leading-relaxed text-navy/65">
+                  {layer.description}
+                </p>
+                <ul className="mt-4 flex flex-wrap gap-1.5">
+                  {layer.capabilities.map((cap) => (
+                    <li
+                      key={cap}
+                      className={cn(
+                        "rounded-md px-2.5 py-1 text-xs font-medium",
+                        tone.pill
+                      )}
+                    >
+                      {cap}
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            );
+          })}
         </ol>
       </div>
     </section>
