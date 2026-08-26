@@ -54,7 +54,7 @@ export function WorkShowcase({ projects }: { projects: Project[] }) {
                   />
                 </div>
                 <div className="mt-4 text-center">
-                  <p className="text-base italic text-navy/55 transition-ui group-hover:text-navy">
+                  <p className="text-base font-semibold italic text-navy transition-ui group-hover:text-royal">
                     {project.title}
                   </p>
                   {project.challenge ? (

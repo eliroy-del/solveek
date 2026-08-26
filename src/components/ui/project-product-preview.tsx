@@ -129,7 +129,7 @@ function DziFoodsPreview() {
   return (
     <CoverImage
       src="/images/project-dzi-foods-home.jpg"
-      alt="Dzi Foods website homepage"
+      alt="Dzifoods website homepage"
       bg="bg-[#FFF8F0]"
     />
   );
