@@ -2,35 +2,22 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import {
+  sanitize,
+  sanitizeEmail,
+  sanitizePhone,
+} from "@/lib/sanitize";
+import {
+  QUOTE_SERVICES,
+  quoteFormSchema,
+  type QuoteFormData,
+} from "@/lib/validation";
 
-const services = [
-  "Website Design",
-  "Social Media",
-  "E-commerce",
-  "Branding",
-  "SEO & Content",
-  "Maintenance & Support",
-  "Other",
-] as const;
-
-const schema = z.object({
-  name: z.string().min(2, "Name is required"),
-  email: z.string().email("Valid email required"),
-  company: z.string().min(2, "Company is required"),
-  phone: z.string().min(6, "Phone is required"),
-  service: z.enum(services),
-  budget: z.string().optional(),
-  timeline: z.string().optional(),
-  notes: z.string().min(10, "Please share a bit more detail"),
-  website: z.string().optional(),
-});
-
-type FormValues = z.infer<typeof schema>;
+type FormValues = QuoteFormData;
 
 function resolveService(value?: string): FormValues["service"] {
-  if (value && (services as readonly string[]).includes(value)) {
+  if (value && (QUOTE_SERVICES as readonly string[]).includes(value)) {
     return value as FormValues["service"];
   }
   return "Website Design";
@@ -55,17 +42,28 @@ export function QuoteForm({
     reset,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(quoteFormSchema),
     defaultValues: { service, notes },
+    mode: "onBlur",
   });
 
   const onSubmit = async (values: FormValues) => {
     if (values.website) return;
     try {
+      const payload = {
+        ...values,
+        name: sanitize(values.name),
+        email: sanitizeEmail(values.email),
+        company: sanitize(values.company),
+        phone: sanitizePhone(values.phone),
+        budget: values.budget ? sanitize(values.budget) : "",
+        timeline: values.timeline ? sanitize(values.timeline) : "",
+        notes: sanitize(values.notes),
+      };
       const res = await fetch("/api/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error("Failed");
       setStatus("success");
@@ -76,7 +74,7 @@ export function QuoteForm({
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Full name" error={errors.name?.message}>
           <input className={inputClass} {...register("name")} />
@@ -96,7 +94,7 @@ export function QuoteForm({
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Primary service" error={errors.service?.message}>
           <select className={inputClass} {...register("service")}>
-            {services.map((item) => (
+            {QUOTE_SERVICES.map((item) => (
               <option key={item} value={item}>
                 {item}
               </option>
@@ -106,7 +104,7 @@ export function QuoteForm({
         <Field label="Budget range" error={errors.budget?.message}>
           <input
             className={inputClass}
-            placeholder="e.g. $10k–$25k"
+            placeholder="e.g. GH₵4,000–6,500"
             {...register("budget")}
           />
         </Field>
@@ -143,11 +141,14 @@ export function QuoteForm({
       </button>
       {status === "success" ? (
         <p className="text-sm text-success">
-          Quote request received. A SOLVEEK specialist will respond within one business day.
+          Quote request received. A SOLVEEK specialist will respond within one
+          business day.
         </p>
       ) : null}
       {status === "error" ? (
-        <p className="text-sm text-destructive">Unable to submit. Please try again.</p>
+        <p className="text-sm text-destructive">
+          Unable to submit. Please try again.
+        </p>
       ) : null}
     </form>
   );
@@ -169,7 +170,9 @@ function Field({
     <label className="block space-y-1.5">
       <span className="text-sm font-medium text-navy">{label}</span>
       {children}
-      {error ? <span className="block text-xs text-destructive">{error}</span> : null}
+      {error ? (
+        <span className="block text-xs text-destructive">{error}</span>
+      ) : null}
     </label>
   );
 }

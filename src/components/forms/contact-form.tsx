@@ -2,21 +2,19 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight } from "lucide-react";
+import {
+  sanitize,
+  sanitizeEmail,
+  sanitizePhone,
+} from "@/lib/sanitize";
+import {
+  contactFormSchema,
+  type ContactFormData,
+} from "@/lib/validation";
 
-const schema = z.object({
-  name: z.string().min(2, "Name is required"),
-  email: z.string().email("Valid email required"),
-  company: z.string().min(2, "Company is required"),
-  phone: z.string().optional(),
-  subject: z.string().min(2, "Subject is required"),
-  message: z.string().min(10, "Please provide more detail"),
-  website: z.string().optional(),
-});
-
-type FormValues = z.infer<typeof schema>;
+type FormValues = ContactFormData;
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
@@ -25,15 +23,27 @@ export function ContactForm() {
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<FormValues>({ resolver: zodResolver(schema) });
+  } = useForm<FormValues>({
+    resolver: zodResolver(contactFormSchema),
+    mode: "onBlur",
+  });
 
   const onSubmit = async (values: FormValues) => {
     if (values.website) return;
     try {
+      const payload = {
+        ...values,
+        name: sanitize(values.name),
+        email: sanitizeEmail(values.email),
+        company: sanitize(values.company),
+        phone: values.phone ? sanitizePhone(values.phone) : "",
+        subject: sanitize(values.subject),
+        message: sanitize(values.message),
+      };
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error("Failed");
       setStatus("success");
@@ -44,7 +54,7 @@ export function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Full name" error={errors.name?.message}>
           <input

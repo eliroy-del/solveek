@@ -1,52 +1,100 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { corsHeaders, optionsResponse, rejectBadOrigin } from "@/lib/api-security";
 import { rateLimit } from "@/lib/rate-limit";
+import {
+  sanitize,
+  sanitizeEmail,
+  sanitizePhone,
+} from "@/lib/sanitize";
 import { createServerClient } from "@/lib/supabase/server";
+import { contactFormSchema, getFieldErrors } from "@/lib/validation";
 
-const schema = z.object({
-  name: z.string().min(2).max(100),
-  email: z.string().email().max(200),
-  company: z.string().min(2).max(120),
-  phone: z.string().max(40).optional(),
-  subject: z.string().min(2).max(160),
-  message: z.string().min(10).max(4000),
-  website: z.string().optional(),
-});
+export async function OPTIONS(request: Request) {
+  return optionsResponse(request.headers.get("origin"));
+}
 
 export async function POST(request: Request) {
+  const origin = request.headers.get("origin");
+  const blocked = rejectBadOrigin(origin);
+  if (blocked) return blocked;
+
   const ip = request.headers.get("x-forwarded-for") ?? "anonymous";
   const limited = rateLimit(`contact:${ip}`);
   if (!limited.success) {
-    return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+    return NextResponse.json(
+      { success: false, error: "Too many requests" },
+      { status: 429, headers: corsHeaders(origin) }
+    );
   }
 
   try {
     const body = await request.json();
-    const parsed = schema.safeParse(body);
+    const parsed = contactFormSchema.safeParse(body);
     if (!parsed.success) {
-      return NextResponse.json({ error: "Invalid payload" }, { status: 400 });
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Validation failed",
+          errors: getFieldErrors(parsed.error),
+        },
+        { status: 400, headers: corsHeaders(origin) }
+      );
     }
+
     if (parsed.data.website) {
-      return NextResponse.json({ ok: true });
+      return NextResponse.json(
+        { success: true, ok: true },
+        { headers: corsHeaders(origin) }
+      );
     }
+
+    const data = {
+      name: sanitize(parsed.data.name),
+      email: sanitizeEmail(parsed.data.email),
+      company: sanitize(parsed.data.company),
+      phone: parsed.data.phone ? sanitizePhone(parsed.data.phone) : null,
+      subject: sanitize(parsed.data.subject),
+      message: sanitize(parsed.data.message),
+    };
 
     const supabase = createServerClient();
     const { error } = await supabase.from("contact_submissions").insert({
-      name: parsed.data.name,
-      email: parsed.data.email,
-      company: parsed.data.company,
-      phone: parsed.data.phone ?? null,
-      subject: parsed.data.subject,
-      message: parsed.data.message,
+      name: data.name,
+      email: data.email,
+      company: data.company,
+      phone: data.phone,
+      subject: data.subject,
+      message: data.message,
     });
 
     if (error) {
       console.error("contact insert", error.message);
-      return NextResponse.json({ error: "Server error" }, { status: 500 });
+      return NextResponse.json(
+        { success: false, error: "Server error" },
+        { status: 500, headers: corsHeaders(origin) }
+      );
     }
 
-    return NextResponse.json({ ok: true });
-  } catch {
-    return NextResponse.json({ error: "Server error" }, { status: 500 });
+    return NextResponse.json(
+      { success: true, ok: true },
+      { headers: corsHeaders(origin) }
+    );
+  } catch (error) {
+    console.error("contact api", error);
+    if (error instanceof z.ZodError) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Validation failed",
+          errors: getFieldErrors(error),
+        },
+        { status: 400, headers: corsHeaders(origin) }
+      );
+    }
+    return NextResponse.json(
+      { success: false, error: "Server error" },
+      { status: 500, headers: corsHeaders(origin) }
+    );
   }
 }

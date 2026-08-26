@@ -1,43 +1,84 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { corsHeaders, optionsResponse, rejectBadOrigin } from "@/lib/api-security";
 import { rateLimit } from "@/lib/rate-limit";
+import { sanitizeEmail } from "@/lib/sanitize";
 import { createServerClient } from "@/lib/supabase/server";
+import { getFieldErrors, newsletterSchema } from "@/lib/validation";
 
-const schema = z.object({
-  email: z.string().email().max(200),
-  website: z.string().optional(),
-});
+export async function OPTIONS(request: Request) {
+  return optionsResponse(request.headers.get("origin"));
+}
 
 export async function POST(request: Request) {
+  const origin = request.headers.get("origin");
+  const blocked = rejectBadOrigin(origin);
+  if (blocked) return blocked;
+
   const ip = request.headers.get("x-forwarded-for") ?? "anonymous";
   const limited = rateLimit(`newsletter:${ip}`, 12);
   if (!limited.success) {
-    return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+    return NextResponse.json(
+      { success: false, error: "Too many requests" },
+      { status: 429, headers: corsHeaders(origin) }
+    );
   }
 
   try {
     const body = await request.json();
-    const parsed = schema.safeParse(body);
+    const parsed = newsletterSchema.safeParse(body);
     if (!parsed.success) {
-      return NextResponse.json({ error: "Invalid payload" }, { status: 400 });
-    }
-    if (parsed.data.website) {
-      return NextResponse.json({ ok: true });
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Validation failed",
+          errors: getFieldErrors(parsed.error),
+        },
+        { status: 400, headers: corsHeaders(origin) }
+      );
     }
 
+    if (parsed.data.website) {
+      return NextResponse.json(
+        { success: true, ok: true },
+        { headers: corsHeaders(origin) }
+      );
+    }
+
+    const email = sanitizeEmail(parsed.data.email);
     const supabase = createServerClient();
     const { error } = await supabase.from("newsletter_subscribers").upsert(
-      { email: parsed.data.email },
+      { email },
       { onConflict: "email" }
     );
 
     if (error) {
       console.error("newsletter insert", error.message);
-      return NextResponse.json({ error: "Server error" }, { status: 500 });
+      return NextResponse.json(
+        { success: false, error: "Server error" },
+        { status: 500, headers: corsHeaders(origin) }
+      );
     }
 
-    return NextResponse.json({ ok: true });
-  } catch {
-    return NextResponse.json({ error: "Server error" }, { status: 500 });
+    return NextResponse.json(
+      { success: true, ok: true },
+      { headers: corsHeaders(origin) }
+    );
+  } catch (error) {
+    console.error("newsletter api", error);
+    if (error instanceof z.ZodError) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Validation failed",
+          errors: getFieldErrors(error),
+        },
+        { status: 400, headers: corsHeaders(origin) }
+      );
+    }
+    return NextResponse.json(
+      { success: false, error: "Server error" },
+      { status: 500, headers: corsHeaders(origin) }
+    );
   }
 }

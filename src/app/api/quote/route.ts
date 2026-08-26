@@ -1,64 +1,104 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { corsHeaders, optionsResponse, rejectBadOrigin } from "@/lib/api-security";
 import { rateLimit } from "@/lib/rate-limit";
+import {
+  sanitize,
+  sanitizeEmail,
+  sanitizePhone,
+} from "@/lib/sanitize";
 import { createServerClient } from "@/lib/supabase/server";
+import { getFieldErrors, quoteFormSchema } from "@/lib/validation";
 
-const schema = z.object({
-  name: z.string().min(2).max(100),
-  email: z.string().email().max(200),
-  company: z.string().min(2).max(120),
-  phone: z.string().min(6).max(40),
-  service: z.enum([
-    "Website Design",
-    "Social Media",
-    "E-commerce",
-    "Branding",
-    "SEO & Content",
-    "Maintenance & Support",
-    "Other",
-  ]),
-  budget: z.string().max(120).optional(),
-  timeline: z.string().max(120).optional(),
-  notes: z.string().min(10).max(4000),
-  website: z.string().optional(),
-});
+export async function OPTIONS(request: Request) {
+  return optionsResponse(request.headers.get("origin"));
+}
 
 export async function POST(request: Request) {
+  const origin = request.headers.get("origin");
+  const blocked = rejectBadOrigin(origin);
+  if (blocked) return blocked;
+
   const ip = request.headers.get("x-forwarded-for") ?? "anonymous";
   const limited = rateLimit(`quote:${ip}`);
   if (!limited.success) {
-    return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+    return NextResponse.json(
+      { success: false, error: "Too many requests" },
+      { status: 429, headers: corsHeaders(origin) }
+    );
   }
 
   try {
     const body = await request.json();
-    const parsed = schema.safeParse(body);
+    const parsed = quoteFormSchema.safeParse(body);
     if (!parsed.success) {
-      return NextResponse.json({ error: "Invalid payload" }, { status: 400 });
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Validation failed",
+          errors: getFieldErrors(parsed.error),
+        },
+        { status: 400, headers: corsHeaders(origin) }
+      );
     }
+
     if (parsed.data.website) {
-      return NextResponse.json({ ok: true });
+      return NextResponse.json(
+        { success: true, ok: true },
+        { headers: corsHeaders(origin) }
+      );
     }
+
+    const data = {
+      name: sanitize(parsed.data.name),
+      email: sanitizeEmail(parsed.data.email),
+      company: sanitize(parsed.data.company),
+      phone: sanitizePhone(parsed.data.phone),
+      service: parsed.data.service,
+      budget: parsed.data.budget ? sanitize(parsed.data.budget) : null,
+      timeline: parsed.data.timeline ? sanitize(parsed.data.timeline) : null,
+      notes: sanitize(parsed.data.notes),
+    };
 
     const supabase = createServerClient();
     const { error } = await supabase.from("quote_requests").insert({
-      name: parsed.data.name,
-      email: parsed.data.email,
-      company: parsed.data.company,
-      phone: parsed.data.phone,
-      service: parsed.data.service,
-      budget: parsed.data.budget ?? null,
-      timeline: parsed.data.timeline ?? null,
-      notes: parsed.data.notes,
+      name: data.name,
+      email: data.email,
+      company: data.company,
+      phone: data.phone,
+      service: data.service,
+      budget: data.budget,
+      timeline: data.timeline,
+      notes: data.notes,
     });
 
     if (error) {
       console.error("quote insert", error.message);
-      return NextResponse.json({ error: "Server error" }, { status: 500 });
+      return NextResponse.json(
+        { success: false, error: "Server error" },
+        { status: 500, headers: corsHeaders(origin) }
+      );
     }
 
-    return NextResponse.json({ ok: true });
-  } catch {
-    return NextResponse.json({ error: "Server error" }, { status: 500 });
+    return NextResponse.json(
+      { success: true, ok: true },
+      { headers: corsHeaders(origin) }
+    );
+  } catch (error) {
+    console.error("quote api", error);
+    if (error instanceof z.ZodError) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Validation failed",
+          errors: getFieldErrors(error),
+        },
+        { status: 400, headers: corsHeaders(origin) }
+      );
+    }
+    return NextResponse.json(
+      { success: false, error: "Server error" },
+      { status: 500, headers: corsHeaders(origin) }
+    );
   }
 }

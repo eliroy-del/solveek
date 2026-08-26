@@ -2,16 +2,15 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight } from "lucide-react";
+import { sanitizeEmail } from "@/lib/sanitize";
+import {
+  newsletterSchema,
+  type NewsletterData,
+} from "@/lib/validation";
 
-const schema = z.object({
-  email: z.string().email("Enter a valid email"),
-  website: z.string().optional(),
-});
-
-type FormValues = z.infer<typeof schema>;
+type FormValues = NewsletterData;
 
 export function NewsletterForm() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
@@ -21,7 +20,8 @@ export function NewsletterForm() {
     reset,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(newsletterSchema),
+    mode: "onBlur",
   });
 
   const onSubmit = async (values: FormValues) => {
@@ -30,7 +30,10 @@ export function NewsletterForm() {
       const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: values.email }),
+        body: JSON.stringify({
+          email: sanitizeEmail(values.email),
+          website: values.website,
+        }),
       });
       if (!res.ok) throw new Error("Failed");
       setStatus("success");
@@ -41,7 +44,7 @@ export function NewsletterForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-2">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-2" noValidate>
       <div className="flex gap-2">
         <label htmlFor="newsletter-email" className="sr-only">
           Email address

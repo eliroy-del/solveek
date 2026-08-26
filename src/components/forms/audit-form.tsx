@@ -2,28 +2,22 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import {
+  sanitize,
+  sanitizeEmail,
+  sanitizePhone,
+} from "@/lib/sanitize";
+import {
+  AUDIT_BUDGETS,
+  AUDIT_INDUSTRIES,
+  auditFormSchema,
+  type AuditFormData,
+} from "@/lib/validation";
 
-const schema = z.object({
-  name: z.string().min(2, "Name is required"),
-  company: z.string().min(2, "Business name is required"),
-  email: z.string().email("Valid email required"),
-  phone: z.string().min(7, "Phone / WhatsApp is required").max(40),
-  website: z.string().max(200).optional(),
-  industry: z.string().min(1, "Select an industry"),
-  improve: z.string().min(10, "Tell us what you want to improve"),
-  focusArea: z.enum(["foundation", "automation", "visibility", "unsure"], {
-    required_error: "Select an area",
-  }),
-  budget: z.string().min(1, "Select a budget range"),
-  context: z.string().max(4000).optional(),
-  honeypot: z.string().optional(),
-});
-
-type FormValues = z.infer<typeof schema>;
+type FormValues = AuditFormData;
 
 const focusOptions = [
   { value: "foundation", label: "Foundation" },
@@ -32,26 +26,8 @@ const focusOptions = [
   { value: "unsure", label: "Not sure, assess it" },
 ] as const;
 
-const budgetOptions = [
-  "Under GH₵4,000",
-  "GH₵4,000 to 6,500",
-  "GH₵6,500 to 10,000",
-];
-
-const industryOptions = [
-  "Retail & E-commerce",
-  "Hospitality & Tourism",
-  "Professional services",
-  "Education & Training",
-  "Healthcare & Wellness",
-  "Real estate & Construction",
-  "Finance & Insurance",
-  "Technology & Software",
-  "Manufacturing",
-  "Media & Creative",
-  "Non-profit & NGO",
-  "Other",
-];
+const budgetOptions = [...AUDIT_BUDGETS];
+const industryOptions = [...AUDIT_INDUSTRIES];
 
 const stepFields: (keyof FormValues)[][] = [
   ["name", "company", "email", "phone", "website", "industry"],
@@ -71,7 +47,7 @@ export function AuditForm() {
     reset,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(auditFormSchema),
     defaultValues: { focusArea: undefined },
     mode: "onBlur",
   });
@@ -86,10 +62,22 @@ export function AuditForm() {
   const onSubmit = async (values: FormValues) => {
     if (values.honeypot) return;
     try {
+      const payload = {
+        ...values,
+        name: sanitize(values.name),
+        company: sanitize(values.company),
+        email: sanitizeEmail(values.email),
+        phone: sanitizePhone(values.phone),
+        website: values.website ? sanitize(values.website) : "",
+        industry: sanitize(values.industry),
+        improve: sanitize(values.improve),
+        budget: sanitize(values.budget),
+        context: values.context ? sanitize(values.context) : "",
+      };
       const res = await fetch("/api/audit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error("Failed");
       const { analytics } = await import("@/lib/analytics");
