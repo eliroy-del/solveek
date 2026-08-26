@@ -33,7 +33,7 @@ export function createPageMetadata({
     title,
     description,
     ...(keywords ? { keywords } : {}),
-    alternates: { canonical: path },
+    alternates: { canonical: url },
     openGraph: {
       type,
       locale: "en_GH",

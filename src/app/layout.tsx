@@ -18,11 +18,13 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : SITE.url);
-
 const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+
+/**
+ * Never use VERCEL_URL here — it rewrites canonicals/OG to *.vercel.app and
+ * splits ranking signals away from https://www.solveek.com.
+ */
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || SITE.url;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -67,7 +69,7 @@ export const metadata: Metadata = {
     description: SITE.description,
     images: [
       {
-        url: SITE.ogImage,
+        url: `${SITE.url}${SITE.ogImage}`,
         width: 1200,
         height: 630,
         alt: "SOLVEEK — Build. Connect. Grow. Digital Growth Partner",
@@ -79,7 +81,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${SITE.name} | Digital Growth Partner`,
     description: SITE.description,
-    images: [SITE.ogImage],
+    images: [`${SITE.url}${SITE.ogImage}`],
   },
   robots: {
     index: true,

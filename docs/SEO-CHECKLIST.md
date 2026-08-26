@@ -4,6 +4,16 @@ Canonical domain: **https://www.solveek.com**
 
 This checklist maps the SEO How-To Guide to what is implemented in this Next.js App Router site. Prefer the native Metadata API over `react-helmet`.
 
+## Critical production env
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://www.solveek.com
+```
+
+Do **not** rely on `VERCEL_URL` for SEO. Without the env above, canonicals and OG images can resolve to `*.vercel.app` and split ranking/share signals.
+
+See also: [`CRAWLABILITY-PLAYBOOK.md`](./CRAWLABILITY-PLAYBOOK.md) (Phase 0: SSR OK; no Vite prerender needed).
+
 ## Done in code
 
 | Item | Location |
