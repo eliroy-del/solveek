@@ -24,6 +24,7 @@ export const IMAGES = {
   process: "/images/process-tech-bg.jpg",
   heroNetwork: "/images/hero-network.png",
   ecosystemHeader: "/images/ecosystem-header.png",
+  ecosystemTeam: "/images/ecosystem-team.jpg",
   workHeader: "/images/work-header.png",
   aboutHeader: "/images/about-header.png",
   contactHeader: "/images/contact-header.png",
