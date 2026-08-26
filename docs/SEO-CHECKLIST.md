@@ -12,7 +12,11 @@ NEXT_PUBLIC_SITE_URL=https://www.solveek.com
 
 Do **not** rely on `VERCEL_URL` for SEO. Without the env above, canonicals and OG images can resolve to `*.vercel.app` and split ranking/share signals.
 
-See also: [`CRAWLABILITY-PLAYBOOK.md`](./CRAWLABILITY-PLAYBOOK.md) (Phase 0: SSR OK; no Vite prerender needed).
+See also:
+- [`CRAWLABILITY-PLAYBOOK.md`](./CRAWLABILITY-PLAYBOOK.md) — Phase 0: SSR OK; no Vite prerender needed
+- [`AEO-FOUNDATIONS.md`](./AEO-FOUNDATIONS.md) — how AI answer engines cite content; Solveek readiness map
+- [`GA4.md`](./GA4.md) — analytics + consent
+- [`JSON-LD.md`](./JSON-LD.md) — structured data map
 
 ## Done in code
 
