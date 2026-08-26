@@ -14,7 +14,8 @@ Do **not** rely on `VERCEL_URL` for SEO. Without the env above, canonicals and O
 
 See also:
 - [`CRAWLABILITY-PLAYBOOK.md`](./CRAWLABILITY-PLAYBOOK.md) — Phase 0: SSR OK; no Vite prerender needed
-- [`AEO-FOUNDATIONS.md`](./AEO-FOUNDATIONS.md) — how AI answer engines cite content; Solveek readiness map
+- [`AEO-FOUNDATIONS.md`](./AEO-FOUNDATIONS.md) — how AI answer engines cite content
+- [`AEO-FAN-OUT.md`](./AEO-FAN-OUT.md) — inspect ChatGPT/Claude search fan-out for Solveek money queries
 - [`GA4.md`](./GA4.md) — analytics + consent
 - [`JSON-LD.md`](./JSON-LD.md) — structured data map
 
