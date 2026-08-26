@@ -78,11 +78,7 @@ export default async function WorkDetailPage({ params }: Props) {
 
           <div className="mt-8 grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-royal">
-                {project.industry}
-                {project.location ? ` · ${project.location}` : ""}
-              </p>
-              <h1 className="mt-4 font-heading text-[clamp(2.25rem,4.5vw,3.75rem)] leading-[1.05] text-navy">
+              <h1 className="font-heading text-[clamp(2.25rem,4.5vw,3.75rem)] leading-[1.05] text-navy">
                 {project.title}
               </h1>
               {project.websiteUrl ? (
