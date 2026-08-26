@@ -1,9 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Logo } from "@/components/layout/logo";
 import { CtaButton } from "@/components/ui/cta-button";
@@ -18,6 +17,10 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const isHome = pathname === "/";
   const solid = scrolled || !isHome || mobileOpen;
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
 
   return (
     <header
@@ -77,50 +80,50 @@ export function Header() {
         </button>
       </div>
 
-      <AnimatePresence>
-        {mobileOpen ? (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden border-t border-border/60 bg-white lg:hidden"
+      <div
+        className={cn(
+          "grid overflow-hidden border-border/60 bg-white transition-[grid-template-rows,opacity] duration-200 ease-out lg:hidden",
+          mobileOpen
+            ? "grid-rows-[1fr] border-t opacity-100"
+            : "grid-rows-[0fr] border-t-0 opacity-0"
+        )}
+      >
+        <div className="min-h-0">
+          <nav
+            className="container-premium flex flex-col gap-0.5 py-3"
+            aria-label="Mobile"
+            inert={!mobileOpen ? true : undefined}
           >
-            <nav
-              className="container-premium flex flex-col gap-0.5 py-3"
-              aria-label="Mobile"
-            >
-              {mainNav.map((item) => {
-                const active =
-                  pathname === item.href ||
-                  pathname.startsWith(`${item.href}/`);
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    aria-current={active ? "page" : undefined}
-                    onClick={() => setMobileOpen(false)}
-                    className={cn(
-                      "rounded-lg px-3 py-2.5 text-sm font-medium text-navy hover:bg-surface",
-                      active && "bg-surface font-semibold"
-                    )}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })}
-              <div className="mt-2 border-t border-border px-1 pt-3 pb-1">
-                <CtaButton
-                  href={BRAND.primaryCta.href}
-                  className="w-full text-xs"
+            {mainNav.map((item) => {
+              const active =
+                pathname === item.href || pathname.startsWith(`${item.href}/`);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
                   onClick={() => setMobileOpen(false)}
+                  className={cn(
+                    "rounded-lg px-3 py-2.5 text-sm font-medium text-navy hover:bg-surface",
+                    active && "bg-surface font-semibold"
+                  )}
                 >
-                  {BRAND.primaryCta.label}
-                </CtaButton>
-              </div>
-            </nav>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
+                  {item.label}
+                </Link>
+              );
+            })}
+            <div className="mt-2 border-t border-border px-1 pt-3 pb-1">
+              <CtaButton
+                href={BRAND.primaryCta.href}
+                className="w-full text-xs"
+                onClick={() => setMobileOpen(false)}
+              >
+                {BRAND.primaryCta.label}
+              </CtaButton>
+            </div>
+          </nav>
+        </div>
+      </div>
     </header>
   );
 }

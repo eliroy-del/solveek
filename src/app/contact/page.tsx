@@ -1,6 +1,6 @@
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { Mail, Phone } from "lucide-react";
-import { AuditForm } from "@/components/forms/audit-form";
 import { StructuredData } from "@/components/seo/structured-data";
 import { ECOSYSTEM_LAYERS, AUDIT } from "@/constants/brand";
 import { IMAGES, SITE } from "@/constants/site";
@@ -9,6 +9,16 @@ import {
   createPageMetadata,
   webPageJsonLd,
 } from "@/lib/seo";
+
+const AuditForm = dynamic(
+  () =>
+    import("@/components/forms/audit-form").then((m) => m.AuditForm),
+  {
+    loading: () => (
+      <div className="skeleton min-h-[28rem] rounded-xl" aria-hidden />
+    ),
+  }
+);
 
 const contactDescription =
   "Book a Solveek Digital Growth Audit. We review your digital presence, visibility, customer journey and systems to show where to focus first.";

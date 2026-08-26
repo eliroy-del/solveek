@@ -1,8 +1,18 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { PageHero } from "@/components/ui/page-hero";
 import { Reveal } from "@/components/ui/reveal";
-import { QuoteForm } from "@/components/forms/quote-form";
 import { IMAGES } from "@/constants/site";
+
+const QuoteForm = dynamic(
+  () =>
+    import("@/components/forms/quote-form").then((m) => m.QuoteForm),
+  {
+    loading: () => (
+      <div className="skeleton min-h-[24rem] rounded-[28px]" aria-hidden />
+    ),
+  }
+);
 
 export const metadata: Metadata = {
   title: "Request Quote",

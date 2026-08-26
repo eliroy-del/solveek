@@ -198,3 +198,18 @@ Do **not** wrap every App Router `page.tsx` in `React.lazy` — Next already spl
 | `lazy` / `dynamic` | **Unused** |
 
 Say the word to apply A→D and re-measure entry/home gzip.
+
+---
+
+## After apply (2026-08-26)
+
+Applied: CSS header menu, Framer-free scroll progress, `dynamic()` forms, `error.tsx`, removed GSAP.
+
+| Metric | Before | After | Delta |
+| --- | ---: | ---: | ---: |
+| Anonymous home JS (rootMain + polyfill + page clients), gzip | ~242 KB | **~202 KB** | **−40 KB (−17%)** |
+| Home page client refs only, gzip | ~73 KB | **~33 KB** | **−40 KB** |
+| Framer on home client graph | Yes (~39 KB gz) | **No** | Removed |
+| Contact form stack still on-demand | Yes | Yes (+~32 KB gz vs home) | Unchanged pattern |
+
+Framer still loads on routes that use `Reveal` / `PageHero` (e.g. `/quote`, legacy `/services`) — expected and route-scoped.
