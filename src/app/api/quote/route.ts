@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { corsHeaders, optionsResponse, rejectBadOrigin } from "@/lib/api-security";
+import { sendLeadNotification } from "@/lib/email";
 import { rateLimit } from "@/lib/rate-limit";
 import {
   sanitize,
@@ -79,6 +80,24 @@ export async function POST(request: Request) {
         { status: 500, headers: corsHeaders(origin) }
       );
     }
+
+    await sendLeadNotification({
+      subject: `Quote request: ${data.service}`,
+      replyTo: data.email,
+      text: [
+        `Quote request`,
+        "",
+        `Name: ${data.name}`,
+        `Company: ${data.company}`,
+        `Email: ${data.email}`,
+        `Phone: ${data.phone}`,
+        `Service: ${data.service}`,
+        `Budget: ${data.budget || "N/A"}`,
+        `Timeline: ${data.timeline || "N/A"}`,
+        "",
+        data.notes,
+      ].join("\n"),
+    });
 
     return NextResponse.json(
       { success: true, ok: true },

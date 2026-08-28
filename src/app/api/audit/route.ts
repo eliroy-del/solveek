@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { corsHeaders, optionsResponse, rejectBadOrigin } from "@/lib/api-security";
+import { sendLeadNotification } from "@/lib/email";
 import { rateLimit } from "@/lib/rate-limit";
 import {
   sanitize,
@@ -97,6 +98,27 @@ export async function POST(request: Request) {
         { status: 500, headers: corsHeaders(origin) }
       );
     }
+
+    const subject = `Digital Growth Audit: ${focusLabel}`;
+    await sendLeadNotification({
+      subject,
+      replyTo: data.email,
+      text: [
+        subject,
+        "",
+        `Name: ${data.name}`,
+        `Company: ${data.company}`,
+        `Email: ${data.email}`,
+        `Phone: ${data.phone}`,
+        `Website: ${data.website || "N/A"}`,
+        `Industry: ${data.industry}`,
+        `Focus area: ${focusLabel}`,
+        `Budget: ${data.budget}`,
+        data.context ? `\nAdditional context:\n${data.context}` : "",
+      ]
+        .filter(Boolean)
+        .join("\n"),
+    });
 
     return NextResponse.json(
       { success: true, ok: true },
