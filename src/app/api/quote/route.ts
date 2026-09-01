@@ -62,16 +62,20 @@ export async function POST(request: Request) {
     };
 
     const supabase = createServerClient();
-    const { error } = await supabase.from("quote_requests").insert({
-      name: data.name,
-      email: data.email,
-      company: data.company,
-      phone: data.phone,
-      service: data.service,
-      budget: data.budget,
-      timeline: data.timeline,
-      notes: data.notes,
-    });
+    const { data: submission, error } = await supabase
+      .from("quote_requests")
+      .insert({
+        name: data.name,
+        email: data.email,
+        company: data.company,
+        phone: data.phone,
+        service: data.service,
+        budget: data.budget,
+        timeline: data.timeline,
+        notes: data.notes,
+      })
+      .select("id")
+      .single();
 
     if (error) {
       console.error("quote insert", error.message);
@@ -79,6 +83,26 @@ export async function POST(request: Request) {
         { success: false, error: "Server error" },
         { status: 500, headers: corsHeaders(origin) }
       );
+    }
+
+    try {
+      const { ingestWebsiteLead } = await import("@/lib/crm/intake");
+      await ingestWebsiteLead({
+        formType: "quote",
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        company: data.company,
+        budget: data.budget ?? undefined,
+        timeline: data.timeline ?? undefined,
+        service: data.service,
+        context: data.notes,
+        landingPage: "/quote",
+        referrer: request.headers.get("referer") ?? undefined,
+        legacySubmissionId: submission?.id,
+      });
+    } catch (crmError) {
+      console.error("crm quote intake", crmError);
     }
 
     await sendLeadNotification({

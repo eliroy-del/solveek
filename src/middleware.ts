@@ -1,11 +1,20 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { updateCrmSession } from "@/lib/supabase/crm-middleware";
 
 /**
- * CSP tuned for Next.js + GA4 / GTM wildcards.
+ * CSP tuned for Next.js + GA4 / GTM + Supabase Auth.
  * @see https://developers.google.com/tag-platform/security/guides/csp
  */
 function contentSecurityPolicy() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  let supabaseHost = "";
+  try {
+    supabaseHost = supabaseUrl ? new URL(supabaseUrl).origin : "";
+  } catch {
+    supabaseHost = "";
+  }
+
   return [
     "default-src 'self'",
     [
@@ -38,7 +47,12 @@ function contentSecurityPolicy() {
       "https://*.analytics.google.com",
       "https://*.googletagmanager.com",
       "https://vitals.vercel-insights.com",
-    ].join(" "),
+      supabaseHost,
+      "https://*.supabase.co",
+      "wss://*.supabase.co",
+    ]
+      .filter(Boolean)
+      .join(" "),
     "frame-src https://maps.google.com https://www.google.com",
     "base-uri 'self'",
     "form-action 'self'",
@@ -46,8 +60,26 @@ function contentSecurityPolicy() {
   ].join("; ");
 }
 
-export function middleware(_request: NextRequest) {
-  const response = NextResponse.next();
+export async function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+  const isCrm = pathname.startsWith("/crm");
+  const isCrmLogin = pathname === "/crm/login";
+
+  const { response, user } = await updateCrmSession(request);
+
+  if (isCrm && !isCrmLogin && !user) {
+    const loginUrl = request.nextUrl.clone();
+    loginUrl.pathname = "/crm/login";
+    loginUrl.searchParams.set("next", pathname);
+    return NextResponse.redirect(loginUrl);
+  }
+
+  if (isCrmLogin && user) {
+    const appUrl = request.nextUrl.clone();
+    appUrl.pathname = "/crm";
+    appUrl.search = "";
+    return NextResponse.redirect(appUrl);
+  }
 
   response.headers.set("X-Frame-Options", "DENY");
   response.headers.set("X-Content-Type-Options", "nosniff");

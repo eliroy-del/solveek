@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE } from "@/constants/site";
 
-const publicDisallow = ["/api/", "/admin/"];
+const publicDisallow = ["/api/", "/admin/", "/crm/"];
 
 /** Major AI / answer-engine crawlers — keep in sync with public/llms.txt intent. */
 const aiUserAgents = [

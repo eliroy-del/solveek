@@ -60,14 +60,18 @@ export async function POST(request: Request) {
     };
 
     const supabase = createServerClient();
-    const { error } = await supabase.from("contact_submissions").insert({
-      name: data.name,
-      email: data.email,
-      company: data.company,
-      phone: data.phone,
-      subject: data.subject,
-      message: data.message,
-    });
+    const { data: submission, error } = await supabase
+      .from("contact_submissions")
+      .insert({
+        name: data.name,
+        email: data.email,
+        company: data.company,
+        phone: data.phone,
+        subject: data.subject,
+        message: data.message,
+      })
+      .select("id")
+      .single();
 
     if (error) {
       console.error("contact insert", error.message);
@@ -75,6 +79,24 @@ export async function POST(request: Request) {
         { success: false, error: "Server error" },
         { status: 500, headers: corsHeaders(origin) }
       );
+    }
+
+    try {
+      const { ingestWebsiteLead } = await import("@/lib/crm/intake");
+      await ingestWebsiteLead({
+        formType: "contact",
+        name: data.name,
+        email: data.email,
+        phone: data.phone ?? undefined,
+        company: data.company,
+        subject: data.subject,
+        message: data.message,
+        landingPage: "/contact",
+        referrer: request.headers.get("referer") ?? undefined,
+        legacySubmissionId: submission?.id,
+      });
+    } catch (crmError) {
+      console.error("crm contact intake", crmError);
     }
 
     await sendLeadNotification({

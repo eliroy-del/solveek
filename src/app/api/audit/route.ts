@@ -82,14 +82,18 @@ export async function POST(request: Request) {
       .join("\n");
 
     const supabase = createServerClient();
-    const { error } = await supabase.from("contact_submissions").insert({
-      name: data.name,
-      email: data.email,
-      company: data.company,
-      phone: data.phone,
-      subject: `Digital Growth Audit: ${focusLabel}`,
-      message,
-    });
+    const { data: submission, error } = await supabase
+      .from("contact_submissions")
+      .insert({
+        name: data.name,
+        email: data.email,
+        company: data.company,
+        phone: data.phone,
+        subject: `Digital Growth Audit: ${focusLabel}`,
+        message,
+      })
+      .select("id")
+      .single();
 
     if (error) {
       console.error("audit insert", error.message);
@@ -97,6 +101,27 @@ export async function POST(request: Request) {
         { success: false, error: "Server error" },
         { status: 500, headers: corsHeaders(origin) }
       );
+    }
+
+    try {
+      const { ingestWebsiteLead } = await import("@/lib/crm/intake");
+      await ingestWebsiteLead({
+        formType: "audit",
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        company: data.company,
+        website: data.website,
+        industry: data.industry,
+        focusArea: data.focusArea,
+        budget: data.budget,
+        context: data.context,
+        landingPage: "/contact",
+        referrer: request.headers.get("referer") ?? undefined,
+        legacySubmissionId: submission?.id,
+      });
+    } catch (crmError) {
+      console.error("crm audit intake", crmError);
     }
 
     const subject = `Digital Growth Audit: ${focusLabel}`;
