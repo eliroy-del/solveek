@@ -4,9 +4,16 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createCrmBrowserClient } from "@/lib/supabase/crm-browser";
 
+/** Map short usernames to Supabase Auth emails. */
+function resolveLoginIdentifier(value: string) {
+  const trimmed = value.trim().toLowerCase();
+  if (trimmed === "solveek") return "solveek@solveek.com";
+  return trimmed;
+}
+
 export default function CrmLoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState("");
+  const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -16,6 +23,7 @@ export default function CrmLoginPage() {
     setLoading(true);
     setError(null);
 
+    const email = resolveLoginIdentifier(identifier);
     const supabase = createCrmBrowserClient();
     const { error: signInError } = await supabase.auth.signInWithPassword({
       email,
@@ -23,7 +31,7 @@ export default function CrmLoginPage() {
     });
 
     if (signInError) {
-      setError("Could not sign in. Check your email and password.");
+      setError("Could not sign in. Check your username and password.");
       setLoading(false);
       return;
     }
@@ -45,13 +53,15 @@ export default function CrmLoginPage() {
 
         <form onSubmit={onSubmit} className="mt-6 space-y-4">
           <label className="block text-sm">
-            <span className="mb-1.5 block font-medium text-navy">Email</span>
+            <span className="mb-1.5 block font-medium text-navy">
+              Username or email
+            </span>
             <input
-              type="email"
+              type="text"
               required
-              autoComplete="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              autoComplete="username"
+              value={identifier}
+              onChange={(e) => setIdentifier(e.target.value)}
               className="h-11 w-full rounded-lg border border-border px-3 outline-none ring-royal focus:ring-2"
             />
           </label>
