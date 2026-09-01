@@ -1,25 +1,11 @@
-import Image from "next/image";
 import { CtaButton } from "@/components/ui/cta-button";
+import { HeaderBackground } from "@/components/ui/header-background";
 import { BRAND } from "@/constants/brand";
 
 export function GrowthHero() {
   return (
     <section className="relative isolate overflow-hidden text-white">
-      <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <div className="hero-network absolute inset-0">
-          <Image
-            src="/images/hero-network.png"
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-[68%_center] sm:object-center"
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/88 to-navy/35 sm:via-navy/80 sm:to-navy/25" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-navy/40" />
-        <div className="hero-network-glow absolute inset-0" />
-      </div>
+      <HeaderBackground />
 
       <div className="container-premium relative flex min-h-[92svh] items-center pb-16 pt-32 lg:pb-24 lg:pt-36">
         <div className="max-w-3xl">

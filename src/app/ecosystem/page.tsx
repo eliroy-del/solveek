@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { ECOSYSTEM_LAYERS } from "@/constants/brand";
 import { CapabilitiesSection } from "@/components/sections/capabilities-section";
 import { AuditCta } from "@/components/sections/audit-cta";
+import { HeaderBackground } from "@/components/ui/header-background";
 import { StructuredData } from "@/components/seo/structured-data";
 import {
   buildBreadcrumbs,
@@ -37,21 +37,11 @@ export default function EcosystemPage() {
         ]}
       />
       <section className="relative isolate overflow-hidden pt-28 pb-14 text-white md:pt-32 md:pb-16">
-        <div className="pointer-events-none absolute inset-0" aria-hidden>
-          <div className="ecosystem-header-media absolute inset-0">
-            <Image
-              src="/images/ecosystem-header.png"
-              alt=""
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover object-center"
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/88 to-navy/45" />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy/55 via-transparent to-navy/35" />
-          <div className="ecosystem-header-glow absolute inset-0" />
-        </div>
+        <HeaderBackground
+          mediaClassName="ecosystem-header-media"
+          glowClassName="ecosystem-header-glow"
+          objectPosition="object-center"
+        />
 
         <div className="container-premium relative max-w-2xl">
           <h1 className="title-page text-white">

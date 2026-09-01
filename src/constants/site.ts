@@ -22,12 +22,13 @@ export const SITE = {
 /** Local brand / project assets. Extra keys kept for legacy pages still in the tree. */
 export const IMAGES = {
   process: "/images/process-tech-bg.jpg",
-  heroNetwork: "/images/hero-network.png",
-  ecosystemHeader: "/images/ecosystem-header.png",
+  heroNetwork: "/images/hero-header-bg.png",
+  heroHeader: "/images/hero-header-bg.png",
+  ecosystemHeader: "/images/hero-header-bg.png",
   ecosystemTeam: "/images/ecosystem-team.jpg",
-  workHeader: "/images/work-header.png",
-  aboutHeader: "/images/about-header.png",
-  contactHeader: "/images/contact-header.png",
+  workHeader: "/images/hero-header-bg.png",
+  aboutHeader: "/images/hero-header-bg.png",
+  contactHeader: "/images/hero-header-bg.png",
   chiliHaus: "/images/project-chili-haus-home.jpg",
   dziFoods: "/images/project-dzi-foods-home.jpg",
   luxuryStrand: "/images/project-luxury-strand-home.jpg",

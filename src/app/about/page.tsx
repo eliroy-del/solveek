@@ -1,10 +1,9 @@
-import Image from "next/image";
 import { CtaButton } from "@/components/ui/cta-button";
+import { HeaderBackground } from "@/components/ui/header-background";
 import { AuditCta } from "@/components/sections/audit-cta";
 import { ProcessMethodology } from "@/components/sections/process-methodology";
 import { StructuredData } from "@/components/seo/structured-data";
 import { ABOUT, BRAND, PRINCIPLES } from "@/constants/brand";
-import { IMAGES } from "@/constants/site";
 import {
   buildBreadcrumbs,
   createPageMetadata,
@@ -37,21 +36,11 @@ export default function AboutPage() {
         ]}
       />
       <section className="relative isolate overflow-hidden pt-28 pb-14 text-white md:pt-32 md:pb-16">
-        <div className="pointer-events-none absolute inset-0" aria-hidden>
-          <div className="about-header-media absolute inset-0">
-            <Image
-              src={IMAGES.aboutHeader}
-              alt=""
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover object-center"
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/88 to-navy/45" />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy/55 via-transparent to-navy/35" />
-          <div className="about-header-glow absolute inset-0" />
-        </div>
+        <HeaderBackground
+          mediaClassName="about-header-media"
+          glowClassName="about-header-glow"
+          objectPosition="object-center"
+        />
 
         <div className="container-premium relative max-w-2xl">
           <h1 className="title-page text-white">{ABOUT.headline}</h1>

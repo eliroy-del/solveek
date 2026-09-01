@@ -1,9 +1,9 @@
-import Image from "next/image";
 import dynamic from "next/dynamic";
 import { Mail, Phone } from "lucide-react";
+import { HeaderBackground } from "@/components/ui/header-background";
 import { StructuredData } from "@/components/seo/structured-data";
 import { ECOSYSTEM_LAYERS, AUDIT } from "@/constants/brand";
-import { IMAGES, SITE } from "@/constants/site";
+import { SITE } from "@/constants/site";
 import {
   buildBreadcrumbs,
   createPageMetadata,
@@ -54,21 +54,11 @@ export default function ContactPage() {
         ]}
       />
       <section className="relative isolate overflow-hidden pt-28 pb-12 text-white md:pt-32 md:pb-14">
-        <div className="pointer-events-none absolute inset-0" aria-hidden>
-          <div className="contact-header-media absolute inset-0">
-            <Image
-              src={IMAGES.contactHeader}
-              alt=""
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover object-center"
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/88 to-navy/45" />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy/55 via-transparent to-navy/35" />
-          <div className="contact-header-glow absolute inset-0" />
-        </div>
+        <HeaderBackground
+          mediaClassName="contact-header-media"
+          glowClassName="contact-header-glow"
+          objectPosition="object-center"
+        />
 
         <div className="container-premium relative max-w-2xl">
           <h1 className="title-page text-white">{AUDIT.contactHeadline}</h1>
