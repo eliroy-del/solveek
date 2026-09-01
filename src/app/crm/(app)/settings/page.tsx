@@ -1,4 +1,5 @@
 import { requireCrmUser } from "@/lib/crm/auth";
+import { CrmSignOutButton } from "@/components/crm/shell/sign-out-button";
 
 export const metadata = { title: "Settings" };
 
@@ -54,6 +55,9 @@ export default async function SettingsPage() {
             </dd>
           </div>
         </dl>
+        <div className="mt-4 border-t border-border pt-4">
+          <CrmSignOutButton />
+        </div>
       </section>
 
       <section className="rounded-xl border border-border bg-white p-4 text-sm">

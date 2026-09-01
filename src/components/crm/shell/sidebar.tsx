@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { navForRole } from "@/lib/crm/navigation";
 import type { CrmRole } from "@/lib/crm/types";
+import { createCrmBrowserClient } from "@/lib/supabase/crm-browser";
 
 export function CrmSidebar({
   role,
@@ -14,7 +16,15 @@ export function CrmSidebar({
   collapsed?: boolean;
 }) {
   const pathname = usePathname();
+  const router = useRouter();
   const groups = navForRole(role);
+
+  async function signOut() {
+    const supabase = createCrmBrowserClient();
+    await supabase.auth.signOut();
+    router.push("/crm/login");
+    router.refresh();
+  }
 
   return (
     <aside
@@ -23,7 +33,7 @@ export function CrmSidebar({
         collapsed ? "w-[72px]" : "w-64"
       )}
     >
-      <div className="flex h-14 items-center border-b border-white/10 px-4">
+      <div className="flex h-14 shrink-0 items-center border-b border-white/10 px-4">
         <Link href="/crm" className="flex flex-col leading-tight">
           <span className="font-heading text-sm font-semibold tracking-wide">
             SOLVEEK
@@ -72,6 +82,18 @@ export function CrmSidebar({
           </div>
         ))}
       </nav>
+
+      <div className="shrink-0 border-t border-white/10 p-3">
+        <button
+          type="button"
+          onClick={signOut}
+          className="flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-sm text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+          title="Sign out"
+        >
+          <LogOut className="size-4 shrink-0" />
+          {!collapsed ? <span>Sign out</span> : null}
+        </button>
+      </div>
     </aside>
   );
 }
