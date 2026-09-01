@@ -31,6 +31,7 @@ export const IMAGES = {
   chiliHaus: "/images/project-chili-haus-home.jpg",
   dziFoods: "/images/project-dzi-foods-home.jpg",
   luxuryStrand: "/images/project-luxury-strand-home.jpg",
+  stepupFootwear: "/images/project-stepup-footwear-home.jpg",
   booksandyou: "/images/project-booksandyou-home.jpg",
   northline: "/images/project-northline-commerce.png",
   atelier: "/images/project-atelier-social.png",

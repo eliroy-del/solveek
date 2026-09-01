@@ -10,7 +10,8 @@ type PreviewKind =
   | "bookstore"
   | "chilihaus"
   | "dzifoods"
-  | "luxurystrand";
+  | "luxurystrand"
+  | "stepupfootwear";
 
 function resolveKind(slug: string, industry: string): PreviewKind {
   const key = `${slug} ${industry}`.toLowerCase();
@@ -22,6 +23,13 @@ function resolveKind(slug: string, industry: string): PreviewKind {
   }
   if (key.includes("luxury-strand") || key.includes("luxury strand")) {
     return "luxurystrand";
+  }
+  if (
+    key.includes("stepup") ||
+    key.includes("step-up") ||
+    key.includes("footwear")
+  ) {
+    return "stepupfootwear";
   }
   if (
     key.includes("booksandyou") ||
@@ -145,6 +153,16 @@ function LuxuryStrandPreview() {
   );
 }
 
+function StepupFootwearPreview() {
+  return (
+    <CoverImage
+      src="/images/project-stepup-footwear-home.jpg"
+      alt="STEPUP Footwear website homepage"
+      bg="bg-[#0B0B0B]"
+    />
+  );
+}
+
 const PREVIEWS: Record<PreviewKind, () => ReactNode> = {
   ecommerce: EcommercePreview,
   branding: BrandingPreview,
@@ -154,6 +172,7 @@ const PREVIEWS: Record<PreviewKind, () => ReactNode> = {
   chilihaus: ChiliHausPreview,
   dzifoods: DziFoodsPreview,
   luxurystrand: LuxuryStrandPreview,
+  stepupfootwear: StepupFootwearPreview,
 };
 
 export function ProjectProductPreview({
