@@ -45,7 +45,7 @@ export function WhyChoose({ items }: { items: WhyItem[] }) {
 
         <Reveal delay={0.08} className="mb-14 flex justify-center">
           <PremiumButton href="/contact" showArrow>
-            Start a conversation
+            Let&apos;s Talk Growth
           </PremiumButton>
         </Reveal>
 

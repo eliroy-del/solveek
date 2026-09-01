@@ -236,9 +236,9 @@ export function AuditForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="inline-flex h-11 cursor-pointer items-center justify-center gap-1.5 rounded-lg bg-royal px-5 text-sm font-semibold text-white hover:bg-royal-deep disabled:opacity-60"
+          className="inline-flex h-11 cursor-pointer items-center justify-center gap-1.5 rounded-lg bg-royal px-5 text-sm font-semibold text-white transition-colors hover:bg-navy disabled:opacity-60"
         >
-          {isSubmitting ? "Sending…" : "Book your Digital Growth Audit"}
+          {isSubmitting ? "Sending…" : "Let's Talk Growth"}
           <ArrowRight className="size-3.5" />
         </button>
       </div>

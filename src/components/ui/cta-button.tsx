@@ -22,14 +22,15 @@ export function CtaButton({
   const isExternal = /^https?:\/\//.test(href);
   const classes = cn(
         "group inline-flex h-12 cursor-pointer items-center justify-center gap-2 rounded-lg px-5 text-sm font-semibold transition-ui focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal focus-visible:ring-offset-2 md:text-[0.95rem]",
-    variant === "primary" && "bg-royal text-white hover:bg-royal-deep",
+    variant === "primary" &&
+      "bg-royal text-white hover:bg-navy hover:shadow-[0_12px_28px_rgba(7,11,20,0.28)]",
     variant === "secondary" &&
-      "bg-white text-navy ring-1 ring-border hover:bg-surface",
+      "bg-white text-navy ring-1 ring-border hover:bg-royal hover:text-white hover:ring-royal",
     variant === "ghost" &&
-      "bg-white/10 text-white ring-1 ring-white/25 hover:bg-white/15",
+      "bg-white/10 text-white ring-1 ring-white/25 hover:bg-white hover:text-navy",
     variant === "outline-light" &&
-      "border border-white/35 bg-transparent text-white hover:bg-white/10",
-    variant === "tertiary" && "h-auto px-0 text-royal hover:text-royal-deep",
+      "border border-white/35 bg-transparent text-white hover:border-white hover:bg-white hover:text-navy",
+    variant === "tertiary" && "h-auto px-0 text-royal hover:text-navy",
     className
   );
 

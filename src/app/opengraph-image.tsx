@@ -127,7 +127,7 @@ export default async function OpenGraphImage() {
           }}
         >
           <div>www.solveek.com</div>
-          <div>Book a Digital Growth Audit</div>
+          <div>Let&apos;s Talk Growth</div>
         </div>
       </div>
     ),

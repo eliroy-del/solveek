@@ -75,7 +75,7 @@ export function Hero({ capabilities }: { capabilities: Capability[] }) {
               className="mt-7 flex flex-wrap gap-3"
             >
               <PremiumButton href="/quote" showArrow>
-                Start a project
+                Let&apos;s Talk Growth
               </PremiumButton>
               <PremiumButton href="/services" variant="ghost">
                 Explore services

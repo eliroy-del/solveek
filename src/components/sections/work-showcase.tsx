@@ -17,7 +17,7 @@ export function WorkShowcase({ projects }: { projects: Project[] }) {
         </p>
         <div className="mt-6 flex justify-center">
           <CtaButton href="/contact" showArrow>
-            Book a Digital Growth Audit
+            Let&apos;s Talk Growth
           </CtaButton>
         </div>
       </div>

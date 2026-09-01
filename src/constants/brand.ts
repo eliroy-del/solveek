@@ -6,7 +6,7 @@ export const BRAND = {
   promise:
     "We build the digital tools and systems businesses need to get found, talk to customers, and grow.",
   primaryCta: {
-    label: "Book a Digital Growth Audit",
+    label: "Let's Talk Growth",
     href: "/contact",
   },
   secondaryCta: {
@@ -147,7 +147,7 @@ export const ABOUT = {
 export const AUDIT = {
   headline: "Not sure where your digital growth is getting stuck?",
   body: "Start with a Solveek Digital Growth Audit. We look at your presence, visibility, customer journey, and systems, then show you where to focus first.",
-  cta: "Book your Digital Growth Audit",
+  cta: "Let's Talk Growth",
   contactHeadline: "Tell us what you need to grow digitally.",
   contactBody:
     "Share where you want to go. We will help figure out the digital pieces required to get there.",

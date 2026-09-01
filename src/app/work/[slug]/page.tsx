@@ -157,7 +157,7 @@ export default async function WorkDetailPage({ params }: Props) {
             showArrow={!project.websiteUrl}
             variant={project.websiteUrl ? "secondary" : "primary"}
           >
-            Discuss a similar project
+            Let&apos;s Talk Growth
           </CtaButton>
         </div>
       </section>

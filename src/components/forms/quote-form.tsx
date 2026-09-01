@@ -135,7 +135,7 @@ export function QuoteForm({
       <button
         type="submit"
         disabled={isSubmitting}
-        className="btn-shine inline-flex h-12 w-full items-center justify-center rounded-2xl bg-[#1358FE] font-semibold text-white shadow-[0_12px_30px_rgba(19,88,254,0.35)] transition hover:-translate-y-0.5 hover:bg-[#0F4AE0] disabled:opacity-60"
+        className="btn-shine inline-flex h-12 w-full items-center justify-center rounded-2xl bg-[#1358FE] font-semibold text-white shadow-[0_12px_30px_rgba(19,88,254,0.35)] transition hover:-translate-y-0.5 hover:bg-[#070b14] disabled:opacity-60"
       >
         {isSubmitting ? "Submitting..." : "Request quote"}
       </button>
