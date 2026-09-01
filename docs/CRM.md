@@ -25,7 +25,27 @@ where email = 'you@example.com';
 
 4. Sign in at `/crm/login`.
 
-## Website intake
+## Website content module
+
+Editors with roles `super_admin`, `admin`, or `marketing` can manage live site content at `/crm/content`.
+
+Supported types:
+
+- Work / projects
+- Blog / insights
+- Services
+- FAQs
+- Testimonials
+- Stats
+- Process steps
+- Timeline
+- Offices
+- Why Choose
+- Site blocks (`site_content` JSON packages and trust items)
+
+Draft types stay off the public site until **Publish**. Site blocks save immediately because the public site reads them without a draft flag.
+
+Hardcoded marketing copy in `src/constants/brand.ts` is not editable here yet.
 
 Public `/api/audit` and `/api/contact` still write legacy submission tables, then call `ingestWebsiteLead()` (service role) to create/update:
 

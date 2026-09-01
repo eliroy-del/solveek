@@ -13,6 +13,7 @@ import {
   ListTodo,
   Layers,
   Kanban,
+  FilePenLine,
 } from "lucide-react";
 import type { CrmRole } from "@/lib/crm/types";
 
@@ -31,9 +32,7 @@ export type CrmNavGroup = {
 export const CRM_NAV: CrmNavGroup[] = [
   {
     label: "Overview",
-    items: [
-      { label: "Dashboard", href: "/crm", icon: LayoutDashboard },
-    ],
+    items: [{ label: "Dashboard", href: "/crm", icon: LayoutDashboard }],
   },
   {
     label: "Sales",
@@ -54,8 +53,17 @@ export const CRM_NAV: CrmNavGroup[] = [
   },
   {
     label: "Growth",
+    items: [{ label: "Audits", href: "/crm/audits", icon: ClipboardCheck }],
+  },
+  {
+    label: "Website",
     items: [
-      { label: "Audits", href: "/crm/audits", icon: ClipboardCheck },
+      {
+        label: "Content",
+        href: "/crm/content",
+        icon: FilePenLine,
+        roles: ["super_admin", "admin", "marketing"],
+      },
     ],
   },
   {
