@@ -247,6 +247,34 @@ export function creativeWorkJsonLd(input: {
   };
 }
 
+export function articleJsonLd(input: {
+  title: string;
+  description: string;
+  path: string;
+  image?: string;
+  datePublished: string;
+  author: string;
+}): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: input.title,
+    description: input.description,
+    url: absoluteUrl(input.path),
+    ...(input.image ? { image: absoluteUrl(input.image) } : {}),
+    datePublished: input.datePublished,
+    author: {
+      "@type": "Person",
+      name: input.author,
+    },
+    publisher: {
+      "@id": `${SITE.url}/#organization`,
+    },
+    mainEntityOfPage: absoluteUrl(input.path),
+    inLanguage: "en-GH",
+  };
+}
+
 export function serviceCatalogJsonLd(): JsonLd {
   return {
     "@context": "https://schema.org",

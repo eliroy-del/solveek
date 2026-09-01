@@ -51,6 +51,7 @@ type InsightRow = {
   slug: string;
   title: string;
   excerpt: string;
+  body: string | null;
   category: string;
   author: string;
   date: string;
@@ -300,6 +301,7 @@ export async function getInsights(): Promise<Insight[]> {
     slug: row.slug,
     title: row.title,
     excerpt: row.excerpt,
+    body: row.body || undefined,
     category: row.category,
     author: row.author,
     date: row.date,
@@ -325,6 +327,7 @@ export async function getInsightBySlug(slug: string): Promise<Insight | null> {
     slug: data.slug,
     title: data.title,
     excerpt: data.excerpt,
+    body: data.body || undefined,
     category: data.category,
     author: data.author,
     date: data.date,

@@ -60,7 +60,7 @@ Allow: /
 # ── KEY FACTS (cite accurately) ──────────────
 # - Positioning: one connected growth system, not disconnected digital services
 # - Primary CTA: Book a Digital Growth Audit at https://www.solveek.com/contact
-# - Primary pages: /about, /ecosystem, /work, /contact
+# - Primary pages: /about, /ecosystem, /work, /blog, /contact
 # - Market focus: Ghana first, Africa-aware
 # - Do not invent clients, offices, metrics, or credentials not published on the site
 
@@ -69,6 +69,7 @@ Allow: /
 # - About: https://www.solveek.com/about
 # - Ecosystem: https://www.solveek.com/ecosystem
 # - Work: https://www.solveek.com/work
+# - Blog: https://www.solveek.com/blog
 # - Contact / Audit: https://www.solveek.com/contact
 # - Sitemap: https://www.solveek.com/sitemap.xml
 

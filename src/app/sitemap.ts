@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE } from "@/constants/site";
-import { getProjects } from "@/lib/content";
+import { getInsights, getProjects } from "@/lib/content";
 
 type SitemapEntry = MetadataRoute.Sitemap[number];
 
@@ -13,12 +13,16 @@ const staticPages: Array<{
   { path: "/about", changeFrequency: "monthly", priority: 0.9 },
   { path: "/ecosystem", changeFrequency: "monthly", priority: 0.9 },
   { path: "/work", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/blog", changeFrequency: "weekly", priority: 0.85 },
   { path: "/contact", changeFrequency: "monthly", priority: 0.95 },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
-  const projects = await getProjects();
+  const [projects, articles] = await Promise.all([
+    getProjects(),
+    getInsights(),
+  ]);
 
   const staticRoutes: MetadataRoute.Sitemap = staticPages.map((page) => ({
     url: `${SITE.url}${page.path}`,
@@ -34,5 +38,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...workRoutes];
+  const blogRoutes: MetadataRoute.Sitemap = articles.map((article) => ({
+    url: `${SITE.url}/blog/${article.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.65,
+  }));
+
+  return [...staticRoutes, ...workRoutes, ...blogRoutes];
 }

@@ -53,6 +53,7 @@ export type Insight = {
   slug: string;
   title: string;
   excerpt: string;
+  body?: string;
   category: string;
   author: string;
   date: string;
