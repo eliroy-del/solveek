@@ -20,26 +20,67 @@ export function Hero({ capabilities }: { capabilities: Capability[] }) {
 
   return (
     <section className="relative isolate">
-      <div className="relative overflow-hidden bg-navy-dark">
+      <div className="relative overflow-hidden bg-black">
         <motion.div
           className="absolute inset-0"
-          initial={reduce ? false : { scale: 1.06 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 8, ease: "easeOut" }}
+          initial={reduce ? false : { scale: 1.08, opacity: 0.85 }}
+          animate={
+            reduce
+              ? { scale: 1, opacity: 1 }
+              : {
+                  scale: [1.04, 1.1, 1.05],
+                  y: ["0%", "1.5%", "-0.8%"],
+                  opacity: [0.92, 1, 0.95],
+                }
+          }
+          transition={
+            reduce
+              ? { duration: 0.6 }
+              : {
+                  duration: 14,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatType: "mirror",
+                }
+          }
         >
           <Image
-            src={IMAGES.hero}
-            alt="Ghanaian tech team collaborating around a laptop"
+            src={IMAGES.heroHeader}
+            alt=""
             fill
             priority
-            className="object-cover object-[center_30%]"
+            className="object-cover object-center"
             sizes="100vw"
           />
         </motion.div>
 
+        <motion.div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[70%] bg-[radial-gradient(ellipse_at_50%_100%,rgba(123,44,191,0.55)_0%,rgba(123,44,191,0.18)_40%,transparent_70%)]"
+          animate={
+            reduce
+              ? undefined
+              : {
+                  opacity: [0.45, 0.9, 0.55],
+                  scale: [1, 1.06, 1.02],
+                }
+          }
+          transition={
+            reduce
+              ? undefined
+              : {
+                  duration: 7,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatType: "mirror",
+                }
+          }
+          style={{ transformOrigin: "50% 100%" }}
+        />
+
         <div
           aria-hidden
-          className="absolute inset-0 bg-[linear-gradient(135deg,#7B2CBFcc_0%,#000000e6_100%)]"
+          className="absolute inset-0 bg-[linear-gradient(180deg,#000000cc_0%,#00000033_42%,#7B2CBF22_100%)]"
         />
 
         <div className="container-premium relative flex min-h-[68vh] items-center pb-40 pt-28 lg:min-h-[72vh] lg:pb-48 lg:pt-32">
