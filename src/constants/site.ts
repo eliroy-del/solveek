@@ -37,7 +37,7 @@ export const IMAGES = {
   northline: "/images/project-northline-commerce.png",
   atelier: "/images/project-atelier-social.png",
   lumen: "/images/project-lumen-branding.png",
-  hero: "/images/hero-header-bg.png",
+  hero: "/images/hero-header-bg.jpg",
   team: "/images/process-tech-bg.jpg",
   teamAlt: "/images/process-tech-bg.jpg",
   office: "/images/process-tech-bg.jpg",
