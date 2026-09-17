@@ -61,7 +61,7 @@ export default function EcosystemPage() {
               layer.id === "foundation"
                 ? "border-transparent bg-royal text-white hover:bg-royal-deep"
                 : layer.id === "automation"
-                  ? "border-transparent bg-cyan text-white hover:bg-[#3A6FE6]"
+                  ? "border-transparent bg-cyan text-white hover:bg-[#3C1361]"
                   : "border-transparent bg-emerald-600 text-white hover:bg-emerald-700";
 
             return (

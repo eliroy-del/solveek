@@ -47,8 +47,8 @@ export function Header() {
                   "rounded-lg px-3.5 py-2 text-base font-medium transition-ui",
                   solid
                     ? active
-                      ? "bg-surface text-navy"
-                      : "text-navy/70 hover:text-navy"
+                      ? "bg-[#F0E8FA] text-[#7B2CBF]"
+                      : "text-[#11112F] hover:text-[#7B2CBF]"
                     : active
                       ? "bg-white/10 text-white"
                       : "text-white/75 hover:text-white"
@@ -104,8 +104,8 @@ export function Header() {
                   aria-current={active ? "page" : undefined}
                   onClick={() => setMobileOpen(false)}
                   className={cn(
-                    "rounded-lg px-3 py-2.5 text-sm font-medium text-navy hover:bg-surface",
-                    active && "bg-surface font-semibold"
+                    "rounded-lg px-3 py-2.5 text-sm font-medium text-[#11112F] hover:bg-[#F0E8FA] hover:text-[#7B2CBF]",
+                    active && "bg-[#F0E8FA] font-semibold text-[#7B2CBF]"
                   )}
                 >
                   {item.label}

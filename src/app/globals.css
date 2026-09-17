@@ -10,12 +10,12 @@
   --font-sans: var(--font-manrope);
   --font-heading: var(--font-space-grotesk);
   --font-mono: var(--font-geist-mono);
-  --color-navy: var(--navy);
-  --color-navy-dark: var(--navy-dark);
-  --color-royal: var(--royal);
-  --color-royal-deep: var(--royal-deep);
-  --color-cyan: var(--cyan);
-  --color-surface: var(--surface);
+  --color-navy: #11112f;
+  --color-navy-dark: #000000;
+  --color-royal: #7b2cbf;
+  --color-royal-deep: #3c1361;
+  --color-cyan: #9b4ddb;
+  --color-surface: #f7f5fb;
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-sidebar-ring: var(--sidebar-ring);

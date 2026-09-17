@@ -104,7 +104,7 @@ export function Hero({ capabilities }: { capabilities: Capability[] }) {
                       href={`/services/${item.slug}`}
                       className="group flex h-full min-h-[210px] flex-col rounded-2xl border border-border/70 bg-white p-4 transition duration-300 hover:-translate-y-1 hover:border-royal/20"
                     >
-                      <div className="mb-3 inline-flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#E8F1FF] to-[#D9F6FF] text-royal transition group-hover:from-royal group-hover:to-cyan group-hover:text-white">
+                      <div className="mb-3 inline-flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#F0E8FA] to-[#E8D5F7] text-[#7B2CBF] transition group-hover:from-[#7B2CBF] group-hover:to-[#9B4DDB] group-hover:text-white">
                         <Icon className="size-4 transition-transform duration-300 group-hover:scale-110" />
                       </div>
                       <h2 className="font-heading text-[15px] leading-snug text-navy">

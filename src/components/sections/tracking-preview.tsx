@@ -67,7 +67,7 @@ export function TrackingPreview() {
                   <motion.path
                     d="M20 80 C 80 20, 160 20, 220 55 S 320 100, 380 40"
                     fill="none"
-                    stroke="rgba(0,194,255,0.8)"
+                    stroke="rgba(155,77,219,0.8)"
                     strokeWidth="2"
                     initial={{ pathLength: 0 }}
                     whileInView={{ pathLength: 1 }}
@@ -75,7 +75,7 @@ export function TrackingPreview() {
                   />
                 </svg>
                 <motion.span
-                  className="absolute top-[42%] left-[48%] size-3 -translate-x-1/2 rounded-full bg-cyan shadow-[0_0_20px_rgba(0,194,255,0.8)]"
+                  className="absolute top-[42%] left-[48%] size-3 -translate-x-1/2 rounded-full bg-cyan shadow-[0_0_20px_rgba(155,77,219,0.8)]"
                   animate={{ scale: [1, 1.25, 1] }}
                   transition={{ duration: 1.8, repeat: Infinity }}
                 />
