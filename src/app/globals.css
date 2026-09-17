@@ -255,7 +255,7 @@
 
   .hero-network-glow {
     background:
-      radial-gradient(circle at 72% 48%, rgba(77, 130, 255, 0.22), transparent 28%),
+      radial-gradient(circle at 72% 48%, rgba(155, 77, 219, 0.22), transparent 28%),
       radial-gradient(circle at 58% 70%, rgba(123, 44, 191, 0.12), transparent 34%);
     animation: hero-network-pulse 6s ease-in-out infinite;
   }
@@ -274,7 +274,7 @@
   .about-header-glow,
   .contact-header-glow {
     background:
-      radial-gradient(circle at 50% 55%, rgba(77, 130, 255, 0.2), transparent 32%),
+      radial-gradient(circle at 50% 55%, rgba(155, 77, 219, 0.2), transparent 32%),
       radial-gradient(circle at 70% 40%, rgba(123, 44, 191, 0.12), transparent 28%);
     animation: hero-network-pulse 7s ease-in-out infinite;
   }
