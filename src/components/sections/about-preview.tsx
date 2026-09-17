@@ -41,7 +41,7 @@ export function AboutPreview() {
             <motion.a
               href="/about"
               whileHover={{ scale: 1.05 }}
-              className="absolute right-[8%] top-1/2 z-10 flex size-12 -translate-y-1/2 items-center justify-center rounded-full bg-royal text-white shadow-[0_12px_28px_rgba(19,88,254,0.4)]"
+              className="absolute right-[8%] top-1/2 z-10 flex size-12 -translate-y-1/2 items-center justify-center rounded-full bg-royal text-white shadow-[0_12px_28px_rgba(123, 44, 191,0.4)]"
               aria-label="Learn more about SOLVEEK"
             >
               <Play className="ml-0.5 size-5 fill-current" />

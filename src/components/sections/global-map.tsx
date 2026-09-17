@@ -27,7 +27,7 @@ export function GlobalMap() {
         <Reveal>
           <div className="relative overflow-hidden rounded-[32px] border border-border bg-navy-dark p-4 shadow-lift md:p-8">
             <div
-              className="relative aspect-[16/9] w-full rounded-[24px] bg-[radial-gradient(circle_at_30%_30%,rgba(0,87,217,0.35),transparent_35%),radial-gradient(circle_at_70%_60%,rgba(0,194,255,0.2),transparent_40%),linear-gradient(160deg,#081b33,#0a2342)]"
+              className="relative aspect-[16/9] w-full rounded-[24px] bg-[radial-gradient(circle_at_30%_30%,rgba(0,87,217,0.35),transparent_35%),radial-gradient(circle_at_70%_60%,rgba(0,194,255,0.2),transparent_40%),linear-gradient(160deg,#11112F,#0a2342)]"
               role="img"
               aria-label="Interactive stylized world map of SOLVEEK hubs"
             >

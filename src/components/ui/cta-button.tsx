@@ -23,7 +23,7 @@ export function CtaButton({
   const classes = cn(
         "group inline-flex h-12 cursor-pointer items-center justify-center gap-2 rounded-lg px-5 text-sm font-semibold transition-ui focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal focus-visible:ring-offset-2 md:text-[0.95rem]",
     variant === "primary" &&
-      "bg-royal text-white hover:bg-navy hover:shadow-[0_12px_28px_rgba(7,11,20,0.28)]",
+      "bg-royal text-white hover:bg-navy hover:shadow-[0_12px_28px_rgba(17, 17, 47,0.28)]",
     variant === "secondary" &&
       "bg-white text-navy ring-1 ring-border hover:bg-royal hover:text-white hover:ring-royal",
     variant === "ghost" &&

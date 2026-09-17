@@ -11,7 +11,7 @@ export function AuditCta() {
             className="pointer-events-none absolute inset-0"
             style={{
               backgroundImage:
-                "radial-gradient(ellipse at 50% 0%, rgba(19,88,254,0.35), transparent 50%)",
+                "radial-gradient(ellipse at 50% 0%, rgba(123, 44, 191,0.35), transparent 50%)",
             }}
           />
           <div className="relative mx-auto flex max-w-3xl flex-col items-center text-center">

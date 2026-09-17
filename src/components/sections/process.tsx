@@ -14,8 +14,8 @@ export function Process({ items }: { items: ProcessStep[] }) {
         priority={false}
       />
       <div className="absolute inset-0 bg-navy/82" />
-      <div className="absolute inset-0 bg-gradient-to-br from-navy/90 via-navy/75 to-[#0A1A3A]/80" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(19,88,254,0.32),transparent_40%),radial-gradient(circle_at_85%_80%,rgba(77,130,255,0.18),transparent_35%)]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-navy/90 via-navy/75 to-[#3C1361]/80" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(123, 44, 191,0.32),transparent_40%),radial-gradient(circle_at_85%_80%,rgba(77,130,255,0.18),transparent_35%)]" />
 
       <div className="container-premium relative">
         <div className="mx-auto mb-8 max-w-2xl text-center md:mb-10">

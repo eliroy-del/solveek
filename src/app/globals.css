@@ -57,41 +57,41 @@
 }
 
 :root {
-  /* Solveek Precision System */
-  --brand-blue: #1358fe;
-  --brand-blue-deep: #0a2f9e;
+  /* Solveek brand system */
+  --brand-blue: #7b2cbf;
+  --brand-blue-deep: #3c1361;
   --brand-black: #000000;
-  --brand-ink: #070b14;
+  --brand-ink: #11112f;
 
-  --navy: #070b14;
+  --navy: #11112f;
   --navy-dark: #000000;
-  --royal: #1358fe;
-  --royal-deep: #0a2f9e;
-  --cyan: #4d82ff;
-  --surface: #f4f6fb;
+  --royal: #7b2cbf;
+  --royal-deep: #3c1361;
+  --cyan: #9b4ddb;
+  --surface: #f7f5fb;
   --success: #17c964;
   --warning: #ffb020;
   --background: #ffffff;
-  --foreground: #070b14;
+  --foreground: #11112f;
   --card: #ffffff;
-  --card-foreground: #070b14;
+  --card-foreground: #11112f;
   --popover: #ffffff;
-  --popover-foreground: #070b14;
-  --primary: #1358fe;
+  --popover-foreground: #11112f;
+  --primary: #7b2cbf;
   --primary-foreground: #ffffff;
-  --secondary: #f4f6fb;
-  --secondary-foreground: #070b14;
-  --muted: #f4f6fb;
-  --muted-foreground: #4a5363;
-  --accent: #1358fe;
+  --secondary: #f7f5fb;
+  --secondary-foreground: #11112f;
+  --muted: #f7f5fb;
+  --muted-foreground: #4a4a63;
+  --accent: #7b2cbf;
   --accent-foreground: #ffffff;
   --destructive: #e5484d;
-  --border: #e4e8f0;
-  --input: #e4e8f0;
-  --ring: #1358fe;
-  --chart-1: #1358fe;
-  --chart-2: #4d82ff;
-  --chart-3: #070b14;
+  --border: #e8e4ef;
+  --input: #e8e4ef;
+  --ring: #7b2cbf;
+  --chart-1: #7b2cbf;
+  --chart-2: #9b4ddb;
+  --chart-3: #11112f;
   --chart-4: #17c964;
   --chart-5: #ffb020;
 
@@ -120,14 +120,14 @@
   --duration: 200ms;
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
 
-  --sidebar: #f4f6fb;
-  --sidebar-foreground: #070b14;
-  --sidebar-primary: #1358fe;
+  --sidebar: #f7f5fb;
+  --sidebar-foreground: #11112f;
+  --sidebar-primary: #7b2cbf;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #eaf0ff;
-  --sidebar-accent-foreground: #070b14;
-  --sidebar-border: #e4e8f0;
-  --sidebar-ring: #1358fe;
+  --sidebar-accent: #f0e8fa;
+  --sidebar-accent-foreground: #11112f;
+  --sidebar-border: #e8e4ef;
+  --sidebar-ring: #7b2cbf;
 }
 
 @layer base {
@@ -219,23 +219,23 @@
 
   .gradient-text {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #1358fe 0%, #4d82ff 100%);
+    background-image: linear-gradient(135deg, #7b2cbf 0%, #9b4ddb 100%);
   }
 
   .gradient-royal {
-    background-image: linear-gradient(135deg, #0a2f9e 0%, #1358fe 55%, #4d82ff 100%);
+    background-image: linear-gradient(135deg, #3c1361 0%, #7b2cbf 55%, #9b4ddb 100%);
   }
 
   .gradient-navy {
-    background-image: linear-gradient(160deg, #000000 0%, #070b14 50%, #0a1a3a 100%);
+    background-image: linear-gradient(160deg, #000000 0%, #11112f 50%, #3c1361 100%);
   }
 
   .shadow-soft {
-    box-shadow: 0 8px 24px rgba(7, 11, 20, 0.06);
+    box-shadow: 0 8px 24px rgba(17, 17, 47, 0.06);
   }
 
   .shadow-lift {
-    box-shadow: 0 12px 32px rgba(7, 11, 20, 0.1);
+    box-shadow: 0 12px 32px rgba(17, 17, 47, 0.1);
   }
 
   .skeleton {
@@ -256,7 +256,7 @@
   .hero-network-glow {
     background:
       radial-gradient(circle at 72% 48%, rgba(77, 130, 255, 0.22), transparent 28%),
-      radial-gradient(circle at 58% 70%, rgba(19, 88, 254, 0.12), transparent 34%);
+      radial-gradient(circle at 58% 70%, rgba(123, 44, 191, 0.12), transparent 34%);
     animation: hero-network-pulse 6s ease-in-out infinite;
   }
 
@@ -275,7 +275,7 @@
   .contact-header-glow {
     background:
       radial-gradient(circle at 50% 55%, rgba(77, 130, 255, 0.2), transparent 32%),
-      radial-gradient(circle at 70% 40%, rgba(19, 88, 254, 0.12), transparent 28%);
+      radial-gradient(circle at 70% 40%, rgba(123, 44, 191, 0.12), transparent 28%);
     animation: hero-network-pulse 7s ease-in-out infinite;
   }
 

@@ -30,7 +30,7 @@ export function ServicesGrid({
         className="pointer-events-none absolute inset-0 opacity-90"
         style={{
           backgroundImage:
-            "radial-gradient(ellipse 70% 55% at 8% 12%, rgba(19,88,254,0.14), transparent 55%), radial-gradient(ellipse 55% 50% at 92% 88%, rgba(77,130,255,0.12), transparent 50%), radial-gradient(circle at 50% 50%, rgba(255,255,255,0.7), transparent 65%)",
+            "radial-gradient(ellipse 70% 55% at 8% 12%, rgba(123, 44, 191,0.14), transparent 55%), radial-gradient(ellipse 55% 50% at 92% 88%, rgba(77,130,255,0.12), transparent 50%), radial-gradient(circle at 50% 50%, rgba(255,255,255,0.7), transparent 65%)",
         }}
       />
       <div
@@ -46,7 +46,7 @@ export function ServicesGrid({
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-24 top-10 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(19,88,254,0.18),transparent_68%)] blur-2xl"
+        className="pointer-events-none absolute -right-24 top-10 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(123, 44, 191,0.18),transparent_68%)] blur-2xl"
       />
       <div
         aria-hidden

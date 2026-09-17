@@ -27,7 +27,7 @@ export function ServicePackages({
         className="pointer-events-none absolute inset-0"
         style={{
           backgroundImage:
-            "radial-gradient(ellipse 55% 45% at 10% 10%, rgba(19,88,254,0.1), transparent 55%), radial-gradient(ellipse 45% 40% at 90% 90%, rgba(77,130,255,0.1), transparent 50%)",
+            "radial-gradient(ellipse 55% 45% at 10% 10%, rgba(123, 44, 191,0.1), transparent 55%), radial-gradient(ellipse 45% 40% at 90% 90%, rgba(77,130,255,0.1), transparent 50%)",
         }}
       />
       <div className="container-premium relative">

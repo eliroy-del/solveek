@@ -8,7 +8,7 @@ export function CtaBanner() {
       <div className="container-premium">
         <Reveal>
           <div className="relative overflow-hidden rounded-xl gradient-navy px-5 py-9 text-center md:px-10 md:py-11">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(19,88,254,0.25),transparent_40%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(123, 44, 191,0.25),transparent_40%)]" />
             <div className="relative mx-auto max-w-xl">
               <h2 className="title-section text-white md:text-2xl">
                 {AUDIT.headline}

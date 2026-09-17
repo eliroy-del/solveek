@@ -14,7 +14,7 @@ export function MetricCard({
   return (
     <div
       className={cn(
-        "rounded-xl border border-border bg-white p-4 shadow-[0_1px_2px_rgba(7,11,20,0.04)]",
+        "rounded-xl border border-border bg-white p-4 shadow-[0_1px_2px_rgba(17, 17, 47,0.04)]",
         className
       )}
     >

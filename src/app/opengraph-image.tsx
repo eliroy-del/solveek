@@ -22,7 +22,7 @@ export default async function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#070b14",
+          background: "#11112F",
           padding: "64px 72px",
           fontFamily: "sans-serif",
           position: "relative",
@@ -34,7 +34,7 @@ export default async function OpenGraphImage() {
             position: "absolute",
             inset: 0,
             backgroundImage:
-              "linear-gradient(rgba(19,88,254,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(19,88,254,0.08) 1px, transparent 1px)",
+              "linear-gradient(rgba(123, 44, 191,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(123, 44, 191,0.08) 1px, transparent 1px)",
             backgroundSize: "48px 48px",
             opacity: 0.55,
           }}
@@ -48,7 +48,7 @@ export default async function OpenGraphImage() {
             height: 520,
             borderRadius: 9999,
             background:
-              "radial-gradient(circle, rgba(19,88,254,0.35) 0%, rgba(19,88,254,0) 70%)",
+              "radial-gradient(circle, rgba(123, 44, 191,0.35) 0%, rgba(123, 44, 191,0) 70%)",
           }}
         />
 
@@ -108,10 +108,10 @@ export default async function OpenGraphImage() {
                 height: 10,
                 width: 10,
                 borderRadius: 9999,
-                background: "#1358FE",
+                background: "#7B2CBF",
               }}
             />
-            <div style={{ fontSize: 22, color: "#1358FE", fontWeight: 600 }}>
+            <div style={{ fontSize: 22, color: "#7B2CBF", fontWeight: 600 }}>
               Digital Growth Partner
             </div>
           </div>

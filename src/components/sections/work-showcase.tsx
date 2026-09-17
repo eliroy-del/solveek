@@ -44,7 +44,7 @@ export function WorkShowcase({ projects }: { projects: Project[] }) {
                   : {})}
                 className="group block cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal focus-visible:ring-offset-4"
               >
-                <div className="relative aspect-[16/11] overflow-hidden bg-surface shadow-[0_8px_30px_rgba(7,11,20,0.08)] transition-ui group-hover:-translate-y-0.5 group-hover:shadow-[0_14px_36px_rgba(7,11,20,0.12)]">
+                <div className="relative aspect-[16/11] overflow-hidden bg-surface shadow-[0_8px_30px_rgba(17, 17, 47,0.08)] transition-ui group-hover:-translate-y-0.5 group-hover:shadow-[0_14px_36px_rgba(17, 17, 47,0.12)]">
                   <Image
                     src={projectPreview(project)}
                     alt={`${project.title} homepage`}

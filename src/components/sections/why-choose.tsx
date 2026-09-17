@@ -19,7 +19,7 @@ export function WhyChoose({ items }: { items: WhyItem[] }) {
         className="pointer-events-none absolute inset-0"
         style={{
           backgroundImage:
-            "radial-gradient(ellipse 60% 50% at 0% 20%, rgba(19,88,254,0.12), transparent 55%), radial-gradient(ellipse 45% 40% at 100% 80%, rgba(77,130,255,0.1), transparent 50%)",
+            "radial-gradient(ellipse 60% 50% at 0% 20%, rgba(123, 44, 191,0.12), transparent 55%), radial-gradient(ellipse 45% 40% at 100% 80%, rgba(77,130,255,0.1), transparent 50%)",
         }}
       />
       <div

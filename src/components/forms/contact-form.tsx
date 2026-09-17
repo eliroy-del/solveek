@@ -114,7 +114,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="btn-shine group inline-flex h-12 w-full items-center justify-center gap-2 rounded-2xl bg-navy font-semibold text-white shadow-[0_12px_30px_rgba(7,11,20,0.28)] transition hover:-translate-y-0.5 hover:bg-royal disabled:opacity-60"
+        className="btn-shine group inline-flex h-12 w-full items-center justify-center gap-2 rounded-2xl bg-navy font-semibold text-white shadow-[0_12px_30px_rgba(17, 17, 47,0.28)] transition hover:-translate-y-0.5 hover:bg-royal disabled:opacity-60"
       >
         {isSubmitting ? "Sending..." : "Let's Talk Growth"}
         {!isSubmitting ? (
