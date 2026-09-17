@@ -118,21 +118,37 @@ type SiteContentRow = {
 async function queryRows<T>(
   fn: () => PromiseLike<{ data: T[] | null; error: { message: string } | null }>
 ): Promise<T[]> {
-  const { data, error } = await fn();
-  if (error) {
-    throw new Error(`Supabase query failed: ${error.message}`);
+  try {
+    const { data, error } = await fn();
+    if (error) {
+      console.warn(`Supabase query failed: ${error.message}`);
+      return [];
+    }
+    return data ?? [];
+  } catch (error) {
+    console.warn(
+      `Supabase query failed: ${error instanceof Error ? error.message : String(error)}`
+    );
+    return [];
   }
-  return data ?? [];
 }
 
 async function queryMaybeSingle<T>(
   fn: () => PromiseLike<{ data: unknown; error: { message: string } | null }>
 ): Promise<T | null> {
-  const { data, error } = await fn();
-  if (error) {
-    throw new Error(`Supabase query failed: ${error.message}`);
+  try {
+    const { data, error } = await fn();
+    if (error) {
+      console.warn(`Supabase query failed: ${error.message}`);
+      return null;
+    }
+    return (data as T | null) ?? null;
+  } catch (error) {
+    console.warn(
+      `Supabase query failed: ${error instanceof Error ? error.message : String(error)}`
+    );
+    return null;
   }
-  return (data as T | null) ?? null;
 }
 
 export async function getServices(): Promise<Service[]> {
