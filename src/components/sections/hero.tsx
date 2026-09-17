@@ -37,12 +37,9 @@ export function Hero({ capabilities }: { capabilities: Capability[] }) {
           />
         </motion.div>
 
-        <div className="absolute inset-0 bg-black/55" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-[#11112F]/75 to-[#7B2CBF]/25" />
-
         <div
           aria-hidden
-          className="pointer-events-none absolute -left-24 top-1/2 h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(123, 44, 191,0.55)_0%,rgba(77,130,255,0.18)_45%,transparent_70%)] blur-[2px] md:left-[4%] md:h-[640px] md:w-[640px]"
+          className="absolute inset-0 bg-[linear-gradient(135deg,#7B2CBFcc_0%,#000000e6_100%)]"
         />
 
         <div className="container-premium relative flex min-h-[68vh] items-center pb-40 pt-28 lg:min-h-[72vh] lg:pb-48 lg:pt-32">
