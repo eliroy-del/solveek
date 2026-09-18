@@ -16,7 +16,6 @@ export function CapabilitiesSection() {
 
         <div className="grid gap-3 md:grid-cols-12 md:grid-rows-[minmax(0,1fr)_minmax(0,1fr)]">
           <CapabilityTile
-            index={1}
             title={featured.title}
             description={featured.description}
             tone="dark"
@@ -24,25 +23,21 @@ export function CapabilitiesSection() {
             featured
           />
           <CapabilityTile
-            index={2}
             title={second.title}
             description={second.description}
             className="md:col-span-7"
           />
           <CapabilityTile
-            index={3}
             title={third.title}
             description={third.description}
             className="md:col-span-7"
           />
           <CapabilityTile
-            index={4}
             title={fourth.title}
             description={fourth.description}
             className="md:col-span-6"
           />
           <CapabilityTile
-            index={5}
             title={fifth.title}
             description={fifth.description}
             className="md:col-span-6"
@@ -54,14 +49,12 @@ export function CapabilitiesSection() {
 }
 
 function CapabilityTile({
-  index,
   title,
   description,
   tone = "light",
   featured = false,
   className,
 }: {
-  index: number;
   title: string;
   description: string;
   tone?: "light" | "dark";
@@ -77,7 +70,7 @@ function CapabilityTile({
         dark
           ? "bg-navy text-white"
           : "border border-border bg-surface hover:border-royal/25 hover:bg-white",
-        featured && "flex min-h-[220px] flex-col justify-between md:min-h-full md:p-7",
+        featured && "flex min-h-[220px] flex-col justify-end md:min-h-full md:p-7",
         className
       )}
     >
@@ -93,26 +86,16 @@ function CapabilityTile({
         />
       )}
 
-      <div className="relative flex items-start justify-between gap-3">
-        <span
-          className={cn(
-            "font-heading",
-            featured
-              ? "text-4xl text-white/20 md:text-5xl"
-              : "text-xs text-royal"
-          )}
-        >
-          {String(index).padStart(2, "0")}
-        </span>
-        {!featured ? (
+      {!featured ? (
+        <div className="relative flex justify-end">
           <span
             aria-hidden
-            className="mt-0.5 size-1.5 rounded-full bg-royal/70 opacity-0 transition-ui group-hover:opacity-100"
+            className="size-1.5 rounded-full bg-royal/70 opacity-0 transition-ui group-hover:opacity-100"
           />
-        ) : null}
-      </div>
+        </div>
+      ) : null}
 
-      <div className={cn("relative", featured ? "mt-8 md:mt-auto" : "mt-3")}>
+      <div className={cn("relative", featured ? "" : "mt-1")}>
         <h3
           className={cn(
             "font-heading leading-snug",
