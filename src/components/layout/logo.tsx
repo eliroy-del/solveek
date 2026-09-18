@@ -33,13 +33,13 @@ export function Logo({
       <Image
         src={LOGO_SRC[variant]}
         alt="SOLVEEK"
-        width={320}
-        height={180}
+        width={440}
+        height={250}
         priority={size === "header"}
         unoptimized
         className={cn(
           "w-auto object-contain",
-          isFooter ? "h-10 sm:h-11" : "h-11 sm:h-12 md:h-14"
+          isFooter ? "h-12 sm:h-14" : "h-12 sm:h-14 md:h-16"
         )}
       />
     </Link>
