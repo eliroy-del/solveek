@@ -1,4 +1,5 @@
 import { createServerClient } from "@/lib/supabase/server";
+import { FALLBACK_PROJECTS } from "@/constants/projects";
 import type {
   FaqItem,
   Industry,
@@ -262,6 +263,8 @@ export async function getProjects(): Promise<Project[]> {
       .returns<ProjectRow[]>()
   );
 
+  if (data.length === 0) return FALLBACK_PROJECTS;
+
   return data.map((row) => ({
     slug: row.slug,
     title: row.title,
@@ -286,20 +289,22 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
       .eq("slug", slug)
       .maybeSingle()
   );
-  if (!data) return null;
+  if (data) {
+    return {
+      slug: data.slug,
+      title: data.title,
+      industry: data.industry,
+      location: data.location,
+      challenge: data.challenge,
+      solution: data.solution,
+      results: data.results ?? [],
+      image: data.image,
+      gallery: data.gallery ?? [],
+      websiteUrl: data.website_url || undefined,
+    };
+  }
 
-  return {
-    slug: data.slug,
-    title: data.title,
-    industry: data.industry,
-    location: data.location,
-    challenge: data.challenge,
-    solution: data.solution,
-    results: data.results ?? [],
-    image: data.image,
-    gallery: data.gallery ?? [],
-    websiteUrl: data.website_url || undefined,
-  };
+  return FALLBACK_PROJECTS.find((project) => project.slug === slug) ?? null;
 }
 
 export async function getInsights(): Promise<Insight[]> {
