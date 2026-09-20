@@ -89,11 +89,13 @@ export default function AboutPage() {
                 aria-hidden
                 className="pointer-events-none absolute -right-8 -top-8 size-36 rounded-full bg-royal/10 blur-2xl"
               />
-              <p className="eyebrow relative text-royal">{ABOUT.vision.title}</p>
-              <h3 className="relative mt-3 font-heading text-2xl leading-snug text-navy md:text-[1.75rem]">
+              <p className="relative text-sm font-semibold uppercase tracking-[0.08em] text-royal md:text-base">
+                {ABOUT.vision.title}
+              </p>
+              <h3 className="relative mt-4 font-heading text-3xl leading-snug text-navy md:text-4xl">
                 {ABOUT.vision.statement}
               </h3>
-              <p className="relative mt-4 text-sm leading-relaxed text-muted-foreground md:text-[0.95rem]">
+              <p className="relative mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
                 {ABOUT.vision.body}
               </p>
             </article>
