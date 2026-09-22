@@ -3,6 +3,27 @@ import type { Project } from "@/types";
 /** Local featured work used when CMS/Supabase is unavailable. */
 export const FALLBACK_PROJECTS: Project[] = [
   {
+    slug: "royalhouse-baltimore",
+    title: "Royalhouse Baltimore",
+    industry: "Church & Nonprofit",
+    location: "Baltimore, Maryland",
+    challenge:
+      "Royalhouse Baltimore needed a clear, welcoming digital home that helps people plan a visit, find gathering times, and connect with a growing Spirit-filled church campus.",
+    solution:
+      "Solveek designed and built royalhousebaltimore.org—a modern church website with clear CTAs, gathering schedules, vision storytelling, events, and easy paths to visit, give, and connect.",
+    results: [
+      "Clear first-visit journey for newcomers",
+      "Gathering times and location front and center",
+      "A brand presence that matches the church’s warmth and energy",
+    ],
+    image: "/images/project-royalhouse-baltimore-home.jpg",
+    gallery: [
+      "/images/project-royalhouse-baltimore-home.jpg",
+      "/images/project-royalhouse-baltimore-hero.jpg",
+    ],
+    websiteUrl: "https://www.royalhousebaltimore.org/",
+  },
+  {
     slug: "booksandyou-bookstore",
     title: "Books and You",
     industry: "Education",

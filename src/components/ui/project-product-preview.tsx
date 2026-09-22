@@ -11,10 +11,14 @@ type PreviewKind =
   | "chilihaus"
   | "dzifoods"
   | "luxurystrand"
-  | "stepupfootwear";
+  | "stepupfootwear"
+  | "royalhouse";
 
 function resolveKind(slug: string, industry: string): PreviewKind {
   const key = `${slug} ${industry}`.toLowerCase();
+  if (key.includes("royalhouse") || key.includes("royal house")) {
+    return "royalhouse";
+  }
   if (key.includes("chili-haus") || key.includes("chili haus")) {
     return "chilihaus";
   }
@@ -163,6 +167,16 @@ function StepupFootwearPreview() {
   );
 }
 
+function RoyalhousePreview() {
+  return (
+    <CoverImage
+      src="/images/project-royalhouse-baltimore-home.jpg"
+      alt="Royalhouse Baltimore church website homepage"
+      bg="bg-[#0B1220]"
+    />
+  );
+}
+
 const PREVIEWS: Record<PreviewKind, () => ReactNode> = {
   ecommerce: EcommercePreview,
   branding: BrandingPreview,
@@ -173,6 +187,7 @@ const PREVIEWS: Record<PreviewKind, () => ReactNode> = {
   dzifoods: DziFoodsPreview,
   luxurystrand: LuxuryStrandPreview,
   stepupfootwear: StepupFootwearPreview,
+  royalhouse: RoyalhousePreview,
 };
 
 export function ProjectProductPreview({
