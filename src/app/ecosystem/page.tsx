@@ -54,29 +54,6 @@ export default function EcosystemPage() {
         </div>
       </section>
 
-      <section className="border-b border-border bg-white py-6">
-        <div className="container-premium flex flex-wrap gap-2">
-          {ECOSYSTEM_LAYERS.map((layer) => {
-            const chip =
-              layer.id === "foundation"
-                ? "border-transparent bg-royal text-white hover:bg-royal-deep"
-                : layer.id === "automation"
-                  ? "border-transparent bg-cyan text-white hover:bg-[#3C1361]"
-                  : "border-transparent bg-emerald-600 text-white hover:bg-emerald-700";
-
-            return (
-              <a
-                key={layer.id}
-                href={`#${layer.id}`}
-                className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-ui ${chip}`}
-              >
-                {layer.number} {layer.title}
-              </a>
-            );
-          })}
-        </div>
-      </section>
-
       <section className="bg-surface section-padding">
         <div className="container-premium mb-8 max-w-xl">
           <p className="text-sm text-muted-foreground md:text-base">
