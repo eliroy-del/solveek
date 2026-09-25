@@ -100,22 +100,17 @@ export default function EcosystemPage() {
                 className={`scroll-mt-24 grid gap-5 rounded-xl border p-5 md:p-7 lg:grid-cols-[0.38fr_0.62fr] ${tone.card}`}
               >
                 <div>
-                  <p
-                    className={`text-[11px] font-semibold uppercase tracking-[0.06em] ${tone.label}`}
-                  >
-                    {layer.number} {layer.verb}
-                  </p>
                   <h2
-                    className={`mt-2 font-heading text-xl md:text-2xl ${tone.title}`}
+                    className={`font-heading text-3xl leading-snug md:text-4xl ${tone.title}`}
                   >
                     {layer.title}
                   </h2>
-                  <p className={`mt-1.5 text-sm font-medium ${tone.headline}`}>
+                  <p className={`mt-3 text-lg font-medium md:text-xl ${tone.headline}`}>
                     {layer.headline}
                   </p>
                 </div>
                 <div>
-                  <p className={`text-sm leading-relaxed ${tone.body}`}>
+                  <p className={`text-base leading-relaxed md:text-lg ${tone.body}`}>
                     {layer.description}
                   </p>
                   <ul className="mt-4 grid gap-2 sm:grid-cols-2">
