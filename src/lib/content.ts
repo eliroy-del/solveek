@@ -1,4 +1,5 @@
 import { createServerClient } from "@/lib/supabase/server";
+import { FALLBACK_INSIGHTS } from "@/constants/insights";
 import { FALLBACK_PROJECTS } from "@/constants/projects";
 import type {
   FaqItem,
@@ -318,7 +319,7 @@ export async function getInsights(): Promise<Insight[]> {
       .returns<InsightRow[]>()
   );
 
-  return data.map((row) => ({
+  const fromCms = data.map((row) => ({
     slug: row.slug,
     title: row.title,
     excerpt: row.excerpt,
@@ -330,6 +331,17 @@ export async function getInsights(): Promise<Insight[]> {
     image: row.image,
     featured: row.featured,
   }));
+
+  const bySlug = new Map<string, Insight>(
+    fromCms.map((article) => [article.slug, article])
+  );
+  for (const article of FALLBACK_INSIGHTS) {
+    if (!bySlug.has(article.slug)) bySlug.set(article.slug, article);
+  }
+
+  return Array.from(bySlug.values()).sort((a, b) =>
+    b.date.localeCompare(a.date)
+  );
 }
 
 export async function getInsightBySlug(slug: string): Promise<Insight | null> {
@@ -342,20 +354,22 @@ export async function getInsightBySlug(slug: string): Promise<Insight | null> {
       .eq("slug", slug)
       .maybeSingle()
   );
-  if (!data) return null;
+  if (data) {
+    return {
+      slug: data.slug,
+      title: data.title,
+      excerpt: data.excerpt,
+      body: data.body || undefined,
+      category: data.category,
+      author: data.author,
+      date: data.date,
+      readTime: data.read_time,
+      image: data.image,
+      featured: data.featured,
+    };
+  }
 
-  return {
-    slug: data.slug,
-    title: data.title,
-    excerpt: data.excerpt,
-    body: data.body || undefined,
-    category: data.category,
-    author: data.author,
-    date: data.date,
-    readTime: data.read_time,
-    image: data.image,
-    featured: data.featured,
-  };
+  return FALLBACK_INSIGHTS.find((article) => article.slug === slug) ?? null;
 }
 
 export async function getFaqs(): Promise<FaqItem[]> {

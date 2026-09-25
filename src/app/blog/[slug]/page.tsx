@@ -40,6 +40,50 @@ function paragraphs(body: string): string[] {
     .filter(Boolean);
 }
 
+function renderBlock(block: string, index: number) {
+  if (block.startsWith("### ")) {
+    return (
+      <h3
+        key={`h3-${index}`}
+        className="pt-2 font-heading text-xl text-navy md:text-2xl"
+      >
+        {block.replace(/^###\s+/, "")}
+      </h3>
+    );
+  }
+
+  if (block.startsWith("## ")) {
+    return (
+      <h2
+        key={`h2-${index}`}
+        className="pt-4 font-heading text-2xl text-navy md:text-3xl"
+      >
+        {block.replace(/^##\s+/, "")}
+      </h2>
+    );
+  }
+
+  const lines = block.split("\n").map((line) => line.trim()).filter(Boolean);
+  if (lines.length > 0 && lines.every((line) => line.startsWith("- "))) {
+    return (
+      <ul
+        key={`ul-${index}`}
+        className="list-disc space-y-2 pl-5 text-base leading-relaxed text-navy/75"
+      >
+        {lines.map((line) => (
+          <li key={line}>{line.replace(/^- /, "")}</li>
+        ))}
+      </ul>
+    );
+  }
+
+  return (
+    <p key={`p-${index}`} className="text-base leading-relaxed text-navy/75">
+      {block}
+    </p>
+  );
+}
+
 export default async function BlogArticlePage({ params }: Props) {
   const { slug } = await params;
   const article = await getInsightBySlug(slug);
@@ -113,10 +157,8 @@ export default async function BlogArticlePage({ params }: Props) {
             <p className="text-lg leading-relaxed text-navy/80">
               {article.excerpt}
             </p>
-            <div className="mt-8 space-y-5 text-base leading-relaxed text-navy/75">
-              {bodyParagraphs.map((paragraph) => (
-                <p key={paragraph.slice(0, 48)}>{paragraph}</p>
-              ))}
+            <div className="mt-8 space-y-5">
+              {bodyParagraphs.map((block, index) => renderBlock(block, index))}
             </div>
           </div>
         </section>
