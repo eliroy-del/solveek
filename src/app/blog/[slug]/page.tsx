@@ -40,6 +40,30 @@ function paragraphs(body: string): string[] {
     .filter(Boolean);
 }
 
+function renderInline(text: string) {
+  const parts = text.split(/(\*\*[^*]+\*\*|`[^`]+`)/g).filter(Boolean);
+  return parts.map((part, index) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={index} className="font-semibold text-navy">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    if (part.startsWith("`") && part.endsWith("`")) {
+      return (
+        <code
+          key={index}
+          className="rounded bg-surface px-1.5 py-0.5 font-mono text-[0.9em] text-navy"
+        >
+          {part.slice(1, -1)}
+        </code>
+      );
+    }
+    return <span key={index}>{part}</span>;
+  });
+}
+
 function renderBlock(block: string, index: number) {
   if (block.startsWith("### ")) {
     return (
@@ -47,7 +71,7 @@ function renderBlock(block: string, index: number) {
         key={`h3-${index}`}
         className="pt-2 font-heading text-xl text-navy md:text-2xl"
       >
-        {block.replace(/^###\s+/, "")}
+        {renderInline(block.replace(/^###\s+/, ""))}
       </h3>
     );
   }
@@ -58,20 +82,26 @@ function renderBlock(block: string, index: number) {
         key={`h2-${index}`}
         className="pt-4 font-heading text-2xl text-navy md:text-3xl"
       >
-        {block.replace(/^##\s+/, "")}
+        {renderInline(block.replace(/^##\s+/, ""))}
       </h2>
     );
   }
 
-  const lines = block.split("\n").map((line) => line.trim()).filter(Boolean);
-  if (lines.length > 0 && lines.every((line) => line.startsWith("- "))) {
+  const lines = block
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+  if (
+    lines.length > 0 &&
+    lines.every((line) => line.startsWith("- ") || line.startsWith("* "))
+  ) {
     return (
       <ul
         key={`ul-${index}`}
         className="list-disc space-y-2 pl-5 text-base leading-relaxed text-navy/75"
       >
         {lines.map((line) => (
-          <li key={line}>{line.replace(/^- /, "")}</li>
+          <li key={line}>{renderInline(line.replace(/^[-*]\s+/, ""))}</li>
         ))}
       </ul>
     );
@@ -79,7 +109,7 @@ function renderBlock(block: string, index: number) {
 
   return (
     <p key={`p-${index}`} className="text-base leading-relaxed text-navy/75">
-      {block}
+      {renderInline(block)}
     </p>
   );
 }

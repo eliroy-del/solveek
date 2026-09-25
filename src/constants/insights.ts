@@ -6,6 +6,115 @@ import type { Insight } from "@/types";
  */
 export const FALLBACK_INSIGHTS: Insight[] = [
   {
+    slug: "technical-seo-basics-business-owners",
+    title: "Technical SEO Basics: What Every Business Owner Should Know",
+    excerpt:
+      "A clear guide to the technical foundations that help search engines crawl, understand and index your website—so your business can show up when customers search.",
+    body: `You can have a beautiful website with excellent content, but if search engines struggle to crawl, understand or load it, your business may still struggle to appear in Google search results.
+
+This is where **technical SEO** comes in.
+
+Technical SEO focuses on improving the technical aspects of your website so that search engines can discover, crawl, understand and index your pages effectively. You don't need to be a developer to understand the basics. However, getting these fundamentals right can make a significant difference to your website's visibility and user experience.
+
+## What Is Technical SEO?
+
+Technical SEO is the process of optimising your website's underlying structure and performance for search engines and users.
+
+Unlike content SEO, which focuses heavily on keywords and information, technical SEO looks at how well your website functions.
+
+Important areas include:
+
+- Website speed
+- Mobile responsiveness
+- Website security
+- Site structure
+- Crawling and indexing
+- XML sitemaps
+- Broken links
+- URL structure
+- Structured data
+
+For a business website, these elements form the foundation on which your broader SEO strategy is built.
+
+## 1. Make Your Website Fast
+
+Nobody likes waiting for a slow website to load.
+
+If a potential customer clicks your website and has to wait several seconds before seeing the page, they may leave and look for another business.
+
+Website speed can be affected by large images, unnecessary code, poor hosting, excessive plugins and unoptimised website elements.
+
+Businesses should therefore optimise images, reduce unnecessary scripts and use reliable hosting.
+
+For example, a Ghanaian restaurant with a website full of large food photographs should ensure those images are compressed and properly optimised before being uploaded.
+
+## 2. Make Your Website Mobile-Friendly
+
+Your website should work properly across smartphones, tablets and computers.
+
+A visitor should not have to zoom in, scroll sideways or struggle to click buttons on a mobile device.
+
+Mobile responsiveness is particularly important for businesses targeting customers who primarily browse and search using smartphones.
+
+Test your website on different screen sizes and make sure menus, forms, images and buttons work properly.
+
+## 3. Use HTTPS
+
+Website security is another important technical SEO consideration.
+
+Your website should use **HTTPS**, which encrypts information transferred between the user's browser and your website.
+
+You can identify an HTTPS website by the padlock displayed in the browser address bar.
+
+For businesses collecting customer information, enquiries or payments, having a secure website is especially important for establishing customer trust.
+
+## 4. Create a Clear Website Structure
+
+Search engines need to understand how the pages on your website relate to one another.
+
+A clear structure makes this easier.
+
+For example, an e-commerce website could use:
+
+**Home → Shop → Men's Clothing → Shirts → Product Page**
+
+This structure helps users navigate the website and makes it easier for search engines to understand the relationship between different pages.
+
+Use descriptive URLs, logical categories and internal links to connect relevant pages.
+
+## 5. Help Google Find Your Pages
+
+Your website needs to be crawlable and indexable.
+
+An **XML sitemap** helps search engines discover important pages on your website. A properly configured \`robots.txt\` file can also provide instructions about which areas search engine crawlers should or shouldn't access.
+
+Businesses should also regularly check for broken links, duplicate pages and pages that have accidentally been blocked from search engines.
+
+## 6. Don't Forget Core Web Vitals
+
+Google also evaluates aspects of page experience through metrics known as **Core Web Vitals**.
+
+These focus on areas such as loading performance, responsiveness and visual stability.
+
+You don't need to understand every technical measurement, but the principle is simple: your website should load quickly, respond smoothly and avoid elements unexpectedly moving around while users interact with the page.
+
+## Final Thoughts
+
+Technical SEO is the foundation of a healthy website.
+
+Before investing heavily in content marketing or advertising, businesses should make sure their website is fast, secure, mobile-friendly, properly structured and accessible to search engines.
+
+For a Ghanaian business competing for customers online, these technical improvements can help create a stronger foundation for long-term search visibility.
+
+**Need this for your business? Contact Solveek today for a free consultation.**`,
+    category: "SEO",
+    author: "Solveek",
+    date: "2026-09-25",
+    readTime: "7 min",
+    image: "/images/service-seo-content.png",
+    featured: true,
+  },
+  {
     slug: "ecommerce-website-development-ghana",
     title:
       "E-Commerce Website Development in Ghana: A Complete Guide for Businesses",
