@@ -522,7 +522,7 @@ Solveek is a Digital Growth Partner helping businesses in Ghana and beyond build
     author: "Solveek",
     date: "2026-09-25",
     readTime: "12 min",
-    image: "/images/service-ecommerce.png",
+    image: "/images/blog-ecommerce-website-ghana.jpg",
     featured: true,
   },
 ];
