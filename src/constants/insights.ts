@@ -153,7 +153,7 @@ Our approach focuses on creating a website that can help your business grow with
     author: "Solveek",
     date: "2026-09-25",
     readTime: "6 min",
-    image: "/images/project-northline-commerce.png",
+    image: "/images/blog-sell-online-2026.jpg",
     featured: true,
   },
   {
