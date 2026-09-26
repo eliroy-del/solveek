@@ -6,6 +6,52 @@ import type { Insight } from "@/types";
  */
 export const FALLBACK_INSIGHTS: Insight[] = [
   {
+    slug: "google-business-profile-local-businesses",
+    title: "Google Business Profile: Why Every Local Business Needs One",
+    excerpt:
+      "When customers search Google for a business like yours, can they find you? Here’s why a Google Business Profile matters for local visibility—and how it works with your website.",
+    body: `When customers search Google for a business like yours, can they find you?
+
+If you run a restaurant, salon, school, shop, hotel, agency or professional service, having a **Google Business Profile** can make it easier for local customers to discover your business through Google Search and Google Maps.
+
+## What Is Google Business Profile?
+
+Google Business Profile allows businesses to manage important information that appears on Google, including your business name, location, phone number, opening hours, website, photos and customer reviews.
+
+For example, someone searching for **"web developer in Accra"** could discover a local business through Google Maps and immediately access its contact details or website.
+
+## Why Does It Matter?
+
+A properly maintained profile can help your business:
+
+- Become easier to find locally
+- Provide customers with accurate information
+- Showcase your products or services
+- Build credibility through genuine customer reviews
+- Direct potential customers to your website
+- Make it easier for customers to contact or visit you
+
+However, simply creating a profile doesn't guarantee higher rankings. Your business information should be accurate, complete and consistent, while your website and broader SEO strategy should support your local presence.
+
+## Your Website and Google Profile Should Work Together
+
+Think of your Google Business Profile as your **digital storefront on Google**.
+
+It helps people discover you, while your website gives them more information about your business, services and offerings.
+
+At **Solveek**, we help businesses build this digital foundation through professional websites and SEO strategies designed to help businesses get found and turn online visitors into customers.
+
+**Need this for your business? Contact Solveek today for a free consultation.**
+
+**Solveek — Your Digital Growth Partner.**`,
+    category: "SEO",
+    author: "Solveek",
+    date: "2026-09-26",
+    readTime: "4 min",
+    image: "/images/service-seo-content.png",
+    featured: true,
+  },
+  {
     slug: "why-your-business-should-sell-online-2026",
     title: "Why Your Business Should Sell Online in 2026",
     excerpt:
