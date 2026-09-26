@@ -48,7 +48,7 @@ At **Solveek**, we help businesses build this digital foundation through profess
     author: "Solveek",
     date: "2026-09-26",
     readTime: "4 min",
-    image: "/images/service-seo-content.png",
+    image: "/images/blog-google-business-profile.jpg",
     featured: true,
   },
   {
