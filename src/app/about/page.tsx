@@ -111,15 +111,12 @@ export default function AboutPage() {
             What shapes every engagement
           </h2>
           <ul className="mt-8 grid gap-px overflow-hidden rounded-lg bg-border sm:grid-cols-2">
-            {PRINCIPLES.map((principle, index) => (
+            {PRINCIPLES.map((principle) => (
               <li
                 key={principle}
-                className="flex min-h-[100px] flex-col justify-between bg-white p-5"
+                className="flex min-h-[100px] items-center bg-white p-5"
               >
-                <span className="font-heading text-xs text-royal">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <p className="mt-3 font-heading text-lg leading-snug text-navy">
+                <p className="font-heading text-lg leading-snug text-navy">
                   {principle}
                 </p>
               </li>
