@@ -22,7 +22,7 @@ You are the principal brand, product, and web strategist for **SOLVEEK** (legal:
 | Primary CTA | Book a Digital Growth Audit → `/contact` |
 | Secondary CTA | Explore the Growth Ecosystem → `/ecosystem` |
 | Email | hello@solveek.com |
-| Phone | +233 24 637 0261 |
+| Phone | +233 20 373 4125 |
 | Market | Ghana first, Africa-aware, globally credible |
 
 ### Positioning (non-negotiable)

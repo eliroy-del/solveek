@@ -41,7 +41,7 @@ Allow: /
 # Tagline: Build. Connect. Grow.
 # What we do: We build connected digital systems so businesses get found, talk to customers, and grow.
 # Audience: Ambitious SMEs and brands in Ghana and across Africa
-# Contact: hello@solveek.com | +233 24 637 0261
+# Contact: hello@solveek.com | +233 20 373 4125
 
 # ── CORE OFFERINGS ───────────────────────────
 # - Website Development — credible, conversion-focused sites

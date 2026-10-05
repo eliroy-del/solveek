@@ -10,8 +10,8 @@ export const SITE = {
   email: "hello@solveek.com",
   salesEmail: "sales@solveek.com",
   supportEmail: "support@solveek.com",
-  phone: "+233 24 637 0261",
-  emergencyPhone: "+233 24 637 0261",
+  phone: "+233 20 373 4125",
+  emergencyPhone: "+233 20 373 4125",
   social: {
     linkedin: "https://linkedin.com/company/solveek",
     facebook: "https://facebook.com/solveek",
